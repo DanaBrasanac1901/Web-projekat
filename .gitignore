@@ -102,4 +102,10 @@ dist/
 npm-debug.log
 yarn-error.log
 
+/beans/
+/dao/
+/services/
+
 # End of https://www.toptal.com/developers/gitignore/api/java,vuejs,eclipse
+
+

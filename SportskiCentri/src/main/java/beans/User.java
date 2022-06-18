@@ -1,7 +1,7 @@
 package beans;
 
 import java.sql.Date;
-import beans.Role;
+
 
 public class User {
 	
