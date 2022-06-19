@@ -1,5 +1,7 @@
 package beans;
 
-public class FacilityStatus {
+public enum FacilityStatus {
+	OPEN,
+	CLOSED
 
 }
