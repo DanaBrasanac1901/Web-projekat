@@ -1,7 +1,18 @@
-body{
-	background-color:  #71c556
-	
+*{
+    margin: 0%;
+    box-sizing: border-box;
+    overflow: auto;
+    font-family: 'Verdana';
+    
 }
+
+
+body{
+	background-color:  #71c556;
+	text-align: center;
+}
+
+
 h1{
 	text-align: center;
 	font-family: Verdana;
@@ -10,6 +21,7 @@ h1{
 
 nav{
 	align-items : center;
+	padding : 20px;
 	
 }
 
@@ -19,3 +31,45 @@ nav{
 	font-size: 20px;
 	font-family: Verdana;
 }
+
+.registration-part{
+    width: 50%;
+    margin-left:auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    
+}
+
+.input-box{
+    margin: 10px;
+    font-size: large;
+}
+
+.button{
+	
+	padding: 20px;
+	
+}
+
+.gender{
+    margin-left: 10px;
+    font-size: large;
+}
+
+.radio{
+    margin:10px;
+    font-size: medium;
+}
+
+.logovanje-button{
+	margin: 20px;
+	padding: 10px;
+}
+
+.editData{
+	
+	margin: 20px;
+}
+
