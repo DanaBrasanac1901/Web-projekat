@@ -1,6 +1,4 @@
 .idea
-# Created by https://www.toptal.com/developers/gitignore/api/java,vuejs,eclipse
-# Edit at https://www.toptal.com/developers/gitignore?templates=java,vuejs,eclipse
 
 ### Eclipse ###
 .metadata
@@ -17,6 +15,8 @@ local.properties
 
 # External tool builders
 .externalToolBuilders/
+
+**/desktop.ini
 
 # Locally stored "Eclipse launch configurations"
 *.launch
@@ -102,4 +102,10 @@ dist/
 npm-debug.log
 yarn-error.log
 
+/beans/
+/dao/
+/services/
+
 # End of https://www.toptal.com/developers/gitignore/api/java,vuejs,eclipse
+
+
