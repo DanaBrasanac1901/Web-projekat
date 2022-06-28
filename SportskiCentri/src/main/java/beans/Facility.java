@@ -1,5 +1,7 @@
 package beans;
+
 import java.time.LocalTime;
+//import java.time.LocalTime;
 import java.util.List;
 
 public class Facility {
@@ -85,8 +87,8 @@ public class Facility {
 		this.logoPath = logoPath;
 		this.grade = grade;
 		this.deleted = deleted;
-		this.start = start;
-		this.end = end;
+	//	this.start = start;
+	//	this.end = end;
 	}
 	
 	

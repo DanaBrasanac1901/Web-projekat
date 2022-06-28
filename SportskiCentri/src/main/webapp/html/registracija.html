@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../css/index.css" type="text/css" />
+<title>Registracija</title>
+</head>
+<body>
+<h1>Registracija korisnika</h1>
+<nav class="navbar">
+<a href="../index.html">POČETNA STRANICA</a> |
+<a href="logovanje.html">LOGOVANJE</a> 
+</nav>
+ 
+ <section>
+       <div class="registration-part">
+            <form action="" id='registration-form' method="POST" accept-charset="UTF-8" >
+                <div class="user-details">
+                   
+                    <div class="input-box">
+                        <div class="details">
+                            Ime:
+                        </div>
+                        <input type="text" id='name' pattern="[A-Za-z]+" required>
+                    </div>
+                    
+                    <div class="input-box">
+                        <div class="details">
+                            Prezime:
+                        </div>
+                        <input type="text" id='lastname' pattern="[A-Za-z]+" required>
+                    </div>
+                    
+                    <div class="input-box">
+                        <div class="details">
+                            Datum rođenja:
+                        </div>
+                        <input type="date" id='date' required>
+                    </div>
+                    
+                    <div class="input-box">
+                        <div class="details">
+                            Korisničko ime:
+                        </div>
+                        <input type="text" id='userName' required>
+                    </div>
+
+                    <div class="input-box">
+                        <div class="details">
+                            Lozinka:
+                        </div>
+                        <input type="password" id='password' required>
+                    </div>
+
+                    <div class="input-box">
+                        <div class="details">
+                            Potvrdite lozinku:
+                        </div>
+                        <input type="password" id='repeatedPassword' required>
+                    </div>
+                    
+                    <div >
+                        <div><p class="gender">Pol</p></div>
+                        
+                        <span class="radio">
+                            <input type="radio" id="musko" name="gender" value="musko" required>
+                            <label for="musko">Muško</label>
+                        </span>
+                        <span>
+                            <input type="radio" id="zensko" name="gender" value="zensko" required>
+                            <label for="zensko">Žensko</label>
+                        </span>
+                        
+                    </div>
+                    
+                    
+                </div>
+                <div class="button">
+                    <input type="submit"  value="Registrujte se">
+                </div>
+                
+            </form>
+            <p class="error"></p>
+        </div>
+    </section>
+</body>
+</html>
