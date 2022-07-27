@@ -5,6 +5,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 public class Facility {
+	
 	private String name;
 	private FacilityType facType;
 	private  List<FacilityContent> facContents;
@@ -16,6 +17,7 @@ public class Facility {
 	private boolean deleted;
 	private LocalTime start;
 	private LocalTime end;
+	private String id;
 	public String getName() {
 		return name;
 	}
@@ -76,8 +78,13 @@ public class Facility {
 	public void setEnd(LocalTime end) {
 		this.end = end;
 	}
+	public Facility() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public Facility(String name, FacilityType facType, List<FacilityContent> facContents, FacilityStatus facStatus,
-			Location location, String logoPath, double grade, boolean deleted, LocalTime start, LocalTime end) {
+			Location location, String logoPath, double grade, boolean deleted, LocalTime start, LocalTime end,
+			String id) {
 		super();
 		this.name = name;
 		this.facType = facType;
@@ -87,9 +94,17 @@ public class Facility {
 		this.logoPath = logoPath;
 		this.grade = grade;
 		this.deleted = deleted;
-	//	this.start = start;
-	//	this.end = end;
+		this.start = start;
+		this.end = end;
+		this.id = id;
 	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	
 	
 	
 	
