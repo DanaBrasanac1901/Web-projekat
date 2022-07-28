@@ -3,15 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/index.css" type="text/css" />
+<link rel="stylesheet" href="css/navbar.css" type="text/css" />
 <title> SPORTSHOP </title>
 </head>
 <body>
-<h1>Dobrodošli!</h1>
+	<div id="sportShop">
 
-<nav class="navbar">
-<a href="html/registracija.html">REGISTRACIJA</a> |
-<a href="html/logovanje.html">LOGOVANJE</a> 
-</nav>
+ 	   	 <router-view></router-view>
+	
+	</div>
+
+<script src="js/vue.js"></script>
+<script src="js/vue-router.js"></script>
+<script src="js/axios.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/toast.js"></script>
+
+
+
+<script src="components/welcomePage.js"></script>
+<script src="components/loginPage.js"></script>
+<script src="components/app.js"></script>
+
+
+
 
 </body>
 </html>
