@@ -13,6 +13,13 @@ public class User {
 	private Date birthDate;
 	private boolean deleted;
 	private Role userRole;
+	
+	
+	
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public String getUsername() {
 		return username;
 	}

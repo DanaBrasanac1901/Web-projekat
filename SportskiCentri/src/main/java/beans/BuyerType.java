@@ -3,12 +3,12 @@ package beans;
 public class BuyerType {
 	
 	
-	private static final int goldPoints=3000;
-	private static final int silverPoints=2000;
-	private static final int bronzePoints=1000;
-	private static final double goldDiscount=10;
-	private static final double silverDiscount=7.5;
-	private static final double bronzeDiscount=5.0;
+	public static final int goldPoints=3000;
+	public static final int silverPoints=2000;
+	public static final int bronzePoints=1000;
+	public static final double goldDiscount=10;
+	public static final double silverDiscount=7.5;
+	public static final double bronzeDiscount=5.0;
 	
 	private BuyerRank buyerRank;
 	private double discount;
