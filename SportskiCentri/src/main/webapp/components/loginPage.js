@@ -9,17 +9,30 @@ Vue.component("login-page", {
  	 
 	</div>
 	
-	<div class="log">
-		<form @submit='login'>
+	<div class="loginForma">
+		<form  class="login-form" @submit='login'>
 				<table>
-					<tr><td>Korisničko ime</td><td><input type="text"></td></tr>
-					<tr><td>Lozinka</td><td><input type="password" ></td></tr>
-					<tr><b><td><input type="submit" value="Uloguj se"></td></b></tr>
-					<tr><td id="logInText"></td></tr>
-				</table>
-			</form>
+					<tr>
+						<td>Korisničko ime</td>
+						<td><input class="loginInput" type="text"></td>
+					</tr>
+					<tr>
+						<td>Lozinka</td>
+						<td><input class="loginInput" type="password" ></td>
+					</tr>
+					
+					<tr>
+					
+					<td colspan="2">
+					 <input  class="button-3" type="submit" value="Uloguj se">
+					</td>
+					
+					</table>
+					
+		</form>
 	
 	</div>
+	
 	
 	
 	
