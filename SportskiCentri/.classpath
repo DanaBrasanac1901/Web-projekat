@@ -13,5 +13,51 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/javax.inject-2.4.0-b31.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jjwt-jackson-0.11.2.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/aopalliance-repackaged-2.4.0-b31.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jersey-container-servlet.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jackson-jaxrs-json-provider-2.5.4.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/osgi-resource-locator-1.0.1.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jersey-media-json-jackson-2.22.1.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/javax.annotation-api-1.2.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jackson-jaxrs-base-2.5.4.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jackson-module-jaxb-annotations-2.5.4.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/mimepull.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jackson-annotations-2.5.4.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/persistence-api-1.0.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/validation-api-1.1.0.Final.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jersey-container-servlet-core.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jackson-annotations-2.9.0.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jackson-annotations-2.9.10.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jersey-media-multipart-2.21.1.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jersey-entity-filtering-2.22.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jersey-media-jaxb.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jjwt-api-0.11.5.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jjwt-api-0.11.2.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jjwt-impl-0.11.2.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/javax.servlet-api-3.0.1.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jaxb-api-2.2.7.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/hk2-utils-2.4.0-b31.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jjwt-0.9.1.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/javax.ws.rs-api-2.0.1.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jersey-client.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/hk2-api-2.4.0-b31.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/hk2-locator-2.4.0-b31.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jackson-core-2.5.4.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/org.osgi.core-4.2.0.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/gson-2.9.0.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jackson-core-2.9.6.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jackson-core-2.9.10.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/asm-debug-all-5.0.4.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jersey-core-1.9.1.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jersey-common.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jersey-common-2.22.1.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/javassist-3.18.1-GA.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jersey-server.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jersey-guava-2.22.1.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jackson-databind-2.5.4.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jackson-databind-2.9.6.jar"/>
+	<classpathentry kind="lib" path="D:/Dada/Faksic/III/Veb Programiranje/Web-projekat/SportskiCentri/src/main/webapp/WEB-INF/lib/jackson-databind-2.9.10.4.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
