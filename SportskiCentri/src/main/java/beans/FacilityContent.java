@@ -1,9 +1,16 @@
 package beans;
 
 public class FacilityContent {
-	String id;
-	String name;
-	String deleted;
+	private String id;
+	private String name;
+	private String deleted;
+	
+	
+	
+	public FacilityContent() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public FacilityContent(String id, String name, String deleted) {
 		super();
 		this.id = id;

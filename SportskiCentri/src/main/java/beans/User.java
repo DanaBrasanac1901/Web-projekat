@@ -12,7 +12,15 @@ public class User {
 	private Gender gender;
 	private Date birthDate;
 	private boolean deleted;
+	private boolean isBanned;
 	private Role userRole;
+	
+	
+	
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -61,8 +69,7 @@ public class User {
 	public void setUserRole(Role userRole) {
 		this.userRole = userRole;
 	}
-	public User(String username, String password, String firstName, String lastName, Gender gender, Date birthDate,
-			boolean deleted, Role userRole) {
+	public User(String username, String password, String firstName, String lastName, Gender gender, Date birthDate, Role userRole) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -70,8 +77,13 @@ public class User {
 		this.lastName = lastName;
 		this.gender = gender;
 		this.birthDate = birthDate;
-		this.deleted = deleted;
 		this.userRole = userRole;
+	}
+	public boolean isBanned() {
+		return isBanned;
+	}
+	public void setBanned(boolean isBanned) {
+		this.isBanned = isBanned;
 	}
 	
 	
