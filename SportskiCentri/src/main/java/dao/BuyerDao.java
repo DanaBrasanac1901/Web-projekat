@@ -105,8 +105,9 @@ public class BuyerDao {
 					return "deleted";
 				}
 				if(buyers.get(username).getPassword()==password) {
-					return "buyer";
+					
 					logBuyer = buyers.get(username);
+					return "buyer";
 				}else {
 					return "wrong password";
 				}
@@ -159,4 +160,4 @@ public class BuyerDao {
 	
 	
 
-}
+

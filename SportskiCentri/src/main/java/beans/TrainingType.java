@@ -1,7 +1,7 @@
 package beans;
 
 public enum TrainingType {
-	GROUPE,
+	GROUP,
 	PERSONAL,
 	GYM
 	
