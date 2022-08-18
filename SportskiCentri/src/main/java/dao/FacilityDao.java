@@ -7,8 +7,7 @@ import java.io.Reader;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.LocalDate;
-import java.time.Month;
+
 
 
 import com.google.gson.Gson;
@@ -24,7 +23,7 @@ public class FacilityDao {
 	private String filepath = "repository/Facility.json";
 	
 	public FacilityDao() {
-	
+	loadFile();
 	}
 	
 	private void loadFile () {
