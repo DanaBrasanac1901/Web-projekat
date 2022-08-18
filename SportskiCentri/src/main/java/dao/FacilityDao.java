@@ -1,20 +1,48 @@
 package dao;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.util.Collection;
+
 import java.util.HashMap;
 import java.util.Map;
-import java.util.StringTokenizer;
+import java.io.Reader;
+import java.lang.reflect.Type;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.time.Month;
+
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 import beans.Facility;
-import beans.FacilityStatus;
-import beans.FacilityType;
-import beans.FacilityContent;
+
 
 public class FacilityDao {
 	
 	private Map<Integer, Facility> facilities = new HashMap<>();
-	private String filepath = "";
+	private String filepath = "repository/Facility.json";
+	
+	public FacilityDao() {
+	
+	}
+	
+	private void loadFile () {
+		
+		try {
+		    
+		    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+		    Reader reader = Files.newBufferedReader(Paths.get(filepath));
+		    Type typeOfHashMap = new TypeToken<Map<Integer, Facility>>() { }.getType();
+		    facilities = gson.fromJson(reader, typeOfHashMap);
+		   
+		    reader.close();
+
+		} catch (Exception ex) {
+		    ex.printStackTrace();
+		}
+	}
+	
+
 }
