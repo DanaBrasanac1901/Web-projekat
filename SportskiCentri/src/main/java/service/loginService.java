@@ -15,7 +15,7 @@ import javax.ws.rs.core.Response;
 import beans.User;
 import dao.BuyerDao;
 
-@Path("")
+@Path("/login")
 public class loginService {
 	
 	@Context
@@ -27,17 +27,21 @@ public class loginService {
 	
 	@POST
 	@Path("/login")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.TEXT_PLAIN)
-	public String login(String username , String password) {
+
+	public void login() {
 		
 	
-		return "not";
 		
 	}
-	}
-	
 	
 	
 
+	@POST
+	@Path("/lazar")
+	public void lazar() {
+	
+}
+	
+	
 
+}
