@@ -9,6 +9,7 @@ public class Facility {
 	private String name;
 	private FacilityType facType;
 	private  List<FacilityContent> facContents;
+	
 	private FacilityStatus facStatus;
 	private Location location;
 	private String logoPath;
@@ -16,9 +17,7 @@ public class Facility {
 	private boolean deleted;
 	private LocalTime start;
 	private LocalTime end;
-	private int id;
-	
-	
+	private String id;
 	public String getName() {
 		return name;
 	}
@@ -85,7 +84,7 @@ public class Facility {
 	}
 	public Facility(String name, FacilityType facType, List<FacilityContent> facContents, FacilityStatus facStatus,
 			Location location, String logoPath, double grade, boolean deleted, LocalTime start, LocalTime end,
-			int id) {
+			String id) {
 		super();
 		this.name = name;
 		this.facType = facType;
@@ -99,10 +98,10 @@ public class Facility {
 		this.end = end;
 		this.id = id;
 	}
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	
