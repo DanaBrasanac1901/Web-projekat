@@ -2,7 +2,7 @@ Vue.component("login-page", {
 	
 	data: function(){
 		return{
-			user: {"username": "" , "password":""}
+			
 			
 		}
 		
@@ -19,23 +19,26 @@ Vue.component("login-page", {
 	</div>
 	
 	<div class="loginForma">
-		<form id="login" class="login-form" @submit='login'>
-				<table>
+		<!--<form id="login2" class="login-form" @submit='login'>
+		-->		<table>
 					<tr>
 						<td>Korisničko ime :</td>
-						<td><input class="loginInput" name ="userName" id ="userName" type="text"  v-model="user.username"  ></td>
+						<td><input class="loginInput"   type="text"   ></td>
 		
 		    		</tr>
 					<tr>
 						<td>Lozinka :</td>
-						<td><input class="loginInput" name ="password" id ="password" type="password" v-model="user.password" ></td>
+						<td><input class="loginInput"  ></td>
 				
 					</tr>
 					
 					<tr>
 					
 					<td colspan="2">
-					 <input  class="button-3" type="submit" value="Uloguj se">
+					<!-- <input v-on:click="login()"  class="button-3" type="submit" value="Uloguj se">
+					-->
+					<button v-on:click="login()">Log in</button>
+					
 					</td> 
 					</tr>			
 					</table>
@@ -56,35 +59,38 @@ Vue.component("login-page", {
 	
 	methods: {
 		login : function(event) {
-			if (event != undefined){
+		/*	if (event != undefined){
 				event.preventDefault();
 			}
 			if (!this.isValidToLogIn()) {
 				alert('Niste popunili sva polja za prijavu');
 				return;
 			}
-			
+		*/	
 			axios
-			.post("rest/login", {username: this.user.username , password: this.user.password })
+			.post("rest/login/login")
 			.then(response => {
-				router.push('/buyerHome');
+				router.push('/');
 			})
-			.catch(function(error){
+	/*		.catch(function(error){
 				alert('Neuspešno logovanje')
-			})
+			})*/
 		},
 		
-			isValidToLogIn : function() {
+/*			isValidToLogIn : function() {
+				
 			if (this.user.username == '') {
+				
 				return false;
 			}
 			if (this.user.password == '') {
+				
 				return false;
 			}
 
 			return true;
 		}
-		
+	*/	
 		
 	}
 	

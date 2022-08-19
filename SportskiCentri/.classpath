@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.0">
@@ -14,7 +14,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/gson_lib"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-annotations-2.9.0.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/aopalliance-repackaged-2.4.0-b31.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/asm-debug-all-5.0.4.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/gson-2.9.0.jar"/>
@@ -22,6 +21,7 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/hk2-locator-2.4.0-b31.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/hk2-utils-2.4.0-b31.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-annotations-2.5.4.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-annotations-2.9.0.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-annotations-2.9.10.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-core-2.5.4.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-core-2.9.10.jar"/>
@@ -53,9 +53,9 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jjwt-0.9.1.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jjwt-api-0.11.2.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jjwt-api-0.11.5.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jjwt-impl-0.11.2.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jjwt-jackson-0.11.2.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/mimepull.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jjwt-impl-0.11.2.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/org.osgi.core-4.2.0.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/osgi-resource-locator-1.0.1.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/persistence-api-1.0.jar"/>
