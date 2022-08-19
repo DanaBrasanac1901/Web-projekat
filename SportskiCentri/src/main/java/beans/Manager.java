@@ -12,7 +12,7 @@ public class Manager extends User{
 
 	public Manager(String username, String password, String firstName, String lastName, Gender gender, Date birthDate,
 			boolean deleted, Facility facility) {
-		super(username, password, firstName, lastName, gender, birthDate, deleted, Role.MANAGER);
+		super(username, password, firstName, lastName, gender, birthDate, Role.MANAGER);
 		this.facility = facility;
 	}
 
