@@ -14,9 +14,9 @@ public class Membership {
 	private int price;
 	private Buyer buyer;
 	private boolean status;
-	private int numberOfEntrennces;
+	private int numberOfEntrances;
 	public Membership(String id, MembershipType memType, boolean deleted, Date payDate, Date expirationDate, int price,
-			Buyer buyer, boolean status, int numberOfEntrennces) {
+			Buyer buyer, boolean status, int numberOfEntrances) {
 		super();
 		this.id = id;
 		this.memType = memType;
@@ -26,7 +26,7 @@ public class Membership {
 		this.price = price;
 		this.buyer = buyer;
 		this.status = status;
-		this.numberOfEntrennces = numberOfEntrennces;
+		this.numberOfEntrances = numberOfEntrances;
 	}
 	public Membership() {
 		super();
@@ -79,11 +79,11 @@ public class Membership {
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
-	public int getNumberOfEntrennces() {
-		return numberOfEntrennces;
+	public int getNumberOfEntrances() {
+		return numberOfEntrances;
 	}
-	public void setNumberOfEntrennces(int numberOfEntrennces) {
-		this.numberOfEntrennces = numberOfEntrennces;
+	public void setNumberOfEntrances(int numberOfEntrances) {
+		this.numberOfEntrances = numberOfEntrances;
 	}
 	
 	
