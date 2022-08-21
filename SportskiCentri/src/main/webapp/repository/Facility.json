@@ -1,0 +1,28 @@
+{
+	"1":{
+		"name": "Sportska hala 1",
+		"facType": 1,
+		"facContents": null,
+		"facStatus": 1,
+		"location": null,
+		"logoPath": "",
+		"grade": 6.7,
+		"deleted": false,
+		"start": "07:00",
+		"end": "22:00",
+		"id": 1
+	},
+	"2":{
+		"name": "Sportska hala 2",
+		"facType": 2,
+		"facContents": null,
+		"facStatus": 1,
+		"location": null,
+		"logoPath": "",
+		"grade": 8.2,
+		"deleted": false,
+		"start": "07:00",
+		"end": "22:00",
+		"id": 2
+	}
+}
