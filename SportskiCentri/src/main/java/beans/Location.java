@@ -5,6 +5,7 @@ public class Location {
 	private Adress adress;
 	private double width;
 	private double length;
+	
 	public Adress getAdress() {
 		return adress;
 	}
