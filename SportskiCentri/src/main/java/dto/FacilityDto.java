@@ -1,6 +1,7 @@
 package dto;
 
 import beans.Facility;
+import beans.FacilityStatus;
 import beans.FacilityType;
 import beans.Location;
 
@@ -13,6 +14,7 @@ public class FacilityDto {
 	private double grade;
 	private String start;
 	private String end;
+	private FacilityStatus status;
 
 	public FacilityDto(Facility facility) {
 
@@ -23,6 +25,7 @@ public class FacilityDto {
 		this.grade = facility.getGrade();
 		this.start = facility.getStart();
 		this.end = facility.getEnd();
+		this.status = facility.getFacStatus();
 	}
 
 	public String getName() {
@@ -80,10 +83,15 @@ public class FacilityDto {
 	public void setEnd(String end) {
 		this.end = end;
 	}
+
+	public FacilityStatus getStatus() {
+
+		return status;
+	}
 	
-	
-	
-	
-	
+	public void setStatus(FacilityStatus status) {
+		
+		this.status = status;
+	}
 
 }

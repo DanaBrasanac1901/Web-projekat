@@ -1,13 +1,13 @@
 package dao;
 
+import java.io.IOException;
 import java.io.Reader;
+import java.io.Writer;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import com.google.gson.Gson;
@@ -40,6 +40,19 @@ public class FacilityDao {
 		}
 	}
 
+	public void updateFile(Map<Integer, Facility> newData) {
+		try {
+
+			Gson gson = new GsonBuilder().setPrettyPrinting().create();
+			Writer writer = Files.newBufferedWriter(Paths.get(filepath));
+			gson.toJson(newData, writer);
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+
+	}
+
 	public Collection<Facility> getAll() {
 		loadFile();
 		return facilities.values();
@@ -48,6 +61,18 @@ public class FacilityDao {
 	public Facility getById(int id) {
 		loadFile();
 		return facilities.get(id);
+	}
+
+	public void addNew(Facility newFacility) {
+
+		int key = makeNewKey();
+		facilities.put(key, newFacility);
+		updateFile(facilities);
+
+	}
+
+	private int makeNewKey() {
+		return (facilities.size() + 1);
 	}
 
 }

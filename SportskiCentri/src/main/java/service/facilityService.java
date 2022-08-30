@@ -3,8 +3,6 @@ package service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 import javax.annotation.PostConstruct;
 import javax.servlet.ServletContext;
 import javax.ws.rs.GET;
@@ -17,7 +15,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import beans.Facility;
-import beans.FacilityType;
+import beans.FacilityStatus;
 import dao.FacilityDao;
 import dto.FacilityDto;
 import main.App;
@@ -84,14 +82,26 @@ public class FacilityService {
 		return searchResult;
 	}
 
-	/*
-	@GET
-	@Path("/types")
-	@Produces(MediaType.APPLICATION_JSON)
-	public List<String> getAllTypes() {
-		return Stream.of(FacilityType.values()).map(FacilityType::toString).collect(Collectors.toList());
-
+	@POST
+	@Path("/new")
+	
+	public void createNew(FacilityDto facilityInfo) {
+		
+		Facility fac= new Facility(facilityInfo.getName(),facilityInfo.getFacType(), null, facilityInfo.getStatus(), facilityInfo.getLocation(), facilityInfo.getLogoPath(),0.0, false, null,null, 0 );
+		
+		
 	}
-	*/
+
+	/*
+	 * @GET
+	 * 
+	 * @Path("/types")
+	 * 
+	 * @Produces(MediaType.APPLICATION_JSON) public List<String> getAllTypes() {
+	 * return Stream.of(FacilityType.values()).map(FacilityType::toString).collect(
+	 * Collectors.toList());
+	 * 
+	 * }
+	 */
 
 }
