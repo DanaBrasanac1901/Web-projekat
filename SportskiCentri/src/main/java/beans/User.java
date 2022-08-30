@@ -69,7 +69,7 @@ public class User {
 	public void setUserRole(Role userRole) {
 		this.userRole = userRole;
 	}
-	public User(String username, String password, String firstName, String lastName, Gender gender, Date birthDate, Role userRole) {
+	public User(String username, String password, String firstName, String lastName, Gender gender, Date birthDate, boolean deleted, Role userRole) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -78,6 +78,7 @@ public class User {
 		this.gender = gender;
 		this.birthDate = birthDate;
 		this.userRole = userRole;
+		this.deleted = deleted;
 	}
 	public boolean isBanned() {
 		return isBanned;

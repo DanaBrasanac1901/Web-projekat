@@ -1,7 +1,5 @@
 package beans;
 
-import java.time.LocalTime;
-//import java.time.LocalTime;
 import java.util.List;
 
 public class Facility {
@@ -9,15 +7,16 @@ public class Facility {
 	private String name;
 	private FacilityType facType;
 	private  List<FacilityContent> facContents;
-	
 	private FacilityStatus facStatus;
 	private Location location;
 	private String logoPath;
 	private double grade;
 	private boolean deleted;
-	private LocalTime start;
-	private LocalTime end;
-	private String id;
+	private String start;
+	private String end;
+	private int id;
+	
+	
 	public String getName() {
 		return name;
 	}
@@ -66,26 +65,24 @@ public class Facility {
 	public void setDeleted(boolean deleted) {
 		this.deleted = deleted;
 	}
-	public LocalTime getStart() {
+	public String getStart() {
 		return start;
 	}
-	public void setStart(LocalTime start) {
+	public void setStart(String start) {
 		this.start = start;
 	}
-	public LocalTime getEnd() {
+	public String getEnd() {
 		return end;
 	}
-	public void setEnd(LocalTime end) {
+	public void setEnd(String end) {
 		this.end = end;
 	}
 	public Facility() {
-		super();
-		// TODO Auto-generated constructor stub
+
 	}
 	public Facility(String name, FacilityType facType, List<FacilityContent> facContents, FacilityStatus facStatus,
-			Location location, String logoPath, double grade, boolean deleted, LocalTime start, LocalTime end,
-			String id) {
-		super();
+			Location location, String logoPath, double grade, boolean deleted, String start, String end,
+			int id) {
 		this.name = name;
 		this.facType = facType;
 		this.facContents = facContents;
@@ -98,15 +95,17 @@ public class Facility {
 		this.end = end;
 		this.id = id;
 	}
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	
 	
-	
+	public boolean isNotDeleted() {
+		return !this.deleted;
+	}
 	
 	
 	

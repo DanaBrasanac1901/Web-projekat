@@ -1,0 +1,13 @@
+[{
+"username": "admin",
+"password": "123",
+"firstName":"Dana",
+"lastName":"Brasanac",
+"gender":"FEMALE",
+"birthDate":"Jan 19, 2000, 8:15:00 AM",
+"deleted": false,
+"isBanned": false,
+"userRole": "ADMIN"
+
+}
+]
