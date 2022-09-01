@@ -28,6 +28,23 @@ public class FacilityDto {
 		this.status = facility.getFacStatus();
 	}
 
+	public FacilityDto() {
+
+	}
+
+	public FacilityDto(String name, FacilityType facType, Location location, String logoPath, double grade,
+			String start, String end, FacilityStatus status) {
+
+		this.name = name;
+		this.facType = facType;
+		this.location = location;
+		this.logoPath = logoPath;
+		this.grade = grade;
+		this.start = start;
+		this.end = end;
+		this.status = status;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -88,9 +105,9 @@ public class FacilityDto {
 
 		return status;
 	}
-	
+
 	public void setStatus(FacilityStatus status) {
-		
+
 		this.status = status;
 	}
 

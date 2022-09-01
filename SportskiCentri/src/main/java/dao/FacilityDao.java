@@ -1,6 +1,5 @@
 package dao;
 
-import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 import java.lang.reflect.Type;
@@ -30,25 +29,30 @@ public class FacilityDao {
 
 		try {
 			Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
 			Reader reader = Files.newBufferedReader(Paths.get(filepath));
+
 			Type typeOfHashMap = new TypeToken<Map<Integer, Facility>>() {
 			}.getType();
 			facilities = gson.fromJson(reader, typeOfHashMap);
+			
 			reader.close();
+
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 	}
 
-	public void updateFile(Map<Integer, Facility> newData) {
+	public void updateFile() {
 		try {
 
 			Gson gson = new GsonBuilder().setPrettyPrinting().create();
 			Writer writer = Files.newBufferedWriter(Paths.get(filepath));
-			gson.toJson(newData, writer);
-		} catch (IOException e) {
-			
-			e.printStackTrace();
+			gson.toJson(facilities, writer);
+			writer.close();
+		} catch (Exception ex) {
+
+			ex.printStackTrace();
 		}
 
 	}
@@ -64,10 +68,11 @@ public class FacilityDao {
 	}
 
 	public void addNew(Facility newFacility) {
-
+		loadFile();
 		int key = makeNewKey();
+		newFacility.setId(key);
 		facilities.put(key, newFacility);
-		updateFile(facilities);
+		updateFile();
 
 	}
 

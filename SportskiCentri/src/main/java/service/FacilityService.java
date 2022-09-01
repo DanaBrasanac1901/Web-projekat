@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javax.annotation.PostConstruct;
 import javax.servlet.ServletContext;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -16,6 +17,7 @@ import javax.ws.rs.core.MediaType;
 
 import beans.Facility;
 import beans.FacilityStatus;
+import beans.FacilityType;
 import dao.FacilityDao;
 import dto.FacilityDto;
 import main.App;
@@ -84,11 +86,11 @@ public class FacilityService {
 
 	@POST
 	@Path("/new")
-	
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public void createNew(FacilityDto facilityInfo) {
-		
-		Facility fac= new Facility(facilityInfo.getName(),facilityInfo.getFacType(), null, facilityInfo.getStatus(), facilityInfo.getLocation(), facilityInfo.getLogoPath(),0.0, false, null,null, 0 );
-		
+		Facility newFacility= new Facility(facilityInfo.getName(),facilityInfo.getFacType(), null, facilityInfo.getStatus(), facilityInfo.getLocation(), facilityInfo.getLogoPath(),0.0, false, null,null, 0 );
+		facilityDao.addNew(newFacility);
 		
 	}
 
