@@ -96,7 +96,7 @@ public class BuyerDao {
 	
 
 
-	private String loginBuyer(String username, String password) {
+	public String loginBuyer(String username, String password) {
 			if(buyers.containsKey(username)) {
 				if(buyers.get(username).isBanned()) {
 					return "banned";

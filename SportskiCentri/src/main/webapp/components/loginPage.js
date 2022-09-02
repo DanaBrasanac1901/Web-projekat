@@ -3,7 +3,6 @@ Vue.component("login-page", {
 	data: function(){
 		return{
 			
-			
 		}
 		
 		
@@ -19,78 +18,85 @@ Vue.component("login-page", {
 	</div>
 	
 	<div class="loginForma">
-		<!--<form id="login2" class="login-form" @submit='login'>
-		-->		<table>
+		  <form @submit='login'>
+				<table>
 					<tr>
-						<td>Korisničko ime :</td>
-						<td><input class="loginInput"   type="text"   ></td>
+						<td>Korisničko ime  :</td>
+						<td><input class="loginInput" type="text"  v-model="username"></td>
 		
 		    		</tr>
 					<tr>
-						<td>Lozinka :</td>
-						<td><input class="loginInput"  ></td>
+						<td >Lozinka :</td>
+						<td><input class="loginInput"  type="password" v-model="password"></td>
 				
 					</tr>
+				
 					
-					<tr>
-					
-					<td colspan="2">
-					<!-- <input v-on:click="login()"  class="button-3" type="submit" value="Uloguj se">
-					-->
-					<button v-on:click="login()">Log in</button>
-					
-					</td> 
-					</tr>			
 					</table>
+					
+					
+				    
+				<input   class="button-3"  type="submit" value="Uloguj se">
+				
+						
 					
 		</form>
 	
 	</div>
-	
+		 
 	
 	
 	
 </div>		  
 `
 	, 
-	mounted(){
-		
-	},
+	mounted () {
+        axios
+          .get('rest/facilities/test')
+          .then(response => (alert(response.data)))
+    },
 	
 	methods: {
-		login : function(event) {
-		/*	if (event != undefined){
-				event.preventDefault();
-			}
-			if (!this.isValidToLogIn()) {
+		login : function() {
+			
+		/*	if (!this.isValidToLogIn()) {
 				alert('Niste popunili sva polja za prijavu');
 				return;
 			}
-		*/	
+			*/
+		//	event.preventDefault();
+		
 			axios
-			.post("rest/login/login")
-			.then(response => {
-				router.push('/');
-			})
-	/*		.catch(function(error){
+			.post("rest/login/login"/*,{username:this.username,password:this.password}*/)
+		    .then(response=>{
+		    	if(response.data != null){
+					alert("Faca ti je sranje")
+				}
+				
+				
+			
+		       }
+		    )
+/*				
+			.catch(function(error){
 				alert('Neuspešno logovanje')
-			})*/
+			})*/ 
 		},
 		
-/*			isValidToLogIn : function() {
+			isValidToLogIn : function() {
 				
-			if (this.user.username == '') {
+			if (this.username =='') {
 				
 				return false;
 			}
-			if (this.user.password == '') {
+			if (this.password == '') {
 				
 				return false;
 			}
 
 			return true;
 		}
-	*/	
+		
 		
 	}
 	

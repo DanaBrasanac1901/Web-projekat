@@ -3,23 +3,25 @@
     box-sizing: border-box;
     overflow: auto;
     font-family: 'Verdana';
-    
+    text-align: center;
+  	
 }
 
 
 body{
 	background-color:  #71c556;
-	text-align: center;
+	font-family: Verdana;
 }
 
 
 h1{
-	text-align: center;
+	
 	font-family: Verdana;
 	color: pink;
 }
 
 nav{
+	
 	align-items : center;
 	padding : 20px;
 	
