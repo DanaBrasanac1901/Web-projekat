@@ -16,13 +16,31 @@ public class Buyer extends User {
 	public Buyer(String username, String password, String firstName, String lastName, Gender gender, Date birthDate,
 			boolean deleted, int points, BuyerType buyerType, List<Facility> visitedFacilities,
 			List<HistoryTraining> trainingHistory, Membership membership) {
-			super(username, password, firstName, lastName, gender, birthDate, deleted, Role.BUYER);
+		super(username, password, firstName, lastName, gender, birthDate, deleted, Role.BUYER);
 		this.points = points;
 		this.buyerType = buyerType;
 		this.visitedFacilities = visitedFacilities;
 		this.trainingHistory = trainingHistory;
 		this.membership = membership;
 	}
+	public Buyer(String username, String password, String firstName, String lastName, Gender gender, Date birthDate,
+			boolean deleted) {
+		super(username, password, firstName, lastName, gender, birthDate, deleted, Role.BUYER);
+		
+	}
+	
+	public Buyer(String username, String password, String firstName, String lastName, Gender gender) {
+		super(username, password, firstName, lastName, gender,Role.BUYER);
+	   
+		
+	}
+	
+
+	
+	
+	
+	
+	
 	public int getPoints() {
 		return points;
 	}

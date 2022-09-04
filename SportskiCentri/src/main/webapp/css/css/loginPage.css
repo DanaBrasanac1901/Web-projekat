@@ -2,6 +2,12 @@
 
 
 
+
+
+
+
+
+
 .loginForma {
 
   position: relative;
@@ -10,7 +16,6 @@
   margin:  auto;
   margin-top: 300px;
   padding: 12px;
-  text-align: center; 
   border: 2px solid black;
   border-radius: 20px;
   padding: 40px ;
@@ -18,40 +23,35 @@
   vertical-align:middle;
   font-size: 30px;
   
+  display: flex;
+  text-align: center;
+  vertical-align:middle;
+  font-size: 30px;
+  
   
    display: flex;
    justify-content: center;
    align-items: center;
+
   
-  
+  	
 }
 
+table td    {  text-align: left;}
 
 .loginInput{
+	font-size: 20px;
 	height : 40px;
 	width : 300px;
-	font-size: 30px;
-	 margin:  15px;
+	margin:  15px;
+	text-align: left;
 	
 }
 
 
-.button {
- 	 background-color: #71c556;
- 	 font-size: 20px;
- 	 color: white;
- 	 border-radius: 10px;
- 	 column-count: 2;
- 	 border: 2px solid black;
-
-}
-
-
-
-
 
 .button-3 {
-  margin:  15px;
+ 
   appearance: none;
   background-color: #2ea44f;
   border: 1px solid rgba(27, 31, 35, .15);
@@ -101,8 +101,6 @@
   background-color: #298e46;
   box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
 }
-
-
 
 
 

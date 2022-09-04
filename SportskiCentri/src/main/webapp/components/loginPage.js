@@ -2,6 +2,8 @@ Vue.component("login-page", {
 	
 	data: function(){
 		return{
+			 firstName: "",
+		     password: "",
 			
 		}
 		
@@ -18,85 +20,71 @@ Vue.component("login-page", {
 	</div>
 	
 	<div class="loginForma">
-		  <form @submit='login'>
+		<form id="login" class="login-form" @submit='login' method = "post">
 				<table>
 					<tr>
-						<td>Korisničko ime  :</td>
-						<td><input class="loginInput" type="text"  v-model="username"></td>
+						<td><label for="firstName">Korisničko ime :</label></td>
+						<td><input class="loginInput"  type="text"  v-model="firstName"  ></td>
 		
 		    		</tr>
 					<tr>
-						<td >Lozinka :</td>
-						<td><input class="loginInput"  type="password" v-model="password"></td>
+						<td><label for="password">Lozinka :</label></td>
+						<td><input class="loginInput"  type="password" v-model="password" ></td>
 				
 					</tr>
-				
 					
+					<tr>
+					
+					<td colspan="2">
+					 <input  class="button-3" type="submit" value="Uloguj se">
+					</td> 
+					</tr>			
 					</table>
-					
-					
-				    
-				<input   class="button-3"  type="submit" value="Uloguj se">
-				
-						
 					
 		</form>
 	
 	</div>
-		 
+	
 	
 	
 	
 </div>		  
 `
 	, 
-	mounted () {
-        axios
-          .get('rest/facilities/test')
-          .then(response => (alert(response.data)))
-    },
+	mounted(){
+		
+	},
 	
 	methods: {
-		login : function() {
-			
-		/*	if (!this.isValidToLogIn()) {
+		login : function(event) {
+			if (event != undefined){
+				event.preventDefault();
+			}
+	/*		if (!this.isValidToLogIn()) {
 				alert('Niste popunili sva polja za prijavu');
 				return;
 			}
-			*/
-		//	event.preventDefault();
-		
-			axios
-			.post("rest/login/login"/*,{username:this.username,password:this.password}*/)
-		    .then(response=>{
-		    	if(response.data != null){
-					alert("Faca ti je sranje")
-				}
-				
-				
+		*/	
 			
-		       }
-		    )
-/*				
-			.catch(function(error){
+			axios
+		    .post("rest/login/login" , {"firstName":this.firstName, "password": this.password })
+			.then(response=>alert(response.data))
+		/*	.catch(function(error){
 				alert('Neuspešno logovanje')
-			})*/ 
+			})*/
 		},
 		
-			isValidToLogIn : function() {
-				
-			if (this.username =='') {
-				
+	/*		isValidToLogIn : function() {
+			if (this.user.username == '') {
 				return false;
 			}
-			if (this.password == '') {
-				
+			if (this.user.password == '') {
 				return false;
 			}
 
 			return true;
 		}
-		
+		*/
 		
 	}
 	
