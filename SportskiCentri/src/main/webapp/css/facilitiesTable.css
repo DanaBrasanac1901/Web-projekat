@@ -1,0 +1,58 @@
+@charset "ISO-8859-1";
+
+
+
+
+
+
+.facilities th {
+    font-weight : bold;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #A7C942;
+    color: #ffffff;
+}
+
+
+.facilities {
+    border-collapse: collapse;
+    margin-top : 150px;
+  	margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    font-family: 'Verdana';
+    width: 80%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	background-color: #ffffff;;
+}
+
+.facilities td, .facilities th {
+    font-size: 1.4em;
+    padding: 12px 15px;
+}
+
+.facilities th {
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #A7C942;
+    color: #ffffff;
+}
+
+.facilities tr.alt td {
+    color: #000000;
+    background-color: #EAF2D3;
+}
+
+.facilities tr:hover {
+	 background-color: #ffff99;
+	 cursor: pointer;
+}
+
+tr.selected {
+	 background-color: #aaaaaa;
+}
+
+
+

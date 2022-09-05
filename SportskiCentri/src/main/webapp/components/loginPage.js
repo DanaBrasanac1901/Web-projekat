@@ -12,12 +12,7 @@ Vue.component("login-page", {
 	
 	template: ` 
 <div>
-	<div class="topnav">
- 	 	<a  style="float: left; "href="#/">Početna strana</a>
- 	 	<a  href="#/registration">Registruj se</a>
- 	 	<a  class="active" href="#/login">Uloguj se</a>
- 	 
-	</div>
+     <navigation-bar></navigation-bar>
 	
 	<div class="loginForma">
 		<form id="login" class="login-form" @submit='login' method = "post">
@@ -33,14 +28,11 @@ Vue.component("login-page", {
 				
 					</tr>
 					
-					<tr>
-					
-					<td colspan="2">
-					 <input  class="button-3" type="submit" value="Uloguj se">
-					</td> 
-					</tr>			
+						
 					</table>
 					
+					 <input  class="button-3" type="submit" value="Uloguj se">
+						
 		</form>
 	
 	</div>
