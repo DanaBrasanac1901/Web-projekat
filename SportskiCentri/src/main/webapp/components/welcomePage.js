@@ -3,7 +3,9 @@ Vue.component("welcome-page", {
 		    return {
 		      type : '',
 			  name : '',
-		      facilitie: null
+		      facilities: null,
+		      allFacilities: null,
+		      status: ''
 		    }
 		    },
 	
@@ -16,6 +18,7 @@ Vue.component("welcome-page", {
 
 	</div>
 <!--PRETRAGA-->
+
 	
 			<div class='filterBar'>
 				<form @submit='search'>
@@ -32,27 +35,17 @@ Vue.component("welcome-page", {
 									<option value="grade">ocena</option>
 								</select>
 							</td>
-<!--		
-							<td><input type="text" placeholder="Lokacija(grad)" v-model="adress"></td>
 							<td>
-								<select v-model="avgGrade">
-									<option value="">Prosečna ocena</option>
-									<option value="1">0-1</option>
-									<option value="2">1-2</option>
-									<option value="3">2-3</option>
-									<option value="4">3-4</option>
-									<option value="5">4-5</option>
+							<td><label>Status</label><td>
+							<select v-model="status"  v-on:change="statusOpen">
+									<option value="OPEN">Otvoren</option>
+									<option value="CLOSED">Zatvoren</option>
+									<option value="ALL">Svi</option>
+									
 								</select>
 							</td>
-							<td>
-								<select v-model="restaurantStatus">
-									<option value="">Status</option>
-									<option value="Radi">Radi</option>
-									<option value="Ne_radi">Ne radi</option>
-								</select>
-							</td>
--->					
-			
+							
+						
 						</tr>
 			
 					</table>
@@ -61,6 +54,8 @@ Vue.component("welcome-page", {
 			</div>
 
 <div>
+
+
 <table class = "facilities" >
 	<tr >
 		<th>LOGO</th>
@@ -74,7 +69,7 @@ Vue.component("welcome-page", {
 		
 	</tr>
 	
-	<tr v-for="f in facilitie" class="active-row">
+	<tr v-for="f in facilities" class="active-row">
 		<td><img v-bind:src="f.logoPath" width="200px" Height="200px" alt="bilo sta"></td>	
 		<td>{{f.name }}</td>
 		<td>{{f.grade }}</td>
@@ -91,26 +86,77 @@ Vue.component("welcome-page", {
 </div>
 `
 	, mounted(){
- 		axios
-          .get('rest/facilities')
-          .then(response => (this.facilitie = response.data))
-	
+ 		this.getAllFacilities();
+		
 	},
 	methods:{
+		getAllFacilities : function(){
+		axios
+          .get('rest/facilities')
+          .then(response => {
+	     		this.facilities = response.data
+				this.allFacilities = response.data
+				
+				})
+		
+		
+	},
+		
+		
 	 search : function(event){
 		 if (event != undefined){
 				event.preventDefault();
 			}
-		 if (!this.isValidToLogIn()) {
+		 if (!this.isValid()) {
 				return;
 			}
 		 axios
 		 	.post('rest/facilities/search', {"type":this.type, "search":this.name})
-			.then(response => (this.facilitie = response.data))
-			
+			.then(response => {
+				this.facilities = response.data
+				this.allFacilities = response.data
+				if(this.status!="ALL"){
+					this.statusOpen();
+				}
+				
+				
+				})
+							
 		
 		},
-		isValidToLogIn : function() {
+	statusOpen : function(event){
+			
+			
+			
+		     if (event != undefined){
+				event.preventDefault();
+				}
+				if(this.status=="ALL"){
+					if (!this.isValid()) {
+						this.getAllFacilities()
+						}else{
+				     	this.search();
+						}
+					return;
+				}
+				
+			
+				let filteredFacilities = [];
+				for(fac of this.allFacilities){
+					
+					if(fac.status==this.status){	
+						filteredFacilities.push(fac)
+					}
+									
+				
+				}
+				
+				this.facilities = filteredFacilities
+				
+				
+		
+	},
+		isValid : function() {
 			if (this.type == '') {
 				return false;
 			}

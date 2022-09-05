@@ -91,6 +91,8 @@ public class FacilityService {
 
 			searchResult = allDtos.stream().filter(dto -> dto.getGrade() == Double.parseDouble(content))
 					.collect(Collectors.toList());
+		}else {
+			searchResult =getAll();
 		}
 		return searchResult;
 	}

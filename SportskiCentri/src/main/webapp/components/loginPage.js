@@ -34,12 +34,9 @@ Vue.component("login-page", {
 					</tr>
 					
 					<tr>
-					
-					<td colspan="2">
-					 <input  class="button-3" type="submit" value="Uloguj se">
-					</td> 
-					</tr>			
-					</table>
+				    </table>
+						 <input  class="button-3" type="submit" value="Uloguj se">
+				
 					
 		</form>
 	
