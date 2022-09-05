@@ -3,7 +3,6 @@ const WelcomePage = { template: '<welcome-page></welcome-page>' }
 const LoginPage = { template: '<login-page></login-page>' }
 const AdminHome = { template: '<admin-home></admin-home>' }
 const BuyerHome = { template: '<buyer-home></buyer-home>' }
-const NavigationBar = { template: '<navigation-bar></navigation-bar>' }
 
 
 const router = new VueRouter({

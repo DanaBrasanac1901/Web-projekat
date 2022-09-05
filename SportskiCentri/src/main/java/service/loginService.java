@@ -55,7 +55,7 @@ public class loginService {
 	public String  Login(UserLoginDto user) {
 		String buyer = buyerDao.loginBuyer(user);
 		int i =buyerDao.getAll().size();
-		return buyer;
+		return String. valueOf(i);
 		//return user.getFirstName();
 	}
 	

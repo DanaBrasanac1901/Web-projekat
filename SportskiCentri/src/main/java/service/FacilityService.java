@@ -20,6 +20,8 @@ import beans.FacilityStatus;
 import beans.FacilityType;
 import dao.FacilityDao;
 import dto.FacilityDto;
+import dto.SearchDto;
+import dto.StringDto;
 import dto.UserLoginDto;
 import main.App;
 
@@ -43,16 +45,6 @@ public class FacilityService {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<FacilityDto> getAll() {
-		System.out.println("///////////////////////////////////////////////////////////////////////////");
-		System.out.println("///////////////////////////////////////////////////////////////////////////");
-		System.out.println("///////////////////////////////////////////////////////////////////////////");
-		System.out.println("///////////////////////////////////////////////////////////////////////////");
-		System.out.println("///////////////////////////////////////////////////////////////////////////");
-		System.out.println("///////////////////////////////////////////////////////////////////////////");
-		System.out.println("///////////////////////////////////////////////////////////////////////////");
-		System.out.println("///////////////////////////////////////////////////////////////////////////");
-		System.out.println("///////////////////////////////////////////////////////////////////////////");
-		
 		
 		return facilityDao.getAll().stream().filter(Facility::isNotDeleted).map(f -> new FacilityDto(f))
 				.collect(Collectors.toList());
@@ -70,8 +62,11 @@ public class FacilityService {
 	@POST
 	@Path("/search")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<FacilityDto> search(@QueryParam("criteria") String criteria, @QueryParam("content") String content) {
-
+	public List<FacilityDto> search(SearchDto search) {
+		System.out.println("////////////////////////////////////////");
+		
+		 String criteria = search.getType();
+		 String content = search.getSearch();
 		List<FacilityDto> searchResult = new ArrayList<FacilityDto>();
 		List<FacilityDto> allDtos = getAll();
 
