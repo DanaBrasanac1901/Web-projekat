@@ -1,0 +1,86 @@
+{
+  "1": {
+    "name": "Joga",
+    "id": 1,
+    "type": "GROUP",
+    "facilityId": 1,
+    "duration": 60,
+    "trainerUsername": "trainer1",
+    "description": "Drevna indijska vestina joge",
+    "picturePath": "images\\BarneySaLoptom.jpg",
+    "price": 300,
+    "isDeleted": false
+  },
+  "2": {
+    "name": "Pilates",
+    "id": 2,
+    "type": "GROUP",
+    "facilityId": 1,
+    "duration": 60,
+    "trainerUsername": "trainer2",
+    "description": "Istezanje na strunjaci",
+    "picturePath": "images\\BarneySaKnjigom.jpg",
+    "price": 400,
+    "isDeleted": false
+  },
+  "3": {
+    "name": "Licni trening",
+    "id": 3,
+    "type": "PERSONAL",
+    "facilityId": 1,
+    "duration": 60,
+    "trainerUsername": "trainer1",
+    "description": "Trening sa profesionalnim osobljem",
+    "picturePath": "images\\BarnetZija.jpg",
+    "price": 1000,
+    "isDeleted": false
+  },
+  "4": {
+    "name": "Plivanje",
+    "id": 4,
+    "type": "PERSONAL",
+    "facilityId": 2,
+    "duration": 60,
+    "trainerUsername": "trainer3",
+    "description": "Individualno plivanje sa trenerom.",
+    "picturePath": "images\\BarneySedi.jpg",
+    "price": 750,
+    "isDeleted": false
+  },
+  "5": {
+    "name": "Vaterpolo",
+    "id": 5,
+    "type": "GROUP",
+    "facilityId": 2,
+    "duration": 60,
+    "trainerUsername": "trainer3",
+    "description": "Dobacivanje loptom u vodi.",
+    "picturePath": "images\\BarneySedi.jpg",
+    "price": 300,
+    "isDeleted": false
+  },
+  "6": {
+    "name": "Judo",
+    "id": 5,
+    "type": "PERSONAL",
+    "facilityId": 3,
+    "duration": 60,
+    "trainerUsername": "trainer4",
+    "description": "Individualni trening judoa.",
+    "picturePath": "images\\BarnetZija.jpg",
+    "price": 500,
+    "isDeleted": false
+  },
+  "7": {
+    "name": "Karate",
+    "id": 5,
+    "type": "GROUP",
+    "facilityId": 3,
+    "duration": 60,
+    "trainerUsername": "trainer5",
+    "description": "Grupni trening karatea",
+    "picturePath": "images\\BarneySaKnjigom.jpg",
+    "price": 0,
+    "isDeleted": false
+  }
+}

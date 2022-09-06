@@ -91,9 +91,10 @@ Vue.component("welcome-page", {
 		<th>POČETAK RADNOG VREMENA</th>
 		<th>KRAJ RADNOG VREMENA</th>
 		<th>LOKACIJA</th>
+		<th>DETALJNIJE</th>
+		
 		
 	</tr>
-	
 	<tr v-for="f in facilities" class="active-row">
 		<td><img v-bind:src="f.logoPath" width="200px" Height="200px" alt="bilo sta"></td>	
 		<td>{{f.name }}</td>
@@ -103,6 +104,7 @@ Vue.component("welcome-page", {
 		<td>{{f.start }}</td>
 		<td>{{f.end }}</td>
 		<td>{{f.location.adress.city }}     {{f.location.adress.street }}    {{f.location.adress.streetNumber}}</td>
+		<td><button class="button-3" @click="openFacilityPage(f)">Detaljnije</button></td>
 		
 		
 	</tr>
@@ -111,6 +113,8 @@ Vue.component("welcome-page", {
 </div>
 `
 	, mounted(){
+		axios
+		
  		this.getAllFacilities();
 		
 	},
@@ -129,7 +133,7 @@ Vue.component("welcome-page", {
 					this.facilitieType();
 				}
 		*/			
-			
+			    
 				})
 		  
 		
@@ -255,6 +259,15 @@ Vue.component("welcome-page", {
             
 		
 	},
+	
+	openFacilityPage : function (fac) {
+		app.selectedFacilitie = fac
+		router.push('/facilitieView')
+		
+		
+		
+	},
+	
 
 		isValid : function() {
 			if (this.type == '') {

@@ -224,7 +224,7 @@ public class BuyerDao {
 	
 
 	public String loginBuyer(UserLoginDto user) {
-		    String username = user.getFirstName();
+		    String username = user.getUsername();
 		    String password = user.getPassword();
 
 		  /*  

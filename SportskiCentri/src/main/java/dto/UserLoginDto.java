@@ -2,7 +2,7 @@ package dto;
 
 public class UserLoginDto {
 	
-	    private String firstName;
+	    private String username;
 		private String password;
 		
 		public UserLoginDto() {
@@ -11,8 +11,8 @@ public class UserLoginDto {
 
 		
 
-		public void setFirstName(String firstName) {
-			this.firstName = firstName;
+		public void setUsername(String username) {
+			this.username = username;
 		}
 
 		public String getPassword() {
@@ -23,14 +23,14 @@ public class UserLoginDto {
 			this.password = password;
 		}
 
-		public UserLoginDto(String firstName, String password) {
+		public UserLoginDto(String username, String password) {
 			super();
-			this.firstName = firstName;
+			this.username = username;
 			this.password = password;
 		}
 
-		public String getFirstName() {
-			return firstName;
+		public String getUsername() {
+			return username;
 		}
 		
 		

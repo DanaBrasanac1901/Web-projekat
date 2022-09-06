@@ -1,5 +1,11 @@
 package beans;
 
+public enum FacilityContent {
+	
+	
+}
+
+/*
 public class FacilityContent {
 	private String id;
 	private String name;
@@ -40,3 +46,4 @@ public class FacilityContent {
 	
 	
 }
+*/
