@@ -28,5 +28,12 @@ public class Trainer extends User {
 		super(username, password, firstName, lastName, gender, birthDate, Role.TRAINER);
 		this.trainingHistory = trainingHistory;
 	}
+	
+	
+	public Trainer(String username, String password, String firstName, String lastName, Gender gender, LocalDate birthDate) {
+		super(username, password, firstName, lastName, gender, birthDate, Role.TRAINER);
+	
+	}
+
 
 }

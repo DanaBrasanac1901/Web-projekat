@@ -1,0 +1,18 @@
+{
+  "manager": {
+    "facilityId": 1,
+    "username": "manager",
+    "password": "manager",
+    "firstName": "Nikola",
+    "lastName": "Tesla",
+    "gender": "MALE",
+    "birthDate": {
+      "year": 2000,
+      "month": 9,
+      "day": 11
+    },
+    "deleted": false,
+    "isBanned": false,
+    "userRole": "MANAGER"
+  }
+}

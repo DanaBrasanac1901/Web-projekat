@@ -1,31 +1,32 @@
 package dao;
 
+import java.io.Reader;
+import java.io.Writer;
+import java.lang.reflect.Type;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.Reader;
-import java.io.Writer;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.lang.reflect.Type;
-
 import beans.Buyer;
 import beans.Gender;
-import dto.UserDto;
+import beans.Manager;
 import dto.UserLoginDto;
 import main.App;
 
-public class BuyerDao {
+public class ManagerDao {
 
-	private String filepath = App.path + "/repository/Buyers.json";
-	private Map<String, Buyer> buyers = new HashMap<>();
-	private Buyer logBuyer;
+	private String filepath = App.path + "/repository/Managers.json";
+	private Map<String, Manager> managers = new HashMap<>();
+	private Manager logManager;
 
-	public BuyerDao() {
+	public ManagerDao() {
 	}
 
 	public void loadFile() {
@@ -34,9 +35,9 @@ public class BuyerDao {
 
 			Gson gson = new GsonBuilder().setPrettyPrinting().create();
 			Reader reader = Files.newBufferedReader(Paths.get(filepath));
-			Type typeOfHashMap = new TypeToken<Map<String, Buyer>>() {
+			Type typeOfHashMap = new TypeToken<Map<String, Manager>>() {
 			}.getType();
-			buyers = gson.fromJson(reader, typeOfHashMap);
+			managers = gson.fromJson(reader, typeOfHashMap);
 			reader.close();
 
 		} catch (Exception ex) {
@@ -55,7 +56,7 @@ public class BuyerDao {
 
 			Gson gson = new GsonBuilder().setPrettyPrinting().create();
 			Writer writer = Files.newBufferedWriter(Paths.get(filepath));
-			gson.toJson(buyers, writer);
+			gson.toJson(managers, writer);
 			writer.close();
 
 		} catch (Exception ex) {
@@ -77,48 +78,49 @@ public class BuyerDao {
 	 * }
 	 */
 
-	public Buyer getByUsername(String username) {
+	public Manager getByUsername(String username) {
 		loadFile();
-		return buyers.get(username);
+		return managers.get(username);
 	}
 
-	public Collection<Buyer> getAll() {
+	public Collection<Manager> getAll() {
 		loadFile();
-		return buyers.values();
+		return managers.values();
 	}
 
-	public void addNew(Buyer newBuyer) {
+	public void addNew(Manager newManager) {
 		loadFile();
-		buyers.put(newBuyer.getUsername(), newBuyer);
+		managers.put(newManager.getUsername(), newManager);
 		updateFile();
 	}
-	
-	
 
-	public String loginBuyer(UserLoginDto user) {
+	public String loginManager(UserLoginDto user) {
 
 		String username = user.getUsername();
 		String password = user.getPassword();
+
 		loadFile();
 
-			if (buyers.containsKey(username)) {
+		// managers.put("manager", new
+		// Manager("manager","manager","Nikola","Tesla",Gender.MALE,LocalDate.of(2000,
+		// 9, 11),1));
+		// updateFile();
+		if (managers.containsKey(username)) {
 
-				if (buyers.get(username).isBanned()) {
-					return "banned";
-				} else if (buyers.get(username).isDeleted()) {
-					return "deleted";
-				} else if (password.equals(buyers.get(username).getPassword())) {
-					logBuyer = buyers.get(username);
-					return "buyer";
-				} else {
-					return "wrong password";
-				}
-				
+			if (managers.get(username).isBanned()) {
+				return "banned";
+			} else if (managers.get(username).isDeleted()) {
+				return "deleted";
+			} else if (password.equals(managers.get(username).getPassword())) {
+				logManager = managers.get(username);
+				return "manager";
+			} else {
+				return "wrong password";
 			}
-		  return "not";
-		
+
+		}
+		return "not";
+
 	}
 
-
 }
-

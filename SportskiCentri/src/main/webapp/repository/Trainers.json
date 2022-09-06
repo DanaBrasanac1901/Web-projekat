@@ -1,0 +1,17 @@
+{
+  "trainer": {
+    "username": "trainer",
+    "password": "trainer",
+    "firstName": "Milan",
+    "lastName": "Milankovic",
+    "gender": "MALE",
+    "birthDate": {
+      "year": 2002,
+      "month": 1,
+      "day": 8
+    },
+    "deleted": false,
+    "isBanned": false,
+    "userRole": "TRAINER"
+  }
+}
