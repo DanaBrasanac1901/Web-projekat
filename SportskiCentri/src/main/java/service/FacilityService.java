@@ -15,8 +15,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import beans.Facility;
-import beans.FacilityStatus;
-import beans.FacilityType;
+import beans.Training;
 import dao.FacilityDao;
 import dto.FacilityDto;
 
@@ -56,10 +55,9 @@ public class FacilityService {
 	@Path("/search")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<FacilityDto> search(SearchDto search) {
-		
-		
-		 String criteria = search.getType();
-		 String content = search.getSearch();
+
+		String criteria = search.getType();
+		String content = search.getSearch();
 		List<FacilityDto> searchResult = new ArrayList<FacilityDto>();
 		List<FacilityDto> allDtos = getAll();
 
@@ -84,8 +82,8 @@ public class FacilityService {
 
 			searchResult = allDtos.stream().filter(dto -> dto.getGrade() == Double.parseDouble(content))
 					.collect(Collectors.toList());
-		}else {
-			searchResult =getAll();
+		} else {
+			searchResult = getAll();
 		}
 		return searchResult;
 	}
@@ -115,4 +113,27 @@ public class FacilityService {
 	 * }
 	 */
 
+	@POST
+	@Path("/{id}/new-content")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public void addNewContent(@PathParam("id") int id, Training newTraining) {
+		List<Training> trainingList = new ArrayList<Training>();
+		Facility facility = facilityDao.getById(id);
+		if (facility.getFacContents() == null) {
+			trainingList.add(newTraining);
+			facility.setFacContents(trainingList);
+		} else {
+			trainingList = facility.getFacContents();
+			if (!trainingList.stream().anyMatch(t -> t.getName().equals(t.getName()))) {
+				trainingList.add(newTraining);
+			}
+
+		}
+
+	}
+	
+	
+	
+	
 }
