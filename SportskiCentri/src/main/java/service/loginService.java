@@ -8,8 +8,12 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
+
+import dao.AdminDao;
 import dao.BuyerDao;
 import dao.FacilityDao;
+import dao.ManagerDao;
+import dao.TrainerDao;
 import dto.UserLoginDto;
 import main.App;
 
@@ -23,9 +27,10 @@ public class loginService {
 	
 	FacilityDao facilityDao;
 	BuyerDao buyerDao;
+	TrainerDao trainerDao;
+	ManagerDao managerDao;
+	AdminDao adminDao;
 	
-	
-
 	public loginService() {
 	}
 	
@@ -35,37 +40,53 @@ public class loginService {
 	public void init() {
 		this.facilityDao = (FacilityDao) ctx.getAttribute(App.FACILITY_DAO);
 		this.buyerDao = (BuyerDao) ctx.getAttribute(App.BUYER_DAO);
-
+		this.trainerDao = (TrainerDao) ctx.getAttribute(App.TRAINER_DAO);
+		this.managerDao = (ManagerDao) ctx.getAttribute(App.MANAGER_DAO);
+		this.adminDao = (AdminDao) ctx.getAttribute(App.ADMIN_DAO);
+		
+		
 	}
 
 	
 	
 	public static String path;
-	/*
+
 	@POST
 	@Path("/login")
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public String  Login(UserLoginDto user) {
 		String buyer = buyerDao.loginBuyer(user);
-		int i =buyerDao.getAll().size();
-
-		return buyer;
-		//return String. valueOf(i);
-		//return user.getFirstName();
-
-	}
-	
-	*/
-	
-	
-	  public String Login(String username ,String password) {
-		BuyerDao buyerDao = (BuyerDao)ctx.getAttribute("buyerDao");
-		//String buyer = buyerDao.loginBuyer(username,password);
-		//if(buyer!="not") {return "not";}
+		if(buyer=="not") {
 			
-		return "not";
+			String trainer = trainerDao.loginTrainer(user);
+			if(trainer=="not") {
+				
+				String manager = managerDao.loginManager(user);
+				if(manager=="not") {
+					String admin = adminDao.loginAdmin(user);
+					return admin;
+				}else {
+					return manager;
+				}
+				
+					
+			}else {
+				return trainer;
+			}
+				
+		}else {
+			return buyer;
+		}
+		
+
+
 	}
+	
+	
+	
+	
+	
 	
 
 }

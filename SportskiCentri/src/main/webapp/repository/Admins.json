@@ -1,13 +1,17 @@
-[{
-"username": "admin",
-"password": "123",
-"firstName":"Dana",
-"lastName":"Brasanac",
-"gender":"FEMALE",
-"birthDate":"Jan 1, 1999, 1:00:00 AM",
-"deleted": false,
-"isBanned": false,
-"userRole": "ADMIN"
-
+{
+  "admin": {
+    "username": "admin",
+    "password": "admin",
+    "firstName": "Milan",
+    "lastName": "Obrenovic",
+    "gender": "MALE",
+    "birthDate": {
+      "year": 1999,
+      "month": 10,
+      "day": 10
+    },
+    "deleted": false,
+    "isBanned": false,
+    "userRole": "ADMIN"
+  }
 }
-]

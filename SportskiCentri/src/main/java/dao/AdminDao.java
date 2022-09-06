@@ -1,31 +1,30 @@
 package dao;
 
+import java.io.Reader;
+import java.io.Writer;
+import java.lang.reflect.Type;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.Reader;
-import java.io.Writer;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.lang.reflect.Type;
-
-import beans.Buyer;
+import beans.Admin;
 import beans.Gender;
-import dto.UserDto;
 import dto.UserLoginDto;
 import main.App;
 
-public class BuyerDao {
+public class AdminDao {
+	private String filepath = App.path + "/repository/admins.json";
+	private Map<String, Admin> admins = new HashMap<>();
+	private Admin logAdmin;
 
-	private String filepath = App.path + "/repository/Buyers.json";
-	private Map<String, Buyer> buyers = new HashMap<>();
-	private Buyer logBuyer;
-
-	public BuyerDao() {
+	public AdminDao() {
 	}
 
 	public void loadFile() {
@@ -34,9 +33,9 @@ public class BuyerDao {
 
 			Gson gson = new GsonBuilder().setPrettyPrinting().create();
 			Reader reader = Files.newBufferedReader(Paths.get(filepath));
-			Type typeOfHashMap = new TypeToken<Map<String, Buyer>>() {
+			Type typeOfHashMap = new TypeToken<Map<String, Admin>>() {
 			}.getType();
-			buyers = gson.fromJson(reader, typeOfHashMap);
+			admins = gson.fromJson(reader, typeOfHashMap);
 			reader.close();
 
 		} catch (Exception ex) {
@@ -55,7 +54,7 @@ public class BuyerDao {
 
 			Gson gson = new GsonBuilder().setPrettyPrinting().create();
 			Writer writer = Files.newBufferedWriter(Paths.get(filepath));
-			gson.toJson(buyers, writer);
+			gson.toJson(admins, writer);
 			writer.close();
 
 		} catch (Exception ex) {
@@ -70,46 +69,50 @@ public class BuyerDao {
 	 * public void updateFile() { ObjectMapper objectMapper = new ObjectMapper();
 	 * objectMapper.configure(SerializationFeature.INDENT_OUTPUT, true);
 	 * 
-	 * try { objectMapper.writeValue(new FileOutputStream(filepath), buyers); }
+	 * try { objectMapper.writeValue(new FileOutputStream(filepath), admins); }
 	 * catch (IOException e) { System.out.println("Greska prilikom pisanja u fajl");
 	 * e.printStackTrace(); }
 	 * 
 	 * }
 	 */
 
-	public Buyer getByUsername(String username) {
+	public Admin getByUsername(String username) {
 		loadFile();
-		return buyers.get(username);
+		return admins.get(username);
 	}
 
-	public Collection<Buyer> getAll() {
+	public Collection<Admin> getAll() {
 		loadFile();
-		return buyers.values();
+		return admins.values();
 	}
 
-	public void addNew(Buyer newBuyer) {
+	public void addNew(Admin newAdmin) {
 		loadFile();
-		buyers.put(newBuyer.getUsername(), newBuyer);
+		admins.put(newAdmin.getUsername(), newAdmin);
 		updateFile();
 	}
 	
 	
 
-	public String loginBuyer(UserLoginDto user) {
+	public String loginAdmin(UserLoginDto user) {
 
 		String username = user.getUsername();
 		String password = user.getPassword();
 		loadFile();
+		//admins.put("admin", new Admin("admin","admin","Milan","Obrenovic",Gender.MALE,LocalDate.of(1999, 10, 10)));
+    	 //updateFile();
 
-			if (buyers.containsKey(username)) {
+		
+		
+			if (admins.containsKey(username)) {
 
-				if (buyers.get(username).isBanned()) {
+				if (admins.get(username).isBanned()) {
 					return "banned";
-				} else if (buyers.get(username).isDeleted()) {
+				} else if (admins.get(username).isDeleted()) {
 					return "deleted";
-				} else if (password.equals(buyers.get(username).getPassword())) {
-					logBuyer = buyers.get(username);
-					return "buyer";
+				} else if (password.equals(admins.get(username).getPassword())) {
+					logAdmin = admins.get(username);
+					return "admin";
 				} else {
 					return "wrong password";
 				}

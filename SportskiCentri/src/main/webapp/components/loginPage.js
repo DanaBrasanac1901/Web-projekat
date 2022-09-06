@@ -33,7 +33,6 @@ Vue.component("login-page", {
 				
 					</tr>
 					
-					<tr>
 				    </table>
 						 <input  class="button-3" type="submit" value="Uloguj se">
 				
@@ -57,31 +56,65 @@ Vue.component("login-page", {
 			if (event != undefined){
 				event.preventDefault();
 			}
-	/*		if (!this.isValidToLogIn()) {
+			if (!this.isValidToLogIn()) {
 				alert('Niste popunili sva polja za prijavu');
 				return;
 			}
-		*/	
+		
 			
 			axios
 		    .post("rest/login/login" , {"username":this.username, "password": this.password })
-			.then(response=>alert(response.data))
-		/*	.catch(function(error){
+			.then(response=>{
+				
+				if(response.data=="buyer"){
+					alert("Kupac je uspesno ulogovan")
+					router.push('/buyerHome')
+					
+				}else if(response.data=="trainer"){
+					alert("Trener je uspesno ulogovan")
+					router.push('/trainerHome')
+					
+				}else if(response.data=="manager"){
+					alert("Menadžer je uspesno ulogovan")
+					router.push('/managerHome')					
+				}else if(response.data=="admin"){
+					alert("Admin je uspesno ulogovan")
+					router.push('/adminHome')					
+				}else if(response.data=="banned"){
+					alert("Korisnik je blokiran")
+					this.username = "";
+					this.password = "";					
+				}else if(response.data=="deleted"){
+					alert("Korisnik je obrisan.")
+					this.username = "";
+					this.password = "";					
+				}else if(response.data=="wrong password"){
+					alert("Pogresili ste sifru.")
+					this.password = "";					
+				}
+			
+			
+					
+			
+			})
+			
+			
+			.catch(function(error){
 				alert('Neuspešno logovanje')
-			})*/
+			})
 		},
 		
-	/*		isValidToLogIn : function() {
-			if (this.user.username == '') {
+			isValidToLogIn : function() {
+			if (this.username == '') {
 				return false;
 			}
-			if (this.user.password == '') {
+			if (this.password == '') {
 				return false;
 			}
 
 			return true;
 		}
-		*/
+		
 		
 	}
 	
