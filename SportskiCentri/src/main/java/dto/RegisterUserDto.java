@@ -1,24 +1,30 @@
 package dto;
 
 import java.sql.Date;
-import java.time.LocalDate;
 
 import beans.Gender;
-import beans.Role;
 
-public class UserDto {
+public class RegisterUserDto {
+	
 	
 	private String username;
 	private String password;
 	private String firstName;
 	private String lastName;
 	private Gender gender;
-	private LocalDate birthDate;
-	private Role userRole;
+	private Date birthDate;
 	
 	
-	public UserDto(String username, String password, String firstName, String lastName, Gender gender, LocalDate birthDate) {
-		
+	
+	public RegisterUserDto() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+	public RegisterUserDto(String username, String password, String firstName, String lastName, Gender gender,
+			Date birthDate) {
+		super();
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
@@ -27,14 +33,6 @@ public class UserDto {
 		this.birthDate = birthDate;
 	}
 
-
-	public UserDto(String username, String password, String firstname, String lastname, Gender gender) {
-		this.username = username;
-		this.password = password;
-		this.firstName = firstname;
-		this.lastName = lastname;
-		this.gender = gender;
-	}
 
 
 	public String getUsername() {
@@ -42,9 +40,11 @@ public class UserDto {
 	}
 
 
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
 
 
 	public String getPassword() {
@@ -52,9 +52,11 @@ public class UserDto {
 	}
 
 
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 
 
 	public String getFirstName() {
@@ -62,9 +64,11 @@ public class UserDto {
 	}
 
 
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 
 
 	public String getLastName() {
@@ -72,9 +76,11 @@ public class UserDto {
 	}
 
 
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
 
 
 	public Gender getGender() {
@@ -82,35 +88,27 @@ public class UserDto {
 	}
 
 
+
 	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
 
 
-	public LocalDate getBirthDate() {
+
+	public Date getBirthDate() {
 		return birthDate;
 	}
 
 
-	public void setBirthDate(LocalDate birthDate) {
+
+	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
 
 
 
 
-	public Role getUserRole() {
-		return userRole;
-	}
-
-
-	public void setUserRole(Role userRole) {
-		this.userRole = userRole;
-	}
-
-
 	
-
-
+	
 
 }

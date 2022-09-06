@@ -11,13 +11,14 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import beans.Facility;
 import dao.FacilityDao;
 import dto.FacilityDto;
+
+import dto.SearchDto;
 import main.App;
 
 @Path("/facilities")
@@ -36,7 +37,6 @@ public class FacilityService {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<FacilityDto> getAll() {
-
 		return facilityDao.getAll().stream().filter(Facility::isNotDeleted).map(f -> new FacilityDto(f))
 				.collect(Collectors.toList());
 
@@ -53,8 +53,11 @@ public class FacilityService {
 	@POST
 	@Path("/search")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<FacilityDto> search(@QueryParam("criteria") String criteria, @QueryParam("content") String content) {
-
+	public List<FacilityDto> search(SearchDto search) {
+		
+		
+		 String criteria = search.getType();
+		 String content = search.getSearch();
 		List<FacilityDto> searchResult = new ArrayList<FacilityDto>();
 		List<FacilityDto> allDtos = getAll();
 
@@ -79,6 +82,8 @@ public class FacilityService {
 
 			searchResult = allDtos.stream().filter(dto -> dto.getGrade() == Double.parseDouble(content))
 					.collect(Collectors.toList());
+		}else {
+			searchResult =getAll();
 		}
 		return searchResult;
 	}

@@ -15,6 +15,7 @@ public class FacilityDto {
 	private String start;
 	private String end;
 	private FacilityStatus status;
+	private int id;
 
 	public FacilityDto(Facility facility) {
 
@@ -26,6 +27,7 @@ public class FacilityDto {
 		this.start = facility.getStart();
 		this.end = facility.getEnd();
 		this.status = facility.getFacStatus();
+		this.id = facility.getId();
 	}
 
 	public FacilityDto() {
@@ -33,7 +35,7 @@ public class FacilityDto {
 	}
 
 	public FacilityDto(String name, FacilityType facType, Location location, String logoPath, double grade,
-			String start, String end, FacilityStatus status) {
+			String start, String end, FacilityStatus status, int id) {
 
 		this.name = name;
 		this.facType = facType;
@@ -43,6 +45,7 @@ public class FacilityDto {
 		this.start = start;
 		this.end = end;
 		this.status = status;
+		this.id = id;
 	}
 
 	public String getName() {
@@ -111,4 +114,13 @@ public class FacilityDto {
 		this.status = status;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	
 }

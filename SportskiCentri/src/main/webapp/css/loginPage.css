@@ -27,12 +27,14 @@
 }
 
 
+.loginForma table td    {  text-align: left;}
+
 .loginInput{
-	height : 40px;
+	font-size: 20px;
 	width : 300px;
-	font-size: 30px;
+	height : 50px;
 	 margin:  15px;
-	
+	text-align: left;
 }
 
 
@@ -40,9 +42,9 @@
  	 background-color: #71c556;
  	 font-size: 20px;
  	 color: white;
- 	 border-radius: 10px;
+ 	 border-radius: 20px;
  	 column-count: 2;
- 	 border: 2px solid black;
+ 	 border: 3px solid black;
 
 }
 

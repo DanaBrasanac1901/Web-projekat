@@ -3,14 +3,14 @@ package beans;
 public class Training {
 	
 	private String name;
-	private String id;
+	private int id;
 	private TrainingType type;
-	private Facility fac;
+	private int facilityId;
 	private int duration;
-	private  Trainer trainer;
+	private  String trainerUsername;
 	private String description;
 	private String picturePath;
-	
+	private int price;
 	private boolean isDeleted;
 
 	public String getName() {
@@ -21,11 +21,11 @@ public class Training {
 		this.name = name;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -37,12 +37,12 @@ public class Training {
 		this.type = type;
 	}
 
-	public Facility getFac() {
-		return fac;
+	public int getFacilityId() {
+		return facilityId;
 	}
 
-	public void setFac(Facility fac) {
-		this.fac = fac;
+	public void setFac(int fac) {
+		this.facilityId = fac;
 	}
 
 	public int getDuration() {
@@ -53,12 +53,12 @@ public class Training {
 		this.duration = duration;
 	}
 
-	public Trainer getTrainer() {
-		return trainer;
+	public String getTrainer() {
+		return trainerUsername;
 	}
 
-	public void setTrainer(Trainer trainer) {
-		this.trainer = trainer;
+	public void setTrainer(String trainer) {
+		this.trainerUsername = trainer;
 	}
 
 	public String getDescription() {
@@ -90,32 +90,60 @@ public class Training {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Training(String name, String id, TrainingType type, Facility fac, int duration, Trainer trainer,
-			String description, String picturePath, boolean isDeleted) {
-		super();
-		this.name = name;
-		this.id = id;
-		this.type = type;
-		this.fac = fac;
-		this.duration = duration;
-		this.trainer = trainer;
-		this.description = description;
-		this.picturePath = picturePath;
-		this.isDeleted = isDeleted;
+	
+	
+	public String getTrainerUsername() {
+		return trainerUsername;
 	}
 
-	public Training(String name, String id, TrainingType type, Facility fac, int duration, String description,
-			String picturePath, boolean isDeleted) {
+	public void setTrainerUsername(String trainerUsername) {
+		this.trainerUsername = trainerUsername;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public void setFacilityId(int facilityId) {
+		this.facilityId = facilityId;
+	}
+
+	public Training(String name, int id, TrainingType type, int fac, int duration, String trainer,
+			String description, String picturePath,int price) {
 		super();
+		
 		this.name = name;
 		this.id = id;
 		this.type = type;
-		this.fac = fac;
+		this.facilityId = fac;
 		this.duration = duration;
+		this.trainerUsername = trainer;
 		this.description = description;
 		this.picturePath = picturePath;
-		this.isDeleted = isDeleted;
+		this.isDeleted = false;
 	}
+
+	public Training(Training t) {
+		this.name = t.name;
+		this.id = t.id;
+		this.type = t.type;
+		this.facilityId = t.facilityId;
+		this.duration = t.duration;
+		this.trainerUsername = t.trainerUsername;
+		this.description = t.description;
+		this.picturePath = t.picturePath;
+		this.price = t.price;
+		this.isDeleted = t.isDeleted;
+	}
+
+	public boolean isNotDeleted() {
+		return !this.isDeleted;
+	}
+	
 	
 	
 	

@@ -2,7 +2,7 @@ Vue.component("login-page", {
 	
 	data: function(){
 		return{
-			 firstName: "",
+			 username: "",
 		     password: "",
 			
 		}
@@ -23,8 +23,8 @@ Vue.component("login-page", {
 		<form id="login" class="login-form" @submit='login' method = "post">
 				<table>
 					<tr>
-						<td><label for="firstName">Korisničko ime :</label></td>
-						<td><input class="loginInput"  type="text"  v-model="firstName"  ></td>
+						<td><label for="username">Korisničko ime :</label></td>
+						<td><input class="loginInput"  type="text"  v-model="username"  ></td>
 		
 		    		</tr>
 					<tr>
@@ -34,12 +34,9 @@ Vue.component("login-page", {
 					</tr>
 					
 					<tr>
-					
-					<td colspan="2">
-					 <input  class="button-3" type="submit" value="Uloguj se">
-					</td> 
-					</tr>			
-					</table>
+				    </table>
+						 <input  class="button-3" type="submit" value="Uloguj se">
+				
 					
 		</form>
 	
@@ -67,7 +64,7 @@ Vue.component("login-page", {
 		*/	
 			
 			axios
-		    .post("rest/login/login" , {"firstName":this.firstName, "password": this.password })
+		    .post("rest/login/login" , {"username":this.username, "password": this.password })
 			.then(response=>alert(response.data))
 		/*	.catch(function(error){
 				alert('Neuspešno logovanje')
