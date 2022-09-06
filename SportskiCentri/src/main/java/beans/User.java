@@ -1,6 +1,6 @@
 package beans;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 
 public class User {
@@ -10,43 +10,32 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private Gender gender;
-	private Date birthDate;
+	protected LocalDate birthDate;
 	private boolean deleted;
 	private boolean isBanned;
 	private Role userRole;
 	
 	
 	
-	public User(String username, String password, String firstName, String lastName, Gender gender) {
-		super();
+	public User(String username, String password, String firstName, String lastName, Gender gender, LocalDate dateOfBirth, Role userRole) {
+		
+		
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.gender = gender;
-	}
-	
-	
-	
-	public User(String username, String password, String firstName, String lastName, Gender gender,
-			 Role userRole) {
-		super();
-		this.username = username;
-		this.password = password;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.gender = gender;
+		this.birthDate = dateOfBirth;
 		this.deleted = false;
 		this.isBanned = false;
 		this.userRole = userRole;
+		
 	}
-
-
-
+	
 	public User() {
-		super();
-		// TODO Auto-generated constructor stub
+		
 	}
+	
 	public String getUsername() {
 		return username;
 	}
@@ -77,12 +66,14 @@ public class User {
 	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
-	public Date getBirthDate() {
+	
+	public LocalDate getBirthDate() {
 		return birthDate;
 	}
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
 	}
+	
 	public boolean isDeleted() {
 		return deleted;
 	}
@@ -95,25 +86,13 @@ public class User {
 	public void setUserRole(Role userRole) {
 		this.userRole = userRole;
 	}
-	public User(String username, String password, String firstName, String lastName, Gender gender, Date birthDate, boolean deleted, Role userRole) {
-		super();
-		this.username = username;
-		this.password = password;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.gender = gender;
-		this.birthDate = birthDate;
-		this.userRole = userRole;
-		this.deleted = deleted;
-	}
+	
 	public boolean isBanned() {
 		return isBanned;
 	}
 	public void setBanned(boolean isBanned) {
 		this.isBanned = isBanned;
 	}
-	
-	
-	
+
 
 }

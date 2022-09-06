@@ -23,14 +23,15 @@ import dto.UserLoginDto;
 @Path("/login")
 public class loginService {
 	
-	private FacilityDao facilityDao;
-	private BuyerDao buyerDao;
+	
 	
 	@Context
 	ServletContext ctx;
 	
-	@Context
-	HttpServletRequest request;
+	FacilityDao facilityDao;
+	BuyerDao buyerDao;
+	
+	
 
 	public loginService() {
 	}
@@ -56,14 +57,14 @@ public class loginService {
 		String buyer = buyerDao.loginBuyer(user);
 		int i =buyerDao.getAll().size();
 		return buyer;
-		//return user.getFirstName();
+		
 	}
 	
-	/*
-	 * public String Login(/*String username ,String password) {
-	/*	BuyerDao buyerDao = (BuyerDao)ctx.getAttribute("buyerDao");
-		String buyer = buyerDao.loginBuyer(username,password);
-		if(buyer!="not") {return "not";}
+	
+	  public String Login(String username ,String password) {
+		BuyerDao buyerDao = (BuyerDao)ctx.getAttribute("buyerDao");
+		//String buyer = buyerDao.loginBuyer(username,password);
+		//if(buyer!="not") {return "not";}
 		
 				
 		
@@ -72,7 +73,7 @@ public class loginService {
 	}
 	 
 	
-	*/
+	
 
 }
 

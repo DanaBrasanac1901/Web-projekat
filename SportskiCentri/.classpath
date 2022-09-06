@@ -14,21 +14,15 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/gson_lib"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-annotations-2.9.0.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/aopalliance-repackaged-2.4.0-b31.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/asm-debug-all-5.0.4.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/gson-2.9.0.jar" sourcepath="src/main/webapp/WEB-INF/lib/gson-2.9.0.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/hk2-api-2.4.0-b31.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/hk2-locator-2.4.0-b31.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/hk2-utils-2.4.0-b31.jar" sourcepath="src/main/webapp/WEB-INF/lib/hk2-utils-2.4.0-b31.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-annotations-2.5.4.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-annotations-2.9.10.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-core-2.5.4.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-core-2.9.10.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-core-2.9.6.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-databind-2.5.4.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-databind-2.9.10.4.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-databind-2.9.6.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-jaxrs-base-2.5.4.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-jaxrs-json-provider-2.5.4.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-module-jaxb-annotations-2.5.4.jar"/>
@@ -60,6 +54,12 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/persistence-api-1.0.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/validation-api-1.1.0.Final.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jersey-server.jar" sourcepath="src/main/webapp/WEB-INF/lib/jersey-server.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/json-20220320.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-databind-2.5.4.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-annotations-2.5.0.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-annotations-2.9.0.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-core-2.9.6.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-core-2.5.4.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-databind-2.9.6.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jackson-annotations-2.5.4.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -16,11 +16,8 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import beans.Facility;
-import beans.FacilityStatus;
-import beans.FacilityType;
 import dao.FacilityDao;
 import dto.FacilityDto;
-import dto.UserLoginDto;
 import main.App;
 
 @Path("/facilities")
@@ -31,10 +28,6 @@ public class FacilityService {
 
 	private FacilityDao facilityDao;
 
-
-	
-	
-	
 	@PostConstruct
 	public void init() {
 		this.facilityDao = (FacilityDao) ctx.getAttribute(App.FACILITY_DAO);
@@ -43,8 +36,7 @@ public class FacilityService {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<FacilityDto> getAll() {
-		
-		
+
 		return facilityDao.getAll().stream().filter(Facility::isNotDeleted).map(f -> new FacilityDto(f))
 				.collect(Collectors.toList());
 
@@ -96,9 +88,11 @@ public class FacilityService {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public void createNew(FacilityDto facilityInfo) {
-		Facility newFacility= new Facility(facilityInfo.getName(),facilityInfo.getFacType(), null, facilityInfo.getStatus(), facilityInfo.getLocation(), facilityInfo.getLogoPath(),0.0, false, null,null, 0 );
+		Facility newFacility = new Facility(facilityInfo.getName(), facilityInfo.getFacType(), null,
+				facilityInfo.getStatus(), facilityInfo.getLocation(), facilityInfo.getLogoPath(), 0.0, false, null,
+				null, 0);
 		facilityDao.addNew(newFacility);
-		
+
 	}
 
 	/*

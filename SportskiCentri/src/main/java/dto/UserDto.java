@@ -1,6 +1,7 @@
 package dto;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 import beans.Gender;
 import beans.Role;
@@ -12,10 +13,21 @@ public class UserDto {
 	private String firstName;
 	private String lastName;
 	private Gender gender;
-	private Date birthDate;
+	private LocalDate birthDate;
 	private Role userRole;
 	
 	
+	public UserDto(String username, String password, String firstName, String lastName, Gender gender, LocalDate birthDate) {
+		
+		this.username = username;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.birthDate = birthDate;
+	}
+
+
 	public String getUsername() {
 		return username;
 	}
@@ -65,16 +77,16 @@ public class UserDto {
 		this.gender = gender;
 	}
 
-/*
-	public Date getBirthDate() {
+
+	public LocalDate getBirthDate() {
 		return birthDate;
 	}
 
 
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
 	}
-*/
+
 
 
 
@@ -88,26 +100,8 @@ public class UserDto {
 	}
 
 
-	public UserDto(String username, String password, String firstName, String lastName, Gender gender) {
-		super();
-		this.username = username;
-		this.password = password;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.gender = gender;
-	}
+	
 
 
-	public UserDto(String username, String password, String firstName, String lastName, Gender gender, Date birthDate) {
-		super();
-		this.username = username;
-		this.password = password;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.gender = gender;
-		this.birthDate = birthDate;
-	}
-	
-	
 
 }

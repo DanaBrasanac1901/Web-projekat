@@ -1,5 +1,4 @@
-/beans/
-/dto/
 /dao/
+/beans/
 /service/
-/main/
+/dto/
