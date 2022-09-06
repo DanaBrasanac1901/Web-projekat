@@ -63,7 +63,7 @@ public class FacilityService {
 	@Path("/search")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<FacilityDto> search(SearchDto search) {
-		System.out.println("////////////////////////////////////////");
+		
 		
 		 String criteria = search.getType();
 		 String content = search.getSearch();

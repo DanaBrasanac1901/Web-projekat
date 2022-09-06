@@ -1,11 +1,11 @@
 Vue.component("welcome-page", {
 	data: function () {
 		    return {
-		      type : '',
+		      type : 'ALL',
 			  name : '',
 		      facilities: null,
 		      allFacilities: null,
-		      status: ''
+		      status: 'ALL'
 		    }
 		    },
 	
@@ -44,9 +44,19 @@ Vue.component("welcome-page", {
 									
 								</select>
 							</td>
+							<td><label>Tip objekta</label><td>
+							<select v-model="type"  v-on:change="facilitieType">
+									<option value="GYM">teretana</option>
+									<option value="POOL">bazen</option>
+									<option value="SPORT_CENTER">sportski centar</option>
+									<option value="DANCING_STUDIO,">plesni studio</option>
+									<option value="DOJO">dojo</option>
+									<option value="ALL">Svi</option>
+									
+								</select>
+							</td>
 							
-						
-						</tr>
+     					</tr>
 			
 					</table>
 				</form>
@@ -96,8 +106,16 @@ Vue.component("welcome-page", {
           .then(response => {
 	     		this.facilities = response.data
 				this.allFacilities = response.data
-				
+				if(this.status!="ALL"){
+					this.statusOpen();
+				}
+				if(this.type!="ALL"){
+					this.facilitieType();
+				}
+					
+			
 				})
+		  
 		
 		
 	},
@@ -115,16 +133,51 @@ Vue.component("welcome-page", {
 			.then(response => {
 				this.facilities = response.data
 				this.allFacilities = response.data
-				if(this.status!="ALL"){
+/*				if(this.status!="ALL"){
 					this.statusOpen();
 				}
+				if(this.type!="ALL"){
+					this.facilitieType();
+				}
 				
-				
+				*/	
 				})
-							
+						
 		
 		},
-	statusOpen : function(event){
+        facilitieType : function(event){
+			
+			
+			
+		     if (event != undefined){
+				event.preventDefault();
+				}
+				if(this.type=="ALL"){
+					if (!this.isValid()) {
+						this.getAllFacilities()
+						}else{
+				     	this.search();
+						}
+					return;
+				}
+				
+			
+				let filteredFacilities = [];
+				for(fac of this.allFacilities){
+					
+					if(fac.facType==this.type){	
+						filteredFacilities.push(fac)
+					}
+									
+				
+				}
+				
+				this.facilities = filteredFacilities
+				
+				
+		
+	},
+		statusOpen : function(event){
 			
 			
 			
@@ -156,6 +209,7 @@ Vue.component("welcome-page", {
 				
 		
 	},
+
 		isValid : function() {
 			if (this.type == '') {
 				return false;
