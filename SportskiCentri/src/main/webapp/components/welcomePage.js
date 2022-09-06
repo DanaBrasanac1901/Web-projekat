@@ -5,7 +5,10 @@ Vue.component("welcome-page", {
 			  name : '',
 		      facilities: null,
 		      allFacilities: null,
-		      status: 'ALL'
+		      status: 'ALL',
+		      sortParametar: '',
+		      sortMode: 'opadajuce'
+		      
 		    }
 		    },
 	
@@ -55,7 +58,19 @@ Vue.component("welcome-page", {
 									
 								</select>
 							</td>
-							
+							<td><label>Sortiranje</label><td>
+							<select v-model="sortParametar"  v-on:change="sortFunction">
+									<option value="name">ime</option>
+									<option value="location">lokacija</option>
+									<option value="grade">ocena</option>									
+							</select>
+							</td>
+							<select v-model="sortMode"  v-on:change="sortFunction">
+									<option value="rastuce">rastuće</option>
+									<option value="opadajuce">opadajuće</option>									
+							</select>
+							</td>
+				
      					</tr>
 			
 					</table>
@@ -105,14 +120,15 @@ Vue.component("welcome-page", {
           .get('rest/facilities')
           .then(response => {
 	     		this.facilities = response.data
+				this.facilities.sort((a, b) =>b.status.localeCompare(a.status));
 				this.allFacilities = response.data
-				if(this.status!="ALL"){
+		/*		if(this.status!="ALL"){
 					this.statusOpen();
 				}
 				if(this.type!="ALL"){
 					this.facilitieType();
 				}
-					
+		*/			
 			
 				})
 		  
@@ -207,6 +223,36 @@ Vue.component("welcome-page", {
 				this.facilities = filteredFacilities
 				
 				
+		
+	},
+	sortFunction : function(event){
+		  if (event != undefined){
+				event.preventDefault();
+				}
+		 if (this.sortMode == 'rastuce'){
+                if (this.sortParametar == 'name'){
+                 	this.facilities.sort((a, b) => a.name.localeCompare(b.name));
+                }else if (this.sortParametar == 'location'){
+													
+                    this.facilities.sort((a, b) => a.location.adress.city.localeCompare(b.location.adress.city));
+                }else if (this.sortParametar == 'grade'){
+                    this.facilities.sort((a, b) => a.grade - b.grade);
+                }
+            }
+            
+         if (this.sortMode == 'opadajuce'){
+                if (this.sortParametar == 'name'){
+                 	this.facilities.sort((a, b) => b.name.localeCompare(a.name));
+                }else if (this.sortParametar == 'location'){
+													
+                    this.facilities.sort((a, b) => b.location.adress.city.localeCompare(a.location.adress.city));
+                }else if (this.sortParametar == 'grade'){
+                    this.facilities.sort((a, b) => b.grade - a.grade);
+                }
+            }
+               
+            
+            
 		
 	},
 
