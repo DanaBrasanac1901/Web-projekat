@@ -21,6 +21,8 @@ public class FacilityDao {
 	private Map<Integer, Facility> facilities = new HashMap<>();
 	private String filepath = App.path + "/repository/Facility.json";
 
+	
+
 	public FacilityDao() {
 
 	}

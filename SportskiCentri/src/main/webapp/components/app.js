@@ -3,6 +3,7 @@ const RegistrationPage = { template: '<registration-page></registration-page>' }
 const LoginPage = { template: '<login-page></login-page>' }
 const AdminHome = { template: '<admin-home></admin-home>' }
 const BuyerHome = { template: '<buyer-home></buyer-home>' }
+const FacilitieView = { template: '<facilitie-view></facilitie-view>' }
 
 
 const router = new VueRouter({
@@ -13,12 +14,18 @@ const router = new VueRouter({
 	    { path: '/login', component: LoginPage},
 	    { path: '/adminHome', component: AdminHome}, 
 	    { path: '/buyerHome', component: BuyerHome}, 
+	    { path: '/facilitieView', component: FacilitieView}, 
 	   
 	  ]
 });
 
 var app = new Vue({
 	router,
-	el: '#sportShop'
+	el: '#sportShop',
+	data: {
+		selectedFacilitie: {}
+		
+		
+	}
 });
 

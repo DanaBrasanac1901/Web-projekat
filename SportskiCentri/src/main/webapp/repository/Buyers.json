@@ -1,0 +1,116 @@
+{
+"buyer2": { 	
+		"username": "buyer2",
+		"password": "buyer2",
+		"firstName": "Aleksa",
+		"lastName": "Mijatovic",
+		"gender": "MALE",
+		"birthDate": {
+			"year": 2000,
+			"month": 1,
+			"day": 19
+					},
+		"isBanned": false,
+		"deleted": false,
+		"userRole": "BUYER",
+		"points": 0,
+		"buyerType": null,
+		"visitedFacilities": null,
+		"trainingHistory": [
+						{
+							"trainingId": 0,
+							"checkDate": "Jul 12, 2022, 1:49:24 AM",
+							"buyerId": 0,
+							"trainerId": -1
+						},
+						{
+							"trainingId": 1,
+							"date": "Jul 12, 2022, 1:49:28 AM",
+							"buyerId": 0,
+							"trainerId": 0
+						},
+						{
+							"trainingId": 2,
+							"date": "Jul 12, 2022, 1:49:31 AM",
+							"buyerId": 0,
+							"trainerId": 0
+						},
+						{
+							"trainingId": 3,
+							"date": "Jul 12, 2022, 2:11:59 AM",
+							"buyerId": 0,
+							"trainerId": 0
+						},
+						{
+							"trainingId": 4,
+							"date": "Jul 12, 2022, 2:17:16 AM",
+							"buyerId": 0,
+							"trainerId": 0
+						},
+						{
+							"trainingId": 5,
+							"date": "Jul 12, 2022, 2:35:10 AM",
+							"buyerId": 0,
+							"trainerId": -1
+						}
+							],
+		"membership": null
+		},
+"buyer": {
+		"username": "buyer",
+		"password": "buyer",
+		"firstName": "Lazar",
+		"lastName": "Mijatovic",
+		"gender": "MALE",
+		"birthDate": {
+					"year": 2000,
+					"month": 1,
+					"day": 19
+					},
+		"isBanned": false,
+		"deleted": false,
+		"userRole": "BUYER",
+		"points": 0,
+		"buyerType": null,
+		"visitedFacilities": null,
+	    "trainingHistory" : [ 
+	    		{
+	                "trainingId": 0,
+	                "date": "Jul 12, 2022, 1:49:24 AM",
+	                "buyerId": 0,
+	                "trainerId": -1
+	            },
+	            {
+	                "trainingId": 1,
+	                "date": "Jul 12, 2022, 1:49:28 AM",
+	                "buyerId": 0,
+	                "trainerId": 0
+	            },
+	            {
+	                "trainingId": 2,
+	                "date": "Jul 12, 2022, 1:49:31 AM",
+	                "buyerId": 0,
+	                "trainerId": 0
+	            },
+	            {
+	                "trainingId": 3,
+	                "date": "Jul 12, 2022, 2:11:59 AM",
+	                "buyerId": 0,
+	                "trainerId": 0
+	            },
+	            {
+	                "trainingId": 4,
+	                "date": "Jul 12, 2022, 2:17:16 AM",
+	                "buyerId": 0,
+	                "trainerId": 0
+	            },
+	            {
+	                "trainingId": 5,
+	                "date": "Jul 12, 2022, 2:35:10 AM",
+	                "buyerId": 0,
+	                "trainerId": -1
+	            }
+	          ],
+	   "membership" : null
+	 		 }
+}

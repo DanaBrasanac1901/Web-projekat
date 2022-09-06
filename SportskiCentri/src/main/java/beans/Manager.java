@@ -1,27 +1,26 @@
 package beans;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 public class Manager extends User{
-	private Facility facility;
+	private int facilityId;
 
 	public Manager() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
-	public Manager(String username, String password, String firstName, String lastName, Gender gender, Date birthDate,
-			boolean deleted, Facility facility) {
-		super(username, password, firstName, lastName, gender, birthDate, deleted, Role.MANAGER);
-		this.facility = facility;
+	public Manager(String username, String password, String firstName, String lastName, Gender gender, LocalDate birthDate, int facilityId) {
+		super(username, password, firstName, lastName, gender, birthDate, Role.MANAGER);
+		this.facilityId = facilityId;
 	}
 
-	public Facility getFacility() {
-		return facility;
+	public int getFacility() {
+		return facilityId;
 	}
 
-	public void setFacility(Facility facility) {
-		this.facility = facility;
+	public void setFacility(int facility) {
+		this.facilityId = facility;
 	}
 	
 	

@@ -1,0 +1,96 @@
+@charset "ISO-8859-1";
+
+
+
+.filterBar {
+    margin-top : 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width:80%;
+    height:100%;
+    background-color:white;
+    border: 2px solid black;
+    border-radius: 20px;
+    font-size: 20px;
+    float : center;
+  	background-color: #333;
+    color: #ffffff;
+    
+}
+
+.filterBar table {
+    margin: 10px;
+}
+
+.filterBar label {
+    font-weight : bold;
+}
+
+
+
+.filterBar input, .filterBar select{
+	font-size: 20px;
+	width : 200px;
+	height : 30px;
+	margin:  15px;
+	text-align: left;
+}
+
+
+
+.facilities th {
+    font-weight : bold;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #A7C942;
+    color: #ffffff;
+  
+}
+
+
+.facilities {
+    text-align: center;
+  
+    border-collapse: collapse;
+    margin-top : 150px;
+  	margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    font-family: 'Verdana';
+    width: 80%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	background-color: #ffffff;;
+}
+
+.facilities td, .facilities th {
+    padding: 12px 15px;
+}
+
+.facilities th {
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #333;
+  	color: #f2f2f2;
+    font-size: 25px;
+  
+}
+
+.facilities tr.alt td {
+    color: #000000;
+    background-color: #EAF2D3;
+}
+
+.facilities tr:hover {
+
+    background-color: #A7C942;
+    color: #ffffff;
+	
+	 cursor: pointer;
+}
+
+tr.selected {
+	 background-color: #aaaaaa;
+}
+
+
+

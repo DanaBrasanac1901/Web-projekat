@@ -2,7 +2,8 @@ Vue.component("login-page", {
 	
 	data: function(){
 		return{
-			user: {"username": "" , "password":""}
+			 username: "",
+		     password: "",
 			
 		}
 		
@@ -19,26 +20,23 @@ Vue.component("login-page", {
 	</div>
 	
 	<div class="loginForma">
-		<form id="login" class="login-form" @submit='login'>
+		<form id="login" class="login-form" @submit='login' method = "post">
 				<table>
 					<tr>
-						<td>Korisničko ime :</td>
-						<td><input class="loginInput" name ="userName" id ="userName" type="text"  v-model="user.username"  ></td>
+						<td><label for="username">Korisničko ime :</label></td>
+						<td><input class="loginInput"  type="text"  v-model="username"  ></td>
 		
 		    		</tr>
 					<tr>
-						<td>Lozinka :</td>
-						<td><input class="loginInput" name ="password" id ="password" type="password" v-model="user.password" ></td>
+						<td><label for="password">Lozinka :</label></td>
+						<td><input class="loginInput"  type="password" v-model="password" ></td>
 				
 					</tr>
 					
 					<tr>
-					
-					<td colspan="2">
-					 <input  class="button-3" type="submit" value="Uloguj se">
-					</td> 
-					</tr>			
-					</table>
+				    </table>
+						 <input  class="button-3" type="submit" value="Uloguj se">
+				
 					
 		</form>
 	
@@ -59,22 +57,21 @@ Vue.component("login-page", {
 			if (event != undefined){
 				event.preventDefault();
 			}
-			if (!this.isValidToLogIn()) {
+	/*		if (!this.isValidToLogIn()) {
 				alert('Niste popunili sva polja za prijavu');
 				return;
 			}
+		*/	
 			
 			axios
-			.post("rest/login", {username: this.user.username , password: this.user.password })
-			.then(response => {
-				router.push('/buyerHome');
-			})
-			.catch(function(error){
+		    .post("rest/login/login" , {"username":this.username, "password": this.password })
+			.then(response=>alert(response.data))
+		/*	.catch(function(error){
 				alert('Neuspešno logovanje')
-			})
+			})*/
 		},
 		
-			isValidToLogIn : function() {
+	/*		isValidToLogIn : function() {
 			if (this.user.username == '') {
 				return false;
 			}
@@ -84,7 +81,7 @@ Vue.component("login-page", {
 
 			return true;
 		}
-		
+		*/
 		
 	}
 	

@@ -33,7 +33,7 @@ public class Adress {
 	}
 	public Adress() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 	public Adress(String street, String streetNumber, String city, String postalCode) {
 		super();
