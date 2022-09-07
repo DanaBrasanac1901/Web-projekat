@@ -91,6 +91,10 @@ Vue.component("login-page", {
 				}else if(response.data=="wrong password"){
 					alert("Pogresili ste sifru.")
 					this.password = "";					
+				}else if(response.data=="not"){
+					alert("Korisničko ime je nepostojeće.")
+					this.username = "";
+					this.password = "";					
 				}
 			
 			

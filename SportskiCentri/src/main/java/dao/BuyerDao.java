@@ -94,6 +94,21 @@ public class BuyerDao {
 	}
 	
 	
+	public String RegisterNew(Buyer newBuyer) {
+		loadFile();
+		if(buyers.containsKey(newBuyer.getUsername())) {
+	
+			return "ima";
+
+		}
+		buyers.put(newBuyer.getUsername(), newBuyer);
+		updateFile();
+		
+		return "uspesno";
+	}
+	
+	
+	
 
 	public String loginBuyer(UserLoginDto user) {
 

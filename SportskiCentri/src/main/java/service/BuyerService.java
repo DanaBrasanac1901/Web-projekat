@@ -1,5 +1,8 @@
 package service;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,6 +18,7 @@ import javax.ws.rs.core.MediaType;
 
 import beans.Buyer;
 import dao.BuyerDao;
+import dto.RegisterUserDto;
 import dto.UserDto;
 import main.App;
 
@@ -67,5 +71,19 @@ public class BuyerService {
 		buyerDao.addNew(newBuyer);
 
 	}
+	
+	@POST
+	@Path("/register")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_PLAIN)
+	public String RegisterNew(RegisterUserDto userInfo) {
+
+		Buyer newBuyer = new Buyer(userInfo.getUsername(), userInfo.getPassword(), userInfo.getFirstName(),
+		userInfo.getLastName(), userInfo.getGender(), userInfo.getBirthDate().toLocalDate());
+		return buyerDao.RegisterNew(newBuyer);
+
+	}
+	
+	
 
 }

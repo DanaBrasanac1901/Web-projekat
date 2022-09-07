@@ -7,7 +7,7 @@ Vue.component("registration-page", {
 	        firstName: "",
 	        lastName: "",
 	        gender: "",
-	        birthDate : ""
+	        birthDate : null
 		     
 			
 		}
@@ -19,8 +19,8 @@ Vue.component("registration-page", {
 <div>
 	<div class="topnav">
  	 	<a  style="float: left; "href="#/">Početna strana</a>
- 	 	<a   class="active" href="#/registration">Registruj se</a>
- 	 	<a   href="#/login" href="#/login">Uloguj se</a>
+ 	 	<a   class="active" >Registruj se</a>
+ 	 	<a    href="#/login">Uloguj se</a>
  	 
 	</div>
 	
@@ -83,23 +83,47 @@ Vue.component("registration-page", {
 			if (event != undefined){
 				event.preventDefault();
 			}
-	/*		if (!this.isValidToLogIn()) {
+			
+			
+			
+			if (!this.isValidToRegister()) {
 				alert('Niste popunili sva polja za prijavu');
 				return;
 			}
-		*/	
-			alert(this.birthDate)
-		/*	axios
-		    .post("rest/login/login" , {"username" : this.username,
+			
+			
+			axios
+		    .post("rest/buyers/register" , {"username" : this.username,
             "password": this.password,
 	         "firstName" : this.firstName,
 	         "lastName" : this.lastName,
-	         "gender" : gender,
-	         " birthDate"  : this.birthDate})
-			.then(response=>alert(response.data))
-		/*	.catch(function(error){
-				alert('Neuspešno logovanje')
-			})*/
+	         "gender" : this.gender,
+	         "birthDate"  : this.birthDate})
+			.then(response=>{
+			if(response.data  == "uspesno"){
+				alert("Uspesno ste se ulogovali.")
+				this.username = "",
+            	this.password = "",
+	        	this.firstName = "",
+	       		this.lastName = "",
+	        	this.gender = "",
+	        	this.birthDate = null
+				
+			}else if(response.data == "ima"){
+				alert("Korisničko ime koje ste uneli već postoji.")
+				this.username = ""
+				
+			}
+			
+			})
+			
+		
+			.catch(function(error){
+				alert('Neuspešno registrovanje!')
+	
+			})
+			
+			
 		},
 		
 			isValidToRegister : function() {
