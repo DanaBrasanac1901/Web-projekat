@@ -2,7 +2,11 @@
 	"1":{
 		"name": "Sportska hala 1",
 		"facType": "GYM",
-		"facContents": null,
+		"facContents":[
+							1,
+							2,
+							3
+						],
 		"facStatus": "OPEN",
 		"location": {"adress":{	"street":"Strazilovska",
 								"streetNumber":"66",
@@ -20,7 +24,10 @@
 	"2":{
 		"name": "Sportska hala 2",
 		"facType": "POOL",
-		"facContents": null,
+		"facContents":[
+						4,
+						5
+					],
 		"facStatus": "OPEN",
 		"location": {"adress":{	"street":"Kisacka",
 								"streetNumber":"10",
@@ -39,7 +46,10 @@
 		
 		"name": "Sportska hala 3",
 		"facType": "DOJO",
-		"facContents": null,
+		"facContents":[
+							6,
+							7
+						],
 		"facStatus": "OPEN",
 		"location": {"adress":{	"street":"Pasterova",
 								"streetNumber":"14",

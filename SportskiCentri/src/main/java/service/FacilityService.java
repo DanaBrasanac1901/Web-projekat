@@ -17,6 +17,7 @@ import javax.ws.rs.core.MediaType;
 import beans.Facility;
 import beans.Training;
 import dao.FacilityDao;
+import dao.TrainingDao;
 import dto.FacilityDto;
 
 import dto.SearchDto;
@@ -29,10 +30,12 @@ public class FacilityService {
 	private ServletContext ctx;
 
 	private FacilityDao facilityDao;
+	private TrainingDao trainingDao;
 
 	@PostConstruct
 	public void init() {
 		this.facilityDao = (FacilityDao) ctx.getAttribute(App.FACILITY_DAO);
+		this.trainingDao = (TrainingDao) ctx.getAttribute(App.TRAINING_DAO);
 	}
 
 	@GET
@@ -118,22 +121,24 @@ public class FacilityService {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public void addNewContent(@PathParam("id") int id, Training newTraining) {
+
 		List<Training> trainingList = new ArrayList<Training>();
 		Facility facility = facilityDao.getById(id);
-		if (facility.getFacContents() == null) {
-			trainingList.add(newTraining);
-			facility.setFacContents(trainingList);
-		} else {
-			trainingList = facility.getFacContents();
-			if (!trainingList.stream().anyMatch(t -> t.getName().equals(t.getName()))) {
-				trainingList.add(newTraining);
-			}
-
+		trainingList = trainingDao.getByFacilityId(id);
+		if (!trainingList.stream().anyMatch(t -> t.getName().equals(newTraining.getName()))) {
+			int trainingId = makeNewTrainingId();
+			newTraining.setId(trainingId);
+			List<Integer> newFacilityList = facility.getFacContents();
+			newFacilityList.add(trainingId);
+			facility.setFacContents(newFacilityList);
+			trainingDao.addNewTraining(newTraining);
 		}
 
 	}
 	
-	
-	
-	
+	public int makeNewTrainingId() {
+		
+		return (trainingDao.getAll().size()+1);
+	}
+
 }
