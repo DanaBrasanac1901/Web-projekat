@@ -78,7 +78,7 @@ public class FacilityDao {
 
 	}
 
-	private int makeNewKey() {
+	public int makeNewKey() {
 		return (facilities.size() + 1);
 	}
 

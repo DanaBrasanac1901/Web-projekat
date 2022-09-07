@@ -20,7 +20,7 @@ Vue.component("login-page", {
 	</div>
 	
 	<div class="loginForma">
-		<form id="login" class="login-form" @submit='login' method = "post">
+		<form  id="login" class="login-form" @submit='login' method = "post">
 				<table>
 					<tr>
 						<td><label for="username">Korisničko ime :</label></td>

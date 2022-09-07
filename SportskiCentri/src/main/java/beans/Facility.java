@@ -99,8 +99,7 @@ public class Facility {
 	
 	
 	public Facility(String name, FacilityType facType, 
-			Location location, String logoPath,  String start, String end,
-			int id) {
+			Location location, String logoPath) {
 		this.name = name;
 		this.facType = facType;
 		this.facStatus = facStatus;

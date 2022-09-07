@@ -14,5 +14,133 @@
     "deleted": false,
     "isBanned": false,
     "userRole": "MANAGER"
+  },
+  "manager2": {
+    "facilityId": 5,
+    "username": "manager2",
+    "password": "manager2",
+    "firstName": "Saban",
+    "lastName": "Saulic",
+    "gender": "MALE",
+    "birthDate": {
+      "year": 2001,
+      "month": 10,
+      "day": 11
+    },
+    "deleted": false,
+    "isBanned": false,
+    "userRole": "MANAGER"
+  },
+  "manager3": {
+    "facilityId": 7,
+    "username": "manager3",
+    "password": "manager3",
+    "firstName": "Milos",
+    "lastName": "Milakovic",
+    "gender": "MALE",
+    "birthDate": {
+      "year": 2022,
+      "month": 9,
+      "day": 7
+    },
+    "deleted": false,
+    "isBanned": false,
+    "userRole": "MANAGER"
+  },
+  "manager4": {
+    "facilityId": 7,
+    "username": "manager4",
+    "password": "manager4",
+    "firstName": "Milutin",
+    "lastName": "Ostojic",
+    "gender": "MALE",
+    "birthDate": {
+      "year": 1988,
+      "month": 1,
+      "day": 7
+    },
+    "deleted": false,
+    "isBanned": false,
+    "userRole": "MANAGER"
+  },
+  "manager5": {
+    "facilityId": 9,
+    "username": "manager5",
+    "password": "manager5",
+    "firstName": "Jovan",
+    "lastName": "Cvijic",
+    "gender": "MALE",
+    "birthDate": {
+      "year": 2009,
+      "month": 1,
+      "day": 7
+    },
+    "deleted": false,
+    "isBanned": false,
+    "userRole": "MANAGER"
+  },
+  "manager6": {
+    "facilityId": 9,
+    "username": "manager6",
+    "password": "manager6",
+    "firstName": "Lazar",
+    "lastName": "Mijatovic",
+    "gender": "MALE",
+    "birthDate": {
+      "year": 2004,
+      "month": 1,
+      "day": 7
+    },
+    "deleted": false,
+    "isBanned": false,
+    "userRole": "MANAGER"
+  },
+  "manager7": {
+    "facilityId": 10,
+    "username": "manager7",
+    "password": "manager7",
+    "firstName": "Mihaela",
+    "lastName": "Osmajic",
+    "gender": "FEMALE",
+    "birthDate": {
+      "year": 1993,
+      "month": 2,
+      "day": 7
+    },
+    "deleted": false,
+    "isBanned": false,
+    "userRole": "MANAGER"
+  },
+  "manager8": {
+    "facilityId": 12,
+    "username": "manager8",
+    "password": "manager8",
+    "firstName": "Dusko",
+    "lastName": "Simba",
+    "gender": "MALE",
+    "birthDate": {
+      "year": 2002,
+      "month": 7,
+      "day": 7
+    },
+    "deleted": false,
+    "isBanned": false,
+    "userRole": "MANAGER"
+  },
+  "manager9": {
+    "facilityId": 12,
+    "username": "manager9",
+    "password": "manager9",
+    "firstName": "Milutin",
+    "lastName": "Kalabic",
+    "gender": "MALE",
+    "birthDate": {
+      "year": 2022,
+      "month": 8,
+      "day": 2
+    },
+    "deleted": false,
+    "isBanned": false,
+    "userRole": "MANAGER"
   }
 }

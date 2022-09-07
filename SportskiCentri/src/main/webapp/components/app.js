@@ -6,6 +6,7 @@ const BuyerHome = { template: '<buyer-home></buyer-home>' }
 const TrainerHome = { template: '<trainer-home></trainer-home>' }
 const ManagerHome = { template: '<manager-home></manager-home>' }
 const FacilitieView = { template: '<facilitie-view></facilitie-view>' }
+const NewManager = { template: '<new-manager></new-manager>' }
 
 
 const router = new VueRouter({
@@ -19,6 +20,7 @@ const router = new VueRouter({
 	    { path: '/trainerHome', component: TrainerHome}, 
 	    { path: '/managerHome', component: ManagerHome}, 
 	    { path: '/facilitieView', component: FacilitieView}, 
+	    { path: '/newManager', component: NewManager} 
 	   
 	  ]
 });

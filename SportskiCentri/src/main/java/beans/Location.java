@@ -36,6 +36,13 @@ public class Location {
 	}
 	
 	
+	public Location(Adress adress) {
+		super();
+		this.adress = adress;
+		
+	}
+	
+	
 	
 	
 

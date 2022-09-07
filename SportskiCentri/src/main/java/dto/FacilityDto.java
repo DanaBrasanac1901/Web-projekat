@@ -62,7 +62,9 @@ public class FacilityDto {
 		this.end = end;
 		this.status = status;
 	}
-
+	
+	
+	
 	public String getName() {
 		return name;
 	}

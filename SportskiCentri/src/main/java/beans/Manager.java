@@ -15,6 +15,12 @@ public class Manager extends User{
 		this.facilityId = facilityId;
 	}
 
+	public Manager(String username, String password, String firstName, String lastName, Gender gender, LocalDate birthDate) {
+		super(username, password, firstName, lastName, gender, birthDate, Role.MANAGER);
+		this.facilityId = 0;
+	}
+
+
 	public int getFacility() {
 		return facilityId;
 	}
@@ -22,6 +28,8 @@ public class Manager extends User{
 	public void setFacility(int facility) {
 		this.facilityId = facility;
 	}
+	
+	
 	
 	
 	

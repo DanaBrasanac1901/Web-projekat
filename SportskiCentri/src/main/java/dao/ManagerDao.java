@@ -101,9 +101,9 @@ public class ManagerDao {
 
 		loadFile();
 
-		// managers.put("manager", new
-		// Manager("manager","manager","Nikola","Tesla",Gender.MALE,LocalDate.of(2000,
-		// 9, 11),1));
+//		 managers.put("manager", new
+//		 Manager("manager","manager","Nikola","Tesla",Gender.MALE,LocalDate.of(2000,
+//		 9, 11)));
 		// updateFile();
 		if (managers.containsKey(username)) {
 
@@ -122,5 +122,26 @@ public class ManagerDao {
 		return "not";
 
 	}
+	
+	public void SetFacility(int id ,String username) {
+	 loadFile();
+	 managers.get(username).setFacility(id);
+	 updateFile();		
+	}
+	
+	
+	public String RegisterNew(Manager newManager) {
+		loadFile();
+		if(managers.containsKey(newManager.getUsername())) {
+	
+			return "ima";
+
+		}
+		managers.put(newManager.getUsername(), newManager);
+		updateFile();
+		
+		return "uspesno";
+	}
+	
 
 }

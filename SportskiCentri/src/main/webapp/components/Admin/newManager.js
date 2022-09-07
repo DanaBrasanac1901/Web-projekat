@@ -1,4 +1,4 @@
-Vue.component("registration-page", {
+Vue.component("new-manager", {
 	
 	data: function(){
 		return{
@@ -17,12 +17,7 @@ Vue.component("registration-page", {
 	
 	template: ` 
 <div>
-	<div class="topnav">
- 	 	<a  style="float: left; "href="#/">Početna strana</a>
- 	 	<a   class="active" >Registruj se</a>
- 	 	<a    href="#/login">Uloguj se</a>
- 	 
-	</div>
+	
 	
 	<div class="loginForma">
 		<form id="login"  class="login-form" @submit='register' method = "post">
@@ -43,7 +38,7 @@ Vue.component("registration-page", {
 		
 		    		</tr>
 					<tr>
-						<td><label for="lastName">Prezime :</label></td>
+						<td><label for="lastName">Prezime  :</label></td>
 						<td><input class="loginInput"  type="text"  v-model="lastName"  ></td>
 					<tr>
 						<td><label for="gender">Pol :</label></td>
@@ -61,7 +56,7 @@ Vue.component("registration-page", {
 					</tr>
 								
 				    </table>
-						 <input  class="button-3" type="submit" value="Registruj se">
+						 <input  class="button-3" type="submit" value="Dodaj">
 				
 					
 		</form>
@@ -93,7 +88,7 @@ Vue.component("registration-page", {
 			
 			
 			axios
-		    .post("rest/buyers/register" , {"username" : this.username,
+		    .post("rest/managers/register" , {"username" : this.username,
             "password": this.password,
 	         "firstName" : this.firstName,
 	         "lastName" : this.lastName,
@@ -101,13 +96,14 @@ Vue.component("registration-page", {
 	         "birthDate"  : this.birthDate})
 			.then(response=>{
 			if(response.data  == "uspesno"){
-				alert("Uspesno ste se ulogovali.")
+				alert("Uspesno ste dodali novog menadžera.")
 				this.username = "",
             	this.password = "",
 	        	this.firstName = "",
 	       		this.lastName = "",
 	        	this.gender = "",
 	        	this.birthDate = null
+	        	router.push("/adminHome");
 				
 			}else if(response.data == "ima"){
 				alert("Korisničko ime koje ste uneli već postoji.")

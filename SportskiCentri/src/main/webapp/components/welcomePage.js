@@ -113,7 +113,7 @@ Vue.component("welcome-page", {
 </div>
 `
 	, mounted(){
-		axios
+		
 		
  		this.getAllFacilities();
 		
