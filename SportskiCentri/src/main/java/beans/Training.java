@@ -1,18 +1,63 @@
 package beans;
 
 public class Training {
-	
+
 	private String name;
 	private int id;
 	private TrainingType type;
 	private int facilityId;
 	private int duration;
-	private  String trainerUsername;
+	private String trainerUsername;
 	private String description;
 	private String picturePath;
-	private int price;
+	//private int price;
 	private boolean isDeleted;
+	
+	
+	public Training() {
+		
+		
+	}
 
+	public Training(String name, int id, TrainingType type, int fac, int duration, String trainer, String description,
+			String picturePath) {
+		super();
+
+		this.name = name;
+		this.id = id;
+		this.type = type;
+		this.facilityId = fac;
+		this.duration = duration;
+		this.trainerUsername = trainer;
+		this.description = description;
+		this.picturePath = picturePath;
+		this.isDeleted = false;
+	}
+	
+	public Training(String name, int id, TrainingType type, int fac, String trainer, String picturePath) {
+		super();
+
+		this.name = name;
+		this.id = id;
+		this.type = type;
+		this.facilityId = fac;
+		this.trainerUsername = trainer;
+		this.picturePath = picturePath;
+		this.isDeleted = false;
+	}
+
+	public Training(Training t) {
+		this.name = t.name;
+		this.id = t.id;
+		this.type = t.type;
+		this.facilityId = t.facilityId;
+		this.duration = t.duration;
+		this.trainerUsername = t.trainerUsername;
+		this.description = t.description;
+		this.picturePath = t.picturePath;
+		this.isDeleted = t.isDeleted;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -85,13 +130,6 @@ public class Training {
 		this.isDeleted = isDeleted;
 	}
 
-	public Training() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	
-	
 	public String getTrainerUsername() {
 		return trainerUsername;
 	}
@@ -100,53 +138,12 @@ public class Training {
 		this.trainerUsername = trainerUsername;
 	}
 
-	public int getPrice() {
-		return price;
-	}
-
-	public void setPrice(int price) {
-		this.price = price;
-	}
-
 	public void setFacilityId(int facilityId) {
 		this.facilityId = facilityId;
-	}
-
-	public Training(String name, int id, TrainingType type, int fac, int duration, String trainer,
-			String description, String picturePath,int price) {
-		super();
-		
-		this.name = name;
-		this.id = id;
-		this.type = type;
-		this.facilityId = fac;
-		this.duration = duration;
-		this.trainerUsername = trainer;
-		this.description = description;
-		this.picturePath = picturePath;
-		this.isDeleted = false;
-	}
-
-	public Training(Training t) {
-		this.name = t.name;
-		this.id = t.id;
-		this.type = t.type;
-		this.facilityId = t.facilityId;
-		this.duration = t.duration;
-		this.trainerUsername = t.trainerUsername;
-		this.description = t.description;
-		this.picturePath = t.picturePath;
-		this.price = t.price;
-		this.isDeleted = t.isDeleted;
 	}
 
 	public boolean isNotDeleted() {
 		return !this.isDeleted;
 	}
-	
-	
-	
-	
-	
 
 }

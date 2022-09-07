@@ -48,6 +48,21 @@ public class FacilityDto {
 		this.id = id;
 	}
 
+
+
+	public FacilityDto(String name, FacilityType facType, Location location, String logoPath, double grade,
+			String start, String end, FacilityStatus status) {
+
+		this.name = name;
+		this.facType = facType;
+		this.location = location;
+		this.logoPath = logoPath;
+		this.grade = grade;
+		this.start = start;
+		this.end = end;
+		this.status = status;
+	}
+
 	public String getName() {
 		return name;
 	}

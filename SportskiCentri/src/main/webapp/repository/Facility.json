@@ -21,7 +21,7 @@
 		"name": "Sportska hala 2",
 		"facType": "POOL",
 		"facContents": null,
-		"facStatus": "CLOSED",
+		"facStatus": "OPEN",
 		"location": {"adress":{	"street":"Kisacka",
 								"streetNumber":"10",
 								"city":"Zrenjanin",

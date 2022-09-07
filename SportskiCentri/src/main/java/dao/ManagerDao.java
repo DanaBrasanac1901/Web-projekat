@@ -93,40 +93,34 @@ public class ManagerDao {
 		managers.put(newManager.getUsername(), newManager);
 		updateFile();
 	}
-	
-	
 
 	public String loginManager(UserLoginDto user) {
 
 		String username = user.getUsername();
 		String password = user.getPassword();
-		
-		loadFile();
-		
-  //     managers.put("manager", new Manager("manager","manager","Nikola","Tesla",Gender.MALE,LocalDate.of(2000, 9, 11),1));
-	//	updateFile();
-			if (managers.containsKey(username)) {
 
-				if (managers.get(username).isBanned()) {
-					return "banned";
-				} else if (managers.get(username).isDeleted()) {
-					return "deleted";
-				}else  if (password.equals(managers.get(username).getPassword())) {
-					logManager = managers.get(username);
-					return "manager";
-				} else {
-					return "wrong password";
-				}
-				
-				
+		loadFile();
+
+		// managers.put("manager", new
+		// Manager("manager","manager","Nikola","Tesla",Gender.MALE,LocalDate.of(2000,
+		// 9, 11),1));
+		// updateFile();
+		if (managers.containsKey(username)) {
+
+			if (managers.get(username).isBanned()) {
+				return "banned";
+			} else if (managers.get(username).isDeleted()) {
+				return "deleted";
+			} else if (password.equals(managers.get(username).getPassword())) {
+				logManager = managers.get(username);
+				return "manager";
+			} else {
+				return "wrong password";
 			}
-		  return "not";
-		
+
+		}
+		return "not";
+
 	}
 
-
 }
-	
-	
-	
-

@@ -1,3 +1,13 @@
 /dao/
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+/dto/
+/main/
+/service/
+>>>>>>> logovanje
+=======
 /service/
 /main/
+>>>>>>> logovanje
+/beans/
