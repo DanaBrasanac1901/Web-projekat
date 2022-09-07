@@ -95,6 +95,24 @@ public class Facility {
 		this.end = end;
 		this.id = id;
 	}
+	
+	
+	
+	public Facility(String name, FacilityType facType, 
+			Location location, String logoPath,  String start, String end,
+			int id) {
+		this.name = name;
+		this.facType = facType;
+		this.facStatus = facStatus;
+		this.location = location;
+		this.logoPath = logoPath;
+		this.deleted = false;
+		this.start =  "07:00";
+		this.end = "20:00";
+		this.facStatus = FacilityStatus.OPEN;
+		this.id = id;
+	}
+	
 	public int getId() {
 		return id;
 	}
