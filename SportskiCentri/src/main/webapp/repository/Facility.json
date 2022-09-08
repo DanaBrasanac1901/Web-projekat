@@ -2,9 +2,11 @@
   "1": {
     "name": "Sportska hala 1",
     "facType": "GYM",
-    "facContents":[1,
-    2,
-    3],
+    "facContents": [
+      1,
+      2,
+      3
+    ],
     "facStatus": "OPEN",
     "location": {
       "adress": {
@@ -26,8 +28,10 @@
   "2": {
     "name": "Sportska hala 2",
     "facType": "POOL",
-    "facContents":[4,
-    5],
+    "facContents": [
+      4,
+      5
+    ],
     "facStatus": "OPEN",
     "location": {
       "adress": {
@@ -49,8 +53,10 @@
   "3": {
     "name": "Sportska hala 3",
     "facType": "DOJO",
-    "facContents":[6,
-    7],
+    "facContents": [
+      6,
+      7
+    ],
     "facStatus": "OPEN",
     "location": {
       "adress": {
@@ -72,7 +78,6 @@
   "4": {
     "name": "Bazen na klisi",
     "facType": "POOL",
-     "facContents": null,
     "facStatus": "OPEN",
     "location": {
       "adress": {
@@ -94,7 +99,6 @@
   "5": {
     "name": "Bazen na spensu",
     "facType": "POOL",
-    "facContents": null,
     "facStatus": "OPEN",
     "location": {
       "adress": {
@@ -116,7 +120,6 @@
   "6": {
     "name": "FitGym",
     "facType": "GYM",
-    "facContents": null,
     "facStatus": "OPEN",
     "location": {
       "adress": {
@@ -138,7 +141,6 @@
   "7": {
     "name": "Judo klub slavija",
     "facType": "DOJO",
-    "facContents": null,
     "facStatus": "OPEN",
     "location": {
       "adress": {
@@ -160,7 +162,6 @@
   "8": {
     "name": "Karate klub",
     "facType": "DOJO",
-    "facContents": null,
     "facStatus": "OPEN",
     "location": {
       "adress": {
@@ -182,7 +183,6 @@
   "9": {
     "name": "Sportiski centar Jovic",
     "facType": "SPORT_CENTER",
-    "facContents": null,
     "facStatus": "OPEN",
     "location": {
       "adress": {
@@ -204,7 +204,6 @@
   "10": {
     "name": "Aekido klub Zoran",
     "facType": "DOJO",
-    "facContents": null,
     "facStatus": "OPEN",
     "location": {
       "adress": {
@@ -224,47 +223,24 @@
     "id": 10
   },
   "11": {
-    "name": "Brazilian Jijitsu",
-    "facType": "DOJO",
-    "facContents": null,
+    "name": "Proba",
+    "facType": "GYM",
     "facStatus": "OPEN",
     "location": {
       "adress": {
-        "street": "Sutjeska",
-        "streetNumber": "2",
-        "city": "Novi Sad",
-        "postalCode": "2100"
+        "street": "Proba",
+        "streetNumber": "Proba",
+        "city": "Proba",
+        "postalCode": "Proba"
       },
       "width": 0.0,
       "length": 0.0
     },
-    "logoPath": "images\\BarnetZija.jpg",
+    "logoPath": "images\\BarneyMali.jpg",
     "grade": 0.0,
     "deleted": false,
     "start": "07:00",
     "end": "20:00",
     "id": 11
-  },
-  "12": {
-    "name": "Teretaba Jambo",
-    "facType": "GYM",
-    "facContents": null,
-    "facStatus": "OPEN",
-    "location": {
-      "adress": {
-        "street": "Zarka Zrenjanina",
-        "streetNumber": "51",
-        "city": "Novi Sad",
-        "postalCode": "21000"
-      },
-      "width": 0.0,
-      "length": 0.0
-    },
-    "logoPath": "images\\BarnetSpavaNaTravi.jpg",
-    "grade": 0.0,
-    "deleted": false,
-    "start": "07:00",
-    "end": "20:00",
-    "id": 12
   }
 }

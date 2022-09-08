@@ -14,7 +14,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
+import beans.Adress;
 import beans.Facility;
+import beans.Location;
 import beans.Training;
 import dao.FacilityDao;
 import dao.TrainingDao;
@@ -111,9 +113,9 @@ public class FacilityService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public void createNewFacility(CreateNewFacilityDto facilityInfo) {
 
-	//	Facility newFacility = new Facility(facilityInfo.getName(), facilityInfo.getFacilityType(),  new Location(new Adress(facilityInfo.getStreet(),facilityInfo.getStreetNumber(), facilityInfo.getCity(),facilityInfo.getPostalCode()))
-		//		, facilityInfo.getLogoPath());
-		//facilityDao.addNew(newFacility);
+		Facility newFacility = new Facility(facilityInfo.getName(), facilityInfo.getFacilityType(),  new Location(new Adress(facilityInfo.getStreet(),facilityInfo.getStreetNumber(), facilityInfo.getCity(),facilityInfo.getPostalCode()))
+		, facilityInfo.getLogoPath());
+		facilityDao.addNew(newFacility);
 
 	}
 

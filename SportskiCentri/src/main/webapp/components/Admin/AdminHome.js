@@ -36,7 +36,7 @@ Vue.component("admin-home", {
 		
 		    		</tr>
 					<tr>
-						<td><label for="facilityType">Tp objekta :</label></td>
+						<td><label for="facilityType">Tip objekta :</label></td>
 						<td><select v-model="facilityType" class="loginInput" >
 									<option value="GYM">teretana</option>
 									<option value="POOL">bazen</option>
@@ -53,7 +53,7 @@ Vue.component("admin-home", {
 		    		</tr>
 		    							
 					<tr>
-						<td><label for="streetNumber">Broj kuće :</label></td>
+						<td><label for="streetNumber">Broj u ulici :</label></td>
 						<td><input class="loginInput"  type="text"  v-model="streetNumber"  ></td>
 						
 		    		</tr>
@@ -102,6 +102,7 @@ Vue.component("admin-home", {
 	
 	methods: {
 		managersLoad : function(){
+			alert("Pametan si")
 		axios
 			.get('rest/managers/free')
 			.then(response=>{
@@ -166,16 +167,25 @@ Vue.component("admin-home", {
 	        this.logoPath  = "";
 	        this.managers = null;
 	        this.selectedManager = ""
-			if(this.managers == null ){
-				document.getElementById('but').style.display ="body"
+	        
+			if(this.managers != null){
+			if(this.managers.length < 0 ){
+				
+				document.getElementById('but').style.display ="block"
 				document.getElementById('man').style.display ="none"
+			
 				 
 			}else{
 				
-			  document.getElementById('man').style.display ="body"
+			  document.getElementById('man').style.display ="block"
 			  document.getElementById('but').style.display ="none"
 				 
-			}		
+			}}else{
+				document.getElementById('but').style.display ="block"
+				document.getElementById('man').style.display ="none"
+				
+				
+			}	
 			alert("Uspešno ste dodali novi objekat.")
 			
 			

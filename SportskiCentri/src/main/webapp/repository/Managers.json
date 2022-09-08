@@ -112,32 +112,16 @@
     "userRole": "MANAGER"
   },
   "manager8": {
-    "facilityId": 12,
+    "facilityId": 11,
     "username": "manager8",
     "password": "manager8",
-    "firstName": "Dusko",
-    "lastName": "Simba",
+    "firstName": "Petar",
+    "lastName": "Petrovic",
     "gender": "MALE",
     "birthDate": {
-      "year": 2002,
-      "month": 7,
-      "day": 7
-    },
-    "deleted": false,
-    "isBanned": false,
-    "userRole": "MANAGER"
-  },
-  "manager9": {
-    "facilityId": 12,
-    "username": "manager9",
-    "password": "manager9",
-    "firstName": "Milutin",
-    "lastName": "Kalabic",
-    "gender": "MALE",
-    "birthDate": {
-      "year": 2022,
-      "month": 8,
-      "day": 2
+      "year": 2020,
+      "month": 2,
+      "day": 8
     },
     "deleted": false,
     "isBanned": false,
