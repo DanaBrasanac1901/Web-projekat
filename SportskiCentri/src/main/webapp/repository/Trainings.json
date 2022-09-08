@@ -61,7 +61,7 @@
   },
   "6": {
     "name": "Judo",
-    "id": 5,
+    "id": 6,
     "type": "PERSONAL",
     "facilityId": 3,
     "duration": 60,
@@ -73,7 +73,7 @@
   },
   "7": {
     "name": "Karate",
-    "id": 5,
+    "id": 7,
     "type": "GROUP",
     "facilityId": 3,
     "duration": 60,

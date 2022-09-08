@@ -6,7 +6,7 @@ public class Facility {
 	
 	private String name;
 	private FacilityType facType;
-	private  List<Training> facContents;
+	private  List<Integer> facContents;
 	private FacilityStatus facStatus;
 	private Location location;
 	private String logoPath;
@@ -29,10 +29,10 @@ public class Facility {
 	public void setFacType(FacilityType facType) {
 		this.facType = facType;
 	}
-	public List<Training> getFacContents() {
+	public List<Integer> getFacContents() {
 		return facContents;
 	}
-	public void setFacContents(List<Training> facContents) {
+	public void setFacContents(List<Integer> facContents) {
 		this.facContents = facContents;
 	}
 	public FacilityStatus getFacStatus() {
@@ -80,7 +80,7 @@ public class Facility {
 	public Facility() {
 
 	}
-	public Facility(String name, FacilityType facType, List<Training> facContents, FacilityStatus facStatus,
+	public Facility(String name, FacilityType facType, List<Integer> facContents, FacilityStatus facStatus,
 			Location location, String logoPath, double grade, boolean deleted, String start, String end,
 			int id) {
 		this.name = name;
@@ -102,14 +102,13 @@ public class Facility {
 			Location location, String logoPath) {
 		this.name = name;
 		this.facType = facType;
-		this.facStatus = facStatus;
 		this.location = location;
 		this.logoPath = logoPath;
 		this.deleted = false;
 		this.start =  "07:00";
 		this.end = "20:00";
 		this.facStatus = FacilityStatus.OPEN;
-		this.id = id;
+	
 	}
 	
 	public int getId() {

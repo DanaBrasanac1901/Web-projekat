@@ -2,6 +2,9 @@
   "1": {
     "name": "Sportska hala 1",
     "facType": "GYM",
+    "facContents":[1,
+    2,
+    3],
     "facStatus": "OPEN",
     "location": {
       "adress": {
@@ -23,6 +26,8 @@
   "2": {
     "name": "Sportska hala 2",
     "facType": "POOL",
+    "facContents":[4,
+    5],
     "facStatus": "OPEN",
     "location": {
       "adress": {
@@ -44,6 +49,8 @@
   "3": {
     "name": "Sportska hala 3",
     "facType": "DOJO",
+    "facContents":[6,
+    7],
     "facStatus": "OPEN",
     "location": {
       "adress": {
@@ -65,6 +72,7 @@
   "4": {
     "name": "Bazen na klisi",
     "facType": "POOL",
+     "facContents": null,
     "facStatus": "OPEN",
     "location": {
       "adress": {
@@ -86,6 +94,7 @@
   "5": {
     "name": "Bazen na spensu",
     "facType": "POOL",
+    "facContents": null,
     "facStatus": "OPEN",
     "location": {
       "adress": {
@@ -107,6 +116,7 @@
   "6": {
     "name": "FitGym",
     "facType": "GYM",
+    "facContents": null,
     "facStatus": "OPEN",
     "location": {
       "adress": {
@@ -128,6 +138,7 @@
   "7": {
     "name": "Judo klub slavija",
     "facType": "DOJO",
+    "facContents": null,
     "facStatus": "OPEN",
     "location": {
       "adress": {
@@ -149,6 +160,7 @@
   "8": {
     "name": "Karate klub",
     "facType": "DOJO",
+    "facContents": null,
     "facStatus": "OPEN",
     "location": {
       "adress": {
@@ -170,6 +182,7 @@
   "9": {
     "name": "Sportiski centar Jovic",
     "facType": "SPORT_CENTER",
+    "facContents": null,
     "facStatus": "OPEN",
     "location": {
       "adress": {
@@ -191,6 +204,7 @@
   "10": {
     "name": "Aekido klub Zoran",
     "facType": "DOJO",
+    "facContents": null,
     "facStatus": "OPEN",
     "location": {
       "adress": {
@@ -212,6 +226,7 @@
   "11": {
     "name": "Brazilian Jijitsu",
     "facType": "DOJO",
+    "facContents": null,
     "facStatus": "OPEN",
     "location": {
       "adress": {
@@ -233,6 +248,7 @@
   "12": {
     "name": "Teretaba Jambo",
     "facType": "GYM",
+    "facContents": null,
     "facStatus": "OPEN",
     "location": {
       "adress": {

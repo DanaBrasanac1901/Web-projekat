@@ -14,11 +14,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
-import beans.Adress;
 import beans.Facility;
-import beans.Location;
 import beans.Training;
 import dao.FacilityDao;
+import dao.TrainingDao;
 import dto.CreateNewFacilityDto;
 import dto.FacilityDto;
 
@@ -32,10 +31,12 @@ public class FacilityService {
 	private ServletContext ctx;
 
 	private FacilityDao facilityDao;
+	private TrainingDao trainingDao;
 
 	@PostConstruct
 	public void init() {
 		this.facilityDao = (FacilityDao) ctx.getAttribute(App.FACILITY_DAO);
+		this.trainingDao = (TrainingDao) ctx.getAttribute(App.TRAINING_DAO);
 	}
 
 	@GET
@@ -103,7 +104,6 @@ public class FacilityService {
 		facilityDao.addNew(newFacility);
 
 	}
-
 	
 	@POST
 	@Path("/createNew")
@@ -111,13 +111,13 @@ public class FacilityService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public void createNewFacility(CreateNewFacilityDto facilityInfo) {
 
-		Facility newFacility = new Facility(facilityInfo.getName(), facilityInfo.getFacilityType(),  new Location(new Adress(facilityInfo.getStreet(),facilityInfo.getStreetNumber(), facilityInfo.getCity(),facilityInfo.getPostalCode()))
-				, facilityInfo.getLogoPath());
-		facilityDao.addNew(newFacility);
+	//	Facility newFacility = new Facility(facilityInfo.getName(), facilityInfo.getFacilityType(),  new Location(new Adress(facilityInfo.getStreet(),facilityInfo.getStreetNumber(), facilityInfo.getCity(),facilityInfo.getPostalCode()))
+		//		, facilityInfo.getLogoPath());
+		//facilityDao.addNew(newFacility);
 
 	}
 
-	
+
 	/*
 	 * @GET
 	 * 
@@ -135,22 +135,24 @@ public class FacilityService {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public void addNewContent(@PathParam("id") int id, Training newTraining) {
+
 		List<Training> trainingList = new ArrayList<Training>();
 		Facility facility = facilityDao.getById(id);
-		if (facility.getFacContents() == null) {
-			trainingList.add(newTraining);
-			facility.setFacContents(trainingList);
-		} else {
-			trainingList = facility.getFacContents();
-			if (!trainingList.stream().anyMatch(t -> t.getName().equals(t.getName()))) {
-				trainingList.add(newTraining);
-			}
-
+		trainingList = trainingDao.getByFacilityId(id);
+		if (!trainingList.stream().anyMatch(t -> t.getName().equals(newTraining.getName()))) {
+			int trainingId = makeNewTrainingId();
+			newTraining.setId(trainingId);
+			List<Integer> newFacilityList = facility.getFacContents();
+			newFacilityList.add(trainingId);
+			facility.setFacContents(newFacilityList);
+			trainingDao.addNewTraining(newTraining);
 		}
 
 	}
 	
-	
-	
-	
+	public int makeNewTrainingId() {
+		
+		return (trainingDao.getAll().size()+1);
+	}
+
 }
