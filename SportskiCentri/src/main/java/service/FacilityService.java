@@ -136,7 +136,7 @@ public class FacilityService {
 	@Path("/{id}/new-content")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public void addNewContent(@PathParam("id") int id, Training newTraining) {
+	public String addNewContent(@PathParam("id") int id, Training newTraining) {
 
 		List<Training> trainingList = new ArrayList<Training>();
 		Facility facility = facilityDao.getById(id);
@@ -148,8 +148,10 @@ public class FacilityService {
 			newFacilityList.add(trainingId);
 			facility.setFacContents(newFacilityList);
 			trainingDao.addNewTraining(newTraining);
+			return "not";
 		}
-
+		
+		return "yes";
 	}
 	
 	public int makeNewTrainingId() {

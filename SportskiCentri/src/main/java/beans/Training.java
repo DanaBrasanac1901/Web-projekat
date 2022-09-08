@@ -10,7 +10,7 @@ public class Training {
 	private String trainerUsername;
 	private String description;
 	private String picturePath;
-	//private int price;
+	private int price;
 	private boolean isDeleted;
 	
 	
@@ -33,6 +33,27 @@ public class Training {
 		this.picturePath = picturePath;
 		this.isDeleted = false;
 	}
+	
+	
+	public Training(String name, int id, TrainingType type, int facilityId, int duration, String trainerUsername,
+			String description, String picturePath, int price, boolean isDeleted) {
+		super();
+		this.name = name;
+		this.id = id;
+		this.type = type;
+		this.facilityId = facilityId;
+		this.duration = duration;
+		this.trainerUsername = trainerUsername;
+		this.description = description;
+		this.picturePath = picturePath;
+		this.price = price;
+		this.isDeleted = isDeleted;
+	}
+	
+	
+	
+
+	
 	
 	public Training(String name, int id, TrainingType type, int fac, String trainer, String picturePath) {
 		super();
@@ -145,5 +166,15 @@ public class Training {
 	public boolean isNotDeleted() {
 		return !this.isDeleted;
 	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	
+	
 
 }

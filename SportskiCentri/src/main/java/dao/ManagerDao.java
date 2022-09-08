@@ -145,8 +145,8 @@ public class ManagerDao {
 
 	public int GetFacility() {
 		// TODO Auto-generated method stub
-		
-		return logManager.getFacility();
+		return 1;
+	//	return logManager.getFacility();
 	}
 	
   
