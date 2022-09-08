@@ -21,6 +21,7 @@ Vue.component("all-trainings", {
 		<th>OPIS</th>
 		<th>TIP</th>
 		<th>TRENER</th>
+		<th>IZMENI</th>
 	</tr>
 
 	<tr v-for="t in trainings" class="active-row">
@@ -31,7 +32,7 @@ Vue.component("all-trainings", {
 		<td>{{t.description }}</td>
 		<td>{{t.type }}</td>
 		<td>{{t.trainerUsername }}</td>
-		
+		<td><button class="button-3" @click="EditTrainingPage(t)">Detaljnije</button></td>
 		
 	</tr>
 	</table>
@@ -72,7 +73,15 @@ Vue.component("all-trainings", {
 	
 	
 			
+	},
+	EditTrainingPage : function(tr){
+		app.selectedTraining = tr
+		router.push('/editTraining')
+		
 	}
+	
+	
+	
 	}
 	
 	
