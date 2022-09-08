@@ -148,10 +148,10 @@ public class FacilityService {
 			newFacilityList.add(trainingId);
 			facility.setFacContents(newFacilityList);
 			trainingDao.addNewTraining(newTraining);
-			return "not";
+			return "ima";
 		}
 		
-		return "yes";
+		return "uspesno";
 	}
 	
 	public int makeNewTrainingId() {

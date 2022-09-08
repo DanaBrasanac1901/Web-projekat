@@ -2,12 +2,17 @@ Vue.component("new-training", {
 	
 	data: function(){
 		return{
+			f : 0,
 			name : '',
 			trainingType : '',
-			trainerUsername : '',
+			selectedTrainer : '',
+			trainers : null,
 		    description : '',
 		    picturePath : '',
 		    price : 0,
+		    duration : 0
+		    
+		    
 		    
 		    
 			
@@ -21,7 +26,7 @@ Vue.component("new-training", {
 	
 	
 	<div class="loginForma">
-		<form id="login"  class="login-form" @submit='register' method = "post">
+		<form id="login"  class="login-form" @submit='addTraining' method = "post">
 				<table>
 					<tr>
 						<td><label for="name">Ime :</label></td>
@@ -29,19 +34,36 @@ Vue.component("new-training", {
 		
 		    		</tr>
 					<tr>
-						<td><label for="price">Lozinka :</label></td>
+						<td><label for="price">Doplata za trening :</label></td>
 						<td><input class="loginInput"   type="number" min="1" step="any" v-model="price" ></td>
 				
 					</tr>
-			
-	    			<td><label for="trainingType">Tip objekta :</label></td>
-						<td><select v-model="facilityType" class="loginInput" >
+					<tr>
+						<td><label for="duration">Vreme trajanja treninga :</label></td>
+						<td><input class="loginInput"   type="number" min="1" step="any" v-model="duration" ></td>
+				
+					</tr>
+					<tr>		
+	    				<td><label for="trainingType">Tip treninga :</label></td>
+							<td><select v-model="trainingType" class="loginInput" >
 									<option value="GROUP">grupni trening</option>
 									<option value="PERSONAL">personalni trening</option>
 									<option value="GYM">teretana</option>
 									<option value="SAUNA">sauna</option>									
-								</select>                                
+							    </select>                                
 						</td>
+					</tr>
+					<tr>
+						<td><label >Menadzer :</label></td>
+						<td>
+							<select  v-model="selectedTrainer" @change="trainerSelected($event)"   class="loginInput" >
+									<option v-for="t in trainers"  value="t.username" >{{t.username}}</option>							
+							</select>
+						</td>
+						
+					</tr>
+					
+					
 	<!--			
 					<tr>
 						<td><label for="lastName">Prezime  :</label></td>
@@ -77,7 +99,14 @@ Vue.component("new-training", {
 `
 	, 
 	mounted(){
-		
+		axios
+			.get('rest/trainers')
+			.then(res=>{
+				this.trainers = res.data				
+			})
+		axios	
+			.get("rest/managers/getFacilitie")
+		 	.then(res=> {this.g = res.data})		
 	},
 	
 	methods: {
@@ -86,41 +115,38 @@ Vue.component("new-training", {
 			this.pircturePath =  "images\\" + event.target.files[0].name
 		
 		},
-		
-/*		register : function(event) {
+			addTraining : function(event){
 			if (event != undefined){
 				event.preventDefault();
 			}
-			
-			
-			
-			if (!this.isValidToRegister()) {
-				alert('Niste popunili sva polja za prijavu');
+				
+				
+			if (!this.isValidToAddTraining) {
+				alert('Niste popunili sva neophodna polja za dodavanje treninga.');
 				return;
-			}
-			
+			}	
+				
 			
 			axios
-		    .post("rest/managers/register" , {"username" : this.username,
-            "password": this.password,
-	         "firstName" : this.firstName,
-	         "lastName" : this.lastName,
-	         "gender" : this.gender,
-	         "birthDate"  : this.birthDate})
+		    .post("rest/trainers/" + this.f + "/new-content" , 
+		    {
+			"name" : this.name,
+			"type" : 'trainingType',
+			"trainerUsername" : this.trainingType,
+		    "description" : this.description,
+		    "picturePath" : this.picturePath,
+		    "price" : this.price,
+		    "duration" : this.duration 
+			})
 			.then(response=>{
 			if(response.data  == "uspesno"){
-				alert("Uspesno ste dodali novog menadžera.")
-				this.username = "",
-            	this.password = "",
-	        	this.firstName = "",
-	       		this.lastName = "",
-	        	this.gender = "",
-	        	this.birthDate = null
-	        	router.push("/adminHome");
+				alert("Uspešno ste dodali novi sadržaj u objekat.")
+
+	        	router.push("/allTrainings");
 				
 			}else if(response.data == "ima"){
-				alert("Korisničko ime koje ste uneli već postoji.")
-				this.username = ""
+				alert("Ime sadržaja koje ste  dodali već postoji.")
+				this.name = ""
 				
 			}
 			
@@ -128,41 +154,28 @@ Vue.component("new-training", {
 			
 		
 			.catch(function(error){
-				alert('Neuspešno registrovanje!')
+				alert('Neuspešno dodavanje novog sadržaja!')
 	
 			})
+	
+						
+			},
 			
-			
-		},
-		
-			isValidToRegister : function() {
-			if (this.username == '') {
+			isValidToAddTraining : function() {
+			if (this.name == '') {
 				return false;
 			}
-			if (this.password == '') {
-				return false;
-			}
-			
-			if (this.firstName == '') {
+			if (this.trainingType == '') {
 				return false;
 			}
 			
-			if (this.lastName == '') {
+			if (this.picturePath == '') {
 				return false;
 			}
-			
-			if (this.gender == '') {
-				return false;
-			}
-			
-			if (this.birthDate == '') {
-				return false;
-			}
-			
-			
+					
 			return true;
 		}
-	*/	
+		
 	}
 	
 	
