@@ -13,5 +13,36 @@
     "deleted": false,
     "isBanned": false,
     "userRole": "TRAINER"
+  },
+  "trainer2": {
+    "username": "trainer2",
+    "password": "trainer2",
+    "firstName": "Nikola",
+    "lastName": "Tesla",
+    "gender": "MALE",
+    "birthDate": {
+      "year": 2002,
+      "month": 1,
+      "day": 8
+    },
+    "deleted": false,
+    "isBanned": false,
+    "userRole": "TRAINER"
+  },
+  "trainer1": {
+    "username": "trainer1",
+    "password": "trainer1",
+    "firstName": "Jovan",
+    "lastName": "Cvijic",
+    "gender": "MALE",
+    "birthDate": {
+      "year": 2002,
+      "month": 1,
+      "day": 8
+    },
+    "deleted": false,
+    "isBanned": false,
+    "userRole": "TRAINER"
   }
+  
 }

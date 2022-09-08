@@ -147,16 +147,16 @@ public class FacilityService {
 			List<Integer> newFacilityList = facility.getFacContents();
 			newFacilityList.add(trainingId);
 			facility.setFacContents(newFacilityList);
+			facilityDao.EditFacility(facility);
 			trainingDao.addNewTraining(newTraining);
-			return "ima";
-		}
-		
-		return "uspesno";
+			return "uspesno";
+			
+		}	
+		return "ima";
 	}
 	
 	public int makeNewTrainingId() {
 		
 		return (trainingDao.getAll().size()+1);
 	}
-
 }
