@@ -9,6 +9,7 @@ const FacilitieView = { template: '<facilitie-view></facilitie-view>' }
 const NewManager = { template: '<new-manager></new-manager>' }
 
 
+
 const router = new VueRouter({
 	  mode: 'hash',
 	  routes: [
@@ -20,7 +21,8 @@ const router = new VueRouter({
 	    { path: '/trainerHome', component: TrainerHome}, 
 	    { path: '/managerHome', component: ManagerHome}, 
 	    { path: '/facilitieView', component: FacilitieView}, 
-	    { path: '/newManager', component: NewManager} 
+	    { path: '/newManager', component: NewManager},
+	     
 	   
 	  ]
 });
@@ -29,7 +31,8 @@ var app = new Vue({
 	router,
 	el: '#sportShop',
 	data: {
-		selectedFacilitie: {}
+		selectedFacilitie: {},
+		managerFacilitieID : 0
 		
 		
 	}

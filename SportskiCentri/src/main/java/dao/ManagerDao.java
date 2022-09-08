@@ -142,6 +142,12 @@ public class ManagerDao {
 		
 		return "uspesno";
 	}
-	
 
+	public int GetFacility() {
+		// TODO Auto-generated method stub
+		
+		return logManager.getFacility();
+	}
+	
+  
 }

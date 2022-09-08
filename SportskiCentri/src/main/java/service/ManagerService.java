@@ -65,6 +65,13 @@ public class ManagerService {
 		managerDao.SetFacility(id, username);
 	}
 	
+	@GET
+	@Path("/getFacilitie")
+	public int GetFacility() {
+		return managerDao.GetFacility();
+	}
+	
+	
 	
 	@POST
 	@Path("/register")

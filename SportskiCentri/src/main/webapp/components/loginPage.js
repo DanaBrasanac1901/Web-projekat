@@ -75,7 +75,7 @@ Vue.component("login-page", {
 					router.push('/trainerHome')
 					
 				}else if(response.data=="manager"){
-					alert("Menadžer je uspesno ulogovan")
+					alert("Menadžer je uspesno ulogovan")		
 					router.push('/managerHome')					
 				}else if(response.data=="admin"){
 					alert("Admin je uspesno ulogovan")
