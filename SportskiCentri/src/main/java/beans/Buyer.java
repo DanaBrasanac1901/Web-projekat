@@ -9,12 +9,12 @@ public class Buyer extends User {
 	private BuyerType buyerType;
 	private List<Integer> visitedFacilitiesIds;
 	protected List<HistoryTraining> trainingHistory;
-	private Membership membership;
+	private InstantiatedMembership membership;
 
 	//konstruktor za citanje iz jsona
 	public Buyer(String username, String password, String firstName, String lastname, Gender gender, LocalDate date,
 			Role userRole, int points, BuyerType buyerType, List<Integer> visitedFacilitiesIds,
-			List<HistoryTraining> trainingHistory, Membership membership) {
+			List<HistoryTraining> trainingHistory, InstantiatedMembership membership) {
 
 		super(username, password, firstName, lastname, gender, date, Role.BUYER);
 
@@ -81,11 +81,11 @@ public class Buyer extends User {
 		this.trainingHistory = trainingHistory;
 	}
 
-	public Membership getMembership() {
+	public InstantiatedMembership getMembership() {
 		return membership;
 	}
 
-	public void setMembership(Membership membership) {
+	public void setMembership(InstantiatedMembership membership) {
 		this.membership = membership;
 	}
 

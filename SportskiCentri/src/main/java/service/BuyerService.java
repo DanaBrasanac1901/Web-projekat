@@ -1,10 +1,9 @@
 package service;
 
-import java.sql.Date;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,19 +19,18 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import beans.Buyer;
-import beans.Facility;
 import beans.HistoryTraining;
+import beans.InstantiatedMembership;
 import beans.Membership;
+import beans.MembershipType;
 import beans.Training;
 import dao.BuyerDao;
 import dao.FacilityDao;
 import dao.MembershipDao;
 import dao.TrainingDao;
-import dto.FacilityDto;
 import dto.MembershipDto;
 import dto.RegisterUserDto;
 import dto.TrainingDto;
-import dto.UserDto;
 import main.App;
 
 @Path("/buyers")
@@ -132,13 +130,36 @@ public class BuyerService {
 	@GET
 	@Path("/all-memberships")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<MembershipDto> getAllMemberships(){
-		
+	public List<MembershipDto> getAllMemberships() {
+
 		return membershipDao.getAll().stream().filter(Membership::isNotDeleted).map(m -> new MembershipDto(m))
 				.collect(Collectors.toList());
-		
 
-		
 	}
-	
-}
+
+	@POST
+	@Path("{username}/set-membership-{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public void setNewMembership(@PathParam("username") String username, @PathParam("id") String membershipId) {
+		Buyer buyer = buyerDao.getByUsername(username);
+		Membership membership = membershipDao.getById(membershipId);
+		
+		int durationInDays;
+		if (membership.getMemType().equals(MembershipType.WEEK)) {
+			durationInDays = 7;
+		} else if (membership.getMemType().equals(MembershipType.YEAR)) {
+			durationInDays = 365;
+		} else {
+			durationInDays = 30;
+		}
+			InstantiatedMembership newMembership = new InstantiatedMembership(membershipId, false, LocalDate.now(),
+					LocalDate.now().plusDays(durationInDays), membership.getPrice(), buyer, true,
+					membership.getNumberOfEntrances());
+			buyer.setMembership(newMembership);
+
+			
+		}
+
+	}
+
+

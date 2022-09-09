@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import beans.Buyer;
 import beans.Membership;
 import main.App;
 
@@ -62,6 +63,11 @@ public class MembershipDao {
 	public Collection<Membership> getAll() {
 		loadFile();
 		return memberships.values();
+	}
+	
+	public Membership getById(String id) {
+		loadFile();
+		return (Membership) memberships.values().stream().filter(b -> b.getId().equals(id));
 	}
 	
 }
