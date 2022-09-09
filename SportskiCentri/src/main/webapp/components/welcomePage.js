@@ -65,6 +65,7 @@ Vue.component("welcome-page", {
 									<option value="grade">ocena</option>									
 							</select>
 							</td>
+							<td>
 							<select v-model="sortMode"  v-on:change="sortFunction">
 									<option value="rastuce">rastuće</option>
 									<option value="opadajuce">opadajuće</option>									

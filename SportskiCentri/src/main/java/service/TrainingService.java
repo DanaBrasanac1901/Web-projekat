@@ -1,5 +1,6 @@
 package service;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -103,6 +104,26 @@ public class TrainingService {
 					.collect(Collectors.toList());
 					
 	}
+	
+/*	
+	@GET
+	@Path("{since}/searchPrice/{to}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Training> search(@PathParam("since") Date since,@PathParam("to") Date to) {
+		
+		if(to == 0) {
+			
+		 return getAll().stream().filter(t -> t.getPrice()  >= since )
+					.collect(Collectors.toList());
+			
+		}
+		
+		 return getAll().stream().filter(t -> t.getPrice()>=since &&  t.getPrice()<=to)
+					.collect(Collectors.toList());
+					
+	}
+	
+	*/
 	
 	@GET
 	@Path("/searchFree")

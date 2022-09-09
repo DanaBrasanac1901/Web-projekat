@@ -3,10 +3,16 @@ Vue.component("all-trainings", {
 		    return {
 		      
 		      trainings: null,
+		      allTrainings : null,
 		      f : 0,
 		      selectionSearch : '',
+		      selectionSort : '',
+		      sortMode : 'rastuce',
+		      filter : 'ALL',
 			  since : 0,
-			  to : 0
+			  to : 0,
+			  sinceDate : null,
+			  toDate : null
 		    }
 		  
 		  
@@ -18,11 +24,19 @@ Vue.component("all-trainings", {
 <div class='filterBar'>
 					<table>
 						<tr>
+						<div v-if="selectionSearch==='price'">
 							<td><label for="since">Pretraga od:</label></td>
 							<td><input type="number"  v-model="since" min="0" v-on:keyup="searchPrice"></td>
 							<td><label for="to">do:</label></td>
 							<td><input type="number"  v-model="to" v-on:keyup="searchPrice" min="0" ></td>
-	
+						</div>
+						<div v-else-if="selectionSearch==='date'">
+							<td><label for="sinceDate">Pretraga od:</label></td>
+							<td><input type="date"  v-model="sinceDate" min="0" v-on:keyup="searchPrice"></td>
+							<td><label for="toDate">do:</label></td>
+							<td><input type="date"  v-model="toDate" v-on:keyup="searchPrice" min="0" ></td>
+						</div>
+							<td><label for="selectionSearch">Pretraga od:</label></td>
 							<td>
 							<select v-model="selectionSearch"  v-on:change="selectionChange">
 									<option value="price">ceni</option>
@@ -31,40 +45,32 @@ Vue.component("all-trainings", {
 									
 								</select>
 							</td>
-				
-				<!--			<td>
-							<td><label>Status</label><td>
-							<select v-model="status"  v-on:change="statusOpen">
-									<option value="OPEN">Otvoren</option>
-									<option value="CLOSED">Zatvoren</option>
-									<option value="ALL">Svi</option>
+							<td><label for="selectionSort">Sortirati po:</label></td>
+							<td>
+							<select v-model="selectionSort"  v-on:change="sortFunction">
+									<option value="price">ceni</option>
+									<option value="date">datumu</option>
 									
-								</select>
-							</td>
-							<td><label>Tip objekta</label><td>
-							<select v-model="type"  v-on:change="facilitieType">
-									<option value="GYM">teretana</option>
-									<option value="POOL">bazen</option>
-									<option value="SPORT_CENTER">sportski centar</option>
-									<option value="DANCING_STUDIO,">plesni studio</option>
-									<option value="DOJO">dojo</option>
-									<option value="ALL">Svi</option>
-									
-								</select>
-							</td>
-							<td><label>Sortiranje</label><td>
-							<select v-model="sortParametar"  v-on:change="sortFunction">
-									<option value="name">ime</option>
-									<option value="location">lokacija</option>
-									<option value="grade">ocena</option>									
 							</select>
 							</td>
-							<select v-model="sortMode"  v-on:change="sortFunction">
+							<td>	
+								<select v-model="sortMode"  v-on:change="sortFunction">
 									<option value="rastuce">rastuće</option>
 									<option value="opadajuce">opadajuće</option>									
-							</select>
+								</select>
 							</td>
-			-->	
+							<td><label>Filtriranje po :</label><td>
+							<select v-model="filter"  v-on:change="filterChanged">
+									<option value="GROUP">grupni trening</option>
+									<option value="PERSONAL">personalni trening</option>
+									<option value="GYM">teretana</option>
+									<option value="SAUNA">sauna</option>
+									<option value="ALL">svi</option>
+												
+									
+								</select>
+							</td>
+		
      					</tr>
 			
 					</table>
@@ -125,7 +131,8 @@ Vue.component("all-trainings", {
 		axios
           .get('rest/trainings/' + this.f)
           .then(response => {
-	     		this.trainings = response.data})
+	     		this.trainings = response.data;
+	     		this.allTrainings = response.data})
 	
 			
 			
@@ -189,6 +196,61 @@ Vue.component("all-trainings", {
 			
 			
 			
+	},
+	sortFunction : function(event){
+		  if (event != undefined){
+				event.preventDefault();
+				}
+		 if (this.sortMode == 'rastuce'){
+                if (this.selectionSort == 'price'){
+                 	this.trainings.sort(function(a, b){return a.price-b.price});;
+                }/*else if (this.sortParametar == 'location'){
+													
+                    this.facilities.sort((a, b) => a.location.adress.city.localeCompare(b.location.adress.city));
+                }else if (this.sortParametar == 'grade'){
+                    this.trainings.sort((a, b) => a.grade - b.grade);
+                }*/
+            }
+            
+         if (this.sortMode == 'opadajuce'){
+                if (this.selectionSort == 'price'){
+                 	this.trainings.sort(function(a, b){return b.price-a.price});
+                }/*else if (this.selectionSort == 'location'){
+													
+                    this.facilities.sort((a, b) => b.location.adress.city.localeCompare(a.location.adress.city));
+                }else if (this.selectionSort == 'grade'){
+                    this.facilities.sort((a, b) => b.grade - a.grade);
+                }*/
+            }
+               
+            
+            
+		
+	},
+	filterChanged : function(event){
+		 if (event != undefined){
+				event.preventDefault();
+				}
+				if(this.filter=="ALL"){
+						this.getAll()
+						
+					
+				}else{
+					let filteredTrainings= [];
+					
+					for(tr of this.allTrainings){
+						
+						if(tr.type == this.filter)
+						filteredTrainings.push(tr)
+						
+					}	
+						
+					this.trainings = filteredTrainings;
+				}
+		
+		
+		
+		
 	}
 	
 	
