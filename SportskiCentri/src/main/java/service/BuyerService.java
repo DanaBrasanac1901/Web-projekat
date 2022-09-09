@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,13 +14,16 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import beans.Buyer;
 import beans.HistoryTraining;
+import beans.Training;
 import dao.BuyerDao;
+import dao.FacilityDao;
 import dao.TrainingDao;
 import dto.RegisterUserDto;
 import dto.TrainingDto;
@@ -34,11 +38,13 @@ public class BuyerService {
 
 	private BuyerDao buyerDao;
 	private TrainingDao trainingDao;
+	private FacilityDao facilityDao;
 
 	@PostConstruct
 	public void init() {
 		this.buyerDao = (BuyerDao) ctx.getAttribute(App.BUYER_DAO);
 		this.trainingDao = (TrainingDao) ctx.getAttribute(App.TRAINING_DAO);
+		this.facilityDao = (FacilityDao) ctx.getAttribute(App.FACILITY_DAO);
 
 	}
 
@@ -67,9 +73,9 @@ public class BuyerService {
 	 */
 
 	@POST
-	@Path("/register")
+	@Path("/registration")
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_PLAIN)
 	public String createNew(UserDto userInfo) {
 
 		Buyer newBuyer = new Buyer(userInfo.getUsername(), userInfo.getPassword(), userInfo.getFirstName(),
@@ -78,19 +84,37 @@ public class BuyerService {
 
 	}
 
-	
-
 	@GET
-	@Path("/trainings")
+	@Path("/trainings/{username}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<TrainingDto> getTrainingList(String buyerUsername) {
+	public List<TrainingDto> getTrainingList(@PathParam("username") String buyerUsername) {
+
 		Buyer buyer = buyerDao.getByUsername(buyerUsername);
-		List<TrainingDto> trainingDto = new ArrayList<TrainingDto>();
+
+		List<TrainingDto> trainingDtos = new ArrayList<TrainingDto>();
+
 		List<HistoryTraining> trainingHistory = buyer.getTrainingHistory();
+		trainingHistory = trainingHistory.stream().sorted(Comparator.comparingInt(HistoryTraining::getTrainingId)).collect(Collectors.toList());
+		
+		int currentTrainingId;
+		Training currentTraining;
+
 		for (int i = 0; i <= trainingHistory.size(); i++) {
+			currentTrainingId = trainingHistory.get(i).getTrainingId();
+			currentTraining = trainingDao.getById(currentTrainingId);
 			
-		}
-		return trainingDto;
+			if(currentTrainingId != trainingHistory.get(i).getTrainingId()) {
+				
+				
+			}
+			
+				
+			}
+			
+		
+		return trainingDtos;
 	}
 
+	
+	
 }

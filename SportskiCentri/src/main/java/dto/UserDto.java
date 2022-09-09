@@ -1,5 +1,6 @@
 package dto;
 
+
 import java.sql.Date;
 import java.time.LocalDate;
 
@@ -25,6 +26,16 @@ public class UserDto {
 		this.lastName = lastName;
 		this.gender = gender;
 		this.birthDate = birthDate;
+	}
+	//registracija
+	public UserDto(String username, String password, String firstName, String lastName, Gender gender, Date birthDate) {
+		
+		this.username = username;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.birthDate = birthDate.toLocalDate();
 	}
 
 

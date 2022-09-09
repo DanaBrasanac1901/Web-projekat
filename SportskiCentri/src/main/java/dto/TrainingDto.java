@@ -16,9 +16,15 @@ public class TrainingDto {
 		this.facilityName = facilityName;
 		if (datesOfTraining == null) {
 
-			datesOfTraining = new ArrayList<Date>();
+			this.datesOfTraining = new ArrayList<Date>();
+		}else {
+			this.datesOfTraining = datesOfTraining;
 		}
 
+	}
+
+	public TrainingDto() {
+		
 	}
 
 	public String getTrainingName() {
@@ -43,6 +49,13 @@ public class TrainingDto {
 
 	public void setDatesOfTraining(List<Date> datesOfTraining) {
 		this.datesOfTraining = datesOfTraining;
+	}
+	
+	
+	public void addNewDateOfTraining(Date dateOfTraining) {
+		List<Date> newList = getDatesOfTraining();
+		newList.add(dateOfTraining);
+		setDatesOfTraining(newList);
 	}
 
 }

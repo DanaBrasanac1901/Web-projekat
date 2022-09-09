@@ -8,15 +8,12 @@ import java.io.Reader;
 import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.lang.reflect.Type;
 
 import beans.Buyer;
-import dto.TrainingDto;
 import dto.UserLoginDto;
 import main.App;
 
@@ -80,6 +77,7 @@ public class BuyerDao {
 
 	public Buyer getByUsername(String username) {
 		loadFile();
+		
 		return (Buyer) buyers.values().stream().filter(b -> b.getUsername().equals(username));
 
 	}
