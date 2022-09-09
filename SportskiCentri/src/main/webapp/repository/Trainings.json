@@ -1,40 +1,4 @@
 {
-  "1": {
-    "name": "Joga",
-    "id": 1,
-    "type": "GROUP",
-    "facilityId": 1,
-    "duration": 60,
-    "trainerUsername": "trainer1",
-    "description": "Drevna indijska vestina joge",
-    "picturePath": "images\\BarneySaLoptom.jpg",
-    "price": 300,
-    "isDeleted": false
-  },
-  "2": {
-    "name": "Pilates",
-    "id": 2,
-    "type": "GROUP",
-    "facilityId": 1,
-    "duration": 60,
-    "trainerUsername": "trainer2",
-    "description": "Istezanje na strunjaci",
-    "picturePath": "images\\BarneySaKnjigom.jpg",
-    "price": 400,
-    "isDeleted": false
-  },
-  "3": {
-    "name": "Licni trening",
-    "id": 3,
-    "type": "PERSONAL",
-    "facilityId": 1,
-    "duration": 60,
-    "trainerUsername": "trainer1",
-    "description": "Trening sa profesionalnim osobljem",
-    "picturePath": "images\\BarnetZija.jpg",
-    "price": 1000,
-    "isDeleted": false
-  },
   "4": {
     "name": "Plivanje",
     "id": 4,
@@ -44,7 +8,7 @@
     "trainerUsername": "trainer3",
     "description": "Individualno plivanje sa trenerom.",
     "picturePath": "images\\BarneySedi.jpg",
-    "price": 750,
+    "price": 0,
     "isDeleted": false
   },
   "5": {
@@ -56,7 +20,7 @@
     "trainerUsername": "trainer3",
     "description": "Dobacivanje loptom u vodi.",
     "picturePath": "images\\BarneySedi.jpg",
-    "price": 300,
+    "price": 0,
     "isDeleted": false
   },
   "6": {
@@ -68,7 +32,7 @@
     "trainerUsername": "trainer4",
     "description": "Individualni trening judoa.",
     "picturePath": "images\\BarnetZija.jpg",
-    "price": 500,
+    "price": 0,
     "isDeleted": false
   },
   "7": {
@@ -83,6 +47,18 @@
     "price": 0,
     "isDeleted": false
   },
+  "3": {
+    "name": "Licni trening",
+    "id": 3,
+    "type": "PERSONAL",
+    "facilityId": 1,
+    "duration": 60,
+    "trainerUsername": "trainer1",
+    "description": "Trening sa profesionalnim osobljem",
+    "picturePath": "images\\BarnetZija.jpg",
+    "price": 0,
+    "isDeleted": false
+  },
   "8": {
     "name": "Kungfu",
     "id": 8,
@@ -90,9 +66,21 @@
     "facilityId": 1,
     "duration": 40,
     "trainerUsername": "trainer",
-    "description": "",
+    "description": "Majme jedan",
     "picturePath": "images\\BarneyMali.jpg",
-    "price": 500,
+    "price": 0,
+    "isDeleted": false
+  },
+  "12": {
+    "name": "fffff",
+    "id": 12,
+    "type": "GROUP",
+    "facilityId": 1,
+    "duration": 0,
+    "trainerUsername": "trainer",
+    "description": "ffffffff",
+    "picturePath": "images\\BarneyMali.jpg",
+    "price": 40,
     "isDeleted": false
   },
   "9": {
@@ -104,7 +92,79 @@
     "trainerUsername": "trainer",
     "description": "Istezanje",
     "picturePath": "images\\BarneyMali.jpg",
+    "price": 50,
+    "isDeleted": false
+  },
+  "2": {
+    "name": "Pilates",
+    "id": 2,
+    "type": "GROUP",
+    "facilityId": 1,
+    "duration": 60,
+    "trainerUsername": "trainer2",
+    "description": "Istezanje na strunjaci",
+    "picturePath": "images\\BarneySaKnjigom.jpg",
+    "price": 1000,
+    "isDeleted": false
+  },
+  "13": {
+    "name": "proba",
+    "id": 13,
+    "type": "GROUP",
+    "facilityId": 1,
+    "duration": 100000,
+    "trainerUsername": "trainer",
+    "description": "proba",
+    "picturePath": "images\\BarnetZija.jpg",
+    "price": 100000,
+    "isDeleted": false
+  },
+  "1": {
+    "name": "Doga",
+    "id": 1,
+    "type": "GROUP",
+    "facilityId": 1,
+    "duration": 60,
+    "trainerUsername": "trainer",
+    "description": "Ma neka glupost",
+    "picturePath": "images\\BarneyMali.jpg",
     "price": 0,
+    "isDeleted": false
+  },
+  "10": {
+    "name": "tertre",
+    "id": 10,
+    "type": "GROUP",
+    "facilityId": 1,
+    "duration": 0,
+    "trainerUsername": "trainer",
+    "description": "tretr",
+    "picturePath": "images\\BarnetZija.jpg",
+    "price": 0,
+    "isDeleted": false
+  },
+  "11": {
+    "name": "fddf",
+    "id": 11,
+    "type": "GROUP",
+    "facilityId": 1,
+    "duration": 500,
+    "trainerUsername": "trainer",
+    "description": "dfdf",
+    "picturePath": "images\\BarneySaLoptom.jpg",
+    "price": 0,
+    "isDeleted": false
+  },
+  "14": {
+    "name": "Proba3",
+    "id": 14,
+    "type": "SAUNA",
+    "facilityId": 1,
+    "duration": 333,
+    "trainerUsername": "trainer2",
+    "description": "Proba3",
+    "picturePath": "images\\BarneyGleda.jpg",
+    "price": 333,
     "isDeleted": false
   }
 }

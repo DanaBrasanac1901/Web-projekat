@@ -135,7 +135,6 @@ public class FacilityService {
 	@POST
 	@Path("/{id}/new-content")
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
 	public String addNewContent(@PathParam("id") int id, Training newTraining) {
 
 		List<Training> trainingList = new ArrayList<Training>();

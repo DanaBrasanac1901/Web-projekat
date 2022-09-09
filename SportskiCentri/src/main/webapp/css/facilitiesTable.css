@@ -92,5 +92,13 @@ tr.selected {
 	 background-color: #aaaaaa;
 }
 
+.img-box{
+		margin: 0px; 
+        width: 70px;
+   		height : 70px;
+    }
+    .img-box img{
+        display: block;
+    }
 
 

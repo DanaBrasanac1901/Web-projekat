@@ -5,6 +5,7 @@ import java.io.Writer;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -94,6 +95,9 @@ public class TrainingDao {
 		return getAll().stream().filter(t -> t.getFacilityId() == facId).collect(Collectors.toList());
 	}
 
+
+	
+	
 	public void addNewTraining(Training newTraining) {
 		loadFile();
 		
@@ -110,4 +114,13 @@ public class TrainingDao {
 		return getAll().size()+1;
 	}
 
+	public void EditTraining(Training tr){
+		loadFile();
+		trainings.remove(tr.getId());
+		trainings.put(tr.getId(), tr);
+		updateFile();
+		
+		
+	}
+	
 }

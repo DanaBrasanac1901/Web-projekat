@@ -102,7 +102,6 @@ Vue.component("admin-home", {
 	
 	methods: {
 		managersLoad : function(){
-			alert("Pametan si")
 		axios
 			.get('rest/managers/free')
 			.then(response=>{

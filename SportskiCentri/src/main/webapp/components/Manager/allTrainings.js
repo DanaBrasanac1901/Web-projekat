@@ -32,7 +32,7 @@ Vue.component("all-trainings", {
 		<td>{{t.description }}</td>
 		<td>{{t.type }}</td>
 		<td>{{t.trainerUsername }}</td>
-		<td><button class="button-3" @click="EditTrainingPage(t)">Detaljnije</button></td>
+		<td><button class="button-3" @click="EditTrainingPage(t)">Izmeni</button></td>
 		
 	</tr>
 	</table>

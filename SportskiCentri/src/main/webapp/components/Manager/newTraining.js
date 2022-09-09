@@ -105,7 +105,7 @@ Vue.component("new-training", {
 		
 			logoSelected : function(event) {
 			this.picturePath  =  "images\\" + event.target.files[0].name
-			alert(this.picturePath )
+		
 		
 		},
 			addTraining : function(event){
@@ -162,22 +162,18 @@ Vue.component("new-training", {
 			},
 			
 			isValidToAddTraining : function() {
-				alert("Majmune")
+			
 			if (this.name =='') {
-				alert(this.name)
-				alert("1")
+		
 				return false;
 			}
 			if (this.trainingType =='') {
-				alert(this.trainingType)
-				alert("2")
+
 				return false;
 			}
 			
 			if (this.picturePath  =='') {
-				alert(this.picturePath )
-				alert("Konj")
-				alert("3")
+			
 				return false;
 			}
 					

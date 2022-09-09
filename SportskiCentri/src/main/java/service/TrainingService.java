@@ -1,10 +1,12 @@
 package service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.ServletContext;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -67,6 +69,21 @@ public class TrainingService {
 				.collect(Collectors.toList());
 	}
 	
-	
+	@POST
+	@Path("/edit")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public String EditTraining(Training tr){
+		List<Training> trainingList = new ArrayList<Training>();
+		trainingList = trainingDao.getByFacilityId(tr.getFacilityId());
+		
+		if (!trainingList.stream().anyMatch(t -> t.getName().equals(tr.getName()) &&  t.getId()!=tr.getId())) {
+			trainingDao.EditTraining(tr);
+			return "uspesno";
+			
+		}
+		
+		return "ima";
+		
+	}
 	
 }

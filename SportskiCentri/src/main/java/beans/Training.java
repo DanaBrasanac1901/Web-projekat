@@ -20,7 +20,7 @@ public class Training {
 	}
 
 	public Training(String name, int id, TrainingType type, int fac, int duration, String trainer, String description,
-			String picturePath) {
+			String picturePath,int price) {
 		super();
 
 		this.name = name;
@@ -32,6 +32,7 @@ public class Training {
 		this.description = description;
 		this.picturePath = picturePath;
 		this.isDeleted = false;
+		this.price =price;
 	}
 	
 	
@@ -55,7 +56,7 @@ public class Training {
 
 	
 	
-	public Training(String name, int id, TrainingType type, int fac, String trainer, String picturePath) {
+	public Training(String name, int id, TrainingType type, int fac, String trainer, String picturePath,int price) {
 		super();
 
 		this.name = name;
@@ -64,6 +65,7 @@ public class Training {
 		this.facilityId = fac;
 		this.trainerUsername = trainer;
 		this.picturePath = picturePath;
+		this.price = price;
 		this.isDeleted = false;
 	}
 
@@ -77,6 +79,7 @@ public class Training {
 		this.description = t.description;
 		this.picturePath = t.picturePath;
 		this.isDeleted = t.isDeleted;
+		this.price = t.price;
 	}
 	
 	public String getName() {
