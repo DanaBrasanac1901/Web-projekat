@@ -25,7 +25,7 @@ Vue.component("registration-page", {
 	</div>
 	
 	<div class="loginForma">
-		<form id="login"  class="login-form" @submit='registration' method = "post">
+		<form id="login"  class="login-form" @submit="registration" method = "post">
 				<table>
 					<tr>
 						<td><label for="username">Korisničko ime :</label></td>
@@ -79,7 +79,7 @@ Vue.component("registration-page", {
 	},
 
 	methods: {
-		register: function(event) {
+		registration: function(event) {
 			if (event != undefined) {
 				event.preventDefault();
 			}

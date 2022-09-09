@@ -83,10 +83,10 @@ public class BuyerService {
 	@Path("/registration")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
-	public String createNew(UserDto userInfo) {
+	public String createNew(RegisterUserDto userInfo) {
 
 		Buyer newBuyer = new Buyer(userInfo.getUsername(), userInfo.getPassword(), userInfo.getFirstName(),
-				userInfo.getLastName(), userInfo.getGender(), userInfo.getBirthDate());
+				userInfo.getLastName(), userInfo.getGender(), userInfo.getBirthDate().toLocalDate());
 		return buyerDao.addNew(newBuyer);
 
 	}
