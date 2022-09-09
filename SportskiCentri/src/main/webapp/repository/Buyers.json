@@ -1,40 +1,35 @@
 {
-  "buyer2": {
+  "1": {
     "points": 0,
     "trainingHistory": [
       {
         "trainingId": 0,
-        "buyerId": 0,
-        "trainerId": -1
+        "trainerUsername": -1,
+        "date": null
       },
       {
         "trainingId": 1,
-        "buyerId": 0,
-        "trainerId": 0,
+        "trainerUsername": 0,
         "date": "Jul 12, 2022, 1:49:28 AM"
       },
       {
         "trainingId": 2,
-        "buyerId": 0,
-        "trainerId": 0,
+        "trainerUsername": 0,
         "date": "Jul 12, 2022, 1:49:31 AM"
       },
       {
         "trainingId": 3,
-        "buyerId": 0,
-        "trainerId": 0,
+        "trainerUsername": 0,
         "date": "Jul 12, 2022, 2:11:59 AM"
       },
       {
         "trainingId": 4,
-        "buyerId": 0,
-        "trainerId": 0,
+        "trainerUsername": 0,
         "date": "Jul 12, 2022, 2:17:16 AM"
       },
       {
         "trainingId": 5,
-        "buyerId": 0,
-        "trainerId": -1,
+        "trainerUsername": -1,
         "date": "Jul 12, 2022, 2:35:10 AM"
       }
     ],
@@ -52,43 +47,37 @@
     "isBanned": false,
     "userRole": "BUYER"
   },
-  "buyer": {
+  "2": {
     "points": 0,
     "trainingHistory": [
       {
-        "trainingId": 0,
-        "buyerId": 0,
-        "trainerId": -1,
+        "trainingId": 1,
+        "trainerUsername": -1,
         "date": "Jul 12, 2022, 1:49:24 AM"
       },
       {
         "trainingId": 1,
-        "buyerId": 0,
-        "trainerId": 0,
-        "date": "Jul 12, 2022, 1:49:28 AM"
+        "trainerUsername": 0,
+        "date": "Jul 13, 2022, 1:49:28 AM"
+      },
+      {
+        "trainingId": 1,
+        "trainerUsername": 0,
+        "date": "Jul 14, 2022, 1:49:31 AM"
       },
       {
         "trainingId": 2,
-        "buyerId": 0,
-        "trainerId": 0,
-        "date": "Jul 12, 2022, 1:49:31 AM"
+        "trainerUsername": 0,
+        "date": "Jul 15, 2022, 2:11:59 AM"
       },
       {
         "trainingId": 3,
-        "buyerId": 0,
-        "trainerId": 0,
-        "date": "Jul 12, 2022, 2:11:59 AM"
-      },
-      {
-        "trainingId": 4,
-        "buyerId": 0,
-        "trainerId": 0,
+        "trainerUsername": 0,
         "date": "Jul 12, 2022, 2:17:16 AM"
       },
       {
-        "trainingId": 5,
-        "buyerId": 0,
-        "trainerId": -1,
+        "trainingId": 4,
+        "trainerUsername": -1,
         "date": "Jul 12, 2022, 2:35:10 AM"
       }
     ],
@@ -106,7 +95,7 @@
     "isBanned": false,
     "userRole": "BUYER"
   },
-  "buyer8": {
+  "3": {
     "points": 0,
     "visitedFacilitiesIds": [],
     "trainingHistory": [],
@@ -124,7 +113,7 @@
     "isBanned": false,
     "userRole": "BUYER"
   },
-  "buyer3": {
+  "4": {
     "points": 0,
     "visitedFacilitiesIds": [],
     "trainingHistory": [],

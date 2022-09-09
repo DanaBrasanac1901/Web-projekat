@@ -1,20 +1,20 @@
 Vue.component("registration-page", {
-	
-	data: function(){
-		return{
-			username : "",
-            password : "",
-	        firstName: "",
-	        lastName: "",
-	        gender: "",
-	        birthDate : null
-		     
-			
+
+	data: function() {
+		return {
+			username: "",
+			password: "",
+			firstName: "",
+			lastName: "",
+			gender: "",
+			birthDate: null
+
+
 		}
-		
-		
+
+
 	},
-	
+
 	template: ` 
 <div>
 	<div class="topnav">
@@ -25,7 +25,7 @@ Vue.component("registration-page", {
 	</div>
 	
 	<div class="loginForma">
-		<form id="login"  class="login-form" @submit='register' method = "post">
+		<form id="login"  class="login-form" @submit='registration' method = "post">
 				<table>
 					<tr>
 						<td><label for="username">Korisničko ime :</label></td>
@@ -73,89 +73,91 @@ Vue.component("registration-page", {
 	
 </div>		  
 `
-	, 
-	mounted(){
-		
+	,
+	mounted() {
+
 	},
-	
+
 	methods: {
-		register : function(event) {
-			if (event != undefined){
+		register: function(event) {
+			if (event != undefined) {
 				event.preventDefault();
 			}
-			
-			
-			
+
+
+
 			if (!this.isValidToRegister()) {
 				alert('Niste popunili sva polja za prijavu');
 				return;
 			}
-			
-			
+
+
 			axios
-		    .post("rest/buyers/register" , {"username" : this.username,
-            "password": this.password,
-	         "firstName" : this.firstName,
-	         "lastName" : this.lastName,
-	         "gender" : this.gender,
-	         "birthDate"  : this.birthDate})
-			.then(response=>{
-			if(response.data  == "uspesno"){
-				alert("Uspesno ste se ulogovali.")
-				this.username = "",
-            	this.password = "",
-	        	this.firstName = "",
-	       		this.lastName = "",
-	        	this.gender = "",
-	        	this.birthDate = null
-				
-			}else if(response.data == "ima"){
-				alert("Korisničko ime koje ste uneli već postoji.")
-				this.username = ""
-				
-			}
-			
-			})
-			
-		
-			.catch(function(error){
-				alert('Neuspešno registrovanje!')
-	
-			})
-			
-			
+				.post("rest/buyers/registration", {
+					"username": this.username,
+					"password": this.password,
+					"firstName": this.firstName,
+					"lastName": this.lastName,
+					"gender": this.gender,
+					"birthDate": this.birthDate
+				})
+				.then(response => {
+					if (response.data == "uspesno") {
+						alert("Uspesno ste se ulogovali.")
+						this.username = "",
+							this.password = "",
+							this.firstName = "",
+							this.lastName = "",
+							this.gender = "",
+							this.birthDate = null
+
+					} else if (response.data == "ima") {
+						alert("Korisničko ime koje ste uneli već postoji.")
+						this.username = ""
+
+					}
+
+				})
+
+
+				.catch(function(error) {
+					alert('Neuspešno registrovanje!')
+
+				})
+
+
 		},
-		
-			isValidToRegister : function() {
+
+		isValidToRegister: function() {
 			if (this.username == '') {
 				return false;
 			}
 			if (this.password == '') {
 				return false;
 			}
-			
+
 			if (this.firstName == '') {
 				return false;
 			}
-			
+
 			if (this.lastName == '') {
 				return false;
 			}
-			
+
 			if (this.gender == '') {
 				return false;
 			}
-			
+
 			if (this.birthDate == '') {
 				return false;
 			}
-			
-			
+
+
 			return true;
 		}
-		
+
 	}
-	
-	
-	
+
+
+
 });
