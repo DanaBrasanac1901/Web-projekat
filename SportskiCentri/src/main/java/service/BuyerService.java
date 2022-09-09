@@ -3,6 +3,7 @@ package service;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,8 +18,11 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import beans.Buyer;
+import beans.HistoryTraining;
 import dao.BuyerDao;
+import dao.TrainingDao;
 import dto.RegisterUserDto;
+import dto.TrainingDto;
 import dto.UserDto;
 import main.App;
 
@@ -29,10 +33,12 @@ public class BuyerService {
 	private ServletContext ctx;
 
 	private BuyerDao buyerDao;
+	private TrainingDao trainingDao;
 
 	@PostConstruct
 	public void init() {
 		this.buyerDao = (BuyerDao) ctx.getAttribute(App.BUYER_DAO);
+		this.trainingDao = (TrainingDao) ctx.getAttribute(App.TRAINING_DAO);
 
 	}
 
@@ -61,29 +67,30 @@ public class BuyerService {
 	 */
 
 	@POST
-	@Path("/new")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public void createNew(UserDto userInfo) {
-		
-		Buyer newBuyer = new Buyer(userInfo.getUsername(), userInfo.getPassword(), userInfo.getFirstName(),
-		userInfo.getLastName(), userInfo.getGender(), userInfo.getBirthDate());
-		buyerDao.addNew(newBuyer);
-
-	}
-	
-	@POST
 	@Path("/register")
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.TEXT_PLAIN)
-	public String RegisterNew(RegisterUserDto userInfo) {
+	@Produces(MediaType.APPLICATION_JSON)
+	public String createNew(UserDto userInfo) {
 
 		Buyer newBuyer = new Buyer(userInfo.getUsername(), userInfo.getPassword(), userInfo.getFirstName(),
-		userInfo.getLastName(), userInfo.getGender(), userInfo.getBirthDate().toLocalDate());
-		return buyerDao.RegisterNew(newBuyer);
+				userInfo.getLastName(), userInfo.getGender(), userInfo.getBirthDate());
+		return buyerDao.addNew(newBuyer);
 
 	}
+
 	
-	
+
+	@GET
+	@Path("/trainings")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<TrainingDto> getTrainingList(String buyerUsername) {
+		Buyer buyer = buyerDao.getByUsername(buyerUsername);
+		List<TrainingDto> trainingDto = new ArrayList<TrainingDto>();
+		List<HistoryTraining> trainingHistory = buyer.getTrainingHistory();
+		for (int i = 0; i <= trainingHistory.size(); i++) {
+			
+		}
+		return trainingDto;
+	}
 
 }
