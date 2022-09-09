@@ -3,16 +3,75 @@ Vue.component("all-trainings", {
 		    return {
 		      
 		      trainings: null,
-		      f : 0
+		      f : 0,
+		      selectionSearch : '',
+			  since : 0,
+			  to : 0
 		    }
+		  
+		  
 		  },
 
 	template: ` 
 <div>
 
+<div class='filterBar'>
+					<table>
+						<tr>
+							<td><label for="since">Pretraga od:</label></td>
+							<td><input type="number"  v-model="since" min="0" v-on:keyup="searchPrice"></td>
+							<td><label for="to">do:</label></td>
+							<td><input type="number"  v-model="to" v-on:keyup="searchPrice" min="0" ></td>
+	
+							<td>
+							<select v-model="selectionSearch"  v-on:change="selectionChange">
+									<option value="price">ceni</option>
+									<option value="date">datumu</option>
+									<option value="getFree">treninge bez doplate</option>
+									
+								</select>
+							</td>
+				
+				<!--			<td>
+							<td><label>Status</label><td>
+							<select v-model="status"  v-on:change="statusOpen">
+									<option value="OPEN">Otvoren</option>
+									<option value="CLOSED">Zatvoren</option>
+									<option value="ALL">Svi</option>
+									
+								</select>
+							</td>
+							<td><label>Tip objekta</label><td>
+							<select v-model="type"  v-on:change="facilitieType">
+									<option value="GYM">teretana</option>
+									<option value="POOL">bazen</option>
+									<option value="SPORT_CENTER">sportski centar</option>
+									<option value="DANCING_STUDIO,">plesni studio</option>
+									<option value="DOJO">dojo</option>
+									<option value="ALL">Svi</option>
+									
+								</select>
+							</td>
+							<td><label>Sortiranje</label><td>
+							<select v-model="sortParametar"  v-on:change="sortFunction">
+									<option value="name">ime</option>
+									<option value="location">lokacija</option>
+									<option value="grade">ocena</option>									
+							</select>
+							</td>
+							<select v-model="sortMode"  v-on:change="sortFunction">
+									<option value="rastuce">rastuće</option>
+									<option value="opadajuce">opadajuće</option>									
+							</select>
+							</td>
+			-->	
+     					</tr>
+			
+					</table>
+
+			</div>
 
 <table class = "facilities"  style="margin-top:100px;">
-	
 	<tr >
 		<th>SLIKA</th>
 		<th>NAZIV</th>
@@ -38,11 +97,17 @@ Vue.component("all-trainings", {
 	</table>
 		<button  v-on:click="newContent" class="button-3">Kreiraj novi sadržaj</button>                               
 </div>
+</div>
 		  
 `
 	,
 	 mounted(){
-		axios
+		this.getAll()			
+ 				
+	},
+	methods : {
+		getAll : function(){
+			axios
 		 .get("rest/managers/getFacilitie")
 		 .then(res=> {
 			this.f=res.data;  
@@ -50,10 +115,11 @@ Vue.component("all-trainings", {
 		 
 		 
 		 })
+			
+			
+		},
 		
- 				
-	},
-	methods : {
+		
 		getTrainings : function (){
 		
 		axios
@@ -78,13 +144,58 @@ Vue.component("all-trainings", {
 		app.selectedTraining = tr
 		router.push('/editTraining')
 		
+	},searchPrice : function(event){
+		 if (event != undefined){
+				event.preventDefault();
+			}
+		
+		if(this.to === ''){
+			this.to=0
+		}
+		if(this.since === ''){
+			this.since=0
+		}
+		
+		
+		 axios
+		 	.get('rest/trainings/' + this.since + '/searchPrice/' + this.to)
+			.then(response => {
+				this.trainings = response.data
+				
+			})
+						
+		
+	},
+	
+		selectionChange : function(event){
+			if (event != undefined){
+				event.preventDefault();
+			}
+			
+			this.since = 0;
+			this.to = 0
+			
+			if(this.selectionSearch ==='getFree'){
+				axios
+					.get('rest/trainings/searchFree')			
+					.then(response => {
+						this.trainings = response.data
+				
+			})
+			
+			}else{
+				this.getAll()
+			}
+			
+			
+			
 	}
 	
 	
 	
+	
+	
 	}
-	
-	
 	
 	
 	

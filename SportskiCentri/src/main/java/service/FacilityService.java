@@ -66,7 +66,13 @@ public class FacilityService {
 		String content = search.getSearch();
 		List<FacilityDto> searchResult = new ArrayList<FacilityDto>();
 		List<FacilityDto> allDtos = getAll();
-
+		
+		if(content == null || content.isEmpty() || content.trim().isEmpty()) {
+			
+			return getAll();
+		}
+		
+		
 		if (criteria.equals("name")) {
 
 			searchResult = allDtos.stream().filter(dto -> dto.getName().toLowerCase().contains(content.toLowerCase()))
@@ -86,7 +92,7 @@ public class FacilityService {
 
 		} else if (criteria.equals("grade")) {
 
-			searchResult = allDtos.stream().filter(dto -> dto.getGrade() == Double.parseDouble(content))
+			searchResult = allDtos.stream().filter(dto -> dto.getGrade() >= Double.parseDouble(content))
 					.collect(Collectors.toList());
 		} else {
 			searchResult = getAll();

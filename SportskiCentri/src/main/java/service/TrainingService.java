@@ -20,6 +20,7 @@ import beans.Training;
 import dao.FacilityDao;
 import dao.TrainingDao;
 import dto.FacilityDto;
+import dto.SearchDto;
 import main.App;
 
 @Path("/trainings")
@@ -85,5 +86,37 @@ public class TrainingService {
 		return "ima";
 		
 	}
+	
+	@GET
+	@Path("{since}/searchPrice/{to}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Training> search(@PathParam("since") int since,@PathParam("to") int to) {
+		
+		if(to == 0) {
+			
+		 return getAll().stream().filter(t -> t.getPrice()  >= since )
+					.collect(Collectors.toList());
+			
+		}
+		
+		 return getAll().stream().filter(t -> t.getPrice()>=since &&  t.getPrice()<=to)
+					.collect(Collectors.toList());
+					
+	}
+	
+	@GET
+	@Path("/searchFree")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Training> search() {
+		
+			
+		 return getAll().stream().filter(t -> t.getPrice()  == 0 )
+					.collect(Collectors.toList());
+			
+		
+					
+	}
+	
+	
 	
 }
