@@ -1,7 +1,22 @@
 {
   "1": {
-    "points": 0,
-    "trainingHistory": [
+ 	 	"username": "buyer2",
+    	"password": "buyer2",
+   		"firstName": "Aleksa",
+    	"lastName": "Mijatovic",
+    	"gender": "MALE",
+    	"birthDate": {
+      			"year": 2000,
+      			"month": 1,
+      			"day": 19
+    			},
+    	"deleted": false,
+    	"isBanned": false,
+    	"userRole": "BUYER",
+    	"points": 0,
+    	"buyerType": null,
+    	"visitedFacilitiesIds": null,
+    	"trainingHistory": [
       {
         "trainingId": 0,
         "trainerUsername": -1,
@@ -33,23 +48,26 @@
         "date": "Jul 12, 2022, 2:35:10 AM"
       }
     ],
-    "username": "buyer2",
-    "password": "buyer2",
-    "firstName": "Aleksa",
-    "lastName": "Mijatovic",
-    "gender": "MALE",
-    "birthDate": {
-      "year": 2000,
-      "month": 1,
-      "day": 19
-    },
-    "deleted": false,
-    "isBanned": false,
-    "userRole": "BUYER"
-  },
-  "2": {
-    "points": 0,
-    "trainingHistory": [
+    "membership": null
+  	},
+ "2": {
+ 	 	"username": "buyer",
+   	 	"password": "buyer",
+    	"firstName": "Lazar",
+    	"lastName": "Mijatovic",
+    	"gender": "MALE",
+    	"birthDate": {
+     		"year": 2000,
+    		"month": 1,
+      		"day": 19
+    		},
+    	"deleted": false,
+   		"isBanned": false,
+    	"userRole": "BUYER",
+    	"points": 0,
+    	"buyerType": null,
+    	"visitedFacilitiesIds": null,
+   		"trainingHistory": [
       {
         "trainingId": 1,
         "trainerUsername": -1,
@@ -81,24 +99,9 @@
         "date": "Jul 12, 2022, 2:35:10 AM"
       }
     ],
-    "username": "buyer",
-    "password": "buyer",
-    "firstName": "Lazar",
-    "lastName": "Mijatovic",
-    "gender": "MALE",
-    "birthDate": {
-      "year": 2000,
-      "month": 1,
-      "day": 19
-    },
-    "deleted": false,
-    "isBanned": false,
-    "userRole": "BUYER"
+   "membership": null
   },
-  "3": {
-    "points": 0,
-    "visitedFacilitiesIds": [],
-    "trainingHistory": [],
+ "3": {
     "username": "buyer8",
     "password": "buyer8",
     "firstName": "Milorad",
@@ -111,12 +114,14 @@
     },
     "deleted": false,
     "isBanned": false,
-    "userRole": "BUYER"
-  },
-  "4": {
-    "points": 0,
+    "userRole": "BUYER",
+     "points": 0,
+     "buyerType": null,
     "visitedFacilitiesIds": [],
     "trainingHistory": [],
+    "membership":null
+   	},
+ "4": {
     "username": "buyer3",
     "password": "buyer3",
     "firstName": "Mihajlo",
@@ -129,6 +134,11 @@
     },
     "deleted": false,
     "isBanned": false,
-    "userRole": "BUYER"
-  }
+    "userRole": "BUYER",
+    "points": 0,
+    "buyerType":null,
+    "visitedFacilitiesIds": [],
+    "trainingHistory": [],
+    "membership":null
+ 	 }
 }
