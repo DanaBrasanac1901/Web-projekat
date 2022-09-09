@@ -94,27 +94,33 @@ public class BuyerService {
 		List<TrainingDto> trainingDtos = new ArrayList<TrainingDto>();
 
 		List<HistoryTraining> trainingHistory = buyer.getTrainingHistory();
-		trainingHistory = trainingHistory.stream().sorted(Comparator.comparingInt(HistoryTraining::getTrainingId)).collect(Collectors.toList());
-		
-		int currentTrainingId;
-		Training currentTraining;
+		trainingHistory = trainingHistory.stream().sorted(Comparator.comparingInt(HistoryTraining::getTrainingId))
+				.collect(Collectors.toList());
 
-		for (int i = 0; i <= trainingHistory.size(); i++) {
-			currentTrainingId = trainingHistory.get(i).getTrainingId();
-			currentTraining = trainingDao.getById(currentTrainingId);
-			
-			if(currentTrainingId != trainingHistory.get(i).getTrainingId()) {
-				
-				
-			}
-			
-				
-			}
-			
 		
+		int currentTrainingId = trainingHistory.get(0).getTrainingId();
+		Training currentTraining = trainingDao.getById(currentTrainingId);
+		TrainingDto currentTrainingDto = new TrainingDto(currentTraining.getName(),
+				facilityDao.getById(currentTraining.getFacilityId()).getName(), null);
+
+		
+		for (int i = 0; i <= trainingHistory.size(); i++) {
+
+			if (currentTrainingId != trainingHistory.get(i).getTrainingId()) {
+				
+				trainingDtos.add(currentTrainingDto);
+				currentTrainingId = trainingHistory.get(i).getTrainingId();
+				currentTrainingDto = new TrainingDto(currentTraining.getName(),
+						facilityDao.getById(currentTraining.getFacilityId()).getName(), null);
+				currentTrainingDto.addNewDateOfTraining(trainingHistory.get(i).getDate());
+
+			} else {
+				currentTrainingDto.addNewDateOfTraining(trainingHistory.get(i).getDate());
+			}
+
+		}
+
 		return trainingDtos;
 	}
 
-	
-	
 }
