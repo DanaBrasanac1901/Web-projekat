@@ -33,16 +33,22 @@ Vue.component("new-training", {
 						<td><input class="loginInput"  type="text"  v-model="name"  ></td>
 		
 		    		</tr>
+		    		<tr>
+						<td><label for="description">Opis :</label></td>
+						<td><input class="loginInput"  type="text"  v-model="description"  ></td>
+		
+		    		</tr>
 					<tr>
 						<td><label for="price">Doplata za trening :</label></td>
-						<td><input class="loginInput"   type="number" min="1" step="any" v-model="price" ></td>
+						<td><input class="loginInput"   type="number"  step="any" v-model="price" ></td>
 				
 					</tr>
 					<tr>
-						<td><label for="duration">Vreme trajanja treninga :</label></td>
-						<td><input class="loginInput"   type="number" min="1" step="any" v-model="duration" ></td>
+						<td><label for="duration">Trajanje treninga :</label></td>
+						<td><input class="loginInput"   type="number"  step="any" v-model="duration" ></td>
 				
 					</tr>
+					
 					<tr>		
 	    				<td><label for="trainingType">Tip treninga :</label></td>
 							<td><select v-model="trainingType" class="loginInput" >
@@ -64,20 +70,6 @@ Vue.component("new-training", {
 					</tr>
 					
 					
-	<!--			
-					<tr>
-						<td><label for="lastName">Prezime  :</label></td>
-						<td><input class="loginInput"  type="text"  v-model="lastName"  ></td>
-					<tr>
-						<td><label for="gender">Pol :</label></td>
-						<td><select v-model="gender" class="loginInput" >
-									<option value="MALE">muški</option>
-									<option value="FEMALE">ženski</option>
-								</select>                                
-						</td>
-		
-		    		</tr>
-				-->
 					<tr>
 						<td><label for="picturePath">Slika :</label></td>
 						<td><input class="loginInput"  type="file" name="picturePath" accept="images/*" @change="logoSelected"></td>
@@ -106,13 +98,14 @@ Vue.component("new-training", {
 			})
 		axios	
 			.get("rest/managers/getFacilitie")
-		 	.then(res=> {this.g = res.data})		
+		 	.then(res=> {this.f = res.data})		
 	},
 	
 	methods: {
 		
 			logoSelected : function(event) {
-			this.pircturePath =  "images\\" + event.target.files[0].name
+			this.picturePath  =  "images\\" + event.target.files[0].name
+			alert(this.picturePath )
 		
 		},
 			addTraining : function(event){
@@ -121,22 +114,23 @@ Vue.component("new-training", {
 			}
 				
 				
-			if (!this.isValidToAddTraining) {
+			if (!this.isValidToAddTraining()) {
 				alert('Niste popunili sva neophodna polja za dodavanje treninga.');
 				return;
 			}	
 				
 			
 			axios
-		    .post("rest/trainers/" + this.f + "/new-content" , 
+		    .post("rest/facilities/" + this.f + "/new-content" , 
 		    {
 			"name" : this.name,
-			"type" : 'trainingType',
-			"trainerUsername" : this.trainingType,
+			"type" : this.trainingType,
+			"trainerUsername" : this.selectedTrainer,
 		    "description" : this.description,
 		    "picturePath" : this.picturePath,
 		    "price" : this.price,
-		    "duration" : this.duration 
+		    "duration" : this.duration ,
+		    "facilityId" : this.f
 			})
 			.then(response=>{
 			if(response.data  == "uspesno"){
@@ -161,15 +155,29 @@ Vue.component("new-training", {
 						
 			},
 			
+			trainerSelected : function(event){
+				
+				this.selectedTrainer = event.target.options[event.target.options.selectedIndex].text
+				
+			},
+			
 			isValidToAddTraining : function() {
-			if (this.name == '') {
+				alert("Majmune")
+			if (this.name =='') {
+				alert(this.name)
+				alert("1")
 				return false;
 			}
-			if (this.trainingType == '') {
+			if (this.trainingType =='') {
+				alert(this.trainingType)
+				alert("2")
 				return false;
 			}
 			
-			if (this.picturePath == '') {
+			if (this.picturePath  =='') {
+				alert(this.picturePath )
+				alert("Konj")
+				alert("3")
 				return false;
 			}
 					

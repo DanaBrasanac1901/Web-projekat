@@ -95,8 +95,19 @@ public class TrainingDao {
 	}
 
 	public void addNewTraining(Training newTraining) {
-		// TODO Auto-generated method stub
+		loadFile();
 		
+		if(newTraining.getId() <1) {
+		newTraining.setId(makeNewTrainingId());	
+		}
+		trainings.put(newTraining.getId(), newTraining);
+		updateFile();
+		
+	}
+	
+	public int makeNewTrainingId() {
+		
+		return getAll().size()+1;
 	}
 
 }

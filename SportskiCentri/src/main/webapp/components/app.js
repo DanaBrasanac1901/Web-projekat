@@ -9,6 +9,8 @@ const FacilitieView = { template: '<facilitie-view></facilitie-view>' }
 const NewManager = { template: '<new-manager></new-manager>' }
 const AllTrainings = { template: '<all-trainings></all-trainings>' }
 const NewTraining = { template: '<new-training></new-training>' }
+const EditTraining = { template: '<edit-training></edit-training>' }
+
 
 
 
@@ -26,6 +28,8 @@ const router = new VueRouter({
 	    { path: '/newManager', component: NewManager},
 	    { path: '/allTrainings', component: AllTrainings},
 	    { path: '/newTraining', component: NewTraining},
+	    { path: '/editTraining', component: EditTraining},
+	    
 	    
 	      
 	   
@@ -37,6 +41,7 @@ var app = new Vue({
 	el: '#sportShop',
 	data: {
 		selectedFacilitie: {},
+		selectedTraining: {},
 		managerFacilitieID : 0
 		
 		

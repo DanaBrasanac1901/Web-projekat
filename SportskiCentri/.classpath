@@ -35,7 +35,7 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jersey-common.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jersey-common-2.22.1.jar" sourcepath="src/main/webapp/WEB-INF/lib/jersey-common-2.22.1.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jersey-container-servlet.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jersey-container-servlet-core.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jersey-container-servlet-core.jar" sourcepath="src/main/webapp/WEB-INF/lib/jersey-container-servlet-core.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jersey-core-1.9.1.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jersey-entity-filtering-2.22.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jersey-guava-2.22.1.jar" sourcepath="src/main/webapp/WEB-INF/lib/jersey-guava-2.22.1.jar"/>

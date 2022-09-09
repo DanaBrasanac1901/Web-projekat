@@ -60,6 +60,7 @@ Vue.component("facilitie-view", {
 		<th>DOPLATA</th>		
 		<th>OPIS</th>
 		<th>TIP</th>
+		<th>TRENER</th>
 		
 	</tr>
 
@@ -70,6 +71,8 @@ Vue.component("facilitie-view", {
 		<td>{{t.price }}</td>
 		<td>{{t.description }}</td>
 		<td>{{t.type }}</td>
+		<td>{{t.trainerUsername }}</td>
+		
 		
 		
 	</tr>

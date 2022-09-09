@@ -82,5 +82,29 @@
     "picturePath": "images\\BarneySaKnjigom.jpg",
     "price": 0,
     "isDeleted": false
+  },
+  "8": {
+    "name": "Kungfu",
+    "id": 8,
+    "type": "GROUP",
+    "facilityId": 1,
+    "duration": 40,
+    "trainerUsername": "trainer",
+    "description": "",
+    "picturePath": "images\\BarneyMali.jpg",
+    "price": 500,
+    "isDeleted": false
+  },
+  "9": {
+    "name": "Joga2",
+    "id": 9,
+    "type": "GROUP",
+    "facilityId": 1,
+    "duration": 0,
+    "trainerUsername": "trainer",
+    "description": "Istezanje",
+    "picturePath": "images\\BarneyMali.jpg",
+    "price": 0,
+    "isDeleted": false
   }
 }

@@ -77,6 +77,16 @@ public class FacilityDao {
 		updateFile();
 
 	}
+	
+	
+	public void EditFacility(Facility fac){
+		loadFile();
+		facilities.remove(fac.getId());
+		facilities.put(fac.getId(), fac);
+		updateFile();
+		
+		
+	}
 
 	public int makeNewKey() {
 		return (facilities.size() + 1);
