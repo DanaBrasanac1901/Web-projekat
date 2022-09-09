@@ -10,6 +10,7 @@ import dao.AdminDao;
 import dao.BuyerDao;
 import dao.FacilityDao;
 import dao.ManagerDao;
+import dao.MembershipDao;
 import dao.TrainerDao;
 import dao.TrainingDao;
 
@@ -24,6 +25,7 @@ public class App extends Application {
 	public static final String ADMIN_DAO = "adminDao";
 	public static final String MANAGER_DAO = "managerDao";
 	public static final String TRAINING_DAO = "trainingDao";
+	public static final String MEMBERSHIP_DAO = "membershipDao";
 
 	@Context
 	private ServletContext ctx;
@@ -38,6 +40,7 @@ public class App extends Application {
 		ctx.setAttribute(MANAGER_DAO, new ManagerDao());
 		ctx.setAttribute(ADMIN_DAO, new AdminDao());
 		ctx.setAttribute(TRAINING_DAO, new TrainingDao());
+		ctx.setAttribute(MEMBERSHIP_DAO, new MembershipDao());
 
 	}
 

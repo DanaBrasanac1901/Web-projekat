@@ -20,11 +20,16 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import beans.Buyer;
+import beans.Facility;
 import beans.HistoryTraining;
+import beans.Membership;
 import beans.Training;
 import dao.BuyerDao;
 import dao.FacilityDao;
+import dao.MembershipDao;
 import dao.TrainingDao;
+import dto.FacilityDto;
+import dto.MembershipDto;
 import dto.RegisterUserDto;
 import dto.TrainingDto;
 import dto.UserDto;
@@ -39,12 +44,14 @@ public class BuyerService {
 	private BuyerDao buyerDao;
 	private TrainingDao trainingDao;
 	private FacilityDao facilityDao;
+	private MembershipDao membershipDao;
 
 	@PostConstruct
 	public void init() {
 		this.buyerDao = (BuyerDao) ctx.getAttribute(App.BUYER_DAO);
 		this.trainingDao = (TrainingDao) ctx.getAttribute(App.TRAINING_DAO);
 		this.facilityDao = (FacilityDao) ctx.getAttribute(App.FACILITY_DAO);
+		this.membershipDao = (MembershipDao) ctx.getAttribute(App.MEMBERSHIP_DAO);
 
 	}
 
@@ -84,6 +91,7 @@ public class BuyerService {
 
 	}
 
+	// ispravi na samo u poslednjih mesec dana datum bude
 	@GET
 	@Path("/trainings/{username}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -97,17 +105,15 @@ public class BuyerService {
 		trainingHistory = trainingHistory.stream().sorted(Comparator.comparingInt(HistoryTraining::getTrainingId))
 				.collect(Collectors.toList());
 
-		
 		int currentTrainingId = trainingHistory.get(0).getTrainingId();
 		Training currentTraining = trainingDao.getById(currentTrainingId);
 		TrainingDto currentTrainingDto = new TrainingDto(currentTraining.getName(),
 				facilityDao.getById(currentTraining.getFacilityId()).getName(), null);
 
-		
 		for (int i = 0; i <= trainingHistory.size(); i++) {
 
 			if (currentTrainingId != trainingHistory.get(i).getTrainingId()) {
-				
+
 				trainingDtos.add(currentTrainingDto);
 				currentTrainingId = trainingHistory.get(i).getTrainingId();
 				currentTrainingDto = new TrainingDto(currentTraining.getName(),
@@ -123,4 +129,16 @@ public class BuyerService {
 		return trainingDtos;
 	}
 
+	@GET
+	@Path("/all-memberships")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<MembershipDto> getAllMemberships(){
+		
+		return membershipDao.getAll().stream().filter(Membership::isNotDeleted).map(m -> new MembershipDto(m))
+				.collect(Collectors.toList());
+		
+
+		
+	}
+	
 }

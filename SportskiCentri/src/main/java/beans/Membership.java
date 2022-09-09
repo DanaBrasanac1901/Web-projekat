@@ -86,7 +86,10 @@ public class Membership {
 		this.numberOfEntrances = numberOfEntrances;
 	}
 	
-	
+	public boolean isNotDeleted() {
+		return !this.deleted;
+	}
+
 	
 	
 
