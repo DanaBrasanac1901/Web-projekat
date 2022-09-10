@@ -4,7 +4,9 @@ Vue.component("all-users", {
 		     users : [] ,
 		 	allUsers : [],
 		     search : '',
-		     selectionSearch : ''
+		     selectionSearch : '',
+		     selectionFilter : '',
+		     
 		    }
 		    },
 	
@@ -17,11 +19,20 @@ Vue.component("all-users", {
 							<td><label for="search">Pretraga :</label></td>
 							<td><input type="text"  v-model="search" min="0" v-on:keyup="searchFunction"></td>
 							<td><label for="selectionSearch">po : </label></td>
-							
 							<select v-model="selectionSearch"  v-on:change="selectionFunction">
 									<option value="name">imenu</option>
 									<option value="lastName">prezimenu</option>
 									<option value="username">korisničkom imenu</option>
+									
+								</select>
+							</td>
+							<select v-model="selectionFilter"  v-on:change="filterFunction">
+									<option value="ALL">svi</option>
+									<option value="buyer">kupac</option>
+									<option value="trainer">trener</option>
+									<option value="admin">administrator</option>
+									<option value="manager">menadžer</option>
+									
 									
 								</select>
 							</td>
@@ -86,6 +97,33 @@ Vue.component("all-users", {
 
 	},
 	methods : {
+		filterFunction : function(event){
+			this.search = '';
+			if (event != undefined){
+				event.preventDefault();}
+		
+				if(this.selectionFilter =='ALL'){
+					
+					this.getAllUsers();
+				}else if(this.selectionFilter =='buyer'){
+						
+					this.getAllBuyers();
+				}else if(this.selectionFilter =='admin'){
+						
+					this.getAllAdmins();
+				}else if(this.selectionFilter =='trainer'){
+						
+					this.getAllTrainers();
+				}else if(this.selectionFilter =='manager'){
+						
+					this.getAllManagers();
+				}
+				
+				
+			
+			
+		}, 
+
 		getAllUsers : function(){
 			axios
 				.get('rest/users')
@@ -93,6 +131,34 @@ Vue.component("all-users", {
 					this.users = res.data
 					this.allUsers = res.data})
 		},
+		getAllBuyers : function(){
+			axios
+				.get('rest/buyers')
+				.then(res=>{
+					this.users = res.data
+					this.allUsers = res.data})
+		},getAllAdmins : function(){
+		
+			axios
+				.get('rest/admins')
+				.then(res=>{
+					this.users = res.data
+					this.allUsers = res.data})
+		},getAllManagers : function(){
+			axios
+				.get('rest/managers')
+				.then(res=>{
+					this.users = res.data
+					this.allUsers = res.data})
+		},getAllTrainers : function(){
+			axios
+				.get('rest/trainers')
+				.then(res=>{
+					this.users = res.data
+					this.allUsers = res.data})
+		},
+		
+		
 		selectionFunction : function(event){
 				 if (event != undefined){
 				event.preventDefault();}
@@ -141,6 +207,7 @@ Vue.component("all-users", {
 			
 			
 		},
+
 		
 		
 	}
