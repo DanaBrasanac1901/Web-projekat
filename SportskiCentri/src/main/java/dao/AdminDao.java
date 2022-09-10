@@ -121,6 +121,16 @@ public class AdminDao {
 		  return "not";
 		
 	}
+	
+	public String DoesContainUsername(String username) {
+		loadFile();
+
+		if (admins.containsKey(username)) {
+			return "ima";
+		}
+		
+		return "nema";
+	}
 
 
 }

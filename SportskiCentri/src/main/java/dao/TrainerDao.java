@@ -124,6 +124,15 @@ public class TrainerDao {
 		  return "not";
 		
 	}
+	
+	public String DoesContainUsername(String username) {
+		loadFile();
 
+		if (trainers.containsKey(username)) {
+			return "ima";
+		}
+		
+		return "nema";
+	}
 
 }
