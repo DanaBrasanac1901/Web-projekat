@@ -77,7 +77,7 @@ public class BuyerService {
 	 * 
 	 * }
 	 */
-/*
+
 	@POST
 	@Path("/registration")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -160,8 +160,14 @@ public class BuyerService {
 
 			
 		}
-*/
 	
+	
+
+		
+		
+	}
+
+	/*
 	@POST
 	@Path("/new")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -173,18 +179,7 @@ public class BuyerService {
 		buyerDao.addNew(newBuyer);
 
 	}
-	
-	@POST
-	@Path("/register")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.TEXT_PLAIN)
-	public String RegisterNew(RegisterUserDto userInfo) {
+	*/
 
-		Buyer newBuyer = new Buyer(userInfo.getUsername(), userInfo.getPassword(), userInfo.getFirstName(),
-		userInfo.getLastName(), userInfo.getGender(), userInfo.getBirthDate().toLocalDate());
-		return buyerDao.RegisterNew(newBuyer);
-
-	}
-	}
 
 
