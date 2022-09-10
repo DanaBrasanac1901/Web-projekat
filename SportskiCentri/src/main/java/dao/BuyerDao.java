@@ -9,12 +9,15 @@ import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.lang.reflect.Type;
 
 import beans.Buyer;
+import beans.HistoryTraining;
 import beans.InstantiatedMembership;
 import dto.UserLoginDto;
 import main.App;
@@ -117,10 +120,10 @@ public class BuyerDao {
 	 */
 	public boolean isMembershipActive(InstantiatedMembership membership) {
 
-		if (membership.getExpirationDate().isBefore(LocalDate.now()) || membership.getRemainingEntrances() == 0) {
+		if (membership.getExpirationDate().isBefore(LocalDate.now()) || membership.getRemainingEntrances() <= 0) {
 			deactivateMembership(membership.getBuyer());
 			return false;
-		}else if(!membership.isStatus()) {
+		} else if (!membership.isStatus()) {
 			return false;
 		}
 		return true;
@@ -141,17 +144,25 @@ public class BuyerDao {
 	}
 
 	public void deactivateMembership(Buyer buyer) {
+
 		InstantiatedMembership membership = buyer.getMembership();
-		if(!membership.isStatus()) {
-			
-			
-		}else {
-		if(membership.getRemainingEntrances() > 2*(membership.getNumberOfEntrances())/3) {
-			buyer.setPoints(buyer.getPoints() - membership.getPrice()/1000*133*4);
-		}else {
-			
+
+		if (membership.getRemainingEntrances() > 2 * (membership.getNumberOfEntrances()) / 3) {
+			buyer.setPoints(buyer.getPoints() - membership.getPrice() / 1000 * 133 * 4);
+		} else {
+			buyer.setPoints(buyer.getPoints() + membership.getPrice() / 1000
+					* (membership.getNumberOfEntrances() - membership.getRemainingEntrances()));
 		}
-		}
+		membership.setStatus(false);
+		buyers.get(buyer.getUsername()).setMembership(membership);
+		buyers.get(buyer.getUsername()).setPoints(buyer.getPoints());
+		updateFile();
+	}
+
+	public void newMembership(String username, InstantiatedMembership newMembership) {
+
+		getByUsername(username).setMembership(newMembership);
+		loadFile();
 	}
 
 	public String loginBuyer(UserLoginDto user) {
@@ -176,6 +187,14 @@ public class BuyerDao {
 		}
 		return "not";
 
+	}
+
+	public void addNewToTrainingHistory(String username, HistoryTraining trainingHistory) {
+
+		List<HistoryTraining> newTrainingHistory = buyers.get(username).getTrainingHistory();
+		newTrainingHistory.add(trainingHistory);
+		buyers.get(username).setTrainingHistory(newTrainingHistory);
+		loadFile();
 	}
 
 }
