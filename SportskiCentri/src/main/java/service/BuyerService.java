@@ -31,7 +31,6 @@ import dao.TrainingDao;
 import dto.MembershipDto;
 import dto.RegisterUserDto;
 import dto.TrainingDto;
-import dto.UserDto;
 import main.App;
 
 @Path("/buyers")
@@ -116,26 +115,31 @@ public class BuyerService {
 	public List<TrainingDto> getTrainingList(@PathParam("username") String buyerUsername) {
 
 		Buyer buyer = buyerDao.getByUsername(buyerUsername);
-
 		List<TrainingDto> trainingDtos = new ArrayList<TrainingDto>();
-
 		List<HistoryTraining> trainingHistory = buyer.getTrainingHistory();
+
 		trainingHistory = trainingHistory.stream().sorted(Comparator.comparingInt(HistoryTraining::getTrainingId))
 				.collect(Collectors.toList());
+	
 
 		int currentTrainingId = trainingHistory.get(0).getTrainingId();
+		
 		Training currentTraining = trainingDao.getById(currentTrainingId);
+		System.out.print(currentTraining.getName());
+		System.out.print(facilityDao.getById(currentTraining.getFacilityId()).getName());
 		TrainingDto currentTrainingDto = new TrainingDto(currentTraining.getName(),
-				facilityDao.getById(currentTraining.getFacilityId()).getName(), null);
+				facilityDao.getById(currentTraining.getFacilityId()).getName(), new ArrayList<Date>());
 
+		System.out.println("uzeo trenutni");
 		for (int i = 0; i <= trainingHistory.size(); i++) {
 
 			if (currentTrainingId != trainingHistory.get(i).getTrainingId()) {
 
 				trainingDtos.add(currentTrainingDto);
 				currentTrainingId = trainingHistory.get(i).getTrainingId();
+				currentTraining = trainingDao.getById(currentTrainingId);
 				currentTrainingDto = new TrainingDto(currentTraining.getName(),
-						facilityDao.getById(currentTraining.getFacilityId()).getName(), null);
+						facilityDao.getById(currentTraining.getFacilityId()).getName(), new ArrayList<Date>());
 				currentTrainingDto.addNewDateOfTraining(trainingHistory.get(i).getDate());
 
 			} else {
@@ -226,20 +230,3 @@ public class BuyerService {
 	}
 
 }
-
-/*
- * @POST
- * 
- * @Path("/new")
- * 
- * @Consumes(MediaType.APPLICATION_JSON)
- * 
- * @Produces(MediaType.APPLICATION_JSON) public void createNew(UserDto userInfo)
- * {
- * 
- * Buyer newBuyer = new Buyer(userInfo.getUsername(), userInfo.getPassword(),
- * userInfo.getFirstName(), userInfo.getLastName(), userInfo.getGender(),
- * userInfo.getBirthDate()); buyerDao.addNew(newBuyer);
- * 
- * }
- */

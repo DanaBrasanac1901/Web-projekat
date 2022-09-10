@@ -4,7 +4,8 @@
     "trainingHistory": [
       {
         "trainingId": 0,
-        "trainerUsername": "-1"
+        "trainerUsername": "-1",
+        "date": "Jul 6, 2022, 1:49:28 AM"
       },
       {
         "trainingId": 1,
@@ -14,22 +15,22 @@
       {
         "trainingId": 2,
         "trainerUsername": "0",
-        "date": "Jul 12, 2022, 1:49:31 AM"
+        "date": "Jul 7, 2022, 1:49:31 AM"
       },
       {
         "trainingId": 3,
         "trainerUsername": "0",
-        "date": "Jul 12, 2022, 2:11:59 AM"
+        "date": "Jul 15, 2022, 2:11:59 AM"
       },
       {
         "trainingId": 4,
         "trainerUsername": "0",
-        "date": "Jul 12, 2022, 2:17:16 AM"
+        "date": "Jul 2, 2022, 2:17:16 AM"
       },
       {
         "trainingId": 5,
         "trainerUsername": "-1",
-        "date": "Jul 12, 2022, 2:35:10 AM"
+        "date": "Jul 1, 2022, 2:35:10 AM"
       }
     ],
     "username": "buyer2",
