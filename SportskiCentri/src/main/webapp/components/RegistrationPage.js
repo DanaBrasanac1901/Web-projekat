@@ -103,7 +103,7 @@ Vue.component("registration-page", {
 				})
 				.then(response => {
 					if (response.data == "uspesno") {
-						alert("Uspesno ste se ulogovali.")
+						alert("Uspesno ste se registrovali.")
 						this.username = "",
 							this.password = "",
 							this.firstName = "",
