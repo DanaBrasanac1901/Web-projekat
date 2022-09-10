@@ -11,17 +11,21 @@ public class InstantiatedMembership {
 	private Buyer buyer;
 	private boolean status;
 	private int numberOfEntrances;
+	private int remainingEntrances;
+	private int price;
 
 	public InstantiatedMembership(String id, boolean deleted, LocalDate payDate, LocalDate expirationDate, int price,
-			Buyer buyer, boolean status, int numberOfEntrances) {
+			Buyer buyer, boolean status, int numberOfEntrances, int remainingEntrances) {
 		super();
 		this.id = id;
 		this.deleted = deleted;
 		this.payDate = payDate;
+		this.price = price;
 		this.expirationDate = expirationDate;
 		this.buyer = buyer;
 		this.status = status;
 		this.numberOfEntrances = numberOfEntrances;
+		this.remainingEntrances = remainingEntrances;
 	}
 
 	public InstantiatedMembership() {
@@ -88,4 +92,19 @@ public class InstantiatedMembership {
 		return !this.deleted;
 	}
 
+	public int getRemainingEntrances() {
+		return remainingEntrances;
+	}
+
+	public void setRemainingEntrances(int remainingEntrances) {
+		this.remainingEntrances = remainingEntrances;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
 }

@@ -1,6 +1,6 @@
 {
   "buyer2": {
-    "points": 0,
+    "points": 677,
     "trainingHistory": [
       {
         "trainingId": 0,
@@ -47,7 +47,7 @@
     "userRole": "BUYER"
   },
   "buyer": {
-    "points": 0,
+    "points": 393,
     "trainingHistory": [
       {
         "trainingId": 1,
@@ -95,7 +95,7 @@
     "userRole": "BUYER"
   },
   "buyer8": {
-    "points": 0,
+    "points": 2006,
     "visitedFacilitiesIds": [],
     "trainingHistory": [],
     "username": "buyer8",
@@ -113,7 +113,7 @@
     "userRole": "BUYER"
   },
   "buyer3": {
-    "points": 0,
+    "points": 5000,
     "visitedFacilitiesIds": [],
     "trainingHistory": [],
     "username": "buyer3",
@@ -131,7 +131,7 @@
     "userRole": "BUYER"
   },
   "p": {
-    "points": 0,
+    "points": 925,
     "visitedFacilitiesIds": [],
     "trainingHistory": [],
     "username": "p",

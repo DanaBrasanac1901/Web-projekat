@@ -161,7 +161,9 @@ public class BuyerService {
 	public void setNewMembership(@PathParam("username") String username, @PathParam("id") String membershipId) {
 		Buyer buyer = buyerDao.getByUsername(username);
 		Membership membership = membershipDao.getById(membershipId);
-
+		if(buyer.getMembership()!= null) {
+			buyerDao.deactivateMembership(buyer);
+		}
 		int durationInDays;
 		if (membership.getMemType().equals(MembershipType.WEEK)) {
 			durationInDays = 7;
@@ -172,9 +174,9 @@ public class BuyerService {
 		}
 		InstantiatedMembership newMembership = new InstantiatedMembership(membershipId, false, LocalDate.now(),
 				LocalDate.now().plusDays(durationInDays), membership.getPrice(), buyer, true,
-				membership.getNumberOfEntrances());
-		buyer.setMembership(newMembership);
-
+				membership.getNumberOfEntrances(),membership.getNumberOfEntrances());
+		buyerDao.getByUsername(username).setMembership(newMembership);
+		buyerDao.loadFile();
 	}
 
 	@POST
@@ -188,7 +190,7 @@ public class BuyerService {
 		}
 		if (buyerDao.isMembershipActive(buyer.getMembership())) {
 			buyerDao.buyerHavingTraining(buyer);
-			if (buyer.getMembership().getNumberOfEntrances() == 0) {
+			if (buyer.getMembership().getRemainingEntrances() == 0) {
 				buyerDao.deactivateMembership(buyer);
 				return "POTROSIO SVE ULAZE";
 

@@ -115,11 +115,12 @@ public class BuyerDao {
 	 * return "ima";
 	 * 
 	 */
-
 	public boolean isMembershipActive(InstantiatedMembership membership) {
 
-		if (membership.getExpirationDate().isBefore(LocalDate.now()) || membership.getNumberOfEntrances() == 0) {
+		if (membership.getExpirationDate().isBefore(LocalDate.now()) || membership.getRemainingEntrances() == 0) {
 			deactivateMembership(membership.getBuyer());
+			return false;
+		}else if(!membership.isStatus()) {
 			return false;
 		}
 		return true;
@@ -129,8 +130,8 @@ public class BuyerDao {
 	public void buyerHavingTraining(Buyer buyer) {
 
 		InstantiatedMembership membership = buyer.getMembership();
-		if (membership.getNumberOfEntrances() > 0) {
-			membership.setNumberOfEntrances(membership.getNumberOfEntrances() - 1);
+		if (membership.getRemainingEntrances() > 0) {
+			membership.setRemainingEntrances(membership.getRemainingEntrances() - 1);
 
 		} else {
 
@@ -140,7 +141,17 @@ public class BuyerDao {
 	}
 
 	public void deactivateMembership(Buyer buyer) {
-
+		InstantiatedMembership membership = buyer.getMembership();
+		if(!membership.isStatus()) {
+			
+			
+		}else {
+		if(membership.getRemainingEntrances() > 2*(membership.getNumberOfEntrances())/3) {
+			buyer.setPoints(buyer.getPoints() - membership.getPrice()/1000*133*4);
+		}else {
+			
+		}
+		}
 	}
 
 	public String loginBuyer(UserLoginDto user) {
