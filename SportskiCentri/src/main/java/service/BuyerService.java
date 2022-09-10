@@ -57,7 +57,7 @@ public class BuyerService {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Buyer> getAll() {
-		return buyerDao.getAll().stream().filter(b->b.isDeleted()).collect(Collectors.toList());
+		return buyerDao.getAll().stream().filter(b -> b.isDeleted()).collect(Collectors.toList());
 	}
 
 	/*
@@ -144,7 +144,7 @@ public class BuyerService {
 	public void setNewMembership(@PathParam("username") String username, @PathParam("id") String membershipId) {
 		Buyer buyer = buyerDao.getByUsername(username);
 		Membership membership = membershipDao.getById(membershipId);
-		
+
 		int durationInDays;
 		if (membership.getMemType().equals(MembershipType.WEEK)) {
 			durationInDays = 7;
@@ -153,33 +153,55 @@ public class BuyerService {
 		} else {
 			durationInDays = 30;
 		}
-			InstantiatedMembership newMembership = new InstantiatedMembership(membershipId, false, LocalDate.now(),
-					LocalDate.now().plusDays(durationInDays), membership.getPrice(), buyer, true,
-					membership.getNumberOfEntrances());
-			buyer.setMembership(newMembership);
+		InstantiatedMembership newMembership = new InstantiatedMembership(membershipId, false, LocalDate.now(),
+				LocalDate.now().plusDays(durationInDays), membership.getPrice(), buyer, true,
+				membership.getNumberOfEntrances());
+		buyer.setMembership(newMembership);
 
-			
-		}
-	
-	
-
-		
-		
 	}
 
-	/*
 	@POST
-	@Path("/new")
-	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("{username}/{picked-facility-id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public void createNew(UserDto userInfo) {
-		
-		Buyer newBuyer = new Buyer(userInfo.getUsername(), userInfo.getPassword(), userInfo.getFirstName(),
-		userInfo.getLastName(), userInfo.getGender(), userInfo.getBirthDate());
-		buyerDao.addNew(newBuyer);
+	public String havingWorkout(@PathParam("username") String username,
+			@PathParam("picked-facility-id") int facilityId) {
+		Buyer buyer = buyerDao.getByUsername(username);
+		if (buyer.getMembership() == null) {
+			return "NEMA CLANARINU";
+		}
+		if (buyerDao.isMembershipActive(buyer.getMembership())) {
+			buyerDao.buyerHavingTraining(buyer);
+			if (buyer.getMembership().getNumberOfEntrances() == 0) {
+				buyerDao.deactivateMembership(buyer);
+				return "POTROSIO SVE ULAZE";
+
+			} else {
+				
+					return "USPESAN TRENING";	
+			}
+		}else {
+			
+			buyerDao.deactivateMembership(buyer);
+			return "CLANARINA NE VAZI VISE";
+		}
 
 	}
-	*/
 
+}
 
-
+/*
+ * @POST
+ * 
+ * @Path("/new")
+ * 
+ * @Consumes(MediaType.APPLICATION_JSON)
+ * 
+ * @Produces(MediaType.APPLICATION_JSON) public void createNew(UserDto userInfo)
+ * {
+ * 
+ * Buyer newBuyer = new Buyer(userInfo.getUsername(), userInfo.getPassword(),
+ * userInfo.getFirstName(), userInfo.getLastName(), userInfo.getGender(),
+ * userInfo.getBirthDate()); buyerDao.addNew(newBuyer);
+ * 
+ * }
+ */

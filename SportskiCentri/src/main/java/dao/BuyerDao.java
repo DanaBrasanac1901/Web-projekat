@@ -124,7 +124,7 @@ public class BuyerDao {
 				return "deleted";
 			} else if (password.equals(buyers.get(username).getPassword())) {
 				logBuyer = buyers.get(username);
-					return "buyer";
+				return "buyer";
 			} else {
 				return "wrong password";
 			}
@@ -136,14 +136,29 @@ public class BuyerDao {
 
 	public boolean isMembershipActive(InstantiatedMembership membership) {
 
-		if (membership.getExpirationDate().isBefore(LocalDate.now()) || membership.getNumberOfEntrances()==0) {
+		if (membership.getExpirationDate().isBefore(LocalDate.now()) || membership.getNumberOfEntrances() == 0) {
+			deactivateMembership(membership.getBuyer());
 			return false;
 		}
 		return true;
-		
-	}
-	
-	
 
+	}
+
+	public void buyerHavingTraining(Buyer buyer) {
+
+		InstantiatedMembership membership = buyer.getMembership();
+		if (membership.getNumberOfEntrances() > 0) {
+			membership.setNumberOfEntrances(membership.getNumberOfEntrances() - 1);
+
+		} else {
+
+			deactivateMembership(buyer);
+		}
+
+	}
+
+	public void deactivateMembership(Buyer buyer) {
+
+	}
 
 }
