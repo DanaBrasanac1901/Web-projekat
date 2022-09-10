@@ -196,5 +196,16 @@ public class BuyerDao {
 		buyers.get(username).setTrainingHistory(newTrainingHistory);
 		loadFile();
 	}
+	
+	public String DoesContainUsername(String username) {
+		loadFile();
+
+		if (buyers.containsKey(username)) {
+			return "ima";
+		}
+		
+		return "nema";
+	} 
+	
 
 }
