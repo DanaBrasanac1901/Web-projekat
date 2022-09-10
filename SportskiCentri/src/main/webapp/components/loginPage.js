@@ -12,12 +12,6 @@ Vue.component("login-page", {
 	
 	template: ` 
 <div>
-	<div class="topnav">
- 	 	<a  style="float: left; "href="#/">Početna strana</a>
- 	 	<a  href="#/registration">Registruj se</a>
- 	 	<a  class="active" href="#/login">Uloguj se</a>
- 	 
-	</div>
 	
 	<div class="loginForma">
 		<form  id="login" class="login-form" @submit='login' method = "post">
@@ -65,7 +59,7 @@ Vue.component("login-page", {
 			axios
 		    .post("rest/login/login" , {"username":this.username, "password": this.password })
 			.then(response=>{
-				alert(response.data)
+				
 				if(response.data=="buyer"){
 					alert("Kupac je uspesno ulogovan")
 					router.push('/buyerHome')
@@ -79,7 +73,8 @@ Vue.component("login-page", {
 					router.push('/managerHome')					
 				}else if(response.data=="admin"){
 					alert("Admin je uspesno ulogovan")
-					router.push('/adminHome')					
+			//		router.push('/adminHome')					
+					location.href = "admin.html";
 				}else if(response.data=="banned"){
 					alert("Korisnik je blokiran")
 					this.username = "";

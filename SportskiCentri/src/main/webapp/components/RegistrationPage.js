@@ -17,12 +17,6 @@ Vue.component("registration-page", {
 
 	template: ` 
 <div>
-	<div class="topnav">
- 	 	<a  style="float: left; "href="#/">Početna strana</a>
- 	 	<a   class="active" >Registruj se</a>
- 	 	<a    href="#/login">Uloguj se</a>
- 	 
-	</div>
 	
 	<div class="loginForma">
 		<form id="login"  class="login-form" @submit="registration" method = "post">
