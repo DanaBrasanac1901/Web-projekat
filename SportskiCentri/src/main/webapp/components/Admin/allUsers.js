@@ -1,11 +1,14 @@
 Vue.component("all-users", {
 	data: function () {
 		    return {
+			selectionSearch : '',
+		      selectionSort : '',
 		     users : [] ,
 		 	allUsers : [],
 		     search : '',
 		     selectionSearch : '',
 		     selectionFilter : '',
+		     
 		     
 		    }
 		    },
@@ -34,6 +37,22 @@ Vue.component("all-users", {
 									<option value="manager">menadžer</option>
 									
 									
+								</select>
+							</td>
+							<td><label for="selectionSort">Sortirati po:</label></td>
+							<td>
+							<select v-model="selectionSort"  v-on:change="sortFunction">
+									<option value="name">imenu</option>
+									<option value="lastName">prezimenu</option>
+									<option value="username">korisničkom imenu</option>
+									<option value="points" v-if = 'selectionFilter =="buyer"'>bodovima</option>
+									
+							</select>
+							</td>
+							<td>	
+								<select v-model="sortMode"  v-on:change="sortFunction">
+									<option value="rastuce">rastuće</option>
+									<option value="opadajuce">opadajuće</option>									
 								</select>
 							</td>
 			<!--				<td><label for="selectionSort">Sortirati po:</label></td>
@@ -76,6 +95,8 @@ Vue.component("all-users", {
 		<th>PREZIME</th>
 		<th>POL</th>
 		<th>ULOGA</th>
+		<th v-if = 'selectionFilter =="buyer"'>BROJ BODOVA</th>
+		
 		
 		
 	</tr>
@@ -83,8 +104,9 @@ Vue.component("all-users", {
 		<td>{{u.username }}</td>
 		<td>{{u.firstName }}</td>
 		<td>{{u.lastName }}</td>
-		<td>{{u.gende}}</td>
+		<td>{{u.gender}}</td>
 		<td>{{u.userRole }}</td>	
+		<td v-if = 'selectionFilter =="buyer"'>{{u.points }}</td>	
 		
 	</tr>
 	</table>
@@ -119,6 +141,7 @@ Vue.component("all-users", {
 					this.getAllManagers();
 				}
 				
+				this.sortFunction();
 				
 			
 			
@@ -203,10 +226,45 @@ Vue.component("all-users", {
 			}
 			
 			this.users = filterUsers
+			this.sortFunction();
 			
 			
 			
 		},
+		sortFunction : function(event){
+		  if (event != undefined){
+				event.preventDefault();
+				}
+		 if (this.sortMode == 'rastuce'){
+                if (this.selectionSort == 'name'){
+                 	this.users.sort((a, b) => a.firstName.localeCompare(b.firstName));
+                }else if (this.selectionSort == 'lastName'){
+                 	this.users.sort((a, b) => a.lastName.localeCompare(b.lastName));
+                }else if (this.selectionSort == 'username'){
+                 	this.users.sort((a, b) => a.username.localeCompare(b.username));
+                }else  if (this.selectionSort == 'points'){
+                 	this.users.sort(function(a, b){return a.points-b.points});;
+                }
+                
+            }
+            
+         if (this.sortMode == 'opadajuce'){
+                if (this.selectionSort == 'name'){
+                 	this.users.sort((a, b) => b.firstName.localeCompare(a.firstName));
+                }else if (this.selectionSort == 'lastName'){
+                 	this.users.sort((a, b) => b.lastName.localeCompare(a.lastName));
+                }else if (this.selectionSort == 'username'){
+                 	this.users.sort((a, b) => b.username.localeCompare(a.username));
+                }else  if (this.selectionSort == 'points'){
+                 	this.users.sort(function(a, b){return b.points-a.points});;
+                }            
+                
+           }
+               
+            
+            
+		
+	},
 
 		
 		
