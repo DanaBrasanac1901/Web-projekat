@@ -149,5 +149,14 @@ public class ManagerDao {
 	//	return logManager.getFacility();
 	}
 	
+	public String DoesContainUsername(String username) {
+		loadFile();
+
+		if (managers.containsKey(username)) {
+			return "ima";
+		}
+		
+		return "nema";
+	}
   
 }
