@@ -60,7 +60,7 @@ Vue.component("new-training", {
 						</td>
 					</tr>
 					<tr>
-						<td><label >Menadzer :</label></td>
+						<td><label >Trener :</label></td>
 						<td>
 							<select  v-model="selectedTrainer" @change="trainerSelected($event)"   class="loginInput" >
 									<option v-for="t in trainers"  value="t.username" >{{t.username}}</option>							

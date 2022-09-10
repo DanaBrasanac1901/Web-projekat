@@ -57,7 +57,7 @@ public class BuyerService {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Buyer> getAll() {
-		return buyerDao.getAll().stream().filter(b->b.isDeleted()).collect(Collectors.toList());
+		return buyerDao.getAll().stream().filter(b->b.isNotDeleted()).collect(Collectors.toList());
 	}
 
 	/*
@@ -77,7 +77,7 @@ public class BuyerService {
 	 * 
 	 * }
 	 */
-
+/*
 	@POST
 	@Path("/registration")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -89,6 +89,21 @@ public class BuyerService {
 		return buyerDao.addNew(newBuyer);
 
 	}
+
+*/
+	@POST
+	@Path("/register")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_PLAIN)
+	public String RegisterNew(RegisterUserDto userInfo) {
+
+		Buyer newBuyer = new Buyer(userInfo.getUsername(), userInfo.getPassword(), userInfo.getFirstName(),
+		userInfo.getLastName(), userInfo.getGender(), userInfo.getBirthDate().toLocalDate());
+		return buyerDao.RegisterNew(newBuyer);
+
+	}
+
+
 
 	// ispravi na samo u poslednjih mesec dana datum bude
 	@GET

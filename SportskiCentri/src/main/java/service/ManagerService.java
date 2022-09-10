@@ -45,7 +45,7 @@ public class ManagerService {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Manager> getAll() {
-		return managerDao.getAll().stream().collect(Collectors.toList());
+		return managerDao.getAll().stream().filter(b->b.isNotDeleted()).collect(Collectors.toList());
 	}
 	
 	
