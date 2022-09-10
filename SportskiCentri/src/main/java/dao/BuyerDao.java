@@ -16,7 +16,6 @@ import java.lang.reflect.Type;
 
 import beans.Buyer;
 import beans.InstantiatedMembership;
-import beans.Membership;
 import dto.UserLoginDto;
 import main.App;
 
@@ -67,6 +66,15 @@ public class BuyerDao {
 
 	}
 
+	public boolean doesUsernameExist(String username) {
+		loadFile();
+		if (buyers.values().stream().anyMatch(b -> b.getUsername().equals(username))) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	/*
 	 * public void updateFile() { ObjectMapper objectMapper = new ObjectMapper();
 	 * objectMapper.configure(SerializationFeature.INDENT_OUTPUT, true);
@@ -81,21 +89,11 @@ public class BuyerDao {
 	public Buyer getByUsername(String username) {
 		loadFile();
 		return buyers.get(username);
-
 	}
 
 	public Collection<Buyer> getAll() {
 		loadFile();
 		return buyers.values();
-	}
-
-	public boolean doesUsernameExist(String username) {
-		loadFile();
-		if (buyers.containsKey(username)) {
-			return true;
-		} else {
-			return false;
-		}
 	}
 
 	public String addNew(Buyer newBuyer) {
@@ -110,29 +108,13 @@ public class BuyerDao {
 
 	}
 
-	public String loginBuyer(UserLoginDto user) {
-
-		String username = user.getUsername();
-		String password = user.getPassword();
-		loadFile();
-
-		if (buyers.containsKey(username)) {
-
-			if (buyers.get(username).isBanned()) {
-				return "banned";
-			} else if (buyers.get(username).isDeleted()) {
-				return "deleted";
-			} else if (password.equals(buyers.get(username).getPassword())) {
-				logBuyer = buyers.get(username);
-				return "buyer";
-			} else {
-				return "wrong password";
-			}
-
-		}
-		return "not";
-
-	}
+	/*
+	 * public String RegisterNew(Buyer newBuyer) { loadFile();
+	 * if(buyers.containsKey(newBuyer.getUsername())) {
+	 * 
+	 * return "ima";
+	 * 
+	 */
 
 	public boolean isMembershipActive(InstantiatedMembership membership) {
 
@@ -158,6 +140,30 @@ public class BuyerDao {
 	}
 
 	public void deactivateMembership(Buyer buyer) {
+
+	}
+
+	public String loginBuyer(UserLoginDto user) {
+
+		String username = user.getUsername();
+		String password = user.getPassword();
+		loadFile();
+
+		if (buyers.containsKey(username)) {
+
+			if (buyers.get(username).isBanned()) {
+				return "banned";
+			} else if (buyers.get(username).isDeleted()) {
+				return "deleted";
+			} else if (password.equals(buyers.get(username).getPassword())) {
+				logBuyer = buyers.get(username);
+				return "buyer";
+			} else {
+				return "wrong password";
+			}
+
+		}
+		return "not";
 
 	}
 

@@ -35,7 +35,7 @@ public class TrainerService {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Trainer> getAll() {
-		return trainerDao.getAll().stream().collect(Collectors.toList());
+		return trainerDao.getAll().stream().filter(b->b.isNotDeleted()).collect(Collectors.toList());
 	}
 	
 	
