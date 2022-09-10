@@ -52,7 +52,7 @@
   "4": {
     "name": "Bazen na klisi",
     "facType": "POOL",
-    "facStatus": "OPEN",
+    "facStatus": "CLOSED",
     "location": {
       "adress": {
         "street": "Bulevar Evrope",
@@ -199,7 +199,7 @@
   "11": {
     "name": "Proba",
     "facType": "GYM",
-    "facStatus": "OPEN",
+    "facStatus": "CLOSED",
     "location": {
       "adress": {
         "street": "Proba",

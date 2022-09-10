@@ -75,19 +75,19 @@ public class FacilityService {
 		
 		if (criteria.equals("name")) {
 
-			searchResult = allDtos.stream().filter(dto -> dto.getName().toLowerCase().contains(content.toLowerCase()))
+			searchResult = allDtos.stream().filter(dto -> dto.getName().toLowerCase().replaceAll("\\s+","").contains(content.toLowerCase().replaceAll("\\s+","")))
 					.collect(Collectors.toList());
 
 		} else if (criteria.equals("type")) {
 
 			searchResult = allDtos.stream()
-					.filter(dto -> dto.getFacType().toString().toLowerCase().contains(content.toLowerCase()))
+					.filter(dto -> dto.getFacType().toString().toLowerCase().replaceAll("\\s+","").contains(content.toLowerCase().replaceAll("\\s+","")))
 					.collect(Collectors.toList());
 
 		} else if (criteria.equals("location")) {
 
 			searchResult = allDtos.stream().filter(
-					dto -> dto.getLocation().getAdress().getCity().toLowerCase().contains(content.toLowerCase()))
+					dto -> dto.getLocation().getAdress().getCity().toLowerCase().replaceAll("\\s+","").contains(content.toLowerCase().replaceAll("\\s+","")))
 					.collect(Collectors.toList());
 
 		} else if (criteria.equals("grade")) {

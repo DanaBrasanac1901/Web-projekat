@@ -2,9 +2,14 @@ Vue.component("welcome-page", {
 	data: function () {
 		    return {
 		      type : 'ALL',
+		      searchType : '',
 			  name : '',
 		      facilities: null,
 		      allFacilities: null,
+		      searchedFacilities : null,
+		      statusFacilities : null,
+		      filteredFacilities : null,
+		      
 		      status: 'ALL',
 		      sortParametar: '',
 		      sortMode: 'opadajuce'
@@ -14,12 +19,6 @@ Vue.component("welcome-page", {
 	
 	template: ` 
 <div>
-	<div class="topnav">
- 	 <a class="active" style="float: left; ">Početna strana</a>
- 	 <a href="#/registration">Registruj se</a>
- 	 <a href="#/login">Uloguj se</a>
-
-	</div>
 <!--PRETRAGA-->
 
 	
@@ -28,10 +27,10 @@ Vue.component("welcome-page", {
 					<table>
 						<tr>
 							<td><label for="name">Pretraga :</label></td>
-							<td><input type="text" placeholder="Naziv" v-model="name" v-on:keyup="search"></td>
+							<td><input type="text" v-model="name" v-on:keyup="search"></td>
 	
 							<td>
-							<select v-model="type"  v-on:change="search">
+							<select v-model="searchType"  v-on:change="search">
 									<option value="name">ime</option>
 									<option value="type">tip objekta</option>
 									<option value="location">lokacija</option>
@@ -126,15 +125,10 @@ Vue.component("welcome-page", {
           .then(response => {
 	     		this.facilities = response.data
 				this.facilities.sort((a, b) =>b.status.localeCompare(a.status));
-				this.allFacilities = response.data
-		/*		if(this.status!="ALL"){
-					this.statusOpen();
-				}
-				if(this.type!="ALL"){
-					this.facilitieType();
-				}
-		*/			
-			    
+				this.allFacilities = response.data;	
+				this.statusFacilities = response.data;
+		      	this.filteredFacilities = response.data;
+			    this.searchedFacilities = response.data;
 				})
 		  
 		
@@ -145,42 +139,90 @@ Vue.component("welcome-page", {
 	 search : function(event){
 		 if (event != undefined){
 				event.preventDefault();
-			}
-		 if (!this.isValid()) {
-				return;
-			}
+			}		 
+		//alert("Pretrazi")	
 		 axios
-		 	.post('rest/facilities/search', {"type":this.type, "search":this.name})
+		 	.post('rest/facilities/search', {"type":this.searchType, "search":this.name})
 			.then(response => {
-				this.facilities = response.data
-				this.allFacilities = response.data
-/*				if(this.status!="ALL"){
-					this.statusOpen();
-				}
-				if(this.type!="ALL"){
-					this.facilitieType();
-				}
+			//	this.facilities = response.data
+			//	this.allFacilities = response.data
+			//	this.statusFacilities = response.data;
+		     // 	this.filteredFacilities = response.data	;
+		     
+			   	this.searchedFacilities = response.data	;
+			//	alert(	this.searchedFacilities.length)
+			//	alert(	this.filteredFacilities.length)
+			//	alert(	this.statusFacilities.length)
 				
-				*/	
+				
+				
+				this.intersect()	
+				
+				
 				})
-						
+				
+			
+				
+		
+			
+	//		this.intersect();
+			/*else if(this.selectionSearch==='name'){			
+				for(r of this.allUsers){
+						if(r.firstName.toUpperCase().trim().match(this.search.toUpperCase().trim())){
+							
+							filterUsers.push(r);
+						}
+				}
+					this.users = filterUsers
+			}else if(this.selectionSearch==='lastName'){			
+				for(r of this.allUsers){
+						if(r.lastName.toUpperCase().trim().match(this.search.toUpperCase().trim())){
+							
+							filterUsers.push(r);
+						}
+				}*/		
 		
 		},
+		statusOpen : function(event){
+							
+		     if (event != undefined){
+				event.preventDefault();
+				}
+				
+			//	alert("status")
+		
+				if(this.status=="ALL"){			
+					this.statusFacilities = this.allFacilities
+					
+				}else{
+			//	alert("status")
+			
+				let filteredFacilities = [];
+				for(fac of this.allFacilities){
+					
+					if(fac.status==this.status){	
+						filteredFacilities.push(fac)
+					}
+									
+				
+				}
+				this.statusFacilities = filteredFacilities;
+			
+				}
+				
+				this.intersect()	
+		
+	},
         facilitieType : function(event){
 			
-			
+		//	alert("Tip")
 			
 		     if (event != undefined){
 				event.preventDefault();
 				}
 				if(this.type=="ALL"){
-					if (!this.isValid()) {
-						this.getAllFacilities()
-						}else{
-				     	this.search();
-						}
-					return;
-				}
+					this.filteredFacilities = this.allFacilities
+				}else{
 				
 			
 				let filteredFacilities = [];
@@ -192,48 +234,21 @@ Vue.component("welcome-page", {
 									
 				
 				}
+				this.filteredFacilities = filteredFacilities
+				}
 				
-				this.facilities = filteredFacilities
 				
+				
+				this.intersect()	
 				
 		
 	},
-		statusOpen : function(event){
-			
-			
-			
-		     if (event != undefined){
-				event.preventDefault();
-				}
-				if(this.status=="ALL"){
-					if (!this.isValid()) {
-						this.getAllFacilities()
-						}else{
-				     	this.search();
-						}
-					return;
-				}
-				
-			
-				let filteredFacilities = [];
-				for(fac of this.allFacilities){
-					
-					if(fac.status==this.status){	
-						filteredFacilities.push(fac)
-					}
-									
-				
-				}
-				
-				this.facilities = filteredFacilities
-				
-				
-		
-	},
+	
 	sortFunction : function(event){
 		  if (event != undefined){
 				event.preventDefault();
 				}
+				
 		 if (this.sortMode == 'rastuce'){
                 if (this.sortParametar == 'name'){
                  	this.facilities.sort((a, b) => a.name.localeCompare(b.name));
@@ -255,8 +270,9 @@ Vue.component("welcome-page", {
                     this.facilities.sort((a, b) => b.grade - a.grade);
                 }
             }
-               
-            
+              
+           
+          
             
 		
 	},
@@ -268,15 +284,24 @@ Vue.component("welcome-page", {
 		
 		
 	},
+	intersect : function (){
+			
+		showFac  =[]
+		filteredsorted = this.filteredFacilities.filter(value => this.statusFacilities.includes(value));
+		for(r of filteredsorted){
+			for(p of this.searchedFacilities){
+				if(r.id == p.id){showFac.push(p)}
+				
+			}
+			
+		}
+		
+		this.facilities = showFac
+		this.sortFunction();
+	}
 	
 
-		isValid : function() {
-			if (this.type == '') {
-				return false;
-			}
 
-			return true;
-		}
 		
 	}
 	
