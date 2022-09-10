@@ -57,7 +57,7 @@ public class BuyerService {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Buyer> getAll() {
-			return buyerDao.getAll().stream().filter(b->b.isNotDeleted()).collect(Collectors.toList());
+		return buyerDao.getAll().stream().filter(b -> b.isNotDeleted()).collect(Collectors.toList());
 
 	}
 
@@ -91,21 +91,23 @@ public class BuyerService {
 
 	}
 
-/*
-	@POST
-	@Path("/register")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.TEXT_PLAIN)
-	public String RegisterNew(RegisterUserDto userInfo) {
-
-		Buyer newBuyer = new Buyer(userInfo.getUsername(), userInfo.getPassword(), userInfo.getFirstName(),
-		userInfo.getLastName(), userInfo.getGender(), userInfo.getBirthDate().toLocalDate());
-		return buyerDao.RegisterNew(newBuyer);
-
-	}
-	*/
-
-
+	/*
+	 * @POST
+	 * 
+	 * @Path("/register")
+	 * 
+	 * @Consumes(MediaType.APPLICATION_JSON)
+	 * 
+	 * @Produces(MediaType.TEXT_PLAIN) public String RegisterNew(RegisterUserDto
+	 * userInfo) {
+	 * 
+	 * Buyer newBuyer = new Buyer(userInfo.getUsername(), userInfo.getPassword(),
+	 * userInfo.getFirstName(), userInfo.getLastName(), userInfo.getGender(),
+	 * userInfo.getBirthDate().toLocalDate()); return
+	 * buyerDao.RegisterNew(newBuyer);
+	 * 
+	 * }
+	 */
 
 	// ispravi na samo u poslednjih mesec dana datum bude
 	@GET
@@ -161,7 +163,7 @@ public class BuyerService {
 	public void setNewMembership(@PathParam("username") String username, @PathParam("id") String membershipId) {
 		Buyer buyer = buyerDao.getByUsername(username);
 		Membership membership = membershipDao.getById(membershipId);
-		if(buyer.getMembership()!= null) {
+		if (buyer.getMembership() != null && buyer.getMembership().isStatus()) {
 			buyerDao.deactivateMembership(buyer);
 		}
 		int durationInDays;
@@ -174,9 +176,8 @@ public class BuyerService {
 		}
 		InstantiatedMembership newMembership = new InstantiatedMembership(membershipId, false, LocalDate.now(),
 				LocalDate.now().plusDays(durationInDays), membership.getPrice(), buyer, true,
-				membership.getNumberOfEntrances(),membership.getNumberOfEntrances());
-		buyerDao.getByUsername(username).setMembership(newMembership);
-		buyerDao.loadFile();
+				membership.getNumberOfEntrances(), membership.getNumberOfEntrances());
+		buyerDao.newMembership(username, newMembership);
 	}
 
 	@POST
@@ -184,6 +185,7 @@ public class BuyerService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String havingWorkout(@PathParam("username") String username,
 			@PathParam("picked-facility-id") int facilityId) {
+
 		Buyer buyer = buyerDao.getByUsername(username);
 		if (buyer.getMembership() == null) {
 			return "NEMA CLANARINU";
@@ -195,14 +197,31 @@ public class BuyerService {
 				return "POTROSIO SVE ULAZE";
 
 			} else {
-				
-					return "USPESAN TRENING";	
+
+				return "USPESAN TRENING";
 			}
-		}else {
-			
+		} else {
+
 			buyerDao.deactivateMembership(buyer);
 			return "CLANARINA NE VAZI VISE";
 		}
+
+	}
+
+	@POST
+	@Path("{username}/training-{trainingId}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public void pickedTraining(@PathParam("username") String username, @PathParam("trainingId") int trainingId) {
+
+		List<Integer> visitedFacilities = buyerDao.getByUsername(username).getvisitedFacilitiesIds();
+		int facilityId = trainingDao.getById(trainingId).getFacilityId();
+		if (!visitedFacilities.contains(facilityId)) {
+			visitedFacilities.add(facilityId);
+			buyerDao.getByUsername(username).setvisitedFacilitiesIds(visitedFacilities);
+		}
+
+		buyerDao.addNewToTrainingHistory(username,
+				new HistoryTraining(trainingId, trainingDao.getById(trainingId).getTrainerUsername(), new Date()));
 
 	}
 
