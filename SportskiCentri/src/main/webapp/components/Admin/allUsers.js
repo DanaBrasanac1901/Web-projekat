@@ -1,13 +1,13 @@
 Vue.component("all-users", {
 	data: function () {
 		    return {
-			selectionSearch : '',
-		      selectionSort : '',
+			sortMode : 'rastuce',
+		     selectionSort : 'name',
 		     users : [] ,
 		 	allUsers : [],
 		     search : '',
 		     selectionSearch : '',
-		     selectionFilter : '',
+		     selectionFilter : 'ALL',
 		     
 		     
 		    }
