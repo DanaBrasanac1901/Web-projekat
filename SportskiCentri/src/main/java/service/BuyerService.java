@@ -31,6 +31,7 @@ import dao.TrainingDao;
 import dto.MembershipDto;
 import dto.RegisterUserDto;
 import dto.TrainingDto;
+import dto.UserDto;
 import main.App;
 
 @Path("/buyers")
@@ -56,7 +57,7 @@ public class BuyerService {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Buyer> getAll() {
-		return buyerDao.getAll().stream().collect(Collectors.toList());
+		return buyerDao.getAll().stream().filter(b->b.isDeleted()).collect(Collectors.toList());
 	}
 
 	/*
@@ -76,7 +77,7 @@ public class BuyerService {
 	 * 
 	 * }
 	 */
-
+/*
 	@POST
 	@Path("/registration")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -159,7 +160,31 @@ public class BuyerService {
 
 			
 		}
+*/
+	
+	@POST
+	@Path("/new")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public void createNew(UserDto userInfo) {
+		
+		Buyer newBuyer = new Buyer(userInfo.getUsername(), userInfo.getPassword(), userInfo.getFirstName(),
+		userInfo.getLastName(), userInfo.getGender(), userInfo.getBirthDate());
+		buyerDao.addNew(newBuyer);
 
+	}
+	
+	@POST
+	@Path("/register")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_PLAIN)
+	public String RegisterNew(RegisterUserDto userInfo) {
+
+		Buyer newBuyer = new Buyer(userInfo.getUsername(), userInfo.getPassword(), userInfo.getFirstName(),
+		userInfo.getLastName(), userInfo.getGender(), userInfo.getBirthDate().toLocalDate());
+		return buyerDao.RegisterNew(newBuyer);
+
+	}
 	}
 
 

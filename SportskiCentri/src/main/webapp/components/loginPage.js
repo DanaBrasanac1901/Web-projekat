@@ -65,7 +65,7 @@ Vue.component("login-page", {
 			axios
 		    .post("rest/login/login" , {"username":this.username, "password": this.password })
 			.then(response=>{
-				
+				alert(response.data)
 				if(response.data=="buyer"){
 					alert("Kupac je uspesno ulogovan")
 					router.push('/buyerHome')

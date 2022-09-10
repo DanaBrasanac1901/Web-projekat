@@ -56,7 +56,14 @@ public class loginService {
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public String  Login(UserLoginDto user) {
+		
+		System.out.println(user.getUsername());
+		System.out.println(user.getPassword());
+		
+		
 		String buyer = buyerDao.loginBuyer(user);
+		System.out.println();
+		System.out.println(buyer+ "Faca ti je sranje");
 		if(buyer=="not") {
 			
 			String trainer = trainerDao.loginTrainer(user);

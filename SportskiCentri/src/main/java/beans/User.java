@@ -93,6 +93,10 @@ public class User {
 	public void setBanned(boolean isBanned) {
 		this.isBanned = isBanned;
 	}
+	
+	public boolean isNotDeleted() {
+		return !this.deleted;
+	}
 
 
 }
