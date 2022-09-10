@@ -107,8 +107,8 @@ public class FacilityService {
 	public void createNew(FacilityDto facilityInfo) {
 
 		Facility newFacility = new Facility(facilityInfo.getName(), facilityInfo.getFacType(), null,
-				facilityInfo.getStatus(), facilityInfo.getLocation(), facilityInfo.getLogoPath(), 0.0, false, null,
-				null, 0);
+				facilityInfo.getStatus(), facilityInfo.getLocation(), facilityInfo.getLogoPath(), 0.0, false, "07:00",
+				"20:00", 0);
 		facilityDao.addNew(newFacility);
 
 	}

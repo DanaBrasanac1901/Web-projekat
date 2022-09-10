@@ -31,6 +31,7 @@ import dao.TrainingDao;
 import dto.MembershipDto;
 import dto.RegisterUserDto;
 import dto.TrainingDto;
+import dto.UserDto;
 import main.App;
 
 @Path("/buyers")
@@ -82,10 +83,10 @@ public class BuyerService {
 	@Path("/registration")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
-	public String createNew(RegisterUserDto userInfo) {
+	public String createNew(UserDto userInfo) {
 
 		Buyer newBuyer = new Buyer(userInfo.getUsername(), userInfo.getPassword(), userInfo.getFirstName(),
-				userInfo.getLastName(), userInfo.getGender(), userInfo.getBirthDate().toLocalDate());
+				userInfo.getLastName(), userInfo.getGender(), userInfo.getBirthDate());
 		return buyerDao.addNew(newBuyer);
 
 	}

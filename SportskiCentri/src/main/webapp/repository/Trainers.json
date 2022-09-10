@@ -5,11 +5,7 @@
     "firstName": "Milan",
     "lastName": "Milankovic",
     "gender": "MALE",
-    "birthDate": {
-      "year": 2002,
-      "month": 1,
-      "day": 8
-    },
+    "birthDate":"Jul 12, 1980, 1:49:28 AM",
     "deleted": false,
     "isBanned": false,
     "userRole": "TRAINER"
@@ -20,11 +16,7 @@
     "firstName": "Nikola",
     "lastName": "Tesla",
     "gender": "MALE",
-    "birthDate": {
-      "year": 2002,
-      "month": 1,
-      "day": 8
-    },
+    "birthDate": "Jul 6, 2022, 1:49:28 AM",
     "deleted": false,
     "isBanned": false,
     "userRole": "TRAINER"
@@ -35,11 +27,7 @@
     "firstName": "Jovan",
     "lastName": "Cvijic",
     "gender": "MALE",
-    "birthDate": {
-      "year": 2002,
-      "month": 1,
-      "day": 8
-    },
+    "birthDate":"Jul 6, 2022, 1:49:28 AM",
     "deleted": false,
     "isBanned": false,
     "userRole": "TRAINER"

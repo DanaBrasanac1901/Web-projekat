@@ -1,19 +1,19 @@
 package beans;
 
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 public class Trainer extends User {
 	private List<HistoryTraining> trainingHistory;
 
 	public Trainer(String username, String password, String firstName, String lastName, Gender gender,
-			LocalDate birthDate, List<HistoryTraining> trainingHistory) {
+			Date birthDate, List<HistoryTraining> trainingHistory) {
 		super(username, password, firstName, lastName, gender, birthDate, Role.TRAINER);
 		this.trainingHistory = trainingHistory;
 	}
 
 	public Trainer(String username, String password, String firstName, String lastName, Gender gender,
-			LocalDate birthDate) {
+			Date birthDate) {
 		super(username, password, firstName, lastName, gender, birthDate, Role.TRAINER);
 
 	}

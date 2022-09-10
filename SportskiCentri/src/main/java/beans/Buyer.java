@@ -2,6 +2,7 @@ package beans;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Buyer extends User {
@@ -11,8 +12,8 @@ public class Buyer extends User {
 	protected List<HistoryTraining> trainingHistory;
 	private InstantiatedMembership membership;
 
-	//konstruktor za citanje iz jsona
-	public Buyer(String username, String password, String firstName, String lastname, Gender gender, LocalDate date,
+	// konstruktor za citanje iz jsona
+	public Buyer(String username, String password, String firstName, String lastname, Gender gender, Date date,
 			Role userRole, int points, BuyerType buyerType, List<Integer> visitedFacilitiesIds,
 			List<HistoryTraining> trainingHistory, InstantiatedMembership membership) {
 
@@ -33,10 +34,9 @@ public class Buyer extends User {
 
 	}
 
-	//konstruktor za registraciju
-	
-	public Buyer(String username, String password, String firstName, String lastName, Gender gender,
-			LocalDate birthDate) {
+	// konstruktor za registraciju
+
+	public Buyer(String username, String password, String firstName, String lastName, Gender gender, Date birthDate) {
 
 		super(username, password, firstName, lastName, gender, birthDate, Role.BUYER);
 
@@ -47,7 +47,6 @@ public class Buyer extends User {
 		this.membership = null;
 
 	}
-
 
 	public int getPoints() {
 		return points;

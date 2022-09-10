@@ -50,7 +50,7 @@ public class AdminService {
 		return adminDao.getAll().stream().filter(b->b.isNotDeleted()).collect(Collectors.toList());
 	}
 
-	
+	/*
 	@POST
 	@Path("/edit")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -65,5 +65,5 @@ public class AdminService {
 		return "ima";
 
 	}
-	
+	*/
 }

@@ -1,6 +1,4 @@
 const AllFacilities = { template: '<all-facilities></all-facilities>' }
-const FacilitieContent = { template: '<facilitie-content></facilitie-content>' }
-
 
 
 

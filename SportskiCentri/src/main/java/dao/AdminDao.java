@@ -20,7 +20,7 @@ import dto.UserLoginDto;
 import main.App;
 
 public class AdminDao {
-	private String filepath = App.path + "/repository/admins.json";
+	private String filepath = App.path + "/repository/Admins.json";
 	private Map<String, Admin> admins = new HashMap<>();
 	private Admin logAdmin;
 

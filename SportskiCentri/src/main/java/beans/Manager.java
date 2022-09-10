@@ -1,6 +1,7 @@
 package beans;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class Manager extends User{
 	private int facilityId;
@@ -10,12 +11,12 @@ public class Manager extends User{
 		
 	}
 
-	public Manager(String username, String password, String firstName, String lastName, Gender gender, LocalDate birthDate, int facilityId) {
+	public Manager(String username, String password, String firstName, String lastName, Gender gender, Date birthDate, int facilityId) {
 		super(username, password, firstName, lastName, gender, birthDate, Role.MANAGER);
 		this.facilityId = facilityId;
 	}
 
-	public Manager(String username, String password, String firstName, String lastName, Gender gender, LocalDate birthDate) {
+	public Manager(String username, String password, String firstName, String lastName, Gender gender, Date birthDate) {
 		super(username, password, firstName, lastName, gender, birthDate, Role.MANAGER);
 		this.facilityId = 0;
 	}

@@ -1,5 +1,6 @@
 package beans;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Facility {
@@ -24,7 +25,12 @@ public class Facility {
 			Location location, String logoPath, double grade, boolean deleted, String start, String end, int id) {
 		this.name = name;
 		this.facType = facType;
-		this.facContents = facContents;
+		if(facContents == null) {
+			this.facContents = new ArrayList<Integer>();
+		}else {
+			this.facContents = facContents;
+		}
+		
 		this.facStatus = facStatus;
 		this.location = location;
 		this.logoPath = logoPath;
@@ -40,6 +46,7 @@ public class Facility {
 		this.facType = facType;
 		this.location = location;
 		this.logoPath = logoPath;
+		this.facContents = new ArrayList<Integer>();
 		this.deleted = false;
 		this.start = "07:00";
 		this.end = "20:00";

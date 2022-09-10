@@ -6,11 +6,7 @@
     "firstName": "Nikola",
     "lastName": "Tesla",
     "gender": "MALE",
-    "birthDate": {
-      "year": 2000,
-      "month": 9,
-      "day": 11
-    },
+    "birthDate":"Jul 6, 2022, 1:49:28 AM",
     "deleted": false,
     "isBanned": false,
     "userRole": "MANAGER"
@@ -22,11 +18,7 @@
     "firstName": "Saban",
     "lastName": "Saulic",
     "gender": "MALE",
-    "birthDate": {
-      "year": 2001,
-      "month": 10,
-      "day": 11
-    },
+    "birthDate": "Jul 6, 2022, 1:49:28 AM",
     "deleted": false,
     "isBanned": false,
     "userRole": "MANAGER"
@@ -38,11 +30,7 @@
     "firstName": "Milos",
     "lastName": "Milakovic",
     "gender": "MALE",
-    "birthDate": {
-      "year": 2022,
-      "month": 9,
-      "day": 7
-    },
+    "birthDate": "Jul 6, 2022, 1:49:28 AM",
     "deleted": false,
     "isBanned": false,
     "userRole": "MANAGER"
@@ -54,11 +42,7 @@
     "firstName": "Milutin",
     "lastName": "Ostojic",
     "gender": "MALE",
-    "birthDate": {
-      "year": 1988,
-      "month": 1,
-      "day": 7
-    },
+    "birthDate": "Jul 6, 2022, 1:49:28 AM",
     "deleted": false,
     "isBanned": false,
     "userRole": "MANAGER"
@@ -70,11 +54,7 @@
     "firstName": "Jovan",
     "lastName": "Cvijic",
     "gender": "MALE",
-    "birthDate": {
-      "year": 2009,
-      "month": 1,
-      "day": 7
-    },
+    "birthDate": "Jul 6, 2022, 1:49:28 AM",
     "deleted": false,
     "isBanned": false,
     "userRole": "MANAGER"
@@ -86,11 +66,7 @@
     "firstName": "Lazar",
     "lastName": "Mijatovic",
     "gender": "MALE",
-    "birthDate": {
-      "year": 2004,
-      "month": 1,
-      "day": 7
-    },
+    "birthDate":"Jul 6, 2022, 1:49:28 AM",
     "deleted": false,
     "isBanned": false,
     "userRole": "MANAGER"
@@ -102,11 +78,7 @@
     "firstName": "Mihaela",
     "lastName": "Osmajic",
     "gender": "FEMALE",
-    "birthDate": {
-      "year": 1993,
-      "month": 2,
-      "day": 7
-    },
+    "birthDate":"Jul 6, 2022, 1:49:28 AM",
     "deleted": false,
     "isBanned": false,
     "userRole": "MANAGER"
@@ -118,11 +90,7 @@
     "firstName": "Petar",
     "lastName": "Petrovic",
     "gender": "MALE",
-    "birthDate": {
-      "year": 2020,
-      "month": 2,
-      "day": 8
-    },
+    "birthDate":"Jul 6, 2022, 1:49:28 AM",
     "deleted": false,
     "isBanned": false,
     "userRole": "MANAGER"

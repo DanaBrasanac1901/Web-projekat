@@ -5,11 +5,7 @@
     "firstName": "Milan",
     "lastName": "Obrenovic",
     "gender": "MALE",
-    "birthDate": {
-      "year": 1999,
-      "month": 10,
-      "day": 10
-    },
+    "birthDate":"Jul 6, 2022, 1:49:28 AM",
     "deleted": false,
     "isBanned": false,
     "userRole": "ADMIN"

@@ -80,7 +80,7 @@ public class ManagerService {
 	public String RegisterNew(RegisterUserDto userInfo) {
 
 		Manager newManager = new Manager(userInfo.getUsername(), userInfo.getPassword(), userInfo.getFirstName(),
-		userInfo.getLastName(), userInfo.getGender(), userInfo.getBirthDate().toLocalDate());
+		userInfo.getLastName(), userInfo.getGender(), userInfo.getBirthDate());
 		return managerDao.RegisterNew(newManager);
 
 	}
