@@ -7,6 +7,7 @@ const Buyers = { template: '<buyers></buyers>' }
 const AllTrainings = { template: '<all-trainings></all-trainings>' }
 const NewTraining = { template: '<new-training></new-training>' }
 const EditTraining = { template: '<edit-training></edit-training>' }
+const AppointedTraining = { template: '<appointed-training></appointed-training>' }
 
 
 const router = new VueRouter({
@@ -21,7 +22,8 @@ const router = new VueRouter({
 	     { path: '/allTrainings', component: AllTrainings},
 	     { path: '/newTraining', component: NewTraining},
 	     { path: '/editTraining', component: EditTraining},
-	   
+	   	 { path: '/appointedTraining', component: AppointedTraining},
+	   	 
 	     
 	  ]
 });

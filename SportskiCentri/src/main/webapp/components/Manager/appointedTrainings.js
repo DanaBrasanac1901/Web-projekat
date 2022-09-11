@@ -1,4 +1,4 @@
-Vue.component("appointed-trainings", {
+Vue.component("appointed-training", {
 	data: function () {
 		    return {
 		      

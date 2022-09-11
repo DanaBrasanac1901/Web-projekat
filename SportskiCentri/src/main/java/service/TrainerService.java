@@ -97,15 +97,21 @@ public class TrainerService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Trainer> getTrainersInFacility() {
 		int id = managerDao.GetFacility();
+		System.out.println(id);
 		List<Training> trainingList = trainingDao.getAll().stream().filter(t -> t.getFacilityId() == id && t.isNotDeleted()).collect(Collectors.toList()); ;
 		List<Trainer>  trainerList= new ArrayList(); 
+		System.out.println(trainingList.isEmpty());
 		for(Training t : trainingList) {
+			if(!t.getTrainerUsername().isEmpty()) {
 			Trainer trainer = trainerDao.getById(t.getTrainerUsername());
 			if(trainer.isNotDeleted()) {
 				trainerList.add(trainer);
 			}
+				
+			}
 			
 		}
+		
 		return trainerList.stream().distinct().collect(Collectors.toList());
 		
 	}
