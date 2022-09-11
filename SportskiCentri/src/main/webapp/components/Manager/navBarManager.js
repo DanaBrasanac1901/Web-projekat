@@ -5,6 +5,11 @@ Vue.component("navigation-bar-manager", {
 	<div class="topnav">
 	 <a  href="#/" style="float: left; ">Svi objekti</a>
 	 <a href="#/managersFacilitie" style="float: left;">Svoj objekat</a>
+	 <a href="#/trainers" style="float: left;">Treneri u objektu</a>
+	 <a href="#/buyers" style="float: left;">Korisnici koji su posetili objekat</a>
+	 <a href="#/allTrainings" style="float: left;">Treninzi u objektu</a>
+	
+	
 	
 	 <a href="#/editManager">Profil</a>
 

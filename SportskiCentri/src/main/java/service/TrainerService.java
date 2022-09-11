@@ -1,5 +1,6 @@
 package service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,11 +18,13 @@ import beans.Admin;
 import beans.Buyer;
 import beans.Manager;
 import beans.Trainer;
+import beans.Training;
 import dao.AdminDao;
 import dao.BuyerDao;
 import dao.FacilityDao;
 import dao.ManagerDao;
 import dao.TrainerDao;
+import dao.TrainingDao;
 import dto.UserDto;
 import main.App;
 
@@ -33,6 +36,7 @@ public class TrainerService {
 	private AdminDao adminDao;
 	private BuyerDao buyerDao;
 	private TrainerDao  trainerDao;
+	private TrainingDao trainingDao;
 	
 	@Context
 	private ServletContext ctx;
@@ -43,6 +47,7 @@ public class TrainerService {
 		this.trainerDao = (TrainerDao) ctx.getAttribute(App.TRAINER_DAO);
 		this.adminDao = (AdminDao) ctx.getAttribute(App.ADMIN_DAO);
 		this.buyerDao = (BuyerDao) ctx.getAttribute(App.BUYER_DAO);
+		this.trainingDao = (TrainingDao) ctx.getAttribute(App.TRAINING_DAO);
 
 	}
 	
@@ -85,6 +90,28 @@ public class TrainerService {
 		return "uspesno";
 		
 	}
+	
+	
+	@GET
+	@Path("/trainersInFacility")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Trainer> getTrainersInFacility() {
+		int id = managerDao.GetFacility();
+		List<Training> trainingList = trainingDao.getAll().stream().filter(t -> t.getFacilityId() == id && t.isNotDeleted()).collect(Collectors.toList()); ;
+		List<Trainer>  trainerList= new ArrayList(); 
+		for(Training t : trainingList) {
+			Trainer trainer = trainerDao.getById(t.getTrainerUsername());
+			if(trainer.isNotDeleted()) {
+				trainerList.add(trainer);
+			}
+			
+		}
+		return trainerList.stream().distinct().collect(Collectors.toList());
+		
+	}
+	
+	
+	
 	
 	
 	

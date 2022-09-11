@@ -1,7 +1,7 @@
-Vue.component("trainers", {
+Vue.component("buyers", {
 	data: function () {
 		    return {
-			trainers : [] ,
+			buyers : [] ,
 		 	 
 		     
 		     
@@ -19,7 +19,7 @@ Vue.component("trainers", {
 		<th>PREZIME</th>
 		<th>POL</th>		
 	</tr>
-	<tr v-for="u in trainers" class="active-row">
+	<tr v-for="u in buyers" class="active-row">
 		<td>{{u.username }}</td>
 		<td>{{u.firstName }}</td>
 		<td>{{u.lastName }}</td>
@@ -31,10 +31,10 @@ Vue.component("trainers", {
 </div>		  
 `
 	,mounted(){
-		axios
-			.get('rest/trainers/trainersInFacility')
-			.then(res=>{this.trainers = res.data})
-		
+	/*	axios
+			.get('rest/buyers/buyersInFacility')
+			.then(res=>{this.buyers = res.data})
+		*/
 	},
 	methods : {
 

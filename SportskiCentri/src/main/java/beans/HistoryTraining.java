@@ -1,12 +1,33 @@
 package beans;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class HistoryTraining {
 
 	private int trainingId;
 	private String trainerUsername;
 	protected Date date;
+	private Date dateAppointment;
+
+	
+
+
+	public HistoryTraining(int trainingId, String trainerUsername, Date date, Date dateAppointment) {
+		super();
+		this.trainingId = trainingId;
+		this.trainerUsername = trainerUsername;
+		this.date = date;
+		this.dateAppointment = dateAppointment;
+	}
+
+	public Date getDateAppointment() {
+		return dateAppointment;
+	}
+
+	public void setDateAppointment(Date dateAppointment) {
+		this.dateAppointment = dateAppointment;
+	}
 
 	public HistoryTraining() {
 

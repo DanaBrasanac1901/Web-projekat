@@ -30,6 +30,7 @@ public class TrainerDao {
 	private Trainer logTrainer;
 
 	public TrainerDao() {
+		loadFile();
 	}
 
 	public void loadFile() {
@@ -165,6 +166,12 @@ public class TrainerDao {
 		trainers.put(a.getUsername(), a);
 		logTrainer = a;
 		updateFile();
+		
+	}
+	
+	public Trainer getById(String username) {
+		return trainers.get(username);
+		
 		
 	}
 	

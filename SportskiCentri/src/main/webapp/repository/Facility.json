@@ -1,33 +1,4 @@
 {
-  "1": {
-    "name": "Sportska hala 1",
-    "facType": "GYM",
-    "facContents": [
-      9,
-      10,
-      11,
-      12,
-      13,
-      14
-    ],
-    "facStatus": "OPEN",
-    "location": {
-      "adress": {
-        "street": "Strazilovska",
-        "streetNumber": "66",
-        "city": "Novi Sad",
-        "postalCode": "21000"
-      },
-      "width": 29.234,
-      "length": 43.22
-    },
-    "logoPath": "images\\BarneyMali.jpg",
-    "grade": 6.7,
-    "deleted": false,
-    "start": "07:00",
-    "end": "18:00",
-    "id": 1
-  },
   "2": {
     "name": "Sportska hala 2",
     "facType": "POOL",
@@ -348,5 +319,35 @@
     "start": "07:00",
     "end": "20:00",
     "id": 15
+  },
+  "1": {
+    "name": "Sportska hala 1",
+    "facType": "GYM",
+    "facContents": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "facStatus": "OPEN",
+    "location": {
+      "adress": {
+        "street": "Strazilovska",
+        "streetNumber": "66",
+        "city": "Novi Sad",
+        "postalCode": "21000"
+      },
+      "width": 29.234,
+      "length": 43.22
+    },
+    "logoPath": "images\\BarneyMali.jpg",
+    "grade": 6.7,
+    "deleted": false,
+    "start": "07:00",
+    "end": "18:00",
+    "id": 1
   }
 }
