@@ -31,8 +31,11 @@ const router = new VueRouter({
 	    { path: '/facilitieView', component: FacilitieView}, 
 	    { path: '/newManager', component: NewManager},
 	    { path: '/allTrainings', component: AllTrainings},
+	   
 	    { path: '/newTraining', component: NewTraining},
+	   
 	    { path: '/editTraining', component: EditTraining},
+	   
 	    { path: '/allUsers', component: AllUsers},
 	    { path: '/navBar', component: NavBar}
 	    
