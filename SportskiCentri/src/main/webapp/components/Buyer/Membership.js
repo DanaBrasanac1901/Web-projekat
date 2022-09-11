@@ -43,8 +43,8 @@ Vue.component("membership", {
 	            </table> 
 	            <div v-if="hasMembership" class="activeMembership">
 	                                        
-	                <h2>Aktivna clanarina</h2>
-	                
+	                <h2>Aktivna članarina</h2>
+	                <div class= "paragrafi">
 	                <p>
 	                	Kod članarine: {{activeMembership.id}}
 	                </p>
@@ -64,7 +64,7 @@ Vue.component("membership", {
 	                <p>
 	                	Preostali broj aktivnosti: {{activeMembership.remainingEntrances}} 
 	                </p>
-	               
+	               </div>
 	            </div>
 	       
 	    	</div>
@@ -95,9 +95,10 @@ Vue.component("membership", {
 		},
 		
 		getDate: function(datum) {
-		//	const d = new Date();
-			//d.setTime(datum);
-			return datum.toLocaleDateString("sr-RS");
+		
+			console.log(datum);
+			return new Date(datum.year, datum.monthValue-1, datum.dayOfMonth).toLocaleDateString("sr-RS");
+			
 		},
 
 	},
