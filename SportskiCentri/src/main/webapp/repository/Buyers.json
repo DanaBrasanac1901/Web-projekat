@@ -156,5 +156,19 @@
     "deleted": false,
     "isBanned": false,
     "userRole": "BUYER"
+  },
+  "buyer12": {
+    "points": 0,
+    "visitedFacilitiesIds": [],
+    "trainingHistory": [],
+    "username": "buyer12",
+    "password": "buyer12",
+    "firstName": "buyer",
+    "lastName": "buyer",
+    "gender": "MALE",
+    "birthDate": "Aug 23, 2022, 2:00:00 AM",
+    "deleted": false,
+    "isBanned": false,
+    "userRole": "BUYER"
   }
 }
