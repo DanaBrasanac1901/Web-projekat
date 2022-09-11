@@ -72,7 +72,7 @@ Vue.component("login-page", {
 					} else if (response.data == "admin") {
 						alert("Admin je uspesno ulogovan")
 						//		router.push('/adminHome')					
-						location.href = "admin.html";
+						location.href = "admin.html/buyer-home";
 					} else if (response.data == "banned") {
 						alert("Korisnik je blokiran")
 						this.username = "";

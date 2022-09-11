@@ -62,8 +62,7 @@ public class loginService {
 		
 		
 		String buyer = buyerDao.loginBuyer(user);
-		System.out.println();
-		System.out.println(buyer+ "Faca ti je sranje");
+		
 		if(buyer=="not") {
 			
 			String trainer = trainerDao.loginTrainer(user);

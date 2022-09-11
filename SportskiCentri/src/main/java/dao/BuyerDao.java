@@ -188,6 +188,7 @@ public class BuyerDao {
 		return "not";
 
 	}
+	
 
 	public void addNewToTrainingHistory(String username, HistoryTraining trainingHistory) {
 
