@@ -268,5 +268,15 @@ public class BuyerService {
 		return "uspesno";
 		
 	}
+	
+	@GET
+	@Path("/fac")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Buyer> buyersVisitedFacilitywithoutId(){
+		int id = managerDao.GetFacility();
+		return buyerDao.getAll().stream().filter(b -> b.getvisitedFacilitiesIds().contains(id) && b.isNotDeleted()).collect(Collectors.toList());
+	//	return buyerDao.getBuyersVisitedFacility(id).stream().filter(b -> b.isNotDeleted()).collect(Collectors.toList());
+
+	}
 
 }

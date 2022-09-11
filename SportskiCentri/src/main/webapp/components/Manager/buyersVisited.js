@@ -31,10 +31,10 @@ Vue.component("buyers", {
 </div>		  
 `
 	,mounted(){
-	/*	axios
-			.get('rest/buyers/buyersInFacility')
+		axios
+			.get('rest/buyers/fac')
 			.then(res=>{this.buyers = res.data})
-		*/
+		
 	},
 	methods : {
 
