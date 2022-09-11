@@ -41,8 +41,23 @@
     "birthDate": "Jul 6, 2022, 1:49:28 AM",
     "deleted": false,
     "isBanned": false,
-    "userRole": "BUYER"
-  },
+    "userRole": "BUYER",
+    "membership": {
+    		"id": "3845769403",
+    		"deleted":false,
+    		"payDate":{ "year": 2022,
+    		"month": 9,
+    		"day":8},
+    		"expirationDate":{ "year": 2022,
+    		"month": 10,
+    		"day":8},
+    		"buyer": "buyer2",
+    		"status": true,
+    		"numberOfEntrances": 30,
+    		"remainingEntrances": 30,
+    		"price":0
+    	}
+    },
   "buyer": {
     "points": 393,
     "trainingHistory": [

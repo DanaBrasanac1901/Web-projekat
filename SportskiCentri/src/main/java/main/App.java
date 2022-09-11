@@ -32,8 +32,8 @@ public class App extends Application {
 
 	@PostConstruct
 	public void init() {
-		//path = ctx.getRealPath("");
-		path = "C:\\Users\\DLAKAVI TALAMBAS\\Documents\\GitHub\\Web-projekat\\SportskiCentri\\src\\main\\webapp";
+		path = ctx.getRealPath("");
+		//path = "C:\\Users\\DLAKAVI TALAMBAS\\Documents\\GitHub\\Web-projekat\\SportskiCentri\\src\\main\\webapp";
 		ctx.setAttribute(FACILITY_DAO, new FacilityDao());
 		ctx.setAttribute(BUYER_DAO, new BuyerDao());
 		ctx.setAttribute(TRAINER_DAO, new TrainerDao());

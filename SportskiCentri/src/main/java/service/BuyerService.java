@@ -179,8 +179,9 @@ public class BuyerService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public InstantiatedMembership getActiveMembership() {
 
-			System.out.print(buyerDao.getLogBuyer().getMembership().getId());
-			return buyerDao.getLogBuyer().getMembership();
+		
+		return buyerDao.getLogBuyer().getMembership();
+		
 		
 		
 	}
@@ -203,7 +204,7 @@ public class BuyerService {
 			durationInDays = 30;
 		}
 		InstantiatedMembership newMembership = new InstantiatedMembership(membershipId, false, LocalDate.now(),
-				LocalDate.now().plusDays(durationInDays), membership.getPrice(), buyer, true,
+				LocalDate.now().plusDays(durationInDays), membership.getPrice(), buyer.getUsername(), true,
 				membership.getNumberOfEntrances(), membership.getNumberOfEntrances());
 		buyerDao.newMembership(buyer.getUsername(), newMembership);
 	}
