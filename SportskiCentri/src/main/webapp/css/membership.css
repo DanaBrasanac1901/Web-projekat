@@ -1,5 +1,12 @@
 @charset "ISO-8859-1";
 
+
+.paragrafi {
+	text-align: left;
+	margin: 2%; 
+}
+
+
 tr.selectedMembershipClass{
 	
 	background-color: #A7C942;
@@ -7,42 +14,6 @@ tr.selectedMembershipClass{
 	
 	
 }
-
-.filterBar {
-    margin-top : 20px;
-    margin-left: auto;
-    margin-right: auto;
-    width:80%;
-    height:100%;
-    background-color:white;
-    border: 2px solid black;
-    border-radius: 20px;
-    font-size: 20px;
-    float : center;
-  	background-color: #333;
-    color: #ffffff;
-    
-}
-
-.filterBar table {
-    margin: 10px;
-}
-
-.filterBar label {
-    font-weight : bold;
-}
-
-
-
-.filterBar input, .filterBar select{
-	font-size: 20px;
-	width : 200px;
-	height : 30px;
-	margin:  15px;
-	text-align: left;
-}
-
-
 
 .memberships th {
     font-weight : bold;
@@ -56,9 +27,8 @@ tr.selectedMembershipClass{
 
 .memberships {
     text-align: center;
-  
     border-collapse: collapse;
-    margin-top : 150px;
+    margin-top : 50px;
   	margin-left: auto;
     margin-right: auto;
     font-size: 20px;
@@ -100,5 +70,100 @@ tr.selectedMembershipClass{
     .img-box img{
         display: block;
     }
+
+.activeMembership{
+	
+	text-align:left;
+	font-size: 20px;
+	padding-top: 10px;
+	padding-bottom:10px;	
+}
+	
+h2{
+	text-align: left;
+	font-size: 30px;
+	padding-top: 5px;
+	padding-bottom:5px;
+	margin: 2%	
+}
+
+*{
+    margin: 0%;
+    box-sizing: border-box;
+    overflow: auto;
+    font-family: 'Verdana';
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    
+}
+
+
+body{
+	background-color:  #71c556;
+	text-align: center;
+}
+
+
+h1{
+	text-align: center;
+	font-family: Verdana;
+	color: pink;
+}
+
+nav{
+	align-items : center;
+	padding : 20px;
+	
+}
+
+.navbar a{
+	text-align: center;
+	color:pink;
+	font-size: 20px;
+	font-family: Verdana;
+}
+
+.registration-part{
+    width: 50%;
+    margin-left:auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    
+}
+
+.input-box{
+    margin: 10px;
+    font-size: large;
+}
+
+.button{
+	
+	padding: 20px;
+	
+}
+
+.gender{
+    margin-left: 10px;
+    font-size: large;
+}
+
+.radio{
+    margin:10px;
+    font-size: medium;
+}
+
+.logovanje-button{
+	margin: 20px;
+	padding: 10px;
+}
+
+.editData{
+	
+	margin: 20px;
+}
 
 
