@@ -11,7 +11,7 @@ const router = new VueRouter({
 	     { path: '/membership', component: Membership},
 	     { path: '/buyer-profile', component: BuyerProfile},
 	     { path: '/training-history', component: BuyerProfile},
-	     { path: '/welcome-page', component: BuyerProfile} 
+	     { path: '/welcome-page', component: WelcomePage} 
 	      
 	   
 	  ]

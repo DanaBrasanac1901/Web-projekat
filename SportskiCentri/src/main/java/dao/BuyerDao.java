@@ -178,7 +178,7 @@ public class BuyerDao {
 			} else if (buyers.get(username).isDeleted()) {
 				return "deleted";
 			} else if (password.equals(buyers.get(username).getPassword())) {
-				logBuyer = buyers.get(username);
+				setLogBuyer(buyers.get(username));
 				return "buyer";
 			} else {
 				return "wrong password";
@@ -219,6 +219,14 @@ public class BuyerDao {
 		}
 		
 		return "nema";
+	}
+
+	public Buyer getLogBuyer() {
+		return logBuyer;
+	}
+
+	public void setLogBuyer(Buyer logBuyer) {
+		this.logBuyer = logBuyer;
 	} 
 	
 

@@ -111,27 +111,25 @@ public class BuyerService {
 
 	// ispravi na samo u poslednjih mesec dana datum bude
 	@GET
-	@Path("/trainings/{username}")
+	@Path("/trainings")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<TrainingDto> getTrainingList(@PathParam("username") String buyerUsername) {
 
-		Buyer buyer = buyerDao.getByUsername(buyerUsername);
+		Buyer buyer = buyerDao.getLogBuyer();
 		List<TrainingDto> trainingDtos = new ArrayList<TrainingDto>();
 		List<HistoryTraining> trainingHistory = buyer.getTrainingHistory();
 
 		trainingHistory = trainingHistory.stream().sorted(Comparator.comparingInt(HistoryTraining::getTrainingId))
 				.collect(Collectors.toList());
-	
 
 		int currentTrainingId = trainingHistory.get(0).getTrainingId();
-		
+
 		Training currentTraining = trainingDao.getById(currentTrainingId);
-		System.out.print(currentTraining.getName());
-		System.out.print(facilityDao.getById(currentTraining.getFacilityId()).getName());
+		
 		TrainingDto currentTrainingDto = new TrainingDto(currentTraining.getName(),
 				facilityDao.getById(currentTraining.getFacilityId()).getName(), new ArrayList<Date>());
 
-		System.out.println("uzeo trenutni");
+		
 		for (int i = 0; i <= trainingHistory.size(); i++) {
 
 			if (currentTrainingId != trainingHistory.get(i).getTrainingId()) {
@@ -153,7 +151,7 @@ public class BuyerService {
 	}
 
 	@GET
-	@Path("/all-memberships")
+	@Path("/memberships")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<MembershipDto> getAllMemberships() {
 
@@ -162,11 +160,19 @@ public class BuyerService {
 
 	}
 
-	@POST
-	@Path("{username}/set-membership-{id}")
+	@GET
+	@Path("/active-membership")
 	@Produces(MediaType.APPLICATION_JSON)
-	public void setNewMembership(@PathParam("username") String username, @PathParam("id") String membershipId) {
-		Buyer buyer = buyerDao.getByUsername(username);
+	public InstantiatedMembership getActiveMembership() {
+
+		return buyerDao.getLogBuyer().getMembership();
+	}
+
+	@POST
+	@Path("/set-membership-{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public void setNewMembership(@PathParam("id") String membershipId) {
+		Buyer buyer = buyerDao.getLogBuyer();
 		Membership membership = membershipDao.getById(membershipId);
 		if (buyer.getMembership() != null && buyer.getMembership().isStatus()) {
 			buyerDao.deactivateMembership(buyer);
@@ -182,16 +188,15 @@ public class BuyerService {
 		InstantiatedMembership newMembership = new InstantiatedMembership(membershipId, false, LocalDate.now(),
 				LocalDate.now().plusDays(durationInDays), membership.getPrice(), buyer, true,
 				membership.getNumberOfEntrances(), membership.getNumberOfEntrances());
-		buyerDao.newMembership(username, newMembership);
+		buyerDao.newMembership(buyer.getUsername(), newMembership);
 	}
 
 	@POST
-	@Path("{username}/{picked-facility-id}")
+	@Path("/{picked-facility-id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String havingWorkout(@PathParam("username") String username,
-			@PathParam("picked-facility-id") int facilityId) {
+	public String havingWorkout(@PathParam("picked-facility-id") int facilityId) {
 
-		Buyer buyer = buyerDao.getByUsername(username);
+		Buyer buyer = buyerDao.getLogBuyer();
 		if (buyer.getMembership() == null) {
 			return "NEMA CLANARINU";
 		}
@@ -214,18 +219,18 @@ public class BuyerService {
 	}
 
 	@POST
-	@Path("{username}/training-{trainingId}")
+	@Path("/training-{trainingId}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public void pickedTraining(@PathParam("username") String username, @PathParam("trainingId") int trainingId) {
-
-		List<Integer> visitedFacilities = buyerDao.getByUsername(username).getvisitedFacilitiesIds();
+	public void pickedTraining(@PathParam("trainingId") int trainingId) {
+		Buyer buyer = buyerDao.getLogBuyer();
+		List<Integer> visitedFacilities = buyer.getvisitedFacilitiesIds();
 		int facilityId = trainingDao.getById(trainingId).getFacilityId();
 		if (!visitedFacilities.contains(facilityId)) {
 			visitedFacilities.add(facilityId);
-			buyerDao.getByUsername(username).setvisitedFacilitiesIds(visitedFacilities);
+			buyerDao.getByUsername(buyer.getUsername()).setvisitedFacilitiesIds(visitedFacilities);
 		}
 
-		buyerDao.addNewToTrainingHistory(username,
+		buyerDao.addNewToTrainingHistory(buyer.getUsername(),
 				new HistoryTraining(trainingId, trainingDao.getById(trainingId).getTrainerUsername(), new Date()));
 
 	}
