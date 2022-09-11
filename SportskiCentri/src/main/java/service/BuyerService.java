@@ -165,7 +165,10 @@ public class BuyerService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public InstantiatedMembership getActiveMembership() {
 
-		return buyerDao.getLogBuyer().getMembership();
+			System.out.print(buyerDao.getLogBuyer().getMembership().getId());
+			return buyerDao.getLogBuyer().getMembership();
+		
+		
 	}
 
 	@POST
