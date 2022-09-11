@@ -53,11 +53,14 @@ Vue.component("membership", {
 
 
 		axios.get("rest/buyers/memberships").then((result) => {
-			console.log(result);
 			this.allMemberships = result.data;
 		});
 		
-		axios.get()
+		axios.get("rest/active-membership").then((result)=>{
+			console.log(result)
+			this.activeMembership = result.data;
+			
+		})
 
 	},
 
