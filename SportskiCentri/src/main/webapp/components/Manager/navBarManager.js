@@ -8,6 +8,7 @@ Vue.component("navigation-bar-manager", {
 	 <a href="#/trainers" style="float: left;">Treneri u objektu</a>
 	 <a href="#/buyers" style="float: left;">Korisnici koji su posetili objekat</a>
 	 <a href="#/allTrainings" style="float: left;">Treninzi u objektu</a>
+	 <a href="#/appointedTraining" style="float: left;">Zakazani treninzi</a>
 
 	
 	 <a href="#/editManager">Profil</a>

@@ -3,41 +3,32 @@
     "points": 677,
     "trainingHistory": [
       {
-        "trainingId": 0,
-        "trainerUsername": "-1",
-        "date": "Jul 6, 2022, 1:49:28 AM"
-      },
-      {
         "trainingId": 1,
-        "trainerUsername": "0",
-        "date": "Jul 12, 2022, 1:49:28 AM"
+        "trainerUsername": "trainer",
+        "date": "Jul 12, 2022, 1:49:28 AM",
+        "dateAppointment": "Jul 30, 2022, 1:49:28 AM"
+        
       },
       {
         "trainingId": 2,
-        "trainerUsername": "0",
-        "date": "Jul 7, 2022, 1:49:31 AM"
+        "trainerUsername": "trainer2",
+        "date": "Jul 7, 2022, 1:49:31 AM",
+        "dateAppointment" : "Jul 15, 2022, 2:11:59 AM"
       },
       {
         "trainingId": 3,
-        "trainerUsername": "0",
-        "date": "Jul 15, 2022, 2:11:59 AM"
-      },
-      {
-        "trainingId": 4,
-        "trainerUsername": "0",
-        "date": "Jul 2, 2022, 2:17:16 AM"
-      },
-      {
-        "trainingId": 5,
-        "trainerUsername": "-1",
-        "date": "Jul 1, 2022, 2:35:10 AM"
+        "trainerUsername": "trainer2",
+        "date": "Jul 8, 2022, 1:49:31 AM",
+        "dateAppointment" : "Dec 30, 2022, 2:11:59 AM"
       }
+      
+      
     ],
     "username": "buyer2",
     "password": "buyer2",
     "firstName": "Aleksa",
     "lastName": "Mijatovic",
-    "visitedFacilitiesIds": [1],
+    "visitedFacilitiesIds": [2,3],
     "gender": "MALE",
     "birthDate": "Jul 6, 2022, 1:49:28 AM",
     "deleted": false,
@@ -62,128 +53,35 @@
   "buyer": {
     "points": 393,
     "trainingHistory": [
-      {
-        "trainingId": 1,
-        "trainerUsername": "-1",
-        "date": "Jul 12, 2022, 1:49:24 AM"
-      },
-      {
-        "trainingId": 1,
-        "trainerUsername": "0",
-        "date": "Jul 13, 2022, 1:49:28 AM"
-      },
-      {
-        "trainingId": 1,
-        "trainerUsername": "0",
-        "date": "Jul 14, 2022, 1:49:31 AM"
-      },
-      {
-        "trainingId": 2,
-        "trainerUsername": "0",
-        "date": "Jul 15, 2022, 2:11:59 AM"
-      },
-      {
-        "trainingId": 3,
-        "trainerUsername": "0",
-        "date": "Jul 12, 2022, 2:17:16 AM"
-      },
+    
       {
         "trainingId": 4,
-        "trainerUsername": "-1",
-        "date": "Jul 12, 2022, 2:35:10 AM"
+        "trainerUsername": "trainer",
+        "date": "Jul 18, 2022, 1:49:28 AM",
+        "dateAppointment": "Jul 30, 2022, 1:49:28 AM"
+        
+      },
+      {
+        "trainingId": 5,
+        "trainerUsername": "trainer1",
+        "date": "Jul 7, 2022, 1:49:31 AM",
+        "dateAppointment" : "Jul 20, 2022, 2:11:59 AM"
+      },
+      {
+        "trainingId": 6,
+        "trainerUsername": "trainer2",
+        "date": "Jul 8, 2022, 1:49:31 AM",
+        "dateAppointment" : "Dec 30, 2022, 2:11:59 AM"
       }
+      
     ],
     "username": "buyer",
     "password": "buyer",
     "firstName": "Lazar",
     "lastName": "Mijatovic",
-     "visitedFacilitiesIds": [1],
+     "visitedFacilitiesIds": [1,3],
     "gender": "MALE",
     "birthDate": "Jul 6, 2022, 1:49:28 AM",
-    "deleted": false,
-    "isBanned": false,
-    "userRole": "BUYER"
-  },
-  "buyer8": {
-    "points": 2006,
-    "visitedFacilitiesIds": [],
-    "trainingHistory": [],
-    "username": "buyer8",
-    "password": "buyer8",
-    "firstName": "Milorad",
-    "lastName": "Ulemek",
-    "gender": "MALE",
-    "birthDate": "Jul 6, 2022, 1:49:28 AM",
-    "deleted": false,
-    "isBanned": false,
-    "userRole": "BUYER"
-  },
-  "buyer3": {
-    "points": 5000,
-    "visitedFacilitiesIds": [],
-    "trainingHistory": [],
-    "username": "buyer3",
-    "password": "buyer3",
-    "firstName": "Mihajlo",
-    "lastName": "Pupin",
-    "gender": "MALE",
-    "birthDate": "Jul 6, 2022, 1:49:28 AM",
-    "deleted": false,
-    "isBanned": false,
-    "userRole": "BUYER"
-  },
-  "p": {
-    "points": 925,
-    "visitedFacilitiesIds": [],
-    "trainingHistory": [],
-    "username": "p",
-    "password": "p",
-    "firstName": "p",
-    "lastName": "p",
-    "gender": "MALE",
-    "birthDate": "Jul 6, 2022, 1:49:28 AM",
-    "deleted": false,
-    "isBanned": false,
-    "userRole": "BUYER"
-  },
-  "buyer10": {
-    "points": 0,
-    "visitedFacilitiesIds": [],
-    "trainingHistory": [],
-    "username": "buyer10",
-    "password": "buyqr10",
-    "firstName": "Dana",
-    "lastName": "Brasanac",
-    "gender": "FEMALE",
-    "birthDate": "Jul 6, 2022, 1:49:28 AM",
-    "deleted": false,
-    "isBanned": false,
-    "userRole": "BUYER"
-  },
-  "buyer4": {
-    "points": 0,
-    "visitedFacilitiesIds": [],
-    "trainingHistory": [],
-    "username": "buyer4",
-    "password": "buyer4",
-    "firstName": "Mile",
-    "lastName": "Lukovic",
-    "gender": "MALE",
-    "birthDate": "Feb 11, 1969, 1:00:00 AM",
-    "deleted": false,
-    "isBanned": false,
-    "userRole": "BUYER"
-  },
-  "buyer12": {
-    "points": 0,
-    "visitedFacilitiesIds": [],
-    "trainingHistory": [],
-    "username": "buyer12",
-    "password": "buyer12",
-    "firstName": "buyer",
-    "lastName": "buyer",
-    "gender": "MALE",
-    "birthDate": "Aug 23, 2022, 2:00:00 AM",
     "deleted": false,
     "isBanned": false,
     "userRole": "BUYER"

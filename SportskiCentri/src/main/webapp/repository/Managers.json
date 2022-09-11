@@ -1,6 +1,6 @@
 {
   "manager2": {
-    "facilityId": 5,
+    "facilityId": 2,
     "username": "manager2",
     "password": "manager2",
     "firstName": "Saban",
@@ -11,10 +11,10 @@
     "isBanned": false,
     "userRole": "MANAGER"
   },
-  "manager3": {
-    "facilityId": 7,
-    "username": "manager3",
-    "password": "manager3",
+  "manager1": {
+    "facilityId": 1,
+    "username": "manager1",
+    "password": "manager1",
     "firstName": "Milos",
     "lastName": "Milakovic",
     "gender": "MALE",
@@ -23,104 +23,9 @@
     "isBanned": false,
     "userRole": "MANAGER"
   },
-  "manager4": {
-    "facilityId": 7,
-    "username": "manager4",
-    "password": "manager4",
-    "firstName": "Milutin",
-    "lastName": "Ostojic",
-    "gender": "MALE",
-    "birthDate": "Jul 6, 2022, 1:49:28 AM",
-    "deleted": false,
-    "isBanned": false,
-    "userRole": "MANAGER"
-  },
-  "manager5": {
-    "facilityId": 9,
-    "username": "manager5",
-    "password": "manager5",
-    "firstName": "Jovan",
-    "lastName": "Cvijic",
-    "gender": "MALE",
-    "birthDate": "Jul 6, 2022, 1:49:28 AM",
-    "deleted": false,
-    "isBanned": false,
-    "userRole": "MANAGER"
-  },
-  "manager6": {
-    "facilityId": 9,
-    "username": "manager6",
-    "password": "manager6",
-    "firstName": "Lazar",
-    "lastName": "Mijatovic",
-    "gender": "MALE",
-    "birthDate": "Jul 6, 2022, 1:49:28 AM",
-    "deleted": false,
-    "isBanned": false,
-    "userRole": "MANAGER"
-  },
-  "manager7": {
-    "facilityId": 10,
-    "username": "manager7",
-    "password": "manager7",
-    "firstName": "Mihaela",
-    "lastName": "Osmajic",
-    "gender": "FEMALE",
-    "birthDate": "Jul 6, 2022, 1:49:28 AM",
-    "deleted": false,
-    "isBanned": false,
-    "userRole": "MANAGER"
-  },
-  "manager8": {
-    "facilityId": 11,
-    "username": "manager8",
-    "password": "manager8",
-    "firstName": "Petar",
-    "lastName": "Petrovic",
-    "gender": "MALE",
-    "birthDate": "Jul 6, 2022, 1:49:28 AM",
-    "deleted": false,
-    "isBanned": false,
-    "userRole": "MANAGER"
-  },
-  "manager9": {
-    "facilityId": 15,
-    "username": "manager9",
-    "password": "manager9",
-    "firstName": "Mile",
-    "lastName": "Stojanovic",
-    "gender": "MALE",
-    "birthDate": "Feb 1, 2022, 1:00:00 AM",
-    "deleted": false,
-    "isBanned": false,
-    "userRole": "MANAGER"
-  },
-  "f": {
-    "facilityId": 15,
-    "username": "f",
-    "password": "f",
-    "firstName": "f",
-    "lastName": "f",
-    "gender": "MALE",
-    "birthDate": "Sep 6, 2022, 2:00:00 AM",
-    "deleted": false,
-    "isBanned": false,
-    "userRole": "MANAGER"
-  },
-  "m": {
-    "facilityId": 0,
-    "username": "m",
-    "password": "m",
-    "firstName": "m",
-    "lastName": "m",
-    "gender": "MALE",
-    "birthDate": "Aug 30, 2022, 2:00:00 AM",
-    "deleted": false,
-    "isBanned": false,
-    "userRole": "MANAGER"
-  },
+
   "manager": {
-    "facilityId": 1,
+    "facilityId": 3,
     "username": "manager",
     "password": "manager",
     "firstName": "Nikola",
