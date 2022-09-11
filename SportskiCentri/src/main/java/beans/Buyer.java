@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import dto.UserDto;
+
 public class Buyer extends User {
 	private int points;
 	private BuyerType buyerType;
@@ -47,6 +49,12 @@ public class Buyer extends User {
 		this.membership = null;
 
 	}
+	
+	public Buyer(UserDto u) {
+		super(u.getUsername(), u.getPassword(), u.getFirstName(), u.getLastName(), u.getGender(), u.getBirthDate(), Role.ADMIN);
+		
+	}
+	
 
 	public int getPoints() {
 		return points;

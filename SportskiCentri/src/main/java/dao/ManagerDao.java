@@ -14,6 +14,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import beans.Admin;
 import beans.Buyer;
 import beans.Gender;
 import beans.Manager;
@@ -25,6 +26,15 @@ public class ManagerDao {
 	private String filepath = App.path + "/repository/Managers.json";
 	private Map<String, Manager> managers = new HashMap<>();
 	private Manager logManager;
+
+	
+	public Manager getLogManager() {
+		return logManager;
+	}
+
+	public void setLogManager(Manager logManager) {
+		this.logManager = logManager;
+	}
 
 	public ManagerDao() {
 	}
@@ -145,18 +155,44 @@ public class ManagerDao {
 
 	public int GetFacility() {
 		// TODO Auto-generated method stub
-		return 1;
-	//	return logManager.getFacility();
+	//	return 1;
+		return logManager.getFacility();
 	}
 	
-	public String DoesContainUsername(String username) {
+	public Boolean DoesContainUsername(String username) {
 		loadFile();
 
 		if (managers.containsKey(username)) {
-			return "ima";
+			return true;
 		}
 		
-		return "nema";
+		return false;
+	}
+	
+	public Boolean DoesContainUsernameExecptLogged(String username) {
+		loadFile();
+		if(logManager.getUsername().contentEquals(username)) { 
+			return false;
+		}
+		
+		if (managers.containsKey(username)) {
+			return true;
+		}
+		
+		return false;
+	
+	}
+	
+	
+	public void Edit(Manager m) {
+		loadFile();
+		
+		managers.remove(logManager.getUsername());
+		m.setFacility(logManager.getFacility());
+		managers.put(m.getUsername(), m);
+		logManager = m;
+		updateFile();
+		
 	}
   
 }

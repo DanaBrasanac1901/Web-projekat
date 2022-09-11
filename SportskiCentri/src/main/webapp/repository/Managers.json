@@ -1,16 +1,4 @@
 {
-  "manager": {
-    "facilityId": 1,
-    "username": "manager",
-    "password": "manager",
-    "firstName": "Nikola",
-    "lastName": "Tesla",
-    "gender": "MALE",
-    "birthDate":"Jul 6, 2022, 1:49:28 AM",
-    "deleted": false,
-    "isBanned": false,
-    "userRole": "MANAGER"
-  },
   "manager2": {
     "facilityId": 5,
     "username": "manager2",
@@ -66,7 +54,7 @@
     "firstName": "Lazar",
     "lastName": "Mijatovic",
     "gender": "MALE",
-    "birthDate":"Jul 6, 2022, 1:49:28 AM",
+    "birthDate": "Jul 6, 2022, 1:49:28 AM",
     "deleted": false,
     "isBanned": false,
     "userRole": "MANAGER"
@@ -78,7 +66,7 @@
     "firstName": "Mihaela",
     "lastName": "Osmajic",
     "gender": "FEMALE",
-    "birthDate":"Jul 6, 2022, 1:49:28 AM",
+    "birthDate": "Jul 6, 2022, 1:49:28 AM",
     "deleted": false,
     "isBanned": false,
     "userRole": "MANAGER"
@@ -90,7 +78,55 @@
     "firstName": "Petar",
     "lastName": "Petrovic",
     "gender": "MALE",
-    "birthDate":"Jul 6, 2022, 1:49:28 AM",
+    "birthDate": "Jul 6, 2022, 1:49:28 AM",
+    "deleted": false,
+    "isBanned": false,
+    "userRole": "MANAGER"
+  },
+  "manager9": {
+    "facilityId": 15,
+    "username": "manager9",
+    "password": "manager9",
+    "firstName": "Mile",
+    "lastName": "Stojanovic",
+    "gender": "MALE",
+    "birthDate": "Feb 1, 2022, 1:00:00 AM",
+    "deleted": false,
+    "isBanned": false,
+    "userRole": "MANAGER"
+  },
+  "f": {
+    "facilityId": 15,
+    "username": "f",
+    "password": "f",
+    "firstName": "f",
+    "lastName": "f",
+    "gender": "MALE",
+    "birthDate": "Sep 6, 2022, 2:00:00 AM",
+    "deleted": false,
+    "isBanned": false,
+    "userRole": "MANAGER"
+  },
+  "m": {
+    "facilityId": 0,
+    "username": "m",
+    "password": "m",
+    "firstName": "m",
+    "lastName": "m",
+    "gender": "MALE",
+    "birthDate": "Aug 30, 2022, 2:00:00 AM",
+    "deleted": false,
+    "isBanned": false,
+    "userRole": "MANAGER"
+  },
+  "manager": {
+    "facilityId": 1,
+    "username": "manager",
+    "password": "manager",
+    "firstName": "Nikola",
+    "lastName": "Tesla",
+    "gender": "MALE",
+    "birthDate": "Jul 6, 2022, 2:00:00 AM",
     "deleted": false,
     "isBanned": false,
     "userRole": "MANAGER"

@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.lang.reflect.Type;
 
+import beans.Admin;
 import beans.Buyer;
 import beans.HistoryTraining;
 import beans.InstantiatedMembership;
@@ -27,6 +28,15 @@ public class BuyerDao {
 	private String filepath = App.path + "/repository/Buyers.json";
 	private Map<String, Buyer> buyers = new HashMap<>();
 	private Buyer logBuyer;
+	
+
+	public Buyer getLogBuyer() {
+		return logBuyer;
+	}
+
+	public void setLogBuyer(Buyer logBuyer) {
+		this.logBuyer = logBuyer;
+	}
 
 	public BuyerDao() {
 	}
@@ -178,7 +188,7 @@ public class BuyerDao {
 			} else if (buyers.get(username).isDeleted()) {
 				return "deleted";
 			} else if (password.equals(buyers.get(username).getPassword())) {
-				setLogBuyer(buyers.get(username));
+				logBuyer = buyers.get(username);
 				return "buyer";
 			} else {
 				return "wrong password";
@@ -198,36 +208,45 @@ public class BuyerDao {
 		loadFile();
 	}
 	
-	public String DoesContainUsername(String username) {
-		loadFile();
 
-		if (buyers.containsKey(username)) {
-			return "ima";
-		}
-		
-		return "nema";
-	} 
 	
-	public String DoesContainUsernameExecptHis(String username,String oldUsername) {
+	public Boolean DoesContainUsername(String username) {
 		loadFile();
-		if(username ==oldUsername) {
-			return "nema";
+
+		if (buyers.containsKey(username)) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	
+	public Boolean DoesContainUsernameExecptLogged(String username) {
+		loadFile();
+		if(logBuyer.getUsername().contentEquals(username)) { 
+			return false;
 		}
 		
 		if (buyers.containsKey(username)) {
-			return "ima";
+			return true;
 		}
 		
-		return "nema";
+		return false;
+	
 	}
-
-	public Buyer getLogBuyer() {
-		return logBuyer;
+	
+	public void Edit(Buyer a) {
+		loadFile();
+		buyers.remove(logBuyer.getUsername());
+		a.setTrainingHistory(logBuyer.getTrainingHistory());
+		a.setMembership(logBuyer.getMembership());
+		a.setvisitedFacilitiesIds(logBuyer.getvisitedFacilitiesIds());
+		a.setBuyerType(logBuyer.getBuyerType());
+		buyers.put(a.getUsername(), a);
+		logBuyer = a;
+		updateFile();
+		
 	}
-
-	public void setLogBuyer(Buyer logBuyer) {
-		this.logBuyer = logBuyer;
-	} 
 	
 
 }

@@ -18,15 +18,19 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
+import beans.Admin;
 import beans.Buyer;
 import beans.HistoryTraining;
 import beans.InstantiatedMembership;
 import beans.Membership;
 import beans.MembershipType;
 import beans.Training;
+import dao.AdminDao;
 import dao.BuyerDao;
 import dao.FacilityDao;
+import dao.ManagerDao;
 import dao.MembershipDao;
+import dao.TrainerDao;
 import dao.TrainingDao;
 import dto.MembershipDto;
 import dto.RegisterUserDto;
@@ -40,14 +44,21 @@ public class BuyerService {
 	@Context
 	private ServletContext ctx;
 
+	private ManagerDao managerDao;
+	private AdminDao adminDao;
 	private BuyerDao buyerDao;
+	private TrainerDao trainerDao;
 	private TrainingDao trainingDao;
 	private FacilityDao facilityDao;
 	private MembershipDao membershipDao;
 
 	@PostConstruct
 	public void init() {
+		this.managerDao = (ManagerDao) ctx.getAttribute(App.MANAGER_DAO);
+		this.trainerDao = (TrainerDao) ctx.getAttribute(App.TRAINER_DAO);
+		this.adminDao = (AdminDao) ctx.getAttribute(App.ADMIN_DAO);
 		this.buyerDao = (BuyerDao) ctx.getAttribute(App.BUYER_DAO);
+		this.facilityDao = (FacilityDao) ctx.getAttribute(App.FACILITY_DAO);
 		this.trainingDao = (TrainingDao) ctx.getAttribute(App.TRAINING_DAO);
 		this.facilityDao = (FacilityDao) ctx.getAttribute(App.FACILITY_DAO);
 		this.membershipDao = (MembershipDao) ctx.getAttribute(App.MEMBERSHIP_DAO);
@@ -84,7 +95,10 @@ public class BuyerService {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
 	public String createNew(UserDto userInfo) {
-
+		String username = userInfo.getUsername();
+		if(adminDao.DoesContainUsername(username) || buyerDao.DoesContainUsername(username)|| managerDao.DoesContainUsername(username)|| trainerDao.DoesContainUsername(username)) {
+			return "ima";
+		}
 		Buyer newBuyer = new Buyer(userInfo.getUsername(), userInfo.getPassword(), userInfo.getFirstName(),
 				userInfo.getLastName(), userInfo.getGender(), userInfo.getBirthDate());
 		return buyerDao.addNew(newBuyer);
@@ -236,6 +250,22 @@ public class BuyerService {
 		buyerDao.addNewToTrainingHistory(buyer.getUsername(),
 				new HistoryTraining(trainingId, trainingDao.getById(trainingId).getTrainerUsername(), new Date()));
 
+	}
+	
+	@POST
+	@Path("/edit")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public String EditBuyer(UserDto a) {	
+		String username = a.getUsername();
+		if(adminDao.DoesContainUsernameExecptLogged(username) || buyerDao.DoesContainUsername(username)|| managerDao.DoesContainUsername(username) || trainerDao.DoesContainUsername(username)) {
+			return "ima";
+		}
+		
+		Buyer ad = new Buyer(a);
+		
+		buyerDao.Edit(ad);
+		return "uspesno";
+		
 	}
 
 }

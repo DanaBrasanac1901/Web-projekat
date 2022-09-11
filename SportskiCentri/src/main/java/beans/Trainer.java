@@ -3,6 +3,8 @@ package beans;
 import java.util.Date;
 import java.util.List;
 
+import dto.UserDto;
+
 public class Trainer extends User {
 	private List<HistoryTraining> trainingHistory;
 
@@ -16,6 +18,11 @@ public class Trainer extends User {
 			Date birthDate) {
 		super(username, password, firstName, lastName, gender, birthDate, Role.TRAINER);
 
+	}
+	
+	public Trainer(UserDto u) {
+		super(u.getUsername(), u.getPassword(), u.getFirstName(), u.getLastName(), u.getGender(), u.getBirthDate(), Role.ADMIN);
+		
 	}
 
 	public List<HistoryTraining> getTrainingHistory() {

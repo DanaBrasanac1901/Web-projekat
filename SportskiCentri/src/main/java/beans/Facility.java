@@ -41,7 +41,7 @@ public class Facility {
 		this.id = id;
 	}
 
-	public Facility(String name, FacilityType facType, Location location, String logoPath) {
+	public Facility(String name, FacilityType facType, Location location, String logoPath, int id) {
 		this.name = name;
 		this.facType = facType;
 		this.location = location;
@@ -51,6 +51,7 @@ public class Facility {
 		this.start = "07:00";
 		this.end = "20:00";
 		this.facStatus = FacilityStatus.OPEN;
+		this.id = id;
 
 	}
 

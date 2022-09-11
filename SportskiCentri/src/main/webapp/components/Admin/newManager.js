@@ -1,6 +1,6 @@
 Vue.component("new-manager", {
 	
-	data: function(){
+		data: function(){
 		return{
 			username : "",
             password : "",
@@ -102,8 +102,8 @@ Vue.component("new-manager", {
 	        	this.firstName = "",
 	       		this.lastName = "",
 	        	this.gender = "",
-	        	this.birthDate = null
-	        	router.push("/adminHome");
+	        	this.birthDate = ""
+	        	router.push("/addFacility");
 				
 			}else if(response.data == "ima"){
 				alert("Korisničko ime koje ste uneli već postoji.")
@@ -142,7 +142,7 @@ Vue.component("new-manager", {
 				return false;
 			}
 			
-			if (this.birthDate == '') {
+			if (this.birthDate == null) {
 				return false;
 			}
 			
@@ -151,7 +151,6 @@ Vue.component("new-manager", {
 		}
 		
 	}
-	
 	
 	
 });

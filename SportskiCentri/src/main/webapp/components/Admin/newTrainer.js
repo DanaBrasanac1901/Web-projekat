@@ -1,4 +1,4 @@
-Vue.component("registration-page", {
+Vue.component("new-trainer", {
 
 	data: function() {
 		return {
@@ -55,7 +55,7 @@ Vue.component("registration-page", {
 					</tr>
 								
 				    </table>
-						 <input  class="button-3" type="submit" value="Registruj se">
+						 <input  class="button-3" type="submit" value="Dodaj">
 				
 					
 		</form>
@@ -87,7 +87,7 @@ Vue.component("registration-page", {
 
 
 			axios
-				.post("rest/buyers/registration", {
+				.post("rest/trainers/registration", {
 					"username": this.username,
 					"password": this.password,
 					"firstName": this.firstName,
@@ -97,7 +97,7 @@ Vue.component("registration-page", {
 				})
 				.then(response => {
 					if (response.data == "uspesno") {
-						alert("Uspesno ste se registrovali.")
+						alert("Uspesno ste dodali novog trenera.")
 						this.username = "",
 							this.password = "",
 							this.firstName = "",
@@ -115,7 +115,7 @@ Vue.component("registration-page", {
 
 
 				.catch(function(error) {
-					alert('Neuspešno registrovanje!')
+					alert('Neuspešno dodavanje trenera!')
 
 				})
 

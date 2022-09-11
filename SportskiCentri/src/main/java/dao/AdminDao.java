@@ -23,6 +23,16 @@ public class AdminDao {
 	private String filepath = App.path + "/repository/Admins.json";
 	private Map<String, Admin> admins = new HashMap<>();
 	private Admin logAdmin;
+	
+	
+	
+	public Admin getLogAdmin() {
+		return logAdmin;
+	}
+
+	public void setLogAdmin(Admin logAdmin) {
+		this.logAdmin = logAdmin;
+	}
 
 	public AdminDao() {
 	}
@@ -122,16 +132,39 @@ public class AdminDao {
 		
 	}
 	
-	public String DoesContainUsername(String username) {
+	public Boolean DoesContainUsername(String username) {
 		loadFile();
 
 		if (admins.containsKey(username)) {
-			return "ima";
+			return true;
 		}
 		
-		return "nema";
+		return false;
+	}
+	
+	
+	public Boolean DoesContainUsernameExecptLogged(String username) {
+		loadFile();
+
+		if(logAdmin.getUsername().contentEquals(username)) { 
+			return false;}
+
+		if (admins.containsKey(username)) {
+			return true;
+		}
+		
+		return false;
 	}
 
+	
+	public void Edit(Admin a) {
+		loadFile();
+		admins.remove(logAdmin.getUsername());
+		admins.put(a.getUsername(), a);
+		logAdmin = a;
+		updateFile();
+		
+	}
 
 }
 

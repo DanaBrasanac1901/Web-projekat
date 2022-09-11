@@ -14,9 +14,12 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import beans.Admin;
 import beans.Buyer;
 import beans.Gender;
+import beans.Role;
 import beans.Trainer;
+import dto.UserDto;
 import dto.UserLoginDto;
 import main.App;
 
@@ -88,10 +91,12 @@ public class TrainerDao {
 		return trainers.values();
 	}
 
-	public void addNew(Trainer newTrainer) {
+	public String addNew(Trainer newTrainer) {
 		loadFile();
 		trainers.put(newTrainer.getUsername(), newTrainer);
 		updateFile();
+		
+		return "uspesno";
 	}
 	
 	
@@ -125,14 +130,42 @@ public class TrainerDao {
 		
 	}
 	
-	public String DoesContainUsername(String username) {
+	public Boolean DoesContainUsername(String username) {
 		loadFile();
 
 		if (trainers.containsKey(username)) {
-			return "ima";
+			return true;
 		}
 		
-		return "nema";
+		return false;
 	}
+	
 
+	
+	
+	
+	public Boolean DoesContainUsernameExecptLogged(String username) {
+		loadFile();
+		if(logTrainer.getUsername().contentEquals(username)) { 
+			return false;
+		}
+		
+		if (trainers.containsKey(username)) {
+			return true;
+		}
+		
+		return false;
+	
+	}
+	
+	public void Edit(Trainer a) {
+		loadFile();
+		trainers.remove(logTrainer.getUsername());
+		a.setTrainingHistory(logTrainer.getTrainingHistory());
+		trainers.put(a.getUsername(), a);
+		logTrainer = a;
+		updateFile();
+		
+	}
+	
 }
