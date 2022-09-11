@@ -8,15 +8,15 @@ public class InstantiatedMembership {
 	private boolean deleted;
 	private LocalDate payDate;
 	private LocalDate expirationDate;
-	private Buyer buyer;
+	private String buyer;
 	private boolean status;
 	private int numberOfEntrances;
 	private int remainingEntrances;
 	private int price;
 
 	public InstantiatedMembership(String id, boolean deleted, LocalDate payDate, LocalDate expirationDate, int price,
-			Buyer buyer, boolean status, int numberOfEntrances, int remainingEntrances) {
-		super();
+			String buyer, boolean status, int numberOfEntrances, int remainingEntrances) {
+		
 		this.id = id;
 		this.deleted = deleted;
 		this.payDate = payDate;
@@ -64,11 +64,11 @@ public class InstantiatedMembership {
 		this.expirationDate = expirationDate;
 	}
 
-	public Buyer getBuyer() {
+	public String getBuyer() {
 		return buyer;
 	}
 
-	public void setBuyer(Buyer buyer) {
+	public void setBuyer(String buyer) {
 		this.buyer = buyer;
 	}
 

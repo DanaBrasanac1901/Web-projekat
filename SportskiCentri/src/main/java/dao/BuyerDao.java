@@ -78,6 +78,16 @@ public class BuyerDao {
 		}
 
 	}
+	
+	public boolean doesMembershipExist() {
+		
+		if(logBuyer.getMembership() == null) {
+			return false;
+		}
+		
+		return true;
+		
+	}
 
 	public boolean doesUsernameExist(String username) {
 		loadFile();
@@ -131,7 +141,7 @@ public class BuyerDao {
 	public boolean isMembershipActive(InstantiatedMembership membership) {
 
 		if (membership.getExpirationDate().isBefore(LocalDate.now()) || membership.getRemainingEntrances() <= 0) {
-			deactivateMembership(membership.getBuyer());
+			deactivateMembership(logBuyer);
 			return false;
 		} else if (!membership.isStatus()) {
 			return false;
