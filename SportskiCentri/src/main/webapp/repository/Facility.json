@@ -1,264 +1,352 @@
 {
-	"1": {
-		"name": "Sportska hala 1",
-		"facType": "GYM",
-		"facContents": [
-			9,
-			10,
-			11,
-			12,
-			13,
-			14
-		],
-		"facStatus": "OPEN",
-		"location": {
-			"adress": {
-				"street": "Strazilovska",
-				"streetNumber": "66",
-				"city": "Novi Sad",
-				"postalCode": "21000"
-			},
-			"width": 29.234,
-			"length": 43.22
-		},
-		"logoPath": "images\\BarneyMali.jpg",
-		"grade": 6.7,
-		"deleted": false,
-		"start": "07:00",
-		"end": "18:00",
-		"id": 1
-	},
-	"2": {
-		"name": "Sportska hala 2",
-		"facType": "POOL",
-		"facContents": [
-			1,
-			2,
-			3
-		],
-		"facStatus": "OPEN",
-		"location": {
-			"adress": {
-				"street": "Kisacka",
-				"streetNumber": "10",
-				"city": "Zrenjanin",
-				"postalCode": "21000"
-			},
-			"width": 29.234,
-			"length": 43.22
-		},
-		"logoPath": "images\\BarneyUKrevetu.jpg",
-		"grade": 8.2,
-		"deleted": false,
-		"start": "07:00",
-		"end": "20:00",
-		"id": 2
-	},
-	"3": {
-		"name": "Sportska hala 3",
-		"facType": "DOJO",
-		"facContents": [
-			4,
-			5
-		],
-		"facStatus": "OPEN",
-		"location": {
-			"adress": {
-				"street": "Pasterova",
-				"streetNumber": "14",
-				"city": "Novi Sad",
-				"postalCode": "21000"
-			},
-			"width": 29.234,
-			"length": 43.22
-		},
-		"logoPath": "images\\BarneySaLoptom.jpg",
-		"grade": 9.0,
-		"deleted": false,
-		"start": "09:00",
-		"end": "22:00",
-		"id": 3
-	},
-	"4": {
-		"name": "Bazen na klisi",
-		"facType": "POOL",
-		"facContents": [
-			6
-		],
-		"facStatus": "CLOSED",
-		"location": {
-			"adress": {
-				"street": "Bulevar Evrope",
-				"streetNumber": "2",
-				"city": "Novi Sad",
-				"postalCode": "21000"
-			},
-			"width": 0.0,
-			"length": 0.0
-		},
-		"logoPath": "images\\BarnetSpavaNaTravi.jpg",
-		"grade": 0.0,
-		"deleted": false,
-		"start": "07:00",
-		"end": "20:00",
-		"id": 4
-	},
-	"5": {
-		"name": "Bazen na spensu",
-		"facType": "POOL",
-		"facContents": [
-			7
-		],
-		"facStatus": "OPEN",
-		"location": {
-			"adress": {
-				"street": "Sutjeska",
-				"streetNumber": "2",
-				"city": "Novi Sad",
-				"postalCode": "21000"
-			},
-			"width": 0.0,
-			"length": 0.0
-		},
-		"logoPath": "images\\BarneySaZbunjem.jpg",
-		"grade": 0.0,
-		"deleted": false,
-		"start": "07:00",
-		"end": "20:00",
-		"id": 5
-	},
-	"6": {
-		"name": "FitGym",
-		"facType": "GYM",
-		"facContents": [],
-		"facStatus": "OPEN",
-		"location": {
-			"adress": {
-				"street": "Gogoljeva",
-				"streetNumber": "2",
-				"city": "Novi Sad",
-				"postalCode": "21000"
-			},
-			"width": 0.0,
-			"length": 0.0
-		},
-		"logoPath": "images\\BarneyGleda.jpg",
-		"grade": 0.0,
-		"deleted": false,
-		"start": "07:00",
-		"end": "20:00",
-		"id": 6
-	},
-	"7": {
-		"name": "Judo klub slavija",
-		"facType": "DOJO",
-		"facContents": [],
-		"facStatus": "OPEN",
-		"location": {
-			"adress": {
-				"street": "Karadjordjeva",
-				"streetNumber": "35",
-				"city": "Zrenjanin",
-				"postalCode": "23000"
-			},
-			"width": 0.0,
-			"length": 0.0
-		},
-		"logoPath": "images\\BarnetZija.jpg",
-		"grade": 0.0,
-		"deleted": false,
-		"start": "07:00",
-		"end": "20:00",
-		"id": 7
-	},
-	"8": {
-		"name": "Karate klub",
-		"facType": "DOJO",
-		"facContents": [
-			8
-		],
-		"facStatus": "OPEN",
-		"location": {
-			"adress": {
-				"street": "Petefi Sandora",
-				"streetNumber": "14b",
-				"city": "Novi Sad",
-				"postalCode": "21000"
-			},
-			"width": 0.0,
-			"length": 0.0
-		},
-		"logoPath": "images\\BarneySaKnjigom.jpg",
-		"grade": 0.0,
-		"deleted": false,
-		"start": "07:00",
-		"end": "20:00",
-		"id": 8
-	},
-	"9": {
-		"name": "Sportiski centar Jovic",
-		"facType": "SPORT_CENTER",
-		"facContents": [],
-		"facStatus": "OPEN",
-		"location": {
-			"adress": {
-				"street": "Tolstojeva",
-				"streetNumber": "2",
-				"city": "Kikinda",
-				"postalCode": "25000"
-			},
-			"width": 0.0,
-			"length": 0.0
-		},
-		"logoPath": "images\\BarneyGleda.jpg",
-		"grade": 0.0,
-		"deleted": false,
-		"start": "07:00",
-		"end": "20:00",
-		"id": 9
-	},
-	"10": {
-		"name": "Aekido klub Zoran",
-		"facType": "DOJO",
-		"facContents": [],
-		"facStatus": "OPEN",
-		"location": {
-			"adress": {
-				"street": "Kikindska",
-				"streetNumber": "2",
-				"city": "Beograd",
-				"postalCode": "19000"
-			},
-			"width": 0.0,
-			"length": 0.0
-		},
-		"logoPath": "images\\BarneySaLoptom.jpg",
-		"grade": 0.0,
-		"deleted": false,
-		"start": "07:00",
-		"end": "20:00",
-		"id": 10
-	},
-	"11": {
-		"name": "Proba",
-		"facType": "GYM",
-		"facContents": [],
-		"facStatus": "CLOSED",
-		"location": {
-			"adress": {
-				"street": "Proba",
-				"streetNumber": "Proba",
-				"city": "Proba",
-				"postalCode": "Proba"
-			},
-			"width": 0.0,
-			"length": 0.0
-		},
-		"logoPath": "images\\BarneyMali.jpg",
-		"grade": 0.0,
-		"deleted": false,
-		"start": "07:00",
-		"end": "20:00",
-		"id": 11
-	}
+  "1": {
+    "name": "Sportska hala 1",
+    "facType": "GYM",
+    "facContents": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "facStatus": "OPEN",
+    "location": {
+      "adress": {
+        "street": "Strazilovska",
+        "streetNumber": "66",
+        "city": "Novi Sad",
+        "postalCode": "21000"
+      },
+      "width": 29.234,
+      "length": 43.22
+    },
+    "logoPath": "images\\BarneyMali.jpg",
+    "grade": 6.7,
+    "deleted": false,
+    "start": "07:00",
+    "end": "18:00",
+    "id": 1
+  },
+  "2": {
+    "name": "Sportska hala 2",
+    "facType": "POOL",
+    "facContents": [
+      1,
+      2,
+      3
+    ],
+    "facStatus": "OPEN",
+    "location": {
+      "adress": {
+        "street": "Kisacka",
+        "streetNumber": "10",
+        "city": "Zrenjanin",
+        "postalCode": "21000"
+      },
+      "width": 29.234,
+      "length": 43.22
+    },
+    "logoPath": "images\\BarneyUKrevetu.jpg",
+    "grade": 8.2,
+    "deleted": false,
+    "start": "07:00",
+    "end": "20:00",
+    "id": 2
+  },
+  "3": {
+    "name": "Sportska hala 3",
+    "facType": "DOJO",
+    "facContents": [
+      4,
+      5
+    ],
+    "facStatus": "OPEN",
+    "location": {
+      "adress": {
+        "street": "Pasterova",
+        "streetNumber": "14",
+        "city": "Novi Sad",
+        "postalCode": "21000"
+      },
+      "width": 29.234,
+      "length": 43.22
+    },
+    "logoPath": "images\\BarneySaLoptom.jpg",
+    "grade": 9.0,
+    "deleted": false,
+    "start": "09:00",
+    "end": "22:00",
+    "id": 3
+  },
+  "4": {
+    "name": "Bazen na klisi",
+    "facType": "POOL",
+    "facContents": [
+      6
+    ],
+    "facStatus": "CLOSED",
+    "location": {
+      "adress": {
+        "street": "Bulevar Evrope",
+        "streetNumber": "2",
+        "city": "Novi Sad",
+        "postalCode": "21000"
+      },
+      "width": 0.0,
+      "length": 0.0
+    },
+    "logoPath": "images\\BarnetSpavaNaTravi.jpg",
+    "grade": 0.0,
+    "deleted": false,
+    "start": "07:00",
+    "end": "20:00",
+    "id": 4
+  },
+  "5": {
+    "name": "Bazen na spensu",
+    "facType": "POOL",
+    "facContents": [
+      7
+    ],
+    "facStatus": "OPEN",
+    "location": {
+      "adress": {
+        "street": "Sutjeska",
+        "streetNumber": "2",
+        "city": "Novi Sad",
+        "postalCode": "21000"
+      },
+      "width": 0.0,
+      "length": 0.0
+    },
+    "logoPath": "images\\BarneySaZbunjem.jpg",
+    "grade": 0.0,
+    "deleted": false,
+    "start": "07:00",
+    "end": "20:00",
+    "id": 5
+  },
+  "6": {
+    "name": "FitGym",
+    "facType": "GYM",
+    "facContents": [],
+    "facStatus": "OPEN",
+    "location": {
+      "adress": {
+        "street": "Gogoljeva",
+        "streetNumber": "2",
+        "city": "Novi Sad",
+        "postalCode": "21000"
+      },
+      "width": 0.0,
+      "length": 0.0
+    },
+    "logoPath": "images\\BarneyGleda.jpg",
+    "grade": 0.0,
+    "deleted": false,
+    "start": "07:00",
+    "end": "20:00",
+    "id": 6
+  },
+  "7": {
+    "name": "Judo klub slavija",
+    "facType": "DOJO",
+    "facContents": [],
+    "facStatus": "OPEN",
+    "location": {
+      "adress": {
+        "street": "Karadjordjeva",
+        "streetNumber": "35",
+        "city": "Zrenjanin",
+        "postalCode": "23000"
+      },
+      "width": 0.0,
+      "length": 0.0
+    },
+    "logoPath": "images\\BarnetZija.jpg",
+    "grade": 0.0,
+    "deleted": false,
+    "start": "07:00",
+    "end": "20:00",
+    "id": 7
+  },
+  "8": {
+    "name": "Karate klub",
+    "facType": "DOJO",
+    "facContents": [
+      8
+    ],
+    "facStatus": "OPEN",
+    "location": {
+      "adress": {
+        "street": "Petefi Sandora",
+        "streetNumber": "14b",
+        "city": "Novi Sad",
+        "postalCode": "21000"
+      },
+      "width": 0.0,
+      "length": 0.0
+    },
+    "logoPath": "images\\BarneySaKnjigom.jpg",
+    "grade": 0.0,
+    "deleted": false,
+    "start": "07:00",
+    "end": "20:00",
+    "id": 8
+  },
+  "9": {
+    "name": "Sportiski centar Jovic",
+    "facType": "SPORT_CENTER",
+    "facContents": [],
+    "facStatus": "OPEN",
+    "location": {
+      "adress": {
+        "street": "Tolstojeva",
+        "streetNumber": "2",
+        "city": "Kikinda",
+        "postalCode": "25000"
+      },
+      "width": 0.0,
+      "length": 0.0
+    },
+    "logoPath": "images\\BarneyGleda.jpg",
+    "grade": 0.0,
+    "deleted": false,
+    "start": "07:00",
+    "end": "20:00",
+    "id": 9
+  },
+  "10": {
+    "name": "Aekido klub Zoran",
+    "facType": "DOJO",
+    "facContents": [],
+    "facStatus": "OPEN",
+    "location": {
+      "adress": {
+        "street": "Kikindska",
+        "streetNumber": "2",
+        "city": "Beograd",
+        "postalCode": "19000"
+      },
+      "width": 0.0,
+      "length": 0.0
+    },
+    "logoPath": "images\\BarneySaLoptom.jpg",
+    "grade": 0.0,
+    "deleted": false,
+    "start": "07:00",
+    "end": "20:00",
+    "id": 10
+  },
+  "11": {
+    "name": "Proba",
+    "facType": "GYM",
+    "facContents": [],
+    "facStatus": "CLOSED",
+    "location": {
+      "adress": {
+        "street": "Proba",
+        "streetNumber": "Proba",
+        "city": "Proba",
+        "postalCode": "Proba"
+      },
+      "width": 0.0,
+      "length": 0.0
+    },
+    "logoPath": "images\\BarneyMali.jpg",
+    "grade": 0.0,
+    "deleted": false,
+    "start": "07:00",
+    "end": "20:00",
+    "id": 11
+  },
+  "12": {
+    "name": "Proba",
+    "facType": "GYM",
+    "facContents": [],
+    "facStatus": "OPEN",
+    "location": {
+      "adress": {
+        "street": "Proba",
+        "streetNumber": "Proba",
+        "city": "Proba",
+        "postalCode": "Proba"
+      },
+      "width": 0.0,
+      "length": 0.0
+    },
+    "logoPath": "images\\BarnetZija.jpg",
+    "grade": 0.0,
+    "deleted": false,
+    "start": "07:00",
+    "end": "20:00",
+    "id": 12
+  },
+  "13": {
+    "name": "Majmun",
+    "facType": "GYM",
+    "facContents": [],
+    "facStatus": "OPEN",
+    "location": {
+      "adress": {
+        "street": "Majmun",
+        "streetNumber": "Majmun",
+        "city": "Majmun",
+        "postalCode": "Majmun"
+      },
+      "width": 0.0,
+      "length": 0.0
+    },
+    "logoPath": "images\\BarneyMali.jpg",
+    "grade": 0.0,
+    "deleted": false,
+    "start": "07:00",
+    "end": "20:00",
+    "id": 13
+  },
+  "14": {
+    "name": "f",
+    "facType": "GYM",
+    "facContents": [],
+    "facStatus": "OPEN",
+    "location": {
+      "adress": {
+        "street": "f",
+        "streetNumber": "f",
+        "city": "f",
+        "postalCode": "f"
+      },
+      "width": 0.0,
+      "length": 0.0
+    },
+    "logoPath": "images\\BarneySaLoptom.jpg",
+    "grade": 0.0,
+    "deleted": false,
+    "start": "07:00",
+    "end": "20:00",
+    "id": 14
+  },
+  "15": {
+    "name": "r",
+    "facType": "GYM",
+    "facContents": [],
+    "facStatus": "OPEN",
+    "location": {
+      "adress": {
+        "street": "r",
+        "streetNumber": "r",
+        "city": "r",
+        "postalCode": "r"
+      },
+      "width": 0.0,
+      "length": 0.0
+    },
+    "logoPath": "images\\BarneySaZbunjem.jpg",
+    "grade": 0.0,
+    "deleted": false,
+    "start": "07:00",
+    "end": "20:00",
+    "id": 15
+  }
 }

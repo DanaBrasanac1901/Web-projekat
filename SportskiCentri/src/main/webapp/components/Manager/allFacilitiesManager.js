@@ -1,4 +1,4 @@
-Vue.component("all-facilities-admin", {
+Vue.component("all-facilities-manager", {
 	data: function () {
 		    return {
 		      type : 'ALL',

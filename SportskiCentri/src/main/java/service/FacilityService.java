@@ -19,6 +19,7 @@ import beans.Facility;
 import beans.Location;
 import beans.Training;
 import dao.FacilityDao;
+import dao.ManagerDao;
 import dao.TrainingDao;
 import dto.CreateNewFacilityDto;
 import dto.FacilityDto;
@@ -31,12 +32,14 @@ public class FacilityService {
 
 	@Context
 	private ServletContext ctx;
-
+	
+	private ManagerDao managerDao;
 	private FacilityDao facilityDao;
 	private TrainingDao trainingDao;
 
 	@PostConstruct
 	public void init() {
+		this.managerDao = (ManagerDao) ctx.getAttribute(App.MANAGER_DAO);
 		this.facilityDao = (FacilityDao) ctx.getAttribute(App.FACILITY_DAO);
 		this.trainingDao = (TrainingDao) ctx.getAttribute(App.TRAINING_DAO);
 	}
@@ -56,6 +59,19 @@ public class FacilityService {
 		Facility facility = facilityDao.getById(id);
 		return new FacilityDto(facility);
 	}
+	
+	@GET
+	@Path("/managersFacilitie")
+	@Produces(MediaType.APPLICATION_JSON)
+	public FacilityDto getManagersFacilitie() {
+		int id = managerDao.GetFacility();
+		Facility facility = facilityDao.getById(id);
+		return new FacilityDto(facility);
+	}
+	
+	
+	
+	
 
 	@POST
 	@Path("/search")
@@ -114,14 +130,15 @@ public class FacilityService {
 	}
 	
 	@POST
-	@Path("/createNew")
+	@Path("/createNew/{username}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public void createNewFacility(CreateNewFacilityDto facilityInfo) {
-
+	public void createNewFacility(@PathParam("username") String username,CreateNewFacilityDto facilityInfo) {
+		int id = makeNewTrainingId();
+		managerDao.SetFacility(id, username);
 		Facility newFacility = new Facility(facilityInfo.getName(), facilityInfo.getFacilityType(),  new Location(new Adress(facilityInfo.getStreet(),facilityInfo.getStreetNumber(), facilityInfo.getCity(),facilityInfo.getPostalCode()))
-		, facilityInfo.getLogoPath());
-		facilityDao.addNew(newFacility);
+		, facilityInfo.getLogoPath(),id);
+		 facilityDao.addNew(newFacility);
 
 	}
 

@@ -71,10 +71,10 @@ public class FacilityDao {
 
 	public void addNew(Facility newFacility) {
 		loadFile();
-		int key = makeNewKey();
-		newFacility.setId(key);
-		facilities.put(key, newFacility);
+		facilities.put(newFacility.getId(), newFacility);
 		updateFile();
+		
+		
 
 	}
 	
@@ -89,6 +89,8 @@ public class FacilityDao {
 	}
 
 	public int makeNewKey() {
+		loadFile();
+		System.out.println(facilities.size());
 		return (facilities.size() + 1);
 	}
 

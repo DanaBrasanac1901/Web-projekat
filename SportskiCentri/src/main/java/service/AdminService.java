@@ -21,6 +21,8 @@ import dao.AdminDao;
 import dao.BuyerDao;
 import dao.ManagerDao;
 import dao.TrainerDao;
+import dto.UserDto;
+import dto.UserEditDto;
 import main.App;
 
 @Path("/admins")
@@ -49,21 +51,35 @@ public class AdminService {
 	public List<Admin> getAll() {
 		return adminDao.getAll().stream().filter(b->b.isNotDeleted()).collect(Collectors.toList());
 	}
-
-	/*
+	
+	@GET
+	@Path("/logedAdmin")
+	@Produces(MediaType.APPLICATION_JSON)
+	public UserEditDto getAllLogedAdmin() {
+		Admin a =  adminDao.getLogAdmin();
+		UserEditDto  userEdit= new UserEditDto(a);
+		return userEdit;
+	
+	}
+	
+	
+	
+	
+	
 	@POST
 	@Path("/edit")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public String EditAdmin(Admin a) {	
-		
-		if (!trainingList.stream().anyMatch(t -> t.getName().equals(tr.getName()) && t.getId() != tr.getId())) {
-			trainingDao.EditTraining(tr);
-			return "uspesno";
-
+	public String EditAdmin(UserDto a) {	
+		String username = a.getUsername();
+		if(adminDao.DoesContainUsernameExecptLogged(username) || buyerDao.DoesContainUsername(username)|| managerDao.DoesContainUsername(username) || trainerDao.DoesContainUsername(username)) {
+			return "ima";
 		}
-
-		return "ima";
-
+		
+		Admin ad = new Admin(a);
+		
+		adminDao.Edit(ad);
+		return "uspesno";
+		
 	}
-	*/
+	
 }

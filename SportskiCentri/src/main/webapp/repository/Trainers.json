@@ -5,7 +5,7 @@
     "firstName": "Milan",
     "lastName": "Milankovic",
     "gender": "MALE",
-    "birthDate":"Jul 12, 1980, 1:49:28 AM",
+    "birthDate": "Jul 12, 1980, 1:49:28 AM",
     "deleted": false,
     "isBanned": false,
     "userRole": "TRAINER"
@@ -27,10 +27,31 @@
     "firstName": "Jovan",
     "lastName": "Cvijic",
     "gender": "MALE",
-    "birthDate":"Jul 6, 2022, 1:49:28 AM",
+    "birthDate": "Jul 6, 2022, 1:49:28 AM",
+    "deleted": false,
+    "isBanned": false,
+    "userRole": "TRAINER"
+  },
+  "Talambas": {
+    "username": "Talambas",
+    "password": "Talambas",
+    "firstName": "Talambas",
+    "lastName": "Talambas",
+    "gender": "MALE",
+    "birthDate": "Feb 11, 2004, 1:00:00 AM",
+    "deleted": false,
+    "isBanned": false,
+    "userRole": "TRAINER"
+  },
+  "t": {
+    "username": "t",
+    "password": "a",
+    "firstName": "a",
+    "lastName": "a",
+    "gender": "MALE",
+    "birthDate": "Aug 30, 2022, 2:00:00 AM",
     "deleted": false,
     "isBanned": false,
     "userRole": "TRAINER"
   }
-  
 }

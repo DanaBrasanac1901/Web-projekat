@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.lang.reflect.Type;
 
+import beans.Admin;
 import beans.Buyer;
 import beans.HistoryTraining;
 import beans.InstantiatedMembership;
@@ -198,28 +199,45 @@ public class BuyerDao {
 		loadFile();
 	}
 	
-	public String DoesContainUsername(String username) {
+
+	
+	public Boolean DoesContainUsername(String username) {
 		loadFile();
 
 		if (buyers.containsKey(username)) {
-			return "ima";
+			return true;
 		}
 		
-		return "nema";
-	} 
+		return false;
+	}
 	
-	public String DoesContainUsernameExecptHis(String username,String oldUsername) {
+	
+	public Boolean DoesContainUsernameExecptLogged(String username) {
 		loadFile();
-		if(username ==oldUsername) {
-			return "nema";
+		if(logBuyer.getUsername().contentEquals(username)) { 
+			return false;
 		}
 		
 		if (buyers.containsKey(username)) {
-			return "ima";
+			return true;
 		}
 		
-		return "nema";
-	} 
+		return false;
+	
+	}
+	
+	public void Edit(Buyer a) {
+		loadFile();
+		buyers.remove(logBuyer.getUsername());
+		a.setTrainingHistory(logBuyer.getTrainingHistory());
+		a.setMembership(logBuyer.getMembership());
+		a.setvisitedFacilitiesIds(logBuyer.getvisitedFacilitiesIds());
+		a.setBuyerType(logBuyer.getBuyerType());
+		buyers.put(a.getUsername(), a);
+		logBuyer = a;
+		updateFile();
+		
+	}
 	
 
 }

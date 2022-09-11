@@ -2,14 +2,10 @@ Vue.component("edit-admin", {
 
 	data: function() {
 		return {
-			username: "",
-			password: "",
-			firstName: "",
-			lastName: "",
-			gender: "",
-			birthDate: null
-
-
+			admin : {
+				username : ""
+				
+			}
 		}
 
 
@@ -19,29 +15,29 @@ Vue.component("edit-admin", {
 <div>
 	
 	<div class="loginForma">
-		<form id="login"  class="login-form" @submit="registration" method = "post">
+		<form id="login"  class="login-form" @submit="edit" method = "post">
 				<table>
 					<tr>
-						<td><label for="username">Korisničko ime :</label></td>
-						<td><input class="loginInput"  type="text"  v-model="username"  ></td>
+						<td><label for="admin.username">Korisničko ime :</label></td>
+						<td><input class="loginInput"  type="text"  v-model="admin.username"  ></td>
 		
 		    		</tr>
 					<tr>
-						<td><label for="password">Lozinka :</label></td>
-						<td><input class="loginInput"  type="password" v-model="password" ></td>
+						<td><label for="admin.password">Lozinka :</label></td>
+						<td><input class="loginInput"  type="password" v-model="admin.password" ></td>
 				
 					</tr>
 						<tr>
-						<td><label for="firstName">Ime :</label></td>
-						<td><input class="loginInput"  type="text"  v-model="firstName"  ></td>
+						<td><label for="admin.firstName">Ime :</label></td>
+						<td><input class="loginInput"  type="text"  v-model="admin.firstName"  ></td>
 		
 		    		</tr>
 					<tr>
-						<td><label for="lastName">Prezime :</label></td>
-						<td><input class="loginInput"  type="text"  v-model="lastName"  ></td>
+						<td><label for="admin.lastName">Prezime :</label></td>
+						<td><input class="loginInput"  type="text"  v-model="admin.lastName"  ></td>
 					<tr>
-						<td><label for="gender">Pol :</label></td>
-						<td><select v-model="gender" class="loginInput" >
+						<td><label for="admin.gender">Pol :</label></td>
+						<td><select v-model="admin.gender" class="loginInput" >
 									<option value="MALE">muški</option>
 									<option value="FEMALE">ženski</option>
 								</select>                                
@@ -49,13 +45,13 @@ Vue.component("edit-admin", {
 		
 		    		</tr>
 					<tr>
-						<td><label for="birthDate">Datum rodjenja :</label></td>
-						<td><input class="loginInput"  type="date" v-model="birthDate" ></td>
+						<td><label for="admin.birthDate">Datum rodjenja :</label></td>
+						<td><input class="loginInput"  type="date" v-model="admin.birthDate" ></td>
 				
 					</tr>
 								
 				    </table>
-						 <input  class="button-3" type="submit" value="Registruj se">
+						 <input  class="button-3" type="submit" value="Izmeni">
 				
 					
 		</form>
@@ -69,42 +65,42 @@ Vue.component("edit-admin", {
 `
 	,
 	mounted() {
-
+		axios
+			.get('rest/admins/logedAdmin')
+			.then(res=>{this.admin = res.data; 
+	
+			
+			}
+		
+			)
 	},
 
 	methods: {
-		registration: function(event) {
+		edit: function(event) {
 			if (event != undefined) {
 				event.preventDefault();
 			}
+				
 
 
-
-			if (!this.isValidToRegister()) {
+			if (!this.isValidToEdit()) {
 				alert('Niste popunili sva polja za prijavu');
 				return;
 			}
 
 
 			axios
-				.post("rest/buyers/registration", {
-					"username": this.username,
-					"password": this.password,
-					"firstName": this.firstName,
-					"lastName": this.lastName,
-					"gender": this.gender,
-					"birthDate": this.birthDate
+				.post("rest/admins/edit", {
+					"username": this.admin.username,
+					"password": this.admin.password,
+					"firstName": this.admin.firstName,
+					"lastName": this.admin.lastName,
+					"gender": this.admin.gender,
+					"birthDate": this.admin.birthDate
 				})
 				.then(response => {
 					if (response.data == "uspesno") {
-						alert("Uspesno ste se registrovali.")
-						this.username = "",
-							this.password = "",
-							this.firstName = "",
-							this.lastName = "",
-							this.gender = "",
-							this.birthDate = null
-
+						alert("Uspesno ste izmenili admina.")
 					} else if (response.data == "ima") {
 						alert("Korisničko ime koje ste uneli već postoji.")
 						this.username = ""
@@ -122,27 +118,27 @@ Vue.component("edit-admin", {
 
 		},
 
-		isValidToRegister: function() {
-			if (this.username == '') {
+		isValidToEdit: function() {
+			if (this.admin.username == '') {
 				return false;
 			}
-			if (this.password == '') {
-				return false;
-			}
-
-			if (this.firstName == '') {
+			if (this.admin.password == '') {
 				return false;
 			}
 
-			if (this.lastName == '') {
+			if (this.admin.firstName == '') {
 				return false;
 			}
 
-			if (this.gender == '') {
+			if (this.admin.lastName == '') {
 				return false;
 			}
 
-			if (this.birthDate == '') {
+			if (this.admin.gender == '') {
+				return false;
+			}
+
+			if (this.admin.birthDate == '') {
 				return false;
 			}
 
