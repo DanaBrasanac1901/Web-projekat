@@ -28,6 +28,15 @@ public class BuyerDao {
 	private String filepath = App.path + "/repository/Buyers.json";
 	private Map<String, Buyer> buyers = new HashMap<>();
 	private Buyer logBuyer;
+	
+
+	public Buyer getLogBuyer() {
+		return logBuyer;
+	}
+
+	public void setLogBuyer(Buyer logBuyer) {
+		this.logBuyer = logBuyer;
+	}
 
 	public BuyerDao() {
 	}
