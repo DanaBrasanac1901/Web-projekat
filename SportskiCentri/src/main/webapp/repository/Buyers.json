@@ -1,6 +1,10 @@
 {
   "buyer2": {
     "points": 677,
+    "buyerType":{
+        "buyerRank": "NO_RANK",
+        "discount":1
+      },
     "visitedFacilitiesIds": [
       2,
       3
@@ -58,7 +62,11 @@
     "userRole": "BUYER"
   },
   "buyer": {
-    "points": 393,
+"points": 1200,
+"buyerType":{
+        "buyerRank":"BRONZE",
+        "discount": 3
+      },
     "visitedFacilitiesIds": [
       1,
       3

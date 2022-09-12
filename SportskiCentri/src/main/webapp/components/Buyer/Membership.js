@@ -1,9 +1,9 @@
 Vue.component("membership", {
 	data: function() {
 		return {
-			buyer: { points: 0, type: "" },
+			buyer: { points: 0, buyerType:{ buyerRank:""} },
 			activeMembership: { id: "", deleted: false, payDate: "", expirationDate: "", buyer: "", status: true, numberOfEntrances: 100, remainingEntrances: 100, price: 0 },
-			selectedMembership: { id: "", price: 0 },
+			selectedMembership: { id: "" },
 			allMemberships: {},
 			hasMembership: false,
 			membershipType: ""
@@ -19,7 +19,7 @@ Vue.component("membership", {
            		<div class="userInfo" style="display: inline-block; vertical-align:top;">
 	           		
 	           		<h2>Podaci o kupcu</h2>
-	           		<p>Tip kupca: {{buyer.type}}</p>
+	           		<p>Tip kupca: {{buyer.buyerType.buyerRank}}</p>
 	           		<p>Broj bodova: {{buyer.points}}</p>
 	           				
 	          	</div>
@@ -79,7 +79,7 @@ Vue.component("membership", {
 	            </table> 
 	            
 	            <div class="membershipButton">
-	            <button v-on-click ="NewMembership" >Kupi članarinu</button>
+	            <button v-on:click ="newMembership" >Kupi članarinu</button>
 	            </div>
 	        
 	       	
@@ -88,8 +88,9 @@ Vue.component("membership", {
 	mounted() {
 
 		axios.get("rest/buyers/get-buyer").then((result) => {
-
+			
 			this.buyer = result.data;
+			
 		});
 
 		axios.get("rest/buyers/memberships").then((result) => {
@@ -120,13 +121,30 @@ Vue.component("membership", {
 		},
 
 		newMembership() {
-					if(selectedMembership.id === activeMembership ){
+			if(this.selectedMembership.id === this.activeMembership.id ){
+					alert("Članarina je već izabrana");
+				} else {		
+					this.activeMembership.status = false;
+					axios.post("rest/buyers/set-membership/" + this.selectedMembership.id).then((result)=>{
+						this.activeMembership= result.data;
+						this.hasMembership = true;
+					
+			
+					});
+					
+					axios.get("rest/buyers/get-buyer").then((result) => {
+			
+						this.buyer = result.data;
 						
+						});	
 						
+					
+						
+							
 					}
 
-		}
+		},
 
-	},
+	}
 });
 
