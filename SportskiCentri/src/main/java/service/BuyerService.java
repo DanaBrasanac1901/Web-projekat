@@ -255,7 +255,7 @@ public class BuyerService {
 			}
 
 			buyerDao.addNewToTrainingHistory(buyer.getUsername(),
-					new HistoryTraining(trainingId, trainingDao.getById(trainingId).getTrainerUsername(), new Date()));
+					new HistoryTraining(trainingId, trainingDao.getById(trainingId).getTrainerUsername(), new Date(), new Date(),false));
 			buyerDao.refreshPoints();
 			return "USPESAN TRENING";
 		} else {
