@@ -132,6 +132,23 @@ public class TrainerService {
 	}
 	
 	
+	@GET
+	@Path("/trainingsOfTrainer")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Training> gList(){
+		String username = trainerDao.getLogTrainer().getUsername();
+		List<Training> trainings = trainingDao.getAll().stream().filter(Training::isNotDeleted).map(f -> new Training(f))
+				.collect(Collectors.toList());
+		List<Training> tr = trainings.stream().filter(t -> t.getTrainerUsername().contentEquals( username) ).collect(Collectors.toList());
+		
+		System.out.println(tr.size());
+		return tr;
+		
+		
+		
+	}
+	
+	
 	
 	
 	

@@ -132,6 +132,14 @@ public class TrainingDao {
 	}
 	
 	
+	public List<Training> getTrainers(String username){
+		System.out.println(username);
+		return getAll().stream().filter(t -> t.getTrainerUsername() == username ).collect(Collectors.toList());
+		
+		
+	} 
+	
+	
 	
 	
 }

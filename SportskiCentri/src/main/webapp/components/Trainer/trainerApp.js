@@ -1,6 +1,7 @@
 const AllFacilities = { template: '<all-facilities-manager></all-facilities-manager>' }
 const FacilitieContent = { template: '<facilitie-content></facilitie-content>' }
 const EditTrainer= { template: '<edit-trainer></edit-trainer>' }
+const TrainerTraings= { template: '<trainer-traings></trainer-traings>' }
 
 
 const router = new VueRouter({
@@ -9,6 +10,7 @@ const router = new VueRouter({
 	     { path: '/', component: AllFacilities},
 	     { path: '/facilitieContent', component: FacilitieContent},
 	     { path: '/editTrainer', component: EditTrainer},
+	     { path: '/trainerTraings', component: TrainerTraings},
 	    
 	     
 	  ]

@@ -4,7 +4,9 @@ Vue.component("navigation-bar-trainer", {
 <div>
 	<div class="topnav">
 	 <a  href="#/" style="float: left; ">Svi objekti</a>
+	 <a  href="#/trainerTraings" style="float: left; ">Trenerovi treninzi</a>
 	 
+ 	 
  	 
  	 <a href="http://localhost:8080/SportskiCentri/#/">Odjavi se</a>
  	 <a href="#/editTrainer">Profil</a>
