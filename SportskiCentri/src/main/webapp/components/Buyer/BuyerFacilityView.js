@@ -53,7 +53,7 @@ Vue.component("facility-view", {
 	</tr>
 
 	<tr v-for="t in trainings" v-on:click="selectTraining(t)" 
-	v-bind:class="{active-row : chosenTraining.id===t.id}">
+	v-bind:class="{activeRowClass : chosenTraining.id===t.id}">
 		<td><img v-bind:src="t.picturePath" width="200px" Height="200px" alt="bilo sta"></td>	
 		<td>{{t.name }}</td>
 		<td>{{t.duration }}</td>
@@ -86,7 +86,8 @@ Vue.component("facility-view", {
 		selectTraining(t) {
 			this.chosenTraining = t;
 			
-			axios.post('rest/buyers/trainings/'+ this.chosenTraining.id).then((result)=>{
+			axios.post('rest/buyers/trainings/' + this.chosenTraining.id).then((result)=>{
+				console.log(result)
 				if(result === "NEMA CLANARINU"){
 					alert("Prvo morate kupiti članarinu");
 				}else if(result === "USPESAN TRENING"){
