@@ -8,6 +8,12 @@ tr.selectedMembershipClass{
 	
 }
 
+tr.active-row{
+	
+	background-color: #A7C942;
+    color: #ffffff;
+}
+
 .userInfo{
 	
 	text-align: left;

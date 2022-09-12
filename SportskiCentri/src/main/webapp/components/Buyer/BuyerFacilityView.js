@@ -1,11 +1,11 @@
 Vue.component("facility-view", {
-	data: function () {
-		    return {
-		      f : app.selectedFacilitie,
-		      trainings: null,
-		      chosenTrainingId: 0, 
-		    }
-		  },
+	data: function() {
+		return {
+			f: app.selectedFacilitie,
+			trainings: null,
+			chosenTraining: {id : 0 },
+		}
+	},
 
 	template: ` 
 <div>
@@ -52,7 +52,8 @@ Vue.component("facility-view", {
 		
 	</tr>
 
-	<tr v-for="t in trainings" class="active-row">
+	<tr v-for="t in trainings" v-on:click="selectTraining(t)" 
+	v-bind:class="{active-row : chosenTraining.id===t.id}">
 		<td><img v-bind:src="t.picturePath" width="200px" Height="200px" alt="bilo sta"></td>	
 		<td>{{t.name }}</td>
 		<td>{{t.duration }}</td>
@@ -69,17 +70,38 @@ Vue.component("facility-view", {
 		  
 `
 	,
-	 mounted(){
- 		axios
-          .get('rest/trainings/' + app.selectedFacilitie.id)
-          .then(response => {
-	     		this.trainings = response.data})
-		
+	mounted() {
+		axios
+			.get('rest/trainings/' + app.selectedFacilitie.id)
+			.then(response => {
+				this.trainings = response.data
+			});
+
+
+
 	},
-	
-	
-	
-	
-	
+
+	methods: {
+
+		selectTraining(t) {
+			this.chosenTraining = t;
+			
+			axios.post('rest/buyers/trainings/'+ this.chosenTraining.id).then((result)=>{
+				if(result === "NEMA CLANARINU"){
+					alert("Prvo morate kupiti članarinu");
+				}else if(result === "USPESAN TRENING"){
+					alert("Trening uspešno zabeležen");
+				}else{
+					alert("Članarina vam je istekla");
+				}
+			
+				
+			});
+			
+			
+		},
+
+
+	},
 
 });
