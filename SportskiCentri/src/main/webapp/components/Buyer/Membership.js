@@ -15,6 +15,41 @@ Vue.component("membership", {
 	template: ` 
   
             <div class="AllMemberships">
+            <div class ="Inline divs">
+              <div v-if="hasMembership" class="activeMembership">
+	                                        
+	                <h2>Aktivna članarina</h2>
+	                
+	                <p>
+	                	Kod članarine: {{activeMembership.id}}
+	                </p>
+	                
+	                <p>
+	                    Datum izbora članarine:  {{getDate(activeMembership.payDate)}}
+	                </p>
+	                
+	                <p>
+	                    Datum isteka članarine: {{getDate(activeMembership.expirationDate)}}
+	                </p>
+	                
+	                <p>
+	               		 Cena: {{activeMembership.price}}
+	                </p>
+	                
+	                <p>
+	                	Preostali broj aktivnosti: {{activeMembership.remainingEntrances}} 
+	                </p>
+	               
+	            </div>
+	            
+	           		<div class=userInfo>
+	           		
+	           		
+	           		
+	           		</div>
+	           
+	           </div>
+	            
 	            <h2>Članarine u ponudi</h2>
 	            <table class="memberships">
 	            
@@ -41,32 +76,12 @@ Vue.component("membership", {
 	                    </tr>
 	                </tbody>
 	            </table> 
-	            <div v-if="hasMembership" class="activeMembership">
-	                                        
-	                <h2>Aktivna članarina</h2>
-	                <div class= "paragrafi">
-	                <p>
-	                	Kod članarine: {{activeMembership.id}}
-	                </p>
-	                
-	                <p>
-	                    Datum izbora članarine:  {{getDate(activeMembership.payDate)}}
-	                </p>
-	                
-	                <p>
-	                    Datum isteka članarine: {{getDate(activeMembership.expirationDate)}}
-	                </p>
-	                
-	                <p>
-	               		 Cena: {{activeMembership.price}}
-	                </p>
-	                
-	                <p>
-	                	Preostali broj aktivnosti: {{activeMembership.remainingEntrances}} 
-	                </p>
-	               </div>
+	            
+	            <div class="membershipButton">
+	            <button v-on-click ="NewMembership" >Kupi članarinu</button>
 	            </div>
-	       
+	        
+	       	
 	    	</div>
     `,
 	mounted() {
@@ -93,12 +108,12 @@ Vue.component("membership", {
 		selectMembership(mem) {
 			this.selectedMembership = mem;
 		},
-		
+
 		getDate: function(datum) {
-		
+
 			console.log(datum);
-			return new Date(datum.year, datum.monthValue-1, datum.dayOfMonth).toLocaleDateString("sr-RS");
-			
+			return new Date(datum.year, datum.monthValue - 1, datum.dayOfMonth).toLocaleDateString("sr-RS");
+
 		},
 
 	},

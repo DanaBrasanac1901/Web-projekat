@@ -1,18 +1,21 @@
 @charset "ISO-8859-1";
 
-
-.paragrafi {
-	text-align: left;
-	margin: 2%; 
-}
-
-
 tr.selectedMembershipClass{
 	
 	background-color: #A7C942;
     color: #ffffff;
 	
 	
+}
+
+.button {
+ 	 background-color: #71c556;
+ 	 font-size: 20px;
+ 	 color: white;
+ 	 border-radius: 20px;
+ 	 column-count: 2;
+ 	 border: 3px solid black;
+
 }
 
 .memberships th {
@@ -72,19 +75,26 @@ tr.selectedMembershipClass{
     }
 
 .activeMembership{
-	
-	text-align:left;
+
+	text-align: left;
+	margin: 2%;
 	font-size: 20px;
-	padding-top: 10px;
-	padding-bottom:10px;	
+	padding-top: 5px;
+	padding-bottom:5px;	
+}
+
+.membershipButton button{
+	
+	margin: 20px;
+	font-size: 25px;
+	cursor: pointer;
 }
 	
 h2{
-	text-align: left;
 	font-size: 30px;
-	padding-top: 5px;
+	padding-top: 30px;
 	padding-bottom:5px;
-	margin: 2%	
+		
 }
 
 *{
