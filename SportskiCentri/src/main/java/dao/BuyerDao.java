@@ -18,6 +18,8 @@ import java.lang.reflect.Type;
 
 import beans.Admin;
 import beans.Buyer;
+import beans.BuyerRank;
+import beans.BuyerType;
 import beans.HistoryTraining;
 import beans.InstantiatedMembership;
 import dto.UserLoginDto;
@@ -139,7 +141,7 @@ public class BuyerDao {
 	 * 
 	 */
 	public boolean isMembershipActive(InstantiatedMembership membership) {
-
+		loadFile();
 		if (membership.getExpirationDate().isBefore(LocalDate.now()) || membership.getRemainingEntrances() <= 0) {
 			deactivateMembership(logBuyer);
 			return false;
@@ -151,11 +153,11 @@ public class BuyerDao {
 	}
 
 	public void buyerHavingTraining(Buyer buyer) {
-
+		loadFile();
 		InstantiatedMembership membership = buyer.getMembership();
 		if (membership.getRemainingEntrances() > 0) {
 			membership.setRemainingEntrances(membership.getRemainingEntrances() - 1);
-
+			updateFile();
 		} else {
 
 			deactivateMembership(buyer);
@@ -164,7 +166,7 @@ public class BuyerDao {
 	}
 
 	public void deactivateMembership(Buyer buyer) {
-
+		loadFile();
 		InstantiatedMembership membership = buyer.getMembership();
 
 		if (membership.getRemainingEntrances() > 2 * (membership.getNumberOfEntrances()) / 3) {
@@ -176,13 +178,14 @@ public class BuyerDao {
 		membership.setStatus(false);
 		buyers.get(buyer.getUsername()).setMembership(membership);
 		buyers.get(buyer.getUsername()).setPoints(buyer.getPoints());
+		refreshPoints();
 		updateFile();
 	}
 
 	public void newMembership(String username, InstantiatedMembership newMembership) {
-
-		getByUsername(username).setMembership(newMembership);
 		loadFile();
+		getByUsername(username).setMembership(newMembership);
+		updateFile();
 	}
 
 	public String loginBuyer(UserLoginDto user) {
@@ -211,11 +214,11 @@ public class BuyerDao {
 	
 
 	public void addNewToTrainingHistory(String username, HistoryTraining trainingHistory) {
-
+		loadFile();
 		List<HistoryTraining> newTrainingHistory = buyers.get(username).getTrainingHistory();
 		newTrainingHistory.add(trainingHistory);
 		buyers.get(username).setTrainingHistory(newTrainingHistory);
-		loadFile();
+		updateFile();
 	}
 	
 
@@ -258,5 +261,24 @@ public class BuyerDao {
 		
 	}
 	
+	public int getDiscount(int memPrice, int discount) {
+		
+		return (memPrice - memPrice*discount/100);
+	}
 
+	public void refreshPoints() {
+		loadFile();
+		if(logBuyer.getPoints() >= BuyerType.bronzePoints) {
+		getByUsername(logBuyer.getUsername()).setBuyerType(new BuyerType(BuyerRank.BRONZE,BuyerType.bronzeDiscount));
+		}else if(logBuyer.getPoints() >= BuyerType.silverPoints) {
+			getByUsername(logBuyer.getUsername()).setBuyerType(new BuyerType(BuyerRank.SILVER,BuyerType.silverDiscount));
+		}else if(logBuyer.getPoints() >= BuyerType.goldPoints) {
+			getByUsername(logBuyer.getUsername()).setBuyerType(new BuyerType(BuyerRank.GOLD,BuyerType.goldDiscount));
+		}else {
+			getByUsername(logBuyer.getUsername()).setBuyerType(new BuyerType(BuyerRank.NO_RANK,BuyerType.no_discount));
+		}
+		updateFile();
+	}
+
+	
 }

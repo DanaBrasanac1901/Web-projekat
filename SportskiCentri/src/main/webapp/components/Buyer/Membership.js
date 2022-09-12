@@ -115,13 +115,15 @@ Vue.component("membership", {
 
 		getDate: function(datum) {
 
-			console.log(datum);
 			return new Date(datum.year, datum.monthValue - 1, datum.dayOfMonth).toLocaleDateString("sr-RS");
 
 		},
 
 		newMembership() {
-
+					if(selectedMembership.id === activeMembership ){
+						
+						
+					}
 
 		}
 
