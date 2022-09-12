@@ -86,7 +86,10 @@ Vue.component("appointed-training", {
 		<th>OPIS</th>
 		<th>TIP</th>
 		<th>TRENER</th>
-		<th>IZMENI</th>
+		<th>TRENING ZAKAZAN</th>
+		<th>TRENING CE SE ODRZATI</th>
+		
+		
 	</tr>
 
 	<tr v-for="t in trainings" class="active-row">
@@ -97,7 +100,9 @@ Vue.component("appointed-training", {
 		<td>{{t.description }}</td>
 		<td>{{t.type }}</td>
 		<td>{{t.trainerUsername }}</td>
-		<td><button class="button-3" @click="EditTrainingPage(t)">Izmeni</button></td>
+		<td>{{t.date }}</td>
+		<td>{{t.dateAppointment}}</td>
+		
 		
 	</tr>
 	</table>
@@ -114,25 +119,15 @@ Vue.component("appointed-training", {
 	methods : {
 		getAll : function(){
 			axios
-		 .get("rest/managers/getFacilitie")
-		 .then(res=> {
-			this.f=res.data;  
-			this.getTrainings();
-		 
-		 
+		 .get("rest/trainings/facTime")
+		 .then(response=> {  
+		 	this.trainings = response.data;
+		 	this.allTrainings = response.data;
 		 })
 			
 			
-		},
 		
-		
-		getTrainings : function (){
-		
-		axios
-          .get('rest/trainings/' + this.f)
-          .then(response => {
-	     		this.trainings = response.data;
-	     		this.allTrainings = response.data})
+
 	
 			
 			

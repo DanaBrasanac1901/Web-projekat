@@ -8,7 +8,7 @@ Vue.component("navigation-bar-buyer", {
 	 <a  href="#/training-history" style="float: left; ">Treninzi</a>
 	 
 	  
-	  <a  href="#/welcome-page" style="float: right; ">Odjava</a>
+	  	<a href="http://localhost:8080/SportskiCentri/#/">Odjavi se</a>
 	  <a  href="#/buyer-profile" style="float: right; ">Profil</a>
 	</div>
 </div>		  

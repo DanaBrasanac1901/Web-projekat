@@ -40,7 +40,6 @@ Vue.component("all-trainings", {
 							<td>
 							<select v-model="selectionSearch"  v-on:change="selectionChange">
 									<option value="price">ceni</option>
-									<option value="date">datumu</option>
 									<option value="getFree">treninge bez doplate</option>
 									
 								</select>
@@ -49,7 +48,6 @@ Vue.component("all-trainings", {
 							<td>
 							<select v-model="selectionSort"  v-on:change="sortFunction">
 									<option value="price">ceni</option>
-									<option value="date">datumu</option>
 									
 							</select>
 							</td>

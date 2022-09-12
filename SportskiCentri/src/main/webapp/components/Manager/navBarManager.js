@@ -10,8 +10,8 @@ Vue.component("navigation-bar-manager", {
 	 <a href="#/allTrainings" style="float: left;">Treninzi u objektu</a>
 	 <a href="#/appointedTraining" style="float: left;">Zakazani treninzi</a>
 
-	
-	 <a href="#/editManager">Profil</a>
+	<a href="http://localhost:8080/SportskiCentri/#/">Odjavi se</a>
+	<a href="#/editManager">Profil</a>
 
 <!--	
 	 <a  href="#/allUsers" style="float: left; ">Svi korisnici</a>

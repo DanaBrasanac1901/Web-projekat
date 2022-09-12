@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.glassfish.jersey.message.internal.NewCookieProvider;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -19,7 +21,9 @@ import beans.Admin;
 import beans.Facility;
 import beans.HistoryTraining;
 import beans.Trainer;
+import beans.Training;
 import dto.FacilityDto;
+import dto.TrainingTrainingHistoryDto;
 import main.App;
 
 public class trainingHistoryDao {
@@ -34,12 +38,13 @@ public class trainingHistoryDao {
 	}
 	
 	public void loadFile() {
+	
 
 		try {
 
 			Gson gson = new GsonBuilder().setPrettyPrinting().create();
 			Reader reader = Files.newBufferedReader(Paths.get(filepath));
-			Type listType = new TypeToken<List<String>>() {}.getType();
+			Type listType = new TypeToken<List<HistoryTraining>>() {}.getType();
 			historyTraining = gson.fromJson(reader, listType);
 			reader.close();
 
@@ -47,6 +52,8 @@ public class trainingHistoryDao {
 			ex.printStackTrace();
 
 		}
+
+		
 
 	}
 	
@@ -63,6 +70,8 @@ public class trainingHistoryDao {
 			ex.printStackTrace();
 
 		}
+		
+	
 
 	}
 	
@@ -83,4 +92,21 @@ public class trainingHistoryDao {
 		return  historyTraining.stream().filter(b->b.isNotDeleted() && b.getTrainerUsername().contentEquals(username)).collect(Collectors.toList());
 		
 	}
+	
+	public List<TrainingTrainingHistoryDto> getDto( Training t){
+		List<HistoryTraining> listHt = getByTrainingId(t.getId());
+
+		List<TrainingTrainingHistoryDto> ttH = new ArrayList<>();
+		
+		if(listHt.isEmpty()) { return ttH;}
+		
+		for(HistoryTraining ht : listHt) {
+			System.out.println("Car");
+			ttH.add(new TrainingTrainingHistoryDto(t,ht));
+			}
+
+		return ttH;
+		
+	}
+	
 }

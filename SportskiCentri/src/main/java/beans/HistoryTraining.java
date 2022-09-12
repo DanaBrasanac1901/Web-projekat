@@ -90,5 +90,7 @@ public class HistoryTraining {
 		// TODO Auto-generated method stub
 		return !deleted;
 	}
+	
+	
 
 }

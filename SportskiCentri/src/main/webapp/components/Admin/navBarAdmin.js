@@ -8,7 +8,7 @@ Vue.component("navigation-bar-admin", {
  	 <a  href="#/addFacility" style="float: left; ">Novi objekat</a>
  	 <a  href="#/newTrainer" style="float: left; ">Novi trener</a>
  	 
- 	 
+ 	 	<a href="http://localhost:8080/SportskiCentri/#/">Odjavi se</a>
  	 <a href="#/editAdmin">Profil</a>
  	 
 <!--	
