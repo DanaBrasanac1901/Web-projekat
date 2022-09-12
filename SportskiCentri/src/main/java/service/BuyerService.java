@@ -221,50 +221,32 @@ public class BuyerService {
 	}
 
 	@POST
-	@Path("/{picked-facility-id}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public String havingWorkout(@PathParam("picked-facility-id") int facilityId) {
-
-		Buyer buyer = buyerDao.getLogBuyer();
-		if (buyer.getMembership() == null) {
-			return "NEMA CLANARINU";
-		}
-		if (buyerDao.isMembershipActive(buyer.getMembership())) {
-			buyerDao.buyerHavingTraining(buyer);
-			buyerDao.refreshPoints();
-			if (buyer.getMembership().getRemainingEntrances() == 0) {
-				buyerDao.deactivateMembership(buyer);
-				buyerDao.refreshPoints();
-				return "POTROSIO SVE ULAZE";
-
-			} else {
-
-				return "USPESAN TRENING";
-			}
-		} else {
-
-			buyerDao.deactivateMembership(buyer);
-			buyerDao.refreshPoints();
-			return "CLANARINA NE VAZI VISE";
-		}
-
-	}
-
-	@POST
 	@Path("/training/{trainingId}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public void pickedTraining(@PathParam("trainingId") int trainingId) {
+	public String pickedTraining(@PathParam("trainingId") int trainingId) {
 		Buyer buyer = buyerDao.getLogBuyer();
 		List<Integer> visitedFacilities = buyer.getvisitedFacilitiesIds();
-		int facilityId = trainingDao.getById(trainingId).getFacilityId();
-		if (!visitedFacilities.contains(facilityId)) {
-			visitedFacilities.add(facilityId);
-			buyerDao.getByUsername(buyer.getUsername()).setvisitedFacilitiesIds(visitedFacilities);
+
+		if (!buyerDao.doesMembershipExist()) {
+			return "NEMA CLANARINU";
+		} else if (buyerDao.isMembershipActive(buyer.getMembership())) {
+
+			buyerDao.buyerHavingTraining(buyer);
+
+			int facilityId = trainingDao.getById(trainingId).getFacilityId();
+			if (!visitedFacilities.contains(facilityId)) {
+				visitedFacilities.add(facilityId);
+				buyerDao.getByUsername(buyer.getUsername()).setvisitedFacilitiesIds(visitedFacilities);
+			}
+
+			buyerDao.addNewToTrainingHistory(buyer.getUsername(),
+					new HistoryTraining(trainingId, trainingDao.getById(trainingId).getTrainerUsername(), new Date()));
+			buyerDao.refreshPoints();
+			return "USPESAN TRENING";
+		} else {
+
+			return "CLANARINA ISTEKLA";
 		}
-
-		buyerDao.addNewToTrainingHistory(buyer.getUsername(),
-				new HistoryTraining(trainingId, trainingDao.getById(trainingId).getTrainerUsername(), new Date()));
-
 	}
 
 	@POST
