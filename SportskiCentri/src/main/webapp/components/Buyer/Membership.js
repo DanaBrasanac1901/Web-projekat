@@ -1,7 +1,7 @@
 Vue.component("membership", {
 	data: function() {
 		return {
-			customer: { points: "" },
+			buyer: { points: 0, type: "" },
 			activeMembership: { id: "", deleted: false, payDate: "", expirationDate: "", buyer: "", status: true, numberOfEntrances: 100, remainingEntrances: 100, price: 0 },
 			selectedMembership: { id: "", price: 0 },
 			allMemberships: {},
@@ -14,9 +14,17 @@ Vue.component("membership", {
 
 	template: ` 
   
-            <div class="AllMemberships">
-            <div class ="Inline divs">
-              <div v-if="hasMembership" class="activeMembership">
+            <div class="allMemberships">
+           		<div class="inlineClass" >
+           		<div class="userInfo" style="display: inline-block; vertical-align:top;">
+	           		
+	           		<h2>Podaci o kupcu</h2>
+	           		<p>Tip kupca: {{buyer.type}}</p>
+	           		<p>Broj bodova: {{buyer.points}}</p>
+	           				
+	          	</div>
+	           			
+              	<div v-if="hasMembership" class="activeMembership" style=" vertical-align: top; display: inline-block;">
 	                                        
 	                <h2>Aktivna članarina</h2>
 	                
@@ -41,15 +49,8 @@ Vue.component("membership", {
 	                </p>
 	               
 	            </div>
-	            
-	           		<div class=userInfo>
-	           		
-	           		
-	           		
-	           		</div>
-	           
-	           </div>
-	            
+	            </div>
+	               
 	            <h2>Članarine u ponudi</h2>
 	            <table class="memberships">
 	            
@@ -86,7 +87,10 @@ Vue.component("membership", {
     `,
 	mounted() {
 
+		axios.get("rest/buyers/get-buyer").then((result) => {
 
+			this.buyer = result.data;
+		});
 
 		axios.get("rest/buyers/memberships").then((result) => {
 			this.allMemberships = result.data;
@@ -115,6 +119,11 @@ Vue.component("membership", {
 			return new Date(datum.year, datum.monthValue - 1, datum.dayOfMonth).toLocaleDateString("sr-RS");
 
 		},
+
+		newMembership() {
+
+
+		}
 
 	},
 });

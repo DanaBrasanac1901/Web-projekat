@@ -173,6 +173,15 @@ public class BuyerService {
 				.collect(Collectors.toList());
 
 	}
+	
+	
+	@GET
+	@Path("/get-buyer")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Buyer getLoggedUser() {
+		
+		return buyerDao.getLogBuyer();
+	}
 
 	@GET
 	@Path("/active-membership")
