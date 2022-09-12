@@ -41,7 +41,7 @@ Vue.component("membership", {
 	                </p>
 	                
 	                <p>
-	               		 Cena: {{activeMembership.price}}
+	               		 Cena(uz popust): {{activeMembership.price}}
 	                </p>
 	                
 	                <p>
