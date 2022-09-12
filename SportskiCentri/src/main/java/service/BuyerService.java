@@ -96,7 +96,8 @@ public class BuyerService {
 	@Produces(MediaType.TEXT_PLAIN)
 	public String createNew(UserDto userInfo) {
 		String username = userInfo.getUsername();
-		if(adminDao.DoesContainUsername(username) || buyerDao.DoesContainUsername(username)|| managerDao.DoesContainUsername(username)|| trainerDao.DoesContainUsername(username)) {
+		if (adminDao.DoesContainUsername(username) || buyerDao.DoesContainUsername(username)
+				|| managerDao.DoesContainUsername(username) || trainerDao.DoesContainUsername(username)) {
 			return "ima";
 		}
 		Buyer newBuyer = new Buyer(userInfo.getUsername(), userInfo.getPassword(), userInfo.getFirstName(),
@@ -139,11 +140,10 @@ public class BuyerService {
 		int currentTrainingId = trainingHistory.get(0).getTrainingId();
 
 		Training currentTraining = trainingDao.getById(currentTrainingId);
-		
+
 		TrainingDto currentTrainingDto = new TrainingDto(currentTraining.getName(),
 				facilityDao.getById(currentTraining.getFacilityId()).getName(), new ArrayList<Date>());
 
-		
 		for (int i = 0; i <= trainingHistory.size(); i++) {
 
 			if (currentTrainingId != trainingHistory.get(i).getTrainingId()) {
@@ -173,13 +173,11 @@ public class BuyerService {
 				.collect(Collectors.toList());
 
 	}
-	
-	
+
 	@GET
 	@Path("/get-buyer")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Buyer getLoggedUser() {
-		buyerDao.refreshPoints();
 		return buyerDao.getLogBuyer();
 	}
 
@@ -188,21 +186,22 @@ public class BuyerService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public InstantiatedMembership getActiveMembership() {
 
-		buyerDao.refreshPoints();
 		return buyerDao.getLogBuyer().getMembership();
-		
-		
-		
+
 	}
 
 	@POST
 	@Path("/set-membership/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public void setNewMembership(@PathParam("id") String membershipId) {
+	public InstantiatedMembership setNewMembership(@PathParam("id") String membershipId) {
+
 		Buyer buyer = buyerDao.getLogBuyer();
+
 		Membership membership = membershipDao.getById(membershipId);
+
 		if (buyer.getMembership() != null && buyer.getMembership().isStatus()) {
 			buyerDao.deactivateMembership(buyer);
+
 			buyerDao.refreshPoints();
 		}
 		int durationInDays;
@@ -214,10 +213,11 @@ public class BuyerService {
 			durationInDays = 30;
 		}
 		InstantiatedMembership newMembership = new InstantiatedMembership(membershipId, false, LocalDate.now(),
-				LocalDate.now().plusDays(durationInDays), buyerDao.getDiscount(membership.getPrice(), buyer.getBuyerType().getDiscount()), buyer.getUsername(), true,
-				membership.getNumberOfEntrances(), membership.getNumberOfEntrances());
+				LocalDate.now().plusDays(durationInDays),
+				buyerDao.getDiscount(membership.getPrice(), buyer.getBuyerType().getDiscount()), buyer.getUsername(),
+				true, membership.getNumberOfEntrances(), membership.getNumberOfEntrances());
 		buyerDao.newMembership(buyer.getUsername(), newMembership);
-		
+		return newMembership;
 	}
 
 	@POST
@@ -249,9 +249,6 @@ public class BuyerService {
 		}
 
 	}
-	
-	
-	
 
 	@POST
 	@Path("/training/{trainingId}")
@@ -269,30 +266,33 @@ public class BuyerService {
 				new HistoryTraining(trainingId, trainingDao.getById(trainingId).getTrainerUsername(), new Date()));
 
 	}
-	
+
 	@POST
 	@Path("/edit")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public String EditBuyer(UserDto a) {	
+	public String EditBuyer(UserDto a) {
 		String username = a.getUsername();
-		if(adminDao.DoesContainUsernameExecptLogged(username) || buyerDao.DoesContainUsername(username)|| managerDao.DoesContainUsername(username) || trainerDao.DoesContainUsername(username)) {
+		if (adminDao.DoesContainUsernameExecptLogged(username) || buyerDao.DoesContainUsername(username)
+				|| managerDao.DoesContainUsername(username) || trainerDao.DoesContainUsername(username)) {
 			return "ima";
 		}
-		
+
 		Buyer ad = new Buyer(a);
-		
+
 		buyerDao.Edit(ad);
 		return "uspesno";
-		
+
 	}
-	
+
 	@GET
 	@Path("/fac")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Buyer> buyersVisitedFacilitywithoutId(){
+	public List<Buyer> buyersVisitedFacilitywithoutId() {
 		int id = managerDao.GetFacility();
-		return buyerDao.getAll().stream().filter(b -> b.getvisitedFacilitiesIds().contains(id) && b.isNotDeleted()).collect(Collectors.toList());
-	//	return buyerDao.getBuyersVisitedFacility(id).stream().filter(b -> b.isNotDeleted()).collect(Collectors.toList());
+		return buyerDao.getAll().stream().filter(b -> b.getvisitedFacilitiesIds().contains(id) && b.isNotDeleted())
+				.collect(Collectors.toList());
+		// return buyerDao.getBuyersVisitedFacility(id).stream().filter(b ->
+		// b.isNotDeleted()).collect(Collectors.toList());
 
 	}
 

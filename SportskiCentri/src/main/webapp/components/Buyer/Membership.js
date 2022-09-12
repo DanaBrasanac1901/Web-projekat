@@ -19,7 +19,7 @@ Vue.component("membership", {
            		<div class="userInfo" style="display: inline-block; vertical-align:top;">
 	           		
 	           		<h2>Podaci o kupcu</h2>
-	           		<p>Tip kupca: {{buyer.type}}</p>
+	           		<p>Tip kupca: {{buyer.buyerType.buyerRank}}</p>
 	           		<p>Broj bodova: {{buyer.points}}</p>
 	           				
 	          	</div>
@@ -90,7 +90,7 @@ Vue.component("membership", {
 		axios.get("rest/buyers/get-buyer").then((result) => {
 			
 			this.buyer = result.data;
-			console.log(this.buyer);
+			
 		});
 
 		axios.get("rest/buyers/memberships").then((result) => {
@@ -121,17 +121,25 @@ Vue.component("membership", {
 		},
 
 		newMembership() {
-			if(this.selectedMembership.id === this.activeMembership ){
+			if(this.selectedMembership.id === this.activeMembership.id ){
 					alert("Članarina je već izabrana");
 				} else {		
 					this.activeMembership.status = false;
-					axios.post("rest/buyers/set-membership/" + this.selectedMembership.id, {});
-					axios.get("rest/buyers/active-membership").then((result) => {
-						if (result.data) {
-							this.activeMembership = result.data;
-							this.hasMembership = true;
-							}
-						});
+					axios.post("rest/buyers/set-membership/" + this.selectedMembership.id).then((result)=>{
+						this.activeMembership= result.data;
+						this.hasMembership = true;
+					
+			
+					});
+					
+					axios.get("rest/buyers/get-buyer").then((result) => {
+			
+						this.buyer = result.data;
+						
+						});	
+						
+					
+						
 							
 					}
 

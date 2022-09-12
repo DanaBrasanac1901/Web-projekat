@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.google.gson.Gson;
@@ -19,7 +20,7 @@ import main.App;
 
 public class MembershipDao {
 
-	private Map<Integer, Membership> memberships = new HashMap<>();
+	private Map<String, Membership> memberships = new HashMap<>();
 	private String filepath = App.path + "/repository/Memberships.json";
 
 	
@@ -35,7 +36,7 @@ public class MembershipDao {
 
 			Reader reader = Files.newBufferedReader(Paths.get(filepath));
 
-			Type typeOfHashMap = new TypeToken<Map<Integer, Membership>>() {
+			Type typeOfHashMap = new TypeToken<Map<String, Membership>>() {
 			}.getType();
 			memberships = gson.fromJson(reader, typeOfHashMap);
 			
@@ -67,7 +68,7 @@ public class MembershipDao {
 	
 	public Membership getById(String id) {
 		loadFile();
-		return (Membership) memberships.values().stream().filter(b -> b.getId().equals(id));
+		return memberships.get(id);
 	}
 	
 }
