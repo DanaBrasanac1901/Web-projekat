@@ -177,8 +177,18 @@ public class FacilityService {
 		return "ima";
 	}
 	
+	
+	
 	public int makeNewTrainingId() {
 		
 		return (trainingDao.getAll().size()+1);
 	}
+	
+	@POST
+	@Path("/delete/{id}")
+	public void Delete(@PathParam("id") int id) {
+		System.out.println("Moze moze zasto ne bih mogo");
+		facilityDao.DeleteFacility(id);
+	}
+	
 }

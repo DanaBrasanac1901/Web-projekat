@@ -64,8 +64,8 @@ Vue.component("login-page", {
 						location.href = "buyer.html";
 					} else if (response.data == "trainer") {
 						alert("Trener je uspesno ulogovan")
-						router.push('/trainerHome')
-
+						
+							location.href = "trainer.html";
 					} else if (response.data == "manager") {
 						alert("Menadžer je uspesno ulogovan")
 						location.href = "manager.html";

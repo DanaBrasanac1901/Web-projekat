@@ -92,6 +92,8 @@ Vue.component("all-facilities-admin", {
 		<th>KRAJ RADNOG VREMENA</th>
 		<th>LOKACIJA</th>
 		<th>DETALJNIJE</th>
+		<th>OBRISI</th>
+		
 		
 		
 	</tr>
@@ -105,6 +107,7 @@ Vue.component("all-facilities-admin", {
 		<td>{{f.end }}</td>
 		<td>{{f.location.adress.city }}     {{f.location.adress.street }}    {{f.location.adress.streetNumber}}</td>
 		<td><button class="button-3" @click="openFacilityPage(f)">Detaljnije</button></td>
+		<td><button class="button-3" @click="deleteFunction(f)">Obrisi</button></td>
 		
 		
 	</tr>
@@ -283,6 +286,15 @@ Vue.component("all-facilities-admin", {
 		
 		
 		
+	},
+	deleteFunction : function (fac) {
+	
+		 axios
+		   .post('rest/facilities/delete/'+ fac.id)
+	   
+	     location. reload()
+	
+	
 	},
 	intersect : function (){
 			

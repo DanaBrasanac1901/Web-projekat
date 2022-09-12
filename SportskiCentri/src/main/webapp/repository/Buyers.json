@@ -1,94 +1,98 @@
 {
   "buyer2": {
     "points": 677,
+    "visitedFacilitiesIds": [
+      2,
+      3
+    ],
     "trainingHistory": [
       {
         "trainingId": 1,
         "trainerUsername": "trainer",
         "date": "Jul 12, 2022, 1:49:28 AM",
         "dateAppointment": "Jul 30, 2022, 1:49:28 AM",
-        "deleted" : false
-        
+        "deleted": false
       },
       {
         "trainingId": 2,
         "trainerUsername": "trainer2",
         "date": "Jul 7, 2022, 1:49:31 AM",
-        "dateAppointment" : "Jul 15, 2022, 2:11:59 AM",
-        "deleted" : false
+        "dateAppointment": "Jul 15, 2022, 2:11:59 AM",
+        "deleted": false
       },
       {
         "trainingId": 3,
         "trainerUsername": "trainer2",
         "date": "Jul 8, 2022, 1:49:31 AM",
-        "dateAppointment" : "Dec 30, 2022, 2:11:59 AM",
-        "deleted" : false
+        "dateAppointment": "Dec 30, 2022, 2:11:59 AM",
+        "deleted": false
       }
-      
-      
     ],
+    "membership": {
+      "id": "3845769403",
+      "deleted": false,
+      "payDate": {
+        "year": 2022,
+        "month": 9,
+        "day": 8
+      },
+      "expirationDate": {
+        "year": 2022,
+        "month": 10,
+        "day": 8
+      },
+      "buyer": "buyer2",
+      "status": true,
+      "numberOfEntrances": 30,
+      "remainingEntrances": 30,
+      "price": 0
+    },
     "username": "buyer2",
     "password": "buyer2",
     "firstName": "Aleksa",
     "lastName": "Mijatovic",
-    "visitedFacilitiesIds": [2,3],
     "gender": "MALE",
     "birthDate": "Jul 6, 2022, 1:49:28 AM",
-    "deleted": false,
+    "deleted": true,
     "isBanned": false,
-    "userRole": "BUYER",
-    "membership": {
-    		"id": "3845769403",
-    		"deleted":false,
-    		"payDate":{ "year": 2022,
-    		"month": 9,
-    		"day":8},
-    		"expirationDate":{ "year": 2022,
-    		"month": 10,
-    		"day":8},
-    		"buyer": "buyer2",
-    		"status": true,
-    		"numberOfEntrances": 30,
-    		"remainingEntrances": 30,
-    		"price":0
-    	}
-    },
+    "userRole": "BUYER"
+  },
   "buyer": {
     "points": 393,
+    "visitedFacilitiesIds": [
+      1,
+      3
+    ],
     "trainingHistory": [
-    
       {
         "trainingId": 4,
         "trainerUsername": "trainer",
         "date": "Jul 18, 2022, 1:49:28 AM",
         "dateAppointment": "Jul 30, 2022, 1:49:28 AM",
-        "deleted" : false
-        
+        "deleted": false
       },
       {
         "trainingId": 5,
         "trainerUsername": "trainer1",
         "date": "Jul 7, 2022, 1:49:31 AM",
-        "dateAppointment" : "Jul 20, 2022, 2:11:59 AM",
-        "deleted" : false
+        "dateAppointment": "Jul 20, 2022, 2:11:59 AM",
+        "deleted": false
       },
       {
         "trainingId": 6,
         "trainerUsername": "trainer2",
         "date": "Jul 8, 2022, 1:49:31 AM",
-        "dateAppointment" : "Dec 30, 2022, 2:11:59 AM",
-        "deleted" : false
+        "dateAppointment": "Dec 30, 2022, 2:11:59 AM",
+        "deleted": false
       }
-      
     ],
     "username": "buyer",
     "password": "buyer",
     "firstName": "Lazar",
     "lastName": "Mijatovic",
-     "visitedFacilitiesIds": [1,3],
     "gender": "MALE",
     "birthDate": "Jul 6, 2022, 1:49:28 AM",
-    "deleted": false,
+    "deleted": true,
     "isBanned": false,
     "userRole": "BUYER"
   }

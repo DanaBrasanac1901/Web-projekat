@@ -158,4 +158,12 @@ public class TrainingService {
 
 	}
 
+
+	@POST
+	@Path("/delete/{id}")
+	public void Delete(@PathParam("id") int id) {
+		System.out.println("Moze moze zasto ne bih mogo");
+		trainingDao.DeleteTraining(id);
+	}
+	
 }

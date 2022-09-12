@@ -96,6 +96,7 @@ Vue.component("all-users", {
 		<th>POL</th>
 		<th>ULOGA</th>
 		<th v-if = 'selectionFilter =="buyer"'>BROJ BODOVA</th>
+		<th>OBRISI</th>
 		
 		
 		
@@ -107,7 +108,7 @@ Vue.component("all-users", {
 		<td>{{u.gender}}</td>
 		<td>{{u.userRole }}</td>	
 		<td v-if = 'selectionFilter =="buyer"'>{{u.points }}</td>	
-		
+		<td><button  v-if = 'u.userRole !="ADMIN"' class="button-3" @click="deleteFunction(u)">Obrisi</button></td>
 	</tr>
 	</table>
 </div>		  
@@ -264,6 +265,15 @@ Vue.component("all-users", {
             
             
 		
+	},
+	deleteFunction : function (u) {
+	
+		 axios
+		   .post('rest/users/' + u.username +'/'+ u.userRole)
+	   
+	     location. reload()
+	
+	
 	},
 
 		

@@ -28,6 +28,14 @@ public class TrainerDao {
 	private String filepath = App.path + "/repository/Trainers.json";
 	private Map<String, Trainer> trainers = new HashMap<>();
 	private Trainer logTrainer;
+    
+	public Trainer getLogTrainer() {
+		return logTrainer;
+	}
+
+	public void setLogTrainer(Trainer logTrainer) {
+		this.logTrainer = logTrainer;
+	}
 
 	public TrainerDao() {
 		loadFile();
@@ -70,6 +78,8 @@ public class TrainerDao {
 		}
 
 	}
+	
+	
 
 	/*
 	 * public void updateFile() { ObjectMapper objectMapper = new ObjectMapper();
@@ -172,6 +182,13 @@ public class TrainerDao {
 	public Trainer getById(String username) {
 		return trainers.get(username);
 		
+		
+	}
+	
+	public void Delete(String username) {
+		loadFile();
+		trainers.get(username).setDeleted(true);
+		updateFile();
 		
 	}
 	

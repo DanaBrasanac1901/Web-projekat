@@ -39,7 +39,14 @@ public class BuyerDao {
 	public void setLogBuyer(Buyer logBuyer) {
 		this.logBuyer = logBuyer;
 	}
-
+	
+	public void Delete(String username) {
+		loadFile();
+		buyers.get(username).setDeleted(true);
+		updateFile();
+		
+	}
+	
 	public BuyerDao() {
 	}
 

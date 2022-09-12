@@ -29,7 +29,14 @@ public class AdminDao {
 	public Admin getLogAdmin() {
 		return logAdmin;
 	}
-
+	
+	public void Delete(String username) {
+		loadFile();
+		admins.get(username).setDeleted(true);
+		updateFile();
+		
+	}
+	
 	public void setLogAdmin(Admin logAdmin) {
 		this.logAdmin = logAdmin;
 	}

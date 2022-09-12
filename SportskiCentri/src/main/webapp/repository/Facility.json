@@ -53,7 +53,8 @@
     "name": "Sportska hala 1",
     "facType": "GYM",
     "facContents": [
-      5,6
+      5,
+      6
     ],
     "facStatus": "OPEN",
     "location": {

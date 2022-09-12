@@ -57,7 +57,7 @@
     "description": "Individualno plivanje sa trenerom.",
     "picturePath": "images\\BarneySedi.jpg",
     "price": 0,
-    "isDeleted": false
+    "isDeleted": true
   },
   "2": {
     "name": "Vaterpolo",
@@ -69,6 +69,6 @@
     "description": "Dobacivanje loptom u vodi.",
     "picturePath": "images\\BarneySedi.jpg",
     "price": 0,
-    "isDeleted": false
+    "isDeleted": true
   }
 }

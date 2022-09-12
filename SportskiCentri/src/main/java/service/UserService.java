@@ -7,13 +7,16 @@ import java.util.stream.Collectors;
 import javax.annotation.PostConstruct;
 import javax.servlet.ServletContext;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import beans.Facility;
 import beans.Manager;
+import beans.Role;
 import beans.Trainer;
 import beans.User;
 import dao.AdminDao;
@@ -75,6 +78,30 @@ public class UserService {
 		return userList;
 		
 	}
+	
+	
+	@POST
+	@Path("/{username}/{userRole}")
+	public void Delete(@PathParam("username") String username,@PathParam("userRole") Role userRole ) {
+		
+		System.out.println("Moze moze zasto ne bih mogo");
+		
+		if(userRole == Role.MANAGER) {
+			managerDao.Delete(username);
+		
+		}else if(userRole == Role.BUYER) {
+			buyerDao.Delete(username);
+		
+		}else if(userRole == Role.TRAINER) {
+			trainerDao.Delete(username);
+		}
+		
+		
+		
+		
+		
+	}
+	
 	
 	
 	

@@ -87,6 +87,14 @@ public class FacilityDao {
 		
 		
 	}
+	
+	public void DeleteFacility(int id) {
+		loadFile();
+		facilities.get(id).setDeleted(true);
+		updateFile();
+		
+	}
+	
 
 	public int makeNewKey() {
 		loadFile();

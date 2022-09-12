@@ -26,6 +26,7 @@ import dao.ManagerDao;
 import dao.TrainerDao;
 import dao.TrainingDao;
 import dto.UserDto;
+import dto.UserEditDto;
 import main.App;
 
 @Path("/trainers")
@@ -41,6 +42,8 @@ public class TrainerService {
 	@Context
 	private ServletContext ctx;
 	
+	
+	
 	@PostConstruct
 	public void init() {
 		this.managerDao = (ManagerDao) ctx.getAttribute(App.MANAGER_DAO);
@@ -49,6 +52,18 @@ public class TrainerService {
 		this.buyerDao = (BuyerDao) ctx.getAttribute(App.BUYER_DAO);
 		this.trainingDao = (TrainingDao) ctx.getAttribute(App.TRAINING_DAO);
 
+	}
+	
+	
+	
+	@GET
+	@Path("/logedTrainer")
+	@Produces(MediaType.APPLICATION_JSON)
+	public UserEditDto getAllLogedTrainer() {
+		Trainer a =  trainerDao.getLogTrainer();
+		UserEditDto  userEdit= new UserEditDto(a);
+		return userEdit;
+	
 	}
 	
 	@GET

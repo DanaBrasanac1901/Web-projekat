@@ -47,6 +47,14 @@ public class TrainingDao {
 			ex.printStackTrace();
 		}
 	}
+	
+	
+	public void DeleteTraining(int id) {
+	loadFile();
+	trainings.get(id).setDeleted(true);
+	updateFile();
+		
+	}
 
 	public void updateFile() {
 		try {

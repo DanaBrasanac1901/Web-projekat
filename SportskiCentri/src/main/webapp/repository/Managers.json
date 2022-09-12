@@ -7,7 +7,7 @@
     "lastName": "Saulic",
     "gender": "MALE",
     "birthDate": "Jul 6, 2022, 1:49:28 AM",
-    "deleted": false,
+    "deleted": true,
     "isBanned": false,
     "userRole": "MANAGER"
   },
@@ -19,11 +19,10 @@
     "lastName": "Milakovic",
     "gender": "MALE",
     "birthDate": "Jul 6, 2022, 1:49:28 AM",
-    "deleted": false,
+    "deleted": true,
     "isBanned": false,
     "userRole": "MANAGER"
   },
-
   "manager": {
     "facilityId": 3,
     "username": "manager",
@@ -32,7 +31,7 @@
     "lastName": "Tesla",
     "gender": "MALE",
     "birthDate": "Jul 6, 2022, 2:00:00 AM",
-    "deleted": false,
+    "deleted": true,
     "isBanned": false,
     "userRole": "MANAGER"
   }

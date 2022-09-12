@@ -31,6 +31,12 @@ public class ManagerDao {
 	public Manager getLogManager() {
 		return logManager;
 	}
+	public void Delete(String username) {
+		loadFile();
+		managers.get(username).setDeleted(true);
+		updateFile();
+		
+	}
 
 	public void setLogManager(Manager logManager) {
 		this.logManager = logManager;

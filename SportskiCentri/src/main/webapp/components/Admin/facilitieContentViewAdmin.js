@@ -1,7 +1,7 @@
 Vue.component("facilitie-content", {
 	data: function () {
 		    return {
-		      f : app.selectedFacilitie,
+		      f : {},
 		      trainings: null
 		    }
 		  },
@@ -21,7 +21,8 @@ Vue.component("facilitie-content", {
 		<th>POČETAK RADNOG VREMENA</th>
 		<th>KRAJ RADNOG VREMENA</th>
 		<th>LOKACIJA</th>
-	
+	 
+		
 	</tr>
 	<tr >
 		<td><img v-bind:src="f.logoPath" width="200px" Height="200px" alt="bilo sta"></td>	
@@ -31,8 +32,7 @@ Vue.component("facilitie-content", {
 		<td>{{f.status }}</td>
 		<td>{{f.start }}</td>
 		<td>{{f.end }}</td>
-		<td>{{f.location.adress.city }}{{f.location.adress.street }}{{f.location.adress.streetNumber}}</td>
-		
+		<td>{{f.location.adress.city }}{{f.location.adress.street }}{{f.location.adress.streetNumber}}</td>			
 	</tr>
 	</table>
 </div>
@@ -48,7 +48,7 @@ Vue.component("facilitie-content", {
 		<th>OPIS</th>
 		<th>TIP</th>
 		<th>TRENER</th>
-		
+		<th>OBRISI</th>
 	</tr>
 
 	<tr v-for="t in trainings" class="active-row">
@@ -59,7 +59,7 @@ Vue.component("facilitie-content", {
 		<td>{{t.description }}</td>
 		<td>{{t.type }}</td>
 		<td>{{t.trainerUsername }}</td>
-		
+	    <td><button class="button-3" @click="deleteFunction(t)">Obrisi</button></td>
 		
 		
 	</tr>
@@ -69,15 +69,25 @@ Vue.component("facilitie-content", {
 `
 	,
 	 mounted(){
+		this.f  = app.selectedFacilitie
  		axios
           .get('rest/trainings/' + app.selectedFacilitie.id)
           .then(response => {
 	     		this.trainings = response.data})
 		
 	},
+	methods:{
+	deleteFunction : function (t) {
+	
+		 axios
+		   .post('rest/trainings/delete/'+ t.id)
+	   
+	     
 	
 	
+	},
 	
+	}
 	
 	
 
