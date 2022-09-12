@@ -3,13 +3,35 @@ Vue.component("trainer-traings", {
 		    return {
 		      
 		      trainings: [],
-		      
+		      filter : '',
+		      allTrainings : []
+		 		     
 		  
 		  }
 		  },
 
 	template: ` 
 <div>
+<div class='filterBar'>
+					<table>
+						<tr>
+
+<select v-model="filter"  v-on:change="filterChanged">
+									<option value="GROUP">grupni trening</option>
+									<option value="PERSONAL">personalni trening</option>
+									<option value="GYM">teretana</option>
+									<option value="SAUNA">sauna</option>
+									<option value="ALL">svi</option>
+												
+									
+								</select>
+							</td>
+		
+     					</tr>
+			
+					</table>
+
+			</div>
 
 
 <table class = "facilities"  style="margin-top:100px;">
@@ -47,13 +69,36 @@ Vue.component("trainer-traings", {
 		 .get("rest/trainers/trainingsOfTrainer")
 		 .then(res=> {
 			this.trainings = res.data
-		 	
+		 	this.allTrainings = res.data
 		 
 		 })			
  				
 	},
-
+	methods :{
+		
+	filterChanged : function(event){
+		 if (event != undefined){
+				event.preventDefault();
+				}
+				if(this.filter=="ALL"){
+						this.trainings = this.allTrainings
+						
+					
+				}else{
+					let filteredTrainings= [];
+					
+					for(tr of this.allTrainings){
+						
+						if(tr.type == this.filter)
+						filteredTrainings.push(tr)
+						
+					}	
+						
+					this.trainings = filteredTrainings;
+				}
+		
 	
-	
-
+		}
+		
+	}
 });
