@@ -7,7 +7,7 @@
     "lastName": "Saulic",
     "gender": "MALE",
     "birthDate": "Jul 6, 2022, 1:49:28 AM",
-    "deleted": true,
+    "deleted": false,
     "isBanned": false,
     "userRole": "MANAGER"
   },
@@ -19,7 +19,7 @@
     "lastName": "Milakovic",
     "gender": "MALE",
     "birthDate": "Jul 6, 2022, 1:49:28 AM",
-    "deleted": true,
+    "deleted": false,
     "isBanned": false,
     "userRole": "MANAGER"
   },
@@ -31,7 +31,7 @@
     "lastName": "Tesla",
     "gender": "MALE",
     "birthDate": "Jul 6, 2022, 2:00:00 AM",
-    "deleted": true,
+    "deleted": false,
     "isBanned": false,
     "userRole": "MANAGER"
   }

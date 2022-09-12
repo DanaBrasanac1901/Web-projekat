@@ -116,14 +116,14 @@ public class TrainingService {
 	@Path("{since}/searchPrice/{to}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Training> search(@PathParam("since") int since, @PathParam("to") int to) {
-
+		int id =managerDao.GetFacility();
 		if (to == 0) {
 
-			return getAll().stream().filter(t -> t.getPrice() >= since).collect(Collectors.toList());
+			return getAll().stream().filter(t -> t.getPrice() >= since && t.getFacilityId()==id).collect(Collectors.toList());
 
 		}
 
-		return getAll().stream().filter(t -> t.getPrice() >= since && t.getPrice() <= to).collect(Collectors.toList());
+		return getAll().stream().filter(t -> t.getPrice() >= since && t.getPrice() <= to  && t.getFacilityId()==id).collect(Collectors.toList());
 
 	}
 
@@ -153,8 +153,8 @@ public class TrainingService {
 	@Path("/searchFree")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Training> search() {
-
-		return getAll().stream().filter(t -> t.getPrice() == 0).collect(Collectors.toList());
+		int id =managerDao.GetFacility();
+		return getAll().stream().filter(t -> t.getPrice() == 0 && t.getFacilityId()==id).collect(Collectors.toList());
 
 	}
 
