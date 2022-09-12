@@ -196,7 +196,7 @@ public class BuyerService {
 	}
 
 	@POST
-	@Path("/set-membership-{id}")
+	@Path("/set-membership/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public void setNewMembership(@PathParam("id") String membershipId) {
 		Buyer buyer = buyerDao.getLogBuyer();
@@ -254,7 +254,7 @@ public class BuyerService {
 	
 
 	@POST
-	@Path("/training-{trainingId}")
+	@Path("/training/{trainingId}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public void pickedTraining(@PathParam("trainingId") int trainingId) {
 		Buyer buyer = buyerDao.getLogBuyer();
