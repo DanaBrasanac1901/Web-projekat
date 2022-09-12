@@ -4,6 +4,10 @@ const BuyerProfile = { template: '<buyer-profile></buyer-profile>' }
 const TrainingHistory = { template: '<training-history></training-history>' }
 const WelcomePage = { template: '<welcome-page></welcome-page>' }
 const BuyerFacilityView = {template: '<facility-view></facility-view>'}
+const EditTrainer= { template: '<edit-trainer></edit-trainer>' }
+
+
+
 
 const router = new VueRouter({
 	  mode: 'hash',
@@ -14,7 +18,8 @@ const router = new VueRouter({
 	     { path: '/training-history', component: TrainingHistory},
 	     { path: '/welcome-page', component: WelcomePage},
 	     { path: '/facility-view', component: BuyerFacilityView},
-	      
+	     { path: '/editTrainer', component: EditTrainer},
+	     
 	   
 	  ]
 });

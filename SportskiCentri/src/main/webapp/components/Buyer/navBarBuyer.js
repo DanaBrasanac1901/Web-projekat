@@ -9,7 +9,9 @@ Vue.component("navigation-bar-buyer", {
 	 
 	  
 	  	<a href="http://localhost:8080/SportskiCentri/#/">Odjavi se</a>
-	  <a  href="#/buyer-profile" style="float: right; ">Profil</a>
+	  	
+	<a href="#/editTrainer">Profil</a>
+ 	 
 	</div>
 </div>		  
 `

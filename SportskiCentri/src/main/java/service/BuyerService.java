@@ -24,6 +24,7 @@ import beans.HistoryTraining;
 import beans.InstantiatedMembership;
 import beans.Membership;
 import beans.MembershipType;
+import beans.Trainer;
 import beans.Training;
 import dao.AdminDao;
 import dao.BuyerDao;
@@ -36,6 +37,7 @@ import dto.MembershipDto;
 import dto.RegisterUserDto;
 import dto.TrainingDto;
 import dto.UserDto;
+import dto.UserEditDto;
 import main.App;
 
 @Path("/buyers")
@@ -63,6 +65,19 @@ public class BuyerService {
 		this.facilityDao = (FacilityDao) ctx.getAttribute(App.FACILITY_DAO);
 		this.membershipDao = (MembershipDao) ctx.getAttribute(App.MEMBERSHIP_DAO);
 
+	}
+	
+	
+	
+	
+	@GET
+	@Path("/logedBuyer")
+	@Produces(MediaType.APPLICATION_JSON)
+	public UserEditDto getAllLogedBuyer() {
+		Buyer a =  buyerDao.getLogBuyer();
+		UserEditDto  userEdit= new UserEditDto(a);
+		return userEdit;
+	
 	}
 
 	@GET
@@ -254,11 +269,14 @@ public class BuyerService {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public String EditBuyer(UserDto a) {
 		String username = a.getUsername();
-		if (adminDao.DoesContainUsernameExecptLogged(username) || buyerDao.DoesContainUsername(username)
+		System.out.println("zdravo");
+		if (adminDao.DoesContainUsername(username) || buyerDao.DoesContainUsernameExecptLogged(username)
 				|| managerDao.DoesContainUsername(username) || trainerDao.DoesContainUsername(username)) {
 			return "ima";
 		}
-
+		
+		System.out.println("OJOJOJOJOJOJ");
+		
 		Buyer ad = new Buyer(a);
 
 		buyerDao.Edit(ad);

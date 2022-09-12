@@ -260,11 +260,12 @@ public class BuyerDao {
 	
 	public void Edit(Buyer a) {
 		loadFile();
-		buyers.remove(logBuyer.getUsername());
+		System.out.println("Cao");
 		a.setTrainingHistory(logBuyer.getTrainingHistory());
 		a.setMembership(logBuyer.getMembership());
 		a.setvisitedFacilitiesIds(logBuyer.getvisitedFacilitiesIds());
 		a.setBuyerType(logBuyer.getBuyerType());
+		buyers.remove(logBuyer.getUsername());
 		buyers.put(a.getUsername(), a);
 		logBuyer = a;
 		updateFile();
