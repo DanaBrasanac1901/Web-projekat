@@ -2,7 +2,8 @@ Vue.component("facility-view", {
 	data: function () {
 		    return {
 		      f : app.selectedFacilitie,
-		      trainings: null
+		      trainings: null,
+		      chosenTrainingId: 0, 
 		    }
 		  },
 

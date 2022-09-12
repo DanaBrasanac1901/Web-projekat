@@ -165,6 +165,9 @@ public class BuyerDao {
 		if (membership.getRemainingEntrances() > 0) {
 			membership.setRemainingEntrances(membership.getRemainingEntrances() - 1);
 			updateFile();
+			if(membership.getRemainingEntrances() == 0) {
+				deactivateMembership(buyer);
+			}
 		} else {
 
 			deactivateMembership(buyer);
