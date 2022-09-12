@@ -13,6 +13,7 @@ import dao.ManagerDao;
 import dao.MembershipDao;
 import dao.TrainerDao;
 import dao.TrainingDao;
+import dao.trainingHistoryDao;
 
 @ApplicationPath("/rest")
 public class App extends Application {
@@ -26,6 +27,7 @@ public class App extends Application {
 	public static final String MANAGER_DAO = "managerDao";
 	public static final String TRAINING_DAO = "trainingDao";
 	public static final String MEMBERSHIP_DAO = "membershipDao";
+	public static final String TRAINING_HISTORY_DAO = "trainingHistoryDao";
 
 	@Context
 	private ServletContext ctx;
@@ -41,6 +43,7 @@ public class App extends Application {
 		ctx.setAttribute(ADMIN_DAO, new AdminDao());
 		ctx.setAttribute(TRAINING_DAO, new TrainingDao());
 		ctx.setAttribute(MEMBERSHIP_DAO, new MembershipDao());
+		ctx.setAttribute(TRAINING_HISTORY_DAO, new trainingHistoryDao());
 
 	}
 

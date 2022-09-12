@@ -6,20 +6,23 @@
         "trainingId": 1,
         "trainerUsername": "trainer",
         "date": "Jul 12, 2022, 1:49:28 AM",
-        "dateAppointment": "Jul 30, 2022, 1:49:28 AM"
+        "dateAppointment": "Jul 30, 2022, 1:49:28 AM",
+        "deleted" : false
         
       },
       {
         "trainingId": 2,
         "trainerUsername": "trainer2",
         "date": "Jul 7, 2022, 1:49:31 AM",
-        "dateAppointment" : "Jul 15, 2022, 2:11:59 AM"
+        "dateAppointment" : "Jul 15, 2022, 2:11:59 AM",
+        "deleted" : false
       },
       {
         "trainingId": 3,
         "trainerUsername": "trainer2",
         "date": "Jul 8, 2022, 1:49:31 AM",
-        "dateAppointment" : "Dec 30, 2022, 2:11:59 AM"
+        "dateAppointment" : "Dec 30, 2022, 2:11:59 AM",
+        "deleted" : false
       }
       
       
@@ -58,20 +61,23 @@
         "trainingId": 4,
         "trainerUsername": "trainer",
         "date": "Jul 18, 2022, 1:49:28 AM",
-        "dateAppointment": "Jul 30, 2022, 1:49:28 AM"
+        "dateAppointment": "Jul 30, 2022, 1:49:28 AM",
+        "deleted" : false
         
       },
       {
         "trainingId": 5,
         "trainerUsername": "trainer1",
         "date": "Jul 7, 2022, 1:49:31 AM",
-        "dateAppointment" : "Jul 20, 2022, 2:11:59 AM"
+        "dateAppointment" : "Jul 20, 2022, 2:11:59 AM",
+        "deleted" : false
       },
       {
         "trainingId": 6,
         "trainerUsername": "trainer2",
         "date": "Jul 8, 2022, 1:49:31 AM",
-        "dateAppointment" : "Dec 30, 2022, 2:11:59 AM"
+        "dateAppointment" : "Dec 30, 2022, 2:11:59 AM",
+        "deleted" : false
       }
       
     ],

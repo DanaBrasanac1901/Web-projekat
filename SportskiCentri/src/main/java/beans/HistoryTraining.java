@@ -9,9 +9,26 @@ public class HistoryTraining {
 	private String trainerUsername;
 	protected Date date;
 	private Date dateAppointment;
-
+    private Boolean deleted;
 	
 
+
+	public HistoryTraining(int trainingId, String trainerUsername, Date date, Date dateAppointment, Boolean deleted) {
+		super();
+		this.trainingId = trainingId;
+		this.trainerUsername = trainerUsername;
+		this.date = date;
+		this.dateAppointment = dateAppointment;
+		this.deleted = deleted;
+	}
+
+	public Boolean getDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(Boolean deleted) {
+		this.deleted = deleted;
+	}
 
 	public HistoryTraining(int trainingId, String trainerUsername, Date date, Date dateAppointment) {
 		super();
@@ -19,6 +36,7 @@ public class HistoryTraining {
 		this.trainerUsername = trainerUsername;
 		this.date = date;
 		this.dateAppointment = dateAppointment;
+		this.deleted = false;
 	}
 
 	public Date getDateAppointment() {
@@ -66,6 +84,11 @@ public class HistoryTraining {
 
 	public void setTrainerUsername(String trainerUsername) {
 		this.trainerUsername = trainerUsername;
+	}
+
+	public Boolean isNotDeleted() {
+		// TODO Auto-generated method stub
+		return !deleted;
 	}
 
 }
