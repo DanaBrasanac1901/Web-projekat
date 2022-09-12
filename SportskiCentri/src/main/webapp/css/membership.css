@@ -8,16 +8,15 @@ tr.selectedMembershipClass{
 	
 }
 
-.button {
- 	 background-color: #71c556;
- 	 font-size: 20px;
- 	 color: white;
- 	 border-radius: 20px;
- 	 column-count: 2;
- 	 border: 3px solid black;
-
+.userInfo{
+	
+	text-align: left;
+	font-size: 20px;
+	padding-top: 5px;
+	padding-bottom:5px;
+	padding-right:30px;
+	
 }
-
 .memberships th {
     font-weight : bold;
     padding-top: 5px;
@@ -77,10 +76,10 @@ tr.selectedMembershipClass{
 .activeMembership{
 
 	text-align: left;
-	margin: 2%;
 	font-size: 20px;
 	padding-top: 5px;
 	padding-bottom:5px;	
+	padding-left:30px;
 }
 
 .membershipButton button{

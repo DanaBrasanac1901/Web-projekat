@@ -6,18 +6,19 @@ public class BuyerType {
 	public static final int goldPoints=3000;
 	public static final int silverPoints=2000;
 	public static final int bronzePoints=1000;
-	public static final double goldDiscount=10;
-	public static final double silverDiscount=7.5;
-	public static final double bronzeDiscount=5.0;
+	public static final int goldDiscount=10;
+	public static final int silverDiscount=5;
+	public static final int bronzeDiscount=3;
+	public static final int no_discount=1;
 	
 	private BuyerRank buyerRank;
-	private double discount;
+	private int discount;
 	
 	
 	
 	
-	public BuyerType(BuyerRank buyerRank, double discount) {
-		super();
+	public BuyerType(BuyerRank buyerRank, int discount) {
+		
 		this.buyerRank = buyerRank;
 		this.discount = discount;
 	}
@@ -30,10 +31,10 @@ public class BuyerType {
 	public void setBuyerRank(BuyerRank buyerRank) {
 		this.buyerRank = buyerRank;
 	}
-	public double getDiscount() {
+	public int getDiscount() {
 		return discount;
 	}
-	public void setDiscount(double discount) {
+	public void setDiscount(int discount) {
 		this.discount = discount;
 	}
 	public static int getGoldpoints() {
@@ -45,13 +46,13 @@ public class BuyerType {
 	public static int getBronzepoints() {
 		return bronzePoints;
 	}
-	public static double getGolddiscount() {
+	public static int getGolddiscount() {
 		return goldDiscount;
 	}
-	public static double getSilverdiscount() {
+	public static int getSilverdiscount() {
 		return silverDiscount;
 	}
-	public static double getBronzediscount() {
+	public static int getBronzediscount() {
 		return bronzeDiscount;
 	}
 

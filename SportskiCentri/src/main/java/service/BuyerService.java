@@ -173,13 +173,22 @@ public class BuyerService {
 				.collect(Collectors.toList());
 
 	}
+	
+	
+	@GET
+	@Path("/get-buyer")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Buyer getLoggedUser() {
+		buyerDao.refreshPoints();
+		return buyerDao.getLogBuyer();
+	}
 
 	@GET
 	@Path("/active-membership")
 	@Produces(MediaType.APPLICATION_JSON)
 	public InstantiatedMembership getActiveMembership() {
 
-		
+		buyerDao.refreshPoints();
 		return buyerDao.getLogBuyer().getMembership();
 		
 		
@@ -194,6 +203,7 @@ public class BuyerService {
 		Membership membership = membershipDao.getById(membershipId);
 		if (buyer.getMembership() != null && buyer.getMembership().isStatus()) {
 			buyerDao.deactivateMembership(buyer);
+			buyerDao.refreshPoints();
 		}
 		int durationInDays;
 		if (membership.getMemType().equals(MembershipType.WEEK)) {
@@ -204,9 +214,10 @@ public class BuyerService {
 			durationInDays = 30;
 		}
 		InstantiatedMembership newMembership = new InstantiatedMembership(membershipId, false, LocalDate.now(),
-				LocalDate.now().plusDays(durationInDays), membership.getPrice(), buyer.getUsername(), true,
+				LocalDate.now().plusDays(durationInDays), buyerDao.getDiscount(membership.getPrice(), buyer.getBuyerType().getDiscount()), buyer.getUsername(), true,
 				membership.getNumberOfEntrances(), membership.getNumberOfEntrances());
 		buyerDao.newMembership(buyer.getUsername(), newMembership);
+		
 	}
 
 	@POST
@@ -220,8 +231,10 @@ public class BuyerService {
 		}
 		if (buyerDao.isMembershipActive(buyer.getMembership())) {
 			buyerDao.buyerHavingTraining(buyer);
+			buyerDao.refreshPoints();
 			if (buyer.getMembership().getRemainingEntrances() == 0) {
 				buyerDao.deactivateMembership(buyer);
+				buyerDao.refreshPoints();
 				return "POTROSIO SVE ULAZE";
 
 			} else {
@@ -231,10 +244,14 @@ public class BuyerService {
 		} else {
 
 			buyerDao.deactivateMembership(buyer);
+			buyerDao.refreshPoints();
 			return "CLANARINA NE VAZI VISE";
 		}
 
 	}
+	
+	
+	
 
 	@POST
 	@Path("/training-{trainingId}")
