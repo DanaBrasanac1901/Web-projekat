@@ -279,7 +279,7 @@ Vue.component("buyer-home", {
 	
 	openFacilityPage : function (fac) {
 		app.selectedFacilitie = fac
-		router.push('/facilitieContent')
+		router.push('/facility-view')
 		
 		
 		

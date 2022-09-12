@@ -1,6 +1,10 @@
 {
   "buyer2": {
     "points": 677,
+    "buyerType":{
+    	"buyerRank":"NO_RANK",
+    	"discount": 0
+    	},
     "visitedFacilitiesIds": [
       2,
       3
@@ -42,10 +46,10 @@
         "day": 8
       },
       "buyer": "buyer2",
-      "status": false,
-      "numberOfEntrances": 30,
-      "remainingEntrances": 30,
-      "price": 0
+      "status": true,
+      "numberOfEntrances": 20,
+      "remainingEntrances": 20,
+      "price": 1000
     },
     "username": "buyer2",
     "password": "buyer2",
@@ -58,7 +62,11 @@
     "userRole": "BUYER"
   },
   "buyer": {
-    "points": 393,
+    "points": 2005,
+    "buyerType":{
+    	"buyerRank":"SILVER",
+    	"discount": 5
+    	},
     "visitedFacilitiesIds": [
       1,
       3

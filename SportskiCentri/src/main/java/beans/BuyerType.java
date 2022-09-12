@@ -9,7 +9,7 @@ public class BuyerType {
 	public static final int goldDiscount=10;
 	public static final int silverDiscount=5;
 	public static final int bronzeDiscount=3;
-	public static final int no_discount=1;
+	public static final int no_discount=0;
 	
 	private BuyerRank buyerRank;
 	private int discount;
